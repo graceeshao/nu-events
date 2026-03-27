@@ -10,8 +10,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.database.session import get_db
 from src.models.event import EventCategory
-from src.schemas.event import EventCreate, EventList, EventRead
-from src.services.event_service import create_event, delete_event, get_event, list_events
+from src.schemas.event import EventCreate, EventList, EventRead, EventUpdate
+from src.services.event_service import create_event, delete_event, get_event, list_events, update_event
 
 router = APIRouter()
 
@@ -57,6 +57,19 @@ async def create_event_endpoint(
 ) -> EventRead:
     """Create a new event (manual add)."""
     event = await create_event(db, event_in)
+    return EventRead.model_validate(event)
+
+
+@router.patch("/{event_id}", response_model=EventRead)
+async def update_event_endpoint(
+    event_id: int,
+    event_in: EventUpdate,
+    db: AsyncSession = Depends(get_db),
+) -> EventRead:
+    """Partially update an event by ID."""
+    event = await update_event(db, event_id, event_in)
+    if event is None:
+        raise HTTPException(status_code=404, detail="Event not found")
     return EventRead.model_validate(event)
 
 

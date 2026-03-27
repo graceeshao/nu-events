@@ -212,7 +212,8 @@ class TestScrapersAPI:
         assert resp.status_code == 200
         data = resp.json()
         names = [s["name"] for s in data]
-        assert "northwestern_events" in names
+        assert "planitpurple" in names
+        assert "wildcat_connection" in names
 
     @pytest.mark.asyncio
     async def test_run_scraper_not_found(self, client) -> None:

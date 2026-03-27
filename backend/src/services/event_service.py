@@ -11,7 +11,7 @@ from sqlalchemy import func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.models.event import Event, EventCategory
-from src.schemas.event import EventCreate, EventList, EventRead
+from src.schemas.event import EventCreate, EventList, EventRead, EventUpdate
 from src.services.dedup import generate_dedup_key
 
 
@@ -123,6 +123,34 @@ async def get_event(db: AsyncSession, event_id: int) -> Event | None:
     """
     result = await db.execute(select(Event).where(Event.id == event_id))
     return result.scalar_one_or_none()
+
+
+async def update_event(
+    db: AsyncSession, event_id: int, event_in: EventUpdate
+) -> Event | None:
+    """Partially update an event by ID.
+
+    Only fields explicitly set (not None) in event_in are updated.
+
+    Args:
+        db: Async database session.
+        event_id: Primary key of the event to update.
+        event_in: Partial update data.
+
+    Returns:
+        The updated Event if found, else None.
+    """
+    event = await get_event(db, event_id)
+    if event is None:
+        return None
+
+    update_data = event_in.model_dump(exclude_unset=True)
+    for field, value in update_data.items():
+        setattr(event, field, value)
+
+    await db.flush()
+    await db.refresh(event)
+    return event
 
 
 async def delete_event(db: AsyncSession, event_id: int) -> bool:

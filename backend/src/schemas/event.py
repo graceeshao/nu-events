@@ -32,6 +32,21 @@ class EventCreate(EventBase):
     pass
 
 
+class EventUpdate(BaseModel):
+    """Schema for partially updating an event. All fields are optional."""
+
+    title: str | None = Field(None, min_length=1, max_length=500, description="Event title")
+    description: str | None = Field(None, description="Event description")
+    start_time: datetime | None = Field(None, description="Event start time (ISO 8601)")
+    end_time: datetime | None = Field(None, description="Event end time")
+    location: str | None = Field(None, max_length=500, description="Venue or address")
+    source_url: str | None = Field(None, description="URL of the original event page")
+    source_name: str | None = Field(None, description="Name of the source")
+    category: EventCategory | None = Field(None, description="Event category")
+    tags: dict | None = Field(None, description="Arbitrary tags as JSON")
+    image_url: str | None = Field(None, description="URL of an event image")
+
+
 class EventRead(EventBase):
     """Schema for reading an event, includes DB-generated fields."""
 
