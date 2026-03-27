@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nu-purple: #4E2A84;
+  --nu-purple-light: #7B4FB3;
+  --nu-purple-dark: #3E216A;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* Category badge colors */
+.badge-academic {
+  @apply bg-blue-100 text-blue-800;
+}
+.badge-social {
+  @apply bg-pink-100 text-pink-800;
+}
+.badge-career {
+  @apply bg-green-100 text-green-800;
+}
+.badge-arts {
+  @apply bg-amber-100 text-amber-800;
+}
+.badge-sports {
+  @apply bg-red-100 text-red-800;
+}
+.badge-other {
+  @apply bg-gray-100 text-gray-800;
+}
