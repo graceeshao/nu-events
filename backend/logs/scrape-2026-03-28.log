@@ -582,3 +582,164 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
 2026-03-28 13:37:26,858 [INFO] ============================================================
 2026-03-28 13:37:26,859 [INFO] DONE — DB: 83 total events, 66 future
 2026-03-28 13:37:26,859 [INFO] ============================================================
+2026-03-28 14:54:44,550 [INFO] ============================================================
+2026-03-28 14:54:44,551 [INFO] Scheduled scrape starting at 2026-03-28T14:54:44.551218
+2026-03-28 14:54:44,592 [INFO] Ollama status: running
+2026-03-28 14:54:44,592 [INFO] === PlanIt Purple Scrape ===
+2026-03-28 14:54:44,943 [ERROR] PlanIt Purple failed: scrape_planitpurple() got an unexpected keyword argument 'fetch_details'
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 122, in run_planitpurple
+    events = await scrape_planitpurple(days=30, fetch_details=False)
+                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: scrape_planitpurple() got an unexpected keyword argument 'fetch_details'
+2026-03-28 14:54:44,943 [INFO] === Gmail LISTSERV Poll ===
+2026-03-28 14:54:45,131 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-28 14:54:45,838 [INFO] Authenticating as 
+2026-03-28 14:54:47,036 [ERROR] Gmail poll failed: AUTHENTICATE command error: BAD [b'Invalid SASL argument. 41be03b00d2f7-c766783cdb9mb194631861a12']
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 153, in run_gmail
+    result = await poller.poll_once()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/gmail_poller.py", line 233, in poll_once
+    messages = await asyncio.to_thread(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/gmail_poller.py", line 136, in _sync_poll
+    imap.authenticate("XOAUTH2", lambda _: oauth2_str.encode())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/imaplib.py", line 526, in authenticate
+    typ, dat = self._simple_command('AUTHENTICATE', mech)
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/imaplib.py", line 1372, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/imaplib.py", line 1182, in _command_complete
+    raise self.error('%s command error: %s %s' % (name, typ, data))
+imaplib.IMAP4.error: AUTHENTICATE command error: BAD [b'Invalid SASL argument. 41be03b00d2f7-c766783cdb9mb194631861a12']
+2026-03-28 14:54:47,042 [INFO] === Instagram Scrape (daily) ===
+2026-03-28 14:54:47,072 [INFO] Loaded cached Instagram cookies from /Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-28 14:54:49,696 [INFO] Fetched 0 recent posts from @ao.productions
+2026-03-28 14:54:50,328 [INFO] Instagram @ao.productions: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:54:55,644 [INFO] Fetched 0 recent posts from @lc.northwestern
+2026-03-28 14:54:56,268 [INFO] Instagram @lc.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:55:01,568 [INFO] Fetched 0 recent posts from @akpsi_northwestern
+2026-03-28 14:55:02,147 [INFO] Instagram @akpsi_northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:59:04,231 [INFO] ============================================================
+2026-03-28 14:59:04,232 [INFO] Scheduled scrape starting at 2026-03-28T14:59:04.232297
+2026-03-28 14:59:04,271 [INFO] Ollama status: running
+2026-03-28 14:59:04,271 [INFO] === PlanIt Purple Scrape ===
+2026-03-28 14:59:04,701 [ERROR] PlanIt Purple failed: scrape_planitpurple() got an unexpected keyword argument 'fetch_details'
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 122, in run_planitpurple
+    events = await scrape_planitpurple(days=30, fetch_details=False)
+                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: scrape_planitpurple() got an unexpected keyword argument 'fetch_details'
+2026-03-28 14:59:04,701 [INFO] === Gmail LISTSERV Poll ===
+2026-03-28 14:59:04,919 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-28 14:59:05,043 [INFO] Authenticating as 
+2026-03-28 14:59:05,351 [ERROR] Gmail poll failed: AUTHENTICATE command error: BAD [b'Invalid SASL argument. 41be03b00d2f7-c7667702a4amb207814035a12']
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 153, in run_gmail
+    result = await poller.poll_once()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/gmail_poller.py", line 233, in poll_once
+    messages = await asyncio.to_thread(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/gmail_poller.py", line 136, in _sync_poll
+    imap.authenticate("XOAUTH2", lambda _: oauth2_str.encode())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/imaplib.py", line 526, in authenticate
+    typ, dat = self._simple_command('AUTHENTICATE', mech)
+               ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/imaplib.py", line 1372, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/imaplib.py", line 1182, in _command_complete
+    raise self.error('%s command error: %s %s' % (name, typ, data))
+imaplib.IMAP4.error: AUTHENTICATE command error: BAD [b'Invalid SASL argument. 41be03b00d2f7-c7667702a4amb207814035a12']
+2026-03-28 14:59:05,357 [INFO] === Instagram Scrape (daily) ===
+2026-03-28 14:59:05,369 [INFO] Loaded cached Instagram cookies from /Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-28 14:59:08,132 [INFO] Fetched 0 recent posts from @ao.productions
+2026-03-28 14:59:08,578 [INFO] Instagram @ao.productions: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:59:13,461 [INFO] Fetched 0 recent posts from @lc.northwestern
+2026-03-28 14:59:13,912 [INFO] Instagram @lc.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:59:18,870 [INFO] Fetched 0 recent posts from @akpsi_northwestern
+2026-03-28 14:59:19,356 [INFO] Instagram @akpsi_northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:59:22,364 [ERROR] Failed to scrape @nu_cce (AMPED)
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/instagram_scraper.py", line 513, in scrape_all_orgs
+    result = await scrape_org_instagram(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        handle, org_name, days_back, max_posts,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/instagram_scraper.py", line 365, in scrape_org_instagram
+    org_record = result.scalar_one_or_none()
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/result.py", line 1504, in scalar_one_or_none
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=True, raise_for_none=False, scalar=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/result.py", line 825, in _only_one_row
+    raise exc.MultipleResultsFound(
+    ...<4 lines>...
+    )
+sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when one or none was required
+2026-03-28 14:59:24,584 [INFO] Fetched 1 recent posts from @amualphas
+2026-03-28 14:59:24,585 [INFO] Loaded 144 processed shortcodes from cache
+2026-03-28 14:59:24,585 [INFO] Instagram @amualphas: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 14:59:29,670 [INFO] Fetched 0 recent posts from @apidaprelawnu
+2026-03-28 14:59:30,225 [INFO] Instagram @apidaprelawnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:59:35,358 [INFO] Fetched 1 recent posts from @nu.amase
+2026-03-28 14:59:35,359 [INFO] Instagram @nu.amase: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 14:59:40,070 [INFO] Fetched 0 recent posts from @nuactiveminds
+2026-03-28 14:59:40,480 [INFO] Instagram @nuactiveminds: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 14:59:45,860 [INFO] Fetched 1 recent posts from @nce_northwestern
+2026-03-28 14:59:45,872 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-28 14:59:53,483 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-28 15:00:01,308 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-28 15:00:01,336 [INFO] Created event from @nce_northwestern: NCE 55th Anniversary Concert
+2026-03-28 15:00:01,338 [INFO] Instagram @nce_northwestern: 1 posts, 1→LLM, 0 filtered, 0 cached, 1 events
+2026-03-28 15:00:06,519 [INFO] Fetched 0 recent posts from @nu_auc
+2026-03-28 15:00:06,940 [INFO] Instagram @nu_auc: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:06,940 [INFO] Progress: 10/426 orgs | 9 active | 0 inactive | 3 posts | 1 events
+2026-03-28 15:00:16,082 [INFO] Fetched 3 recent posts from @asanorthwestern
+2026-03-28 15:00:16,084 [INFO] Instagram @asanorthwestern: 3 posts, 0→LLM, 0 filtered, 3 cached, 0 events
+2026-03-28 15:00:21,023 [INFO] Fetched 0 recent posts from @asa_nuq
+2026-03-28 15:00:21,533 [INFO] Instagram @asa_nuq: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:26,384 [INFO] Fetched 0 recent posts from @afrothundadancetroupe
+2026-03-28 15:00:26,840 [INFO] Instagram @afrothundadancetroupe: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:32,107 [INFO] Fetched 0 recent posts from @ahana_danceproject
+2026-03-28 15:00:32,655 [INFO] Marked @ahana_danceproject as inactive (last post: 2025-02-21)
+2026-03-28 15:00:32,659 [INFO] Instagram @ahana_danceproject: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:37,551 [INFO] Fetched 0 recent posts from @greatlakesaikido
+2026-03-28 15:00:38,019 [INFO] Instagram @greatlakesaikido: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:42,776 [INFO] Fetched 0 recent posts from @ahsnorthwestern
+2026-03-28 15:00:43,253 [INFO] Marked @ahsnorthwestern as inactive (last post: 2024-11-19)
+2026-03-28 15:00:43,256 [INFO] Instagram @ahsnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:46,349 [WARNING] Failed to fetch profile @nu_alianza: HTTP 404
+2026-03-28 15:00:46,349 [INFO] Fetched 0 recent posts from @nu_alianza
+2026-03-28 15:00:46,435 [INFO] Marked @nu_alianza as inactive (no posts found)
+2026-03-28 15:00:46,440 [INFO] Instagram @nu_alianza: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events

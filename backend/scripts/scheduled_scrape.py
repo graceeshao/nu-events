@@ -119,7 +119,7 @@ async def run_planitpurple(logger) -> dict:
         from src.database.session import async_session_factory
         from src.services.event_service import create_event
 
-        events = await scrape_planitpurple(days=30, fetch_details=False)
+        events = await scrape_planitpurple(days=30)
         future_events = [e for e in events if e.start_time > datetime.now()]
 
         created = 0
@@ -142,6 +142,10 @@ async def run_gmail(logger) -> dict:
     """Poll Gmail for new LISTSERV emails."""
     logger.info("=== Gmail LISTSERV Poll ===")
     try:
+        # Load .env for GMAIL_USER_EMAIL
+        from dotenv import load_dotenv
+        load_dotenv(Path(__file__).parent.parent / ".env")
+
         from src.services.gmail_poller import GmailPoller
         from src.config import settings
 

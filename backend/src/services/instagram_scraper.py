@@ -362,7 +362,7 @@ async def scrape_org_instagram(
                 Organization.instagram_handle == handle,
             )
         )
-        org_record = result.scalar_one_or_none()
+        org_record = result.scalars().first()
 
         if org_record and org_record.instagram_active is False:
             logger.debug("Skipping inactive @%s", handle)
@@ -387,7 +387,7 @@ async def scrape_org_instagram(
                     Organization.instagram_handle == handle,
                 )
             )
-            org_record = result.scalar_one_or_none()
+            org_record = result.scalars().first()
             if org_record:
                 if last_post_dt:
                     org_record.instagram_last_post_at = last_post_dt
