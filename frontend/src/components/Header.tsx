@@ -1,18 +1,36 @@
-/**
- * App header with Northwestern branding.
- */
+"use client";
 
-export function Header() {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+export default function Header() {
+  const pathname = usePathname();
+
+  const linkClass = (href: string) => {
+    const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+    return `text-sm font-medium transition-colors ${
+      active
+        ? "text-white"
+        : "text-white/70 hover:text-white"
+    }`;
+  };
+
   return (
-    <header className="bg-nu-purple text-white shadow-lg">
-      <div className="max-w-6xl mx-auto px-4 py-5 flex items-center gap-4">
-        <div className="text-3xl">🟣</div>
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">NU Events</h1>
-          <p className="text-nu-purple-200 text-sm">
-            What&apos;s happening at Northwestern
-          </p>
-        </div>
+    <header className="sticky top-0 z-50 bg-nu-purple shadow-md">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg">
+          <span className="text-xl">🐾</span>
+          <span>NU Events</span>
+        </Link>
+
+        <nav className="flex items-center gap-6">
+          <Link href="/" className={linkClass("/")}>
+            Events
+          </Link>
+          <Link href="/organizations" className={linkClass("/organizations")}>
+            Organizations
+          </Link>
+        </nav>
       </div>
     </header>
   );

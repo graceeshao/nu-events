@@ -43,3 +43,32 @@ export interface EventFilters {
   page?: number;
   page_size?: number;
 }
+
+export interface OrganizationRead {
+  id: number;
+  name: string;
+  category: string;
+  tags: string[] | null;
+  club_id: string | null;
+  instagram_handle: string | null;
+  website: string | null;
+  email: string | null;
+  listserv_name: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface OrganizationList {
+  items: OrganizationRead[];
+  total: number;
+  page: number;
+  page_size: number;
+  pages: number;
+}
+
+export interface OrganizationFilters {
+  category?: string;
+  search?: string;
+  page?: number;
+  page_size?: number;
+}

@@ -1,90 +1,99 @@
-/**
- * Filter bar with category dropdown, date range, and search input.
- */
-
 "use client";
 
-import type { EventCategory, EventFilters } from "@/lib/types";
+import type { EventCategory } from "@/lib/types";
+import { categoryLabel } from "@/lib/utils";
 
-interface FilterBarProps {
-  filters: EventFilters;
-  onChange: (filters: EventFilters) => void;
-}
-
-const CATEGORIES: { value: EventCategory | ""; label: string }[] = [
-  { value: "", label: "All Categories" },
-  { value: "academic", label: "🎓 Academic" },
-  { value: "social", label: "🎉 Social" },
-  { value: "career", label: "💼 Career" },
-  { value: "arts", label: "🎨 Arts" },
-  { value: "sports", label: "⚽ Sports" },
-  { value: "other", label: "📌 Other" },
+const CATEGORIES: (EventCategory | "all")[] = [
+  "all",
+  "academic",
+  "social",
+  "career",
+  "arts",
+  "sports",
+  "other",
 ];
 
-export function FilterBar({ filters, onChange }: FilterBarProps) {
-  const update = (partial: Partial<EventFilters>) => {
-    onChange({ ...filters, ...partial, page: 1 });
-  };
+type DateRange = "all" | "today" | "week" | "month";
 
+interface FilterBarProps {
+  search: string;
+  onSearchChange: (value: string) => void;
+  category: EventCategory | undefined;
+  onCategoryChange: (value: EventCategory | undefined) => void;
+  dateRange: DateRange;
+  onDateRangeChange: (value: DateRange) => void;
+}
+
+export default function FilterBar({
+  search,
+  onSearchChange,
+  category,
+  onCategoryChange,
+  dateRange,
+  onDateRangeChange,
+}: FilterBarProps) {
   return (
-    <div className="flex flex-col sm:flex-row gap-3">
+    <div className="space-y-4">
       {/* Search */}
-      <div className="flex-1">
+      <div className="relative">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+          🔍
+        </span>
         <input
           type="text"
           placeholder="Search events..."
-          value={filters.search || ""}
-          onChange={(e) => update({ search: e.target.value || undefined })}
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nu-purple-300 focus:border-nu-purple-400 text-sm"
+          value={search}
+          onChange={(e) => onSearchChange(e.target.value)}
+          className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 bg-white text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-nu-purple/30 focus:border-nu-purple transition"
         />
       </div>
 
-      {/* Category */}
-      <select
-        value={filters.category || ""}
-        onChange={(e) =>
-          update({
-            category: (e.target.value as EventCategory) || undefined,
-          })
-        }
-        className="px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nu-purple-300 focus:border-nu-purple-400 text-sm bg-white"
-      >
-        {CATEGORIES.map((cat) => (
-          <option key={cat.value} value={cat.value}>
-            {cat.label}
-          </option>
+      {/* Category pills */}
+      <div className="flex gap-2 overflow-x-auto pb-1 -mb-1 scrollbar-hide">
+        {CATEGORIES.map((cat) => {
+          const isActive =
+            cat === "all" ? category === undefined : category === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() =>
+                onCategoryChange(cat === "all" ? undefined : (cat as EventCategory))
+              }
+              className={`shrink-0 px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-nu-purple text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+            >
+              {cat === "all" ? "All" : categoryLabel(cat)}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Date range */}
+      <div className="flex gap-2">
+        {(
+          [
+            ["all", "All Dates"],
+            ["today", "Today"],
+            ["week", "This Week"],
+            ["month", "This Month"],
+          ] as const
+        ).map(([value, label]) => (
+          <button
+            key={value}
+            onClick={() => onDateRangeChange(value)}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              dateRange === value
+                ? "bg-nu-purple-50 text-nu-purple border border-nu-purple/20"
+                : "text-gray-500 hover:bg-gray-100"
+            }`}
+          >
+            {label}
+          </button>
         ))}
-      </select>
-
-      {/* Date from */}
-      <input
-        type="date"
-        value={filters.date_from?.split("T")[0] || ""}
-        onChange={(e) =>
-          update({
-            date_from: e.target.value
-              ? `${e.target.value}T00:00:00`
-              : undefined,
-          })
-        }
-        className="px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nu-purple-300 focus:border-nu-purple-400 text-sm"
-        title="From date"
-      />
-
-      {/* Date to */}
-      <input
-        type="date"
-        value={filters.date_to?.split("T")[0] || ""}
-        onChange={(e) =>
-          update({
-            date_to: e.target.value
-              ? `${e.target.value}T23:59:59`
-              : undefined,
-          })
-        }
-        className="px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nu-purple-300 focus:border-nu-purple-400 text-sm"
-        title="To date"
-      />
+      </div>
     </div>
   );
 }

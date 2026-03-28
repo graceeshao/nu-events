@@ -1,36 +1,55 @@
 "use client";
 
-import { Header } from "@/components/Header";
-import { FilterBar } from "@/components/FilterBar";
-import { EventList } from "@/components/EventList";
 import { useEvents } from "@/hooks/useEvents";
-import type { EventFilters } from "@/lib/types";
-import { useState } from "react";
+import FilterBar from "@/components/FilterBar";
+import EventList from "@/components/EventList";
+import Pagination from "@/components/Pagination";
 
 export default function HomePage() {
-  const [filters, setFilters] = useState<EventFilters>({});
-  const { events, total, loading, error } = useEvents(filters);
+  const {
+    events,
+    pages,
+    page,
+    loading,
+    error,
+    search,
+    category,
+    dateRange,
+    setSearch,
+    setCategory,
+    setDateRange,
+    setPage,
+  } = useEvents();
 
   return (
-    <>
-      <Header />
-      <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-8">
-        <FilterBar filters={filters} onChange={setFilters} />
-        {error && (
-          <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-            Failed to load events. Is the backend running?
-          </div>
-        )}
-        <EventList events={events} loading={loading} />
-        {!loading && total > 0 && (
-          <p className="mt-6 text-center text-sm text-gray-500">
-            Showing {events.length} of {total} events
-          </p>
-        )}
-      </main>
-      <footer className="text-center py-6 text-sm text-gray-400 border-t">
-        NU Events · Northwestern University · Built with 💜
-      </footer>
-    </>
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900">
+          Campus Events
+        </h1>
+        <p className="text-sm text-gray-500 mt-1">
+          Discover what&apos;s happening at Northwestern
+        </p>
+      </div>
+
+      <FilterBar
+        search={search}
+        onSearchChange={setSearch}
+        category={category}
+        onCategoryChange={setCategory}
+        dateRange={dateRange}
+        onDateRangeChange={setDateRange}
+      />
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm">
+          Failed to load events: {error}
+        </div>
+      )}
+
+      <EventList events={events} loading={loading} />
+
+      <Pagination page={page} pages={pages} onPageChange={setPage} />
+    </div>
   );
 }
