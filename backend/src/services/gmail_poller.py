@@ -162,10 +162,19 @@ def _sync_poll(
 
         subject = _decode_header_value(msg.get("Subject"))
         _, sender = parseaddr(msg.get("From", ""))
+        list_id = msg.get("List-Id", "") or ""
+        list_sender = msg.get("Sender", "") or ""
         body = _extract_body(msg)
 
         results.append(
-            {"subject": subject, "sender": sender, "body": body, "uid": mid}
+            {
+                "subject": subject,
+                "sender": sender,
+                "body": body,
+                "uid": mid,
+                "list_id": list_id,
+                "list_sender": list_sender,
+            }
         )
 
         # Mark as SEEN (IMAP already does this on FETCH with RFC822,
@@ -236,9 +245,14 @@ class GmailPoller:
                 subject = msg["subject"]
                 sender = msg["sender"]
                 body = msg["body"]
+                list_id = msg.get("list_id", "")
+                list_sender = msg.get("list_sender", "")
 
                 try:
-                    parsed_events = parse_event_email(subject, body, sender)
+                    parsed_events = parse_event_email(
+                        subject, body, sender,
+                        list_id=list_id, list_sender=list_sender,
+                    )
                     for event_in in parsed_events:
                         await create_event(db, event_in)
                         events_created += 1

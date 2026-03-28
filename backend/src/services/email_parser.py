@@ -340,18 +340,74 @@ def extract_location(text: str) -> str | None:
     return None
 
 
-def match_organization(sender: str | None, body: str) -> str | None:
-    """Try to identify the sending organization.
+def _extract_listserv_name(list_id: str, list_sender: str) -> str | None:
+    """Extract the LISTSERV list name from List-Id or Sender headers.
 
-    Uses simple heuristics on the sender email address and body text.
+    Examples:
+        - List-Id: ``ANIME.LISTSERV.IT.NORTHWESTERN.EDU`` → ``ANIME``
+        - List-Id: ``<ANIME.LISTSERV.IT.NORTHWESTERN.EDU>`` → ``ANIME``
+        - Sender: ``owner-ANIME@LISTSERV.IT.NORTHWESTERN.EDU`` → ``ANIME``
 
     Args:
-        sender: Email address of the sender (e.g. "filmclub@u.northwestern.edu").
+        list_id: Value of the List-Id email header.
+        list_sender: Value of the Sender email header.
+
+    Returns:
+        Uppercase list name if found, else None.
+    """
+    # Try List-Id first: "ANIME.LISTSERV.IT.NORTHWESTERN.EDU"
+    if list_id:
+        cleaned = list_id.strip().strip("<>").strip()
+        parts = cleaned.split(".")
+        if len(parts) >= 2 and "LISTSERV" in cleaned.upper():
+            # The list name is everything before ".LISTSERV"
+            listserv_idx = next(
+                (i for i, p in enumerate(parts) if p.upper() == "LISTSERV"),
+                None,
+            )
+            if listserv_idx and listserv_idx > 0:
+                return ".".join(parts[:listserv_idx]).upper()
+
+    # Try Sender: "owner-ANIME@LISTSERV.IT.NORTHWESTERN.EDU"
+    if list_sender and "LISTSERV" in list_sender.upper():
+        # Extract email from "Name <email>" format
+        if "<" in list_sender:
+            list_sender = list_sender.split("<")[1].split(">")[0]
+        local = list_sender.split("@")[0]
+        if local.lower().startswith("owner-"):
+            return local[6:].upper()
+
+    return None
+
+
+def match_organization(
+    sender: str | None,
+    body: str,
+    list_id: str = "",
+    list_sender: str = "",
+) -> str | None:
+    """Try to identify the sending organization.
+
+    Checks LISTSERV headers first (List-Id, Sender), then falls back to
+    heuristics on the From address.
+
+    Args:
+        sender: Email address of the sender (From header).
         body: Email body text.
+        list_id: Value of the List-Id header (from LISTSERV).
+        list_sender: Value of the Sender header (from LISTSERV).
 
     Returns:
         Organization name guess, or None.
     """
+    # Try LISTSERV headers for list name
+    listserv_name = _extract_listserv_name(list_id, list_sender)
+    if listserv_name:
+        # Try to look up the org in the database by listserv_name.
+        # For now, return the list name formatted nicely.
+        # The poller can do the DB lookup and override later.
+        return f"LISTSERV:{listserv_name}"
+
     if sender:
         # Extract the local part before @
         local = sender.split("@")[0].lower().replace(".", " ").replace("-", " ").replace("_", " ")
@@ -364,6 +420,8 @@ def parse_event_email(
     body: str,
     sender: str | None = None,
     reference_date: date | None = None,
+    list_id: str = "",
+    list_sender: str = "",
 ) -> list[EventCreate]:
     """Parse an email for event information and return EventCreate schemas.
 
@@ -375,6 +433,8 @@ def parse_event_email(
         body: Email body text.
         sender: Sender email address (optional).
         reference_date: Base date for relative date resolution.
+        list_id: Value of the List-Id header (from LISTSERV).
+        list_sender: Value of the Sender header (from LISTSERV).
 
     Returns:
         List of EventCreate schemas (may be empty if no events found).
@@ -386,7 +446,7 @@ def parse_event_email(
     full_text = f"{subject}\n{body}"
     times = extract_times(full_text)
     location = extract_location(body)
-    org = match_organization(sender, body)
+    org = match_organization(sender, body, list_id=list_id, list_sender=list_sender)
 
     if not dates:
         return []

@@ -26,6 +26,8 @@ class EmailIngestRequest(BaseModel):
     subject: str = Field("", description="Email subject line")
     body: str = Field(..., description="Email body text")
     sender: str | None = Field(None, description="Sender email address")
+    list_id: str = Field("", description="List-Id header (from LISTSERV)")
+    list_sender: str = Field("", description="Sender header (from LISTSERV, e.g. owner-ANIME@...)")
 
 
 class EmailIngestResponse(BaseModel):
@@ -52,6 +54,8 @@ async def ingest_email(
             subject=payload.subject,
             body=payload.body,
             sender=payload.sender,
+            list_id=payload.list_id,
+            list_sender=payload.list_sender,
         )
 
         created: list[EventRead] = []
@@ -89,17 +93,19 @@ async def ingest_email(
         raise
 
 
-def _parse_raw_email(raw: str) -> tuple[str, str, str | None]:
-    """Extract Subject, From, and body from a raw email string.
+def _parse_raw_email(raw: str) -> dict[str, str | None]:
+    """Extract headers and body from a raw email string.
 
     Args:
         raw: Raw email text with RFC 822-style headers.
 
     Returns:
-        Tuple of (subject, body, sender).
+        Dict with keys: subject, body, sender, list_id, list_sender.
     """
     subject = ""
     sender = None
+    list_id = ""
+    list_sender = ""
     body_start = 0
 
     lines = raw.split("\n")
@@ -113,9 +119,21 @@ def _parse_raw_email(raw: str) -> tuple[str, str, str | None]:
         from_match = re.match(r'^From:\s*(.+)', line, re.IGNORECASE)
         if from_match:
             sender = from_match.group(1).strip()
+        listid_match = re.match(r'^List-Id:\s*(.+)', line, re.IGNORECASE)
+        if listid_match:
+            list_id = listid_match.group(1).strip()
+        sender_match = re.match(r'^Sender:\s*(.+)', line, re.IGNORECASE)
+        if sender_match:
+            list_sender = sender_match.group(1).strip()
 
     body = "\n".join(lines[body_start:]).strip()
-    return subject, body, sender
+    return {
+        "subject": subject,
+        "body": body,
+        "sender": sender,
+        "list_id": list_id,
+        "list_sender": list_sender,
+    }
 
 
 @router.post("/raw", response_model=EmailIngestResponse)
@@ -130,13 +148,20 @@ async def ingest_raw(
     raw_bytes = await request.body()
     raw = raw_bytes.decode("utf-8", errors="replace")
 
-    subject, body, sender = _parse_raw_email(raw)
+    parsed = _parse_raw_email(raw)
+    subject = parsed["subject"]
+    body = parsed["body"]
+    sender = parsed["sender"]
+    list_id = parsed["list_id"]
+    list_sender = parsed["list_sender"]
 
     try:
         parsed_events = parse_event_email(
             subject=subject,
             body=body,
             sender=sender,
+            list_id=list_id,
+            list_sender=list_sender,
         )
 
         created: list[EventRead] = []

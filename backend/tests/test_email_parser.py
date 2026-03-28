@@ -5,6 +5,7 @@ from datetime import date, time, datetime
 import pytest
 
 from src.services.email_parser import (
+    _extract_listserv_name,
     extract_dates,
     extract_location,
     extract_times,
@@ -193,6 +194,61 @@ class TestMatchOrganization:
         """Returns None when no sender."""
         org = match_organization(None, "some body text")
         assert org is None
+
+    def test_from_list_id_header(self):
+        """Extracts org from List-Id header (LISTSERV format)."""
+        org = match_organization(
+            "random@gmail.com", "",
+            list_id="ANIME.LISTSERV.IT.NORTHWESTERN.EDU",
+        )
+        assert org == "LISTSERV:ANIME"
+
+    def test_from_list_id_with_brackets(self):
+        """Extracts org from List-Id with angle brackets."""
+        org = match_organization(
+            None, "",
+            list_id="<ACTUARIALCLUB.LISTSERV.IT.NORTHWESTERN.EDU>",
+        )
+        assert org == "LISTSERV:ACTUARIALCLUB"
+
+    def test_from_sender_header_owner(self):
+        """Extracts org from Sender header with owner- prefix."""
+        org = match_organization(
+            "someone@gmail.com", "",
+            list_sender="owner-CS-PM-ANNOUNCE@LISTSERV.IT.NORTHWESTERN.EDU",
+        )
+        assert org == "LISTSERV:CS-PM-ANNOUNCE"
+
+    def test_listserv_takes_priority(self):
+        """List-Id takes priority over From address."""
+        org = match_organization(
+            "random-person@gmail.com", "",
+            list_id="FILMCLUB.LISTSERV.IT.NORTHWESTERN.EDU",
+        )
+        assert org == "LISTSERV:FILMCLUB"
+        assert "random" not in org.lower()
+
+
+class TestExtractListservName:
+    """Tests for _extract_listserv_name()."""
+
+    def test_list_id_standard(self):
+        assert _extract_listserv_name("ANIME.LISTSERV.IT.NORTHWESTERN.EDU", "") == "ANIME"
+
+    def test_list_id_with_brackets(self):
+        assert _extract_listserv_name("<AI_SAFETY.LISTSERV.IT.NORTHWESTERN.EDU>", "") == "AI_SAFETY"
+
+    def test_sender_owner_prefix(self):
+        assert _extract_listserv_name("", "owner-ARCHERY@LISTSERV.IT.NORTHWESTERN.EDU") == "ARCHERY"
+
+    def test_sender_with_name(self):
+        assert _extract_listserv_name("", "Archery Club <owner-ARCHERY@LISTSERV.IT.NORTHWESTERN.EDU>") == "ARCHERY"
+
+    def test_no_listserv_headers(self):
+        assert _extract_listserv_name("", "") is None
+
+    def test_non_listserv_list_id(self):
+        assert _extract_listserv_name("some.random.list", "") is None
 
 
 # ---------------------------------------------------------------------------
