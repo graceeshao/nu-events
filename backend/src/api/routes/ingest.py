@@ -4,6 +4,7 @@ Provides endpoints to submit event-announcement emails (as JSON or raw
 text) and automatically extract calendar events from them.
 """
 
+import logging
 import re
 from datetime import datetime
 
@@ -11,11 +12,15 @@ from fastapi import APIRouter, Body, Depends, Request
 from pydantic import BaseModel, Field
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from src.config import settings
 from src.database.session import get_db
 from src.models.email_ingest import IngestedEmail
 from src.schemas.event import EventRead
 from src.services.email_parser import parse_event_email
 from src.services.event_service import create_event
+from src.services.llm_parser import parse_event_with_llm
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -50,13 +55,32 @@ async def ingest_email(
     events in the database.
     """
     try:
-        parsed_events = parse_event_email(
-            subject=payload.subject,
-            body=payload.body,
-            sender=payload.sender,
-            list_id=payload.list_id,
-            list_sender=payload.list_sender,
-        )
+        if settings.use_llm_parser:
+            try:
+                parsed_events = await parse_event_with_llm(
+                    subject=payload.subject,
+                    body=payload.body,
+                    sender=payload.sender,
+                    list_id=payload.list_id,
+                    list_sender=payload.list_sender,
+                )
+            except Exception:
+                logger.warning("LLM parser failed, falling back to regex")
+                parsed_events = parse_event_email(
+                    subject=payload.subject,
+                    body=payload.body,
+                    sender=payload.sender,
+                    list_id=payload.list_id,
+                    list_sender=payload.list_sender,
+                )
+        else:
+            parsed_events = parse_event_email(
+                subject=payload.subject,
+                body=payload.body,
+                sender=payload.sender,
+                list_id=payload.list_id,
+                list_sender=payload.list_sender,
+            )
 
         created: list[EventRead] = []
         for event_in in parsed_events:
@@ -156,13 +180,32 @@ async def ingest_raw(
     list_sender = parsed["list_sender"]
 
     try:
-        parsed_events = parse_event_email(
-            subject=subject,
-            body=body,
-            sender=sender,
-            list_id=list_id,
-            list_sender=list_sender,
-        )
+        if settings.use_llm_parser:
+            try:
+                parsed_events = await parse_event_with_llm(
+                    subject=subject,
+                    body=body,
+                    sender=sender,
+                    list_id=list_id,
+                    list_sender=list_sender,
+                )
+            except Exception:
+                logger.warning("LLM parser failed, falling back to regex")
+                parsed_events = parse_event_email(
+                    subject=subject,
+                    body=body,
+                    sender=sender,
+                    list_id=list_id,
+                    list_sender=list_sender,
+                )
+        else:
+            parsed_events = parse_event_email(
+                subject=subject,
+                body=body,
+                sender=sender,
+                list_id=list_id,
+                list_sender=list_sender,
+            )
 
         created: list[EventRead] = []
         for event_in in parsed_events:

@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     gmail_imap_host: str = "imap.gmail.com"
     gmail_imap_port: int = 993
 
+    # Ollama LLM settings
+    ollama_url: str = "http://localhost:11434"
+    ollama_model: str = "gemma3:4b"
+    use_llm_parser: bool = True  # Set to False to disable LLM parsing
+
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
 

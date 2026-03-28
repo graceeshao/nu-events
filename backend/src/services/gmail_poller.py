@@ -18,9 +18,11 @@ from typing import Any
 
 from src.database.session import async_session_factory
 from src.models.email_ingest import IngestedEmail
+from src.config import settings
 from src.services.email_parser import parse_event_email
 from src.services.event_service import create_event
 from src.services.gmail_auth import get_gmail_credentials, get_oauth2_string
+from src.services.llm_parser import parse_event_with_llm
 
 logger = logging.getLogger(__name__)
 
@@ -249,10 +251,23 @@ class GmailPoller:
                 list_sender = msg.get("list_sender", "")
 
                 try:
-                    parsed_events = parse_event_email(
-                        subject, body, sender,
-                        list_id=list_id, list_sender=list_sender,
-                    )
+                    if settings.use_llm_parser:
+                        try:
+                            parsed_events = await parse_event_with_llm(
+                                subject, body, sender,
+                                list_id=list_id, list_sender=list_sender,
+                            )
+                        except Exception:
+                            logger.warning("LLM parser failed, falling back to regex")
+                            parsed_events = parse_event_email(
+                                subject, body, sender,
+                                list_id=list_id, list_sender=list_sender,
+                            )
+                    else:
+                        parsed_events = parse_event_email(
+                            subject, body, sender,
+                            list_id=list_id, list_sender=list_sender,
+                        )
                     for event_in in parsed_events:
                         await create_event(db, event_in)
                         events_created += 1
