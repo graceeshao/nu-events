@@ -23,31 +23,78 @@ _PROFILE_DELAY_SECONDS = 5
 _POST_DELAY_SECONDS = 2
 
 
-def _get_browser_session() -> Any:
-    """Create an authenticated requests session using Chrome's Instagram cookies.
+_cached_session: Any = None
 
-    This is more reliable than Instaloader's session files because it
-    uses the same cookies as your browser — same rate limits, same auth.
+
+def _get_browser_session() -> Any:
+    """Create an authenticated requests session using cached Instagram cookies.
+
+    On first call, loads cookies from ``ig_cookies.json`` (pre-extracted
+    from Chrome).  The session is cached in-memory for reuse so that
+    Chrome Safe Storage / Keychain is never hit during scraping.
+
+    To refresh cookies run::
+
+        python -c "
+        import browser_cookie3, json
+        cj = browser_cookie3.chrome(domain_name='.instagram.com')
+        cookies = [{'name':c.name,'value':c.value,'domain':c.domain,
+                     'path':c.path,'secure':c.secure} for c in cj]
+        json.dump(cookies, open('ig_cookies.json','w'))
+        print(f'Cached {len(cookies)} cookies')
+        "
 
     Returns:
-        A ``requests.Session`` with Chrome's Instagram cookies loaded.
+        A ``requests.Session`` with Instagram cookies loaded.
 
     Raises:
-        RuntimeError: If Chrome cookies cannot be loaded.
+        RuntimeError: If no cached cookies are found.
     """
+    global _cached_session
+    if _cached_session is not None:
+        return _cached_session
+
+    import json as _json
+    import os
     import requests
 
-    try:
-        import browser_cookie3
-        cj = browser_cookie3.chrome(domain_name=".instagram.com")
-    except Exception as exc:
-        raise RuntimeError(
-            f"Failed to load Instagram cookies from Chrome: {exc}. "
-            "Make sure you're logged into Instagram in Chrome."
-        ) from exc
+    # Look for cached cookies file
+    cookie_paths = [
+        os.path.join(os.path.dirname(__file__), "..", "..", "ig_cookies.json"),
+        "ig_cookies.json",
+    ]
 
-    session = requests.Session()
-    session.cookies = cj
+    cookies = None
+    for path in cookie_paths:
+        try:
+            with open(path) as f:
+                cookies = _json.load(f)
+            logger.info("Loaded cached Instagram cookies from %s", path)
+            break
+        except FileNotFoundError:
+            continue
+
+    if not cookies:
+        # Fallback: try browser_cookie3 (will trigger Keychain prompt)
+        try:
+            import browser_cookie3
+            cj = browser_cookie3.chrome(domain_name=".instagram.com")
+            session = requests.Session()
+            session.cookies = cj
+        except Exception as exc:
+            raise RuntimeError(
+                f"No cached cookies (ig_cookies.json) and Chrome fallback failed: {exc}"
+            ) from exc
+    else:
+        session = requests.Session()
+        for c in cookies:
+            session.cookies.set(
+                c["name"], c["value"],
+                domain=c.get("domain", ".instagram.com"),
+                path=c.get("path", "/"),
+                secure=c.get("secure", True),
+            )
+
     session.headers.update({
         "user-agent": (
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -58,13 +105,12 @@ def _get_browser_session() -> Any:
         "x-requested-with": "XMLHttpRequest",
     })
 
-    # Quick validation — set CSRF token if available
-    for cookie in session.cookies:
-        if cookie.name == "csrftoken":
-            session.headers["x-csrftoken"] = cookie.value
-            break
+    # Set CSRF token if available
+    csrf = session.cookies.get("csrftoken")
+    if csrf:
+        session.headers["x-csrftoken"] = csrf
 
-    logger.info("Loaded Instagram session from Chrome cookies")
+    _cached_session = session
     return session
 
 
