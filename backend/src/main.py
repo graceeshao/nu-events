@@ -20,6 +20,7 @@ from src.api.routes.scrapers import router as scrapers_router
 from src.api.routes.organizations import router as organizations_router
 from src.api.routes.ingest import router as ingest_router
 from src.api.routes.poller import router as poller_router
+from src.api.routes.instagram import router as instagram_router
 
 
 @asynccontextmanager
@@ -53,6 +54,7 @@ def create_app() -> FastAPI:
     app.include_router(organizations_router, prefix="/organizations", tags=["organizations"])
     app.include_router(ingest_router, prefix="/ingest", tags=["ingest"])
     app.include_router(poller_router, prefix="/poller", tags=["poller"])
+    app.include_router(instagram_router, prefix="/instagram", tags=["instagram"])
 
     @app.get("/", tags=["health"])
     async def root() -> dict[str, str]:

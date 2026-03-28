@@ -1,0 +1,2214 @@
+[
+  {
+    "id": 1,
+    "name": "A&O Productions"
+  },
+  {
+    "id": 3,
+    "name": "ACEing Autism"
+  },
+  {
+    "id": 11,
+    "name": "AI Graduate Student Group"
+  },
+  {
+    "id": 12,
+    "name": "AIESEC"
+  },
+  {
+    "id": 15,
+    "name": "AKPsi"
+  },
+  {
+    "id": 24,
+    "name": "AMPED"
+  },
+  {
+    "id": 25,
+    "name": "APIDA Pre-Law Association"
+  },
+  {
+    "id": 40,
+    "name": "ASL Club"
+  },
+  {
+    "id": 2,
+    "name": "Academy of Music and Arts for Spe"
+  },
+  {
+    "id": 4,
+    "name": "Active Minds"
+  },
+  {
+    "id": 5,
+    "name": "Advanced Degree Consulting Allian"
+  },
+  {
+    "id": 6,
+    "name": "Advancement for the Undocument"
+  },
+  {
+    "id": 7,
+    "name": "African Graduate Student Associat"
+  },
+  {
+    "id": 8,
+    "name": "African Students Association"
+  },
+  {
+    "id": 9,
+    "name": "Afrothunda Dance Troupe"
+  },
+  {
+    "id": 10,
+    "name": "Ahana Dance Project"
+  },
+  {
+    "id": 13,
+    "name": "Aikido"
+  },
+  {
+    "id": 14,
+    "name": "Air Force ROTC"
+  },
+  {
+    "id": 16,
+    "name": "Algorithmic Trading Club"
+  },
+  {
+    "id": 17,
+    "name": "Alianza\u2013The Latinx Student Allianc"
+  },
+  {
+    "id": 18,
+    "name": "All Paws In"
+  },
+  {
+    "id": 19,
+    "name": "Alliance of Evanston Minority Stud"
+  },
+  {
+    "id": 20,
+    "name": "Alternative Student Break"
+  },
+  {
+    "id": 21,
+    "name": "American Foundation for Suicide P"
+  },
+  {
+    "id": 22,
+    "name": "American Medical Women's Assoc"
+  },
+  {
+    "id": 23,
+    "name": "American Society of Civil Engineer"
+  },
+  {
+    "id": 26,
+    "name": "Applause for a Cause"
+  },
+  {
+    "id": 27,
+    "name": "Applied Technologies Club"
+  },
+  {
+    "id": 29,
+    "name": "Arab Graduate Student Association"
+  },
+  {
+    "id": 28,
+    "name": "Arab and Middle Eastern Journalist"
+  },
+  {
+    "id": 30,
+    "name": "Arch Society"
+  },
+  {
+    "id": 31,
+    "name": "Archery Club"
+  },
+  {
+    "id": 32,
+    "name": "Arco"
+  },
+  {
+    "id": 33,
+    "name": "Area Councils"
+  },
+  {
+    "id": 34,
+    "name": "Artificial Intelligence Graduate Gro"
+  },
+  {
+    "id": 35,
+    "name": "Arts Alliance"
+  },
+  {
+    "id": 36,
+    "name": "Ascend"
+  },
+  {
+    "id": 37,
+    "name": "Asian American InterVarsity Christ"
+  },
+  {
+    "id": 38,
+    "name": "Asian American Student Journalist"
+  },
+  {
+    "id": 39,
+    "name": "Asian Pacific American Coalition"
+  },
+  {
+    "id": 41,
+    "name": "Associated Student Government"
+  },
+  {
+    "id": 42,
+    "name": "Association for Women in Sports M"
+  },
+  {
+    "id": 43,
+    "name": "Association of Kenyan Students"
+  },
+  {
+    "id": 44,
+    "name": "Association of Latino Professionals"
+  },
+  {
+    "id": 45,
+    "name": "Asterik A cappella"
+  },
+  {
+    "id": 46,
+    "name": "Athletes in Action"
+  },
+  {
+    "id": 47,
+    "name": "Aviation Club"
+  },
+  {
+    "id": 48,
+    "name": "Ayers Residential College of Comm"
+  },
+  {
+    "id": 49,
+    "name": "B. Burlesque"
+  },
+  {
+    "id": 50,
+    "name": "Badminton Club"
+  },
+  {
+    "id": 51,
+    "name": "Baja SAE"
+  },
+  {
+    "id": 52,
+    "name": "Balkan Student Association"
+  },
+  {
+    "id": 53,
+    "name": "Ballroom Latin and Swing Team"
+  },
+  {
+    "id": 54,
+    "name": "Bangladeshi Students and Scholar"
+  },
+  {
+    "id": 55,
+    "name": "Barbell Club"
+  },
+  {
+    "id": 56,
+    "name": "Belegarth Medieval Combat Societ"
+  },
+  {
+    "id": 57,
+    "name": "Bhakti Yoga Society"
+  },
+  {
+    "id": 58,
+    "name": "Bienestar: Latinx Service Club"
+  },
+  {
+    "id": 59,
+    "name": "BinaryHeart"
+  },
+  {
+    "id": 60,
+    "name": "Biokind Analytics"
+  },
+  {
+    "id": 61,
+    "name": "Biology Students Association"
+  },
+  {
+    "id": 62,
+    "name": "Biomedical Engineering Society"
+  },
+  {
+    "id": 63,
+    "name": "Biomedical Informatics and Data S"
+  },
+  {
+    "id": 64,
+    "name": "Black Formal"
+  },
+  {
+    "id": 65,
+    "name": "Black Graduate Student Associatio"
+  },
+  {
+    "id": 66,
+    "name": "Black Mentorship Program"
+  },
+  {
+    "id": 67,
+    "name": "Black Poetry Society"
+  },
+  {
+    "id": 68,
+    "name": "Black Pre-Law Association"
+  },
+  {
+    "id": 69,
+    "name": "Black Screens"
+  },
+  {
+    "id": 71,
+    "name": "BlackGen Capital"
+  },
+  {
+    "id": 70,
+    "name": "Blackboard Magazine"
+  },
+  {
+    "id": 72,
+    "name": "Blush"
+  },
+  {
+    "id": 73,
+    "name": "Books & Breakfast"
+  },
+  {
+    "id": 74,
+    "name": "Boomshaka"
+  },
+  {
+    "id": 75,
+    "name": "Brazilian Student Association"
+  },
+  {
+    "id": 76,
+    "name": "Bridge Club"
+  },
+  {
+    "id": 77,
+    "name": "BridgeUSA at NU"
+  },
+  {
+    "id": 78,
+    "name": "Brown Sugar"
+  },
+  {
+    "id": 79,
+    "name": "Business in Healthcare Club"
+  },
+  {
+    "id": 121,
+    "name": "CPS Financial Literacy Outreach"
+  },
+  {
+    "id": 127,
+    "name": "CRUSH Magazine"
+  },
+  {
+    "id": 128,
+    "name": "CTF Team"
+  },
+  {
+    "id": 80,
+    "name": "Campus Department & Residential Life"
+  },
+  {
+    "id": 81,
+    "name": "Campus EDucators at Northwester"
+  },
+  {
+    "id": 82,
+    "name": "Campus Life"
+  },
+  {
+    "id": 83,
+    "name": "Cantonese Club"
+  },
+  {
+    "id": 84,
+    "name": "CaribNation"
+  },
+  {
+    "id": 85,
+    "name": "Cartography Club"
+  },
+  {
+    "id": 86,
+    "name": "Catholic Student Association"
+  },
+  {
+    "id": 87,
+    "name": "Cats Who Compost"
+  },
+  {
+    "id": 88,
+    "name": "Center for Civic Engagement"
+  },
+  {
+    "id": 89,
+    "name": "Central Asian Students Hub"
+  },
+  {
+    "id": 90,
+    "name": "Challah for Hunger"
+  },
+  {
+    "id": 91,
+    "name": "Chi Alpha Campus Ministries"
+  },
+  {
+    "id": 92,
+    "name": "Chicago Graduate Student Associa"
+  },
+  {
+    "id": 93,
+    "name": "China Care"
+  },
+  {
+    "id": 94,
+    "name": "Chinatown Health Initiative"
+  },
+  {
+    "id": 95,
+    "name": "Chinese Students Association"
+  },
+  {
+    "id": 96,
+    "name": "Christians on Campus"
+  },
+  {
+    "id": 97,
+    "name": "Chronic Illness Alliance"
+  },
+  {
+    "id": 98,
+    "name": "Club Baseball"
+  },
+  {
+    "id": 99,
+    "name": "Club Field Hockey"
+  },
+  {
+    "id": 100,
+    "name": "Club Figure Skating (NUFSC)"
+  },
+  {
+    "id": 101,
+    "name": "Club Golf"
+  },
+  {
+    "id": 102,
+    "name": "Club Softball"
+  },
+  {
+    "id": 118,
+    "name": "CoPilot"
+  },
+  {
+    "id": 103,
+    "name": "Cognitive Systems and Artificial Int"
+  },
+  {
+    "id": 104,
+    "name": "College Democrats"
+  },
+  {
+    "id": 105,
+    "name": "College Feminists"
+  },
+  {
+    "id": 106,
+    "name": "College Republicans"
+  },
+  {
+    "id": 107,
+    "name": "Colloquium on Indigeneity and Nat"
+  },
+  {
+    "id": 108,
+    "name": "ColorStack"
+  },
+  {
+    "id": 109,
+    "name": "Communications Residential Colleg"
+  },
+  {
+    "id": 110,
+    "name": "Community Connect Schools"
+  },
+  {
+    "id": 111,
+    "name": "Community Health Corps"
+  },
+  {
+    "id": 112,
+    "name": "Community Singers"
+  },
+  {
+    "id": 113,
+    "name": "Competition for Undergraduate Re"
+  },
+  {
+    "id": 114,
+    "name": "Comunidad Latinx"
+  },
+  {
+    "id": 115,
+    "name": "Concrete Canoe"
+  },
+  {
+    "id": 116,
+    "name": "Consult Your Community"
+  },
+  {
+    "id": 117,
+    "name": "Consultants Advising Student Ente"
+  },
+  {
+    "id": 119,
+    "name": "Coptic Orthodox Christian Fellowsh"
+  },
+  {
+    "id": 120,
+    "name": "Cosmia Opera Collective"
+  },
+  {
+    "id": 122,
+    "name": "Creative Writing Collective"
+  },
+  {
+    "id": 123,
+    "name": "Crescendo for a Cause"
+  },
+  {
+    "id": 124,
+    "name": "Crochet for a Cause"
+  },
+  {
+    "id": 125,
+    "name": "Crossword Team"
+  },
+  {
+    "id": 126,
+    "name": "Cru"
+  },
+  {
+    "id": 129,
+    "name": "Cubing Club"
+  },
+  {
+    "id": 130,
+    "name": "Dale Duro Latin Dance Company"
+  },
+  {
+    "id": 131,
+    "name": "Data Journalism Collective"
+  },
+  {
+    "id": 132,
+    "name": "Data Science and Analytics Club"
+  },
+  {
+    "id": 133,
+    "name": "Deeva"
+  },
+  {
+    "id": 134,
+    "name": "Delta Sigma Pi"
+  },
+  {
+    "id": 135,
+    "name": "Design for America"
+  },
+  {
+    "id": 136,
+    "name": "Destino"
+  },
+  {
+    "id": 137,
+    "name": "Develop + Innovate for Social Chan"
+  },
+  {
+    "id": 138,
+    "name": "Diaspora Writers Society"
+  },
+  {
+    "id": 139,
+    "name": "Disabled Student Union"
+  },
+  {
+    "id": 140,
+    "name": "Driskill Graduate Student Council"
+  },
+  {
+    "id": 142,
+    "name": "EEqual"
+  },
+  {
+    "id": 145,
+    "name": "ELEL Dance Team"
+  },
+  {
+    "id": 141,
+    "name": "Each One Teach One"
+  },
+  {
+    "id": 143,
+    "name": "Effective Altruism Club"
+  },
+  {
+    "id": 144,
+    "name": "EighthDay Theatre Club"
+  },
+  {
+    "id": 146,
+    "name": "Emerging Coders"
+  },
+  {
+    "id": 147,
+    "name": "Engage RP"
+  },
+  {
+    "id": 149,
+    "name": "Engineers Without Borders"
+  },
+  {
+    "id": 148,
+    "name": "Engineers for a Sustainable World"
+  },
+  {
+    "id": 150,
+    "name": "Environmental Engineering Underg"
+  },
+  {
+    "id": 151,
+    "name": "Equestrian Team"
+  },
+  {
+    "id": 152,
+    "name": "Esports Club"
+  },
+  {
+    "id": 153,
+    "name": "Essence: For Us, By Us"
+  },
+  {
+    "id": 154,
+    "name": "Ethics Bowl"
+  },
+  {
+    "id": 155,
+    "name": "Ethiopian and Eritrean Student Ass"
+  },
+  {
+    "id": 156,
+    "name": "Ethnic Studies Graduate Student C"
+  },
+  {
+    "id": 157,
+    "name": "Extreme Measures"
+  },
+  {
+    "id": 158,
+    "name": "Faith-Hope-Love Fellowship"
+  },
+  {
+    "id": 159,
+    "name": "Fencing"
+  },
+  {
+    "id": 160,
+    "name": "Fiedler Hillel Student Life"
+  },
+  {
+    "id": 161,
+    "name": "Financial Technologies Club"
+  },
+  {
+    "id": 162,
+    "name": "For Members Only"
+  },
+  {
+    "id": 163,
+    "name": "Form & Function Marketing"
+  },
+  {
+    "id": 164,
+    "name": "Freshman Fifteen"
+  },
+  {
+    "id": 165,
+    "name": "Freshman Musical"
+  },
+  {
+    "id": 166,
+    "name": "Friends of MSF"
+  },
+  {
+    "id": 167,
+    "name": "Fusion Dance Company"
+  },
+  {
+    "id": 168,
+    "name": "FutureDev"
+  },
+  {
+    "id": 172,
+    "name": "GH Foundation on Campus"
+  },
+  {
+    "id": 169,
+    "name": "Game Makers Society"
+  },
+  {
+    "id": 170,
+    "name": "Generation Mosaic"
+  },
+  {
+    "id": 171,
+    "name": "Get-A-Grip"
+  },
+  {
+    "id": 173,
+    "name": "Girl Gains"
+  },
+  {
+    "id": 174,
+    "name": "Glioblastoma Initiative Outreach"
+  },
+  {
+    "id": 175,
+    "name": "Global Engagement Summit"
+  },
+  {
+    "id": 176,
+    "name": "Global Medical Missions Alliance"
+  },
+  {
+    "id": 177,
+    "name": "Global Research and Consulting"
+  },
+  {
+    "id": 178,
+    "name": "GlobeMed"
+  },
+  {
+    "id": 179,
+    "name": "Graduate Christian Fellowship"
+  },
+  {
+    "id": 180,
+    "name": "Graduate International Student Ass"
+  },
+  {
+    "id": 181,
+    "name": "Graduate Investment Club"
+  },
+  {
+    "id": 182,
+    "name": "Graduate Leadership Advocacy Co"
+  },
+  {
+    "id": 183,
+    "name": "Graduate Ski and Board Club"
+  },
+  {
+    "id": 184,
+    "name": "Graduate Society of Women Engine"
+  },
+  {
+    "id": 185,
+    "name": "Graduate Student Association"
+  },
+  {
+    "id": 186,
+    "name": "Graduate Student Association for L"
+  },
+  {
+    "id": 187,
+    "name": "Graduate Student Karate"
+  },
+  {
+    "id": 188,
+    "name": "Graduate Women Across Northwes"
+  },
+  {
+    "id": 189,
+    "name": "Graffiti Dancers"
+  },
+  {
+    "id": 190,
+    "name": "Greek American Legacy Associatio"
+  },
+  {
+    "id": 191,
+    "name": "Grounding for Public Service"
+  },
+  {
+    "id": 192,
+    "name": "Happiness Club"
+  },
+  {
+    "id": 193,
+    "name": "Hawai'i Club"
+  },
+  {
+    "id": 194,
+    "name": "Health Equity at Northwestern"
+  },
+  {
+    "id": 195,
+    "name": "Helicon"
+  },
+  {
+    "id": 196,
+    "name": "HerCampus"
+  },
+  {
+    "id": 197,
+    "name": "Hindu YUVA"
+  },
+  {
+    "id": 198,
+    "name": "Homebrew"
+  },
+  {
+    "id": 199,
+    "name": "Homecoming"
+  },
+  {
+    "id": 200,
+    "name": "Hong Kong Student Association"
+  },
+  {
+    "id": 201,
+    "name": "Hospice Patient Care Club"
+  },
+  {
+    "id": 202,
+    "name": "Housing Security Collaborative"
+  },
+  {
+    "id": 203,
+    "name": "Humanities Residential College/Ch"
+  },
+  {
+    "id": 204,
+    "name": "IfYou'reReadingThis.org"
+  },
+  {
+    "id": 205,
+    "name": "Ignite Christian Fellowship"
+  },
+  {
+    "id": 206,
+    "name": "Illustrators & Animators Club"
+  },
+  {
+    "id": 207,
+    "name": "In Our Nature"
+  },
+  {
+    "id": 208,
+    "name": "Indian Graduate Students and Scho"
+  },
+  {
+    "id": 209,
+    "name": "Indonesian Students' Association"
+  },
+  {
+    "id": 210,
+    "name": "Institute for Student Business Educ"
+  },
+  {
+    "id": 211,
+    "name": "Institute of Industrial and Systems"
+  },
+  {
+    "id": 212,
+    "name": "International Student Association"
+  },
+  {
+    "id": 213,
+    "name": "International Studies Residential C"
+  },
+  {
+    "id": 214,
+    "name": "International Studies Society"
+  },
+  {
+    "id": 215,
+    "name": "Investment Management Club"
+  },
+  {
+    "id": 216,
+    "name": "Investment Management Group"
+  },
+  {
+    "id": 217,
+    "name": "Iranian Student Association"
+  },
+  {
+    "id": 218,
+    "name": "Italian Association"
+  },
+  {
+    "id": 219,
+    "name": "Japan Club"
+  },
+  {
+    "id": 220,
+    "name": "Japanese American Student Assoc"
+  },
+  {
+    "id": 221,
+    "name": "Japanese Graduate Student Assoc"
+  },
+  {
+    "id": 222,
+    "name": "Jazz Club"
+  },
+  {
+    "id": 223,
+    "name": "Jewish Theatre Ensemble"
+  },
+  {
+    "id": 224,
+    "name": "Journaling Club"
+  },
+  {
+    "id": 225,
+    "name": "Journalists in Law"
+  },
+  {
+    "id": 226,
+    "name": "K-Dance"
+  },
+  {
+    "id": 227,
+    "name": "Kadima"
+  },
+  {
+    "id": 228,
+    "name": "Kaibigan: Philippine-American Stud"
+  },
+  {
+    "id": 229,
+    "name": "Kappa Theta Epsilon"
+  },
+  {
+    "id": 230,
+    "name": "Kellog Management Studies Stude"
+  },
+  {
+    "id": 231,
+    "name": "Kesem at Northwestern"
+  },
+  {
+    "id": 232,
+    "name": "Keynotes"
+  },
+  {
+    "id": 233,
+    "name": "Korean American Student Associat"
+  },
+  {
+    "id": 234,
+    "name": "Lambda Strategy"
+  },
+  {
+    "id": 235,
+    "name": "Latin Music Ensemble"
+  },
+  {
+    "id": 236,
+    "name": "Learn To Be"
+  },
+  {
+    "id": 237,
+    "name": "Legal Education Advancement Proj"
+  },
+  {
+    "id": 238,
+    "name": "Lending for Evanston and Northwe"
+  },
+  {
+    "id": 239,
+    "name": "Liberty in North Korea"
+  },
+  {
+    "id": 240,
+    "name": "Lipstick Burlesque"
+  },
+  {
+    "id": 241,
+    "name": "Locket Cybersecurity"
+  },
+  {
+    "id": 242,
+    "name": "Lumi Tutors"
+  },
+  {
+    "id": 243,
+    "name": "Lutheran Campus Ministry"
+  },
+  {
+    "id": 256,
+    "name": "MEDLIFE"
+  },
+  {
+    "id": 270,
+    "name": "MIXED Student Association"
+  },
+  {
+    "id": 244,
+    "name": "Marafiki wa Kiswahili - A Swahili Cl"
+  },
+  {
+    "id": 245,
+    "name": "Mariachi Northwestern"
+  },
+  {
+    "id": 246,
+    "name": "Master Clash"
+  },
+  {
+    "id": 247,
+    "name": "Masters in Engineering Manageme"
+  },
+  {
+    "id": 248,
+    "name": "Materials Science Club"
+  },
+  {
+    "id": 249,
+    "name": "Matriculate"
+  },
+  {
+    "id": 250,
+    "name": "MaxForum"
+  },
+  {
+    "id": 251,
+    "name": "Mayfest Productions (https://catso"
+  },
+  {
+    "id": 252,
+    "name": "McCormick Graduate Leadership C"
+  },
+  {
+    "id": 253,
+    "name": "McCormick Student Advisory Boar"
+  },
+  {
+    "id": 254,
+    "name": "Mechanical Keyboard Club"
+  },
+  {
+    "id": 255,
+    "name": "Medical Makers"
+  },
+  {
+    "id": 257,
+    "name": "Mee-Ow Improv and Sketch Comed"
+  },
+  {
+    "id": 258,
+    "name": "Men's Basketball"
+  },
+  {
+    "id": 259,
+    "name": "Men's Club Lacrosse"
+  },
+  {
+    "id": 260,
+    "name": "Men's Club Soccer"
+  },
+  {
+    "id": 261,
+    "name": "Men's Rugby Football Club"
+  },
+  {
+    "id": 262,
+    "name": "Men's Ultimate Frisbee"
+  },
+  {
+    "id": 263,
+    "name": "Men's Volleyball"
+  },
+  {
+    "id": 264,
+    "name": "Menstrual Equity Activists"
+  },
+  {
+    "id": 265,
+    "name": "Mental Health Mix & Mingle"
+  },
+  {
+    "id": 266,
+    "name": "Mentorship Opportunities for Rese"
+  },
+  {
+    "id": 267,
+    "name": "Mewtwo Pok\u00e9mon League"
+  },
+  {
+    "id": 268,
+    "name": "Middle Eastern North African Stude"
+  },
+  {
+    "id": 269,
+    "name": "Minority Association of Pre-Med St"
+  },
+  {
+    "id": 271,
+    "name": "Mock Trial"
+  },
+  {
+    "id": 272,
+    "name": "Morning Mentors"
+  },
+  {
+    "id": 273,
+    "name": "Moroccan Student Organization"
+  },
+  {
+    "id": 274,
+    "name": "Multicultural Filmmakers Collective"
+  },
+  {
+    "id": 275,
+    "name": "Multicultural Student Affairs"
+  },
+  {
+    "id": 276,
+    "name": "Music Tasting Club"
+  },
+  {
+    "id": 277,
+    "name": "Muslim Business Student Associat"
+  },
+  {
+    "id": 278,
+    "name": "Muslim-cultural Students Associat"
+  },
+  {
+    "id": 338,
+    "name": "NSSLHA-Undergraduate"
+  },
+  {
+    "id": 339,
+    "name": "NU Asian Magazine"
+  },
+  {
+    "id": 340,
+    "name": "NU Club Gymnastics"
+  },
+  {
+    "id": 341,
+    "name": "NU Curling"
+  },
+  {
+    "id": 342,
+    "name": "NU Heights"
+  },
+  {
+    "id": 343,
+    "name": "NU Nights"
+  },
+  {
+    "id": 344,
+    "name": "NU Orthodox Christian Fellowship"
+  },
+  {
+    "id": 345,
+    "name": "NU Photonics/SPIE"
+  },
+  {
+    "id": 346,
+    "name": "NU Robotics"
+  },
+  {
+    "id": 347,
+    "name": "NU Solar Car Team"
+  },
+  {
+    "id": 348,
+    "name": "NU Syllabus Yearbook"
+  },
+  {
+    "id": 349,
+    "name": "NU Thrift Store"
+  },
+  {
+    "id": 350,
+    "name": "NU World Cup"
+  },
+  {
+    "id": 351,
+    "name": "NUcleus"
+  },
+  {
+    "id": 279,
+    "name": "National Alzheimer's Buddies"
+  },
+  {
+    "id": 280,
+    "name": "National Arab-American Medical A"
+  },
+  {
+    "id": 281,
+    "name": "National Association of Black Journ"
+  },
+  {
+    "id": 282,
+    "name": "National Association of Hispanic Jo"
+  },
+  {
+    "id": 283,
+    "name": "National Marrow Donor Program (N"
+  },
+  {
+    "id": 284,
+    "name": "National Society of Black Engineer"
+  },
+  {
+    "id": 285,
+    "name": "National Student Speech-Languag"
+  },
+  {
+    "id": 286,
+    "name": "Neuro Club"
+  },
+  {
+    "id": 287,
+    "name": "Neuroscience Equity Initiative"
+  },
+  {
+    "id": 288,
+    "name": "New Life Volunteering Society"
+  },
+  {
+    "id": 289,
+    "name": "New Student Organization Review"
+  },
+  {
+    "id": 290,
+    "name": "Nigerian Student Organization"
+  },
+  {
+    "id": 291,
+    "name": "Niteskool"
+  },
+  {
+    "id": 292,
+    "name": "No Fun Mud Piranhas"
+  },
+  {
+    "id": 293,
+    "name": "Norris University Center"
+  },
+  {
+    "id": 294,
+    "name": "North by Northwestern"
+  },
+  {
+    "id": 295,
+    "name": "Northwestern Anime Club"
+  },
+  {
+    "id": 296,
+    "name": "Northwestern Art Review"
+  },
+  {
+    "id": 297,
+    "name": "Northwestern Bhangra Dance Team"
+  },
+  {
+    "id": 298,
+    "name": "Northwestern Chinese Christian St"
+  },
+  {
+    "id": 299,
+    "name": "Northwestern Climate Technology"
+  },
+  {
+    "id": 300,
+    "name": "Northwestern Crew"
+  },
+  {
+    "id": 301,
+    "name": "Northwestern Economics Tournam"
+  },
+  {
+    "id": 302,
+    "name": "Northwestern Emergency Medical"
+  },
+  {
+    "id": 303,
+    "name": "Northwestern Energy and Sustaina"
+  },
+  {
+    "id": 304,
+    "name": "Northwestern Formula Racing"
+  },
+  {
+    "id": 305,
+    "name": "Northwestern Geoclub"
+  },
+  {
+    "id": 306,
+    "name": "Northwestern Ice Hockey"
+  },
+  {
+    "id": 307,
+    "name": "Northwestern News Network"
+  },
+  {
+    "id": 308,
+    "name": "Northwestern News Network-Spor"
+  },
+  {
+    "id": 309,
+    "name": "Northwestern NuTango"
+  },
+  {
+    "id": 310,
+    "name": "Northwestern Political Union"
+  },
+  {
+    "id": 311,
+    "name": "Northwestern Public Health Review"
+  },
+  {
+    "id": 312,
+    "name": "Northwestern Quest Scholars Netw"
+  },
+  {
+    "id": 313,
+    "name": "Northwestern Raas"
+  },
+  {
+    "id": 314,
+    "name": "Northwestern Recreation"
+  },
+  {
+    "id": 315,
+    "name": "Northwestern Sketch Television"
+  },
+  {
+    "id": 316,
+    "name": "Northwestern Swim Club"
+  },
+  {
+    "id": 317,
+    "name": "Northwestern Swing Dance Syndic"
+  },
+  {
+    "id": 318,
+    "name": "Northwestern Taekwondo"
+  },
+  {
+    "id": 319,
+    "name": "Northwestern Triathlon Club"
+  },
+  {
+    "id": 320,
+    "name": "Northwestern Undergraduate Law"
+  },
+  {
+    "id": 321,
+    "name": "Northwestern Undergraduate Rese"
+  },
+  {
+    "id": 322,
+    "name": "Northwestern University American"
+  },
+  {
+    "id": 323,
+    "name": "Northwestern University Communi"
+  },
+  {
+    "id": 324,
+    "name": "Northwestern University Dance Ma"
+  },
+  {
+    "id": 325,
+    "name": "Northwestern University Model Un"
+  },
+  {
+    "id": 326,
+    "name": "Northwestern University Native Am"
+  },
+  {
+    "id": 327,
+    "name": "Northwestern University Outdoors"
+  },
+  {
+    "id": 328,
+    "name": "Northwestern University SACNAS C"
+  },
+  {
+    "id": 329,
+    "name": "Northwestern University Sailing Te"
+  },
+  {
+    "id": 330,
+    "name": "Northwestern University Science O"
+  },
+  {
+    "id": 331,
+    "name": "Northwestern University Space Tec"
+  },
+  {
+    "id": 332,
+    "name": "Northwestern University Special O"
+  },
+  {
+    "id": 333,
+    "name": "Northwestern University Table Ten"
+  },
+  {
+    "id": 334,
+    "name": "Northwestern University Women F"
+  },
+  {
+    "id": 335,
+    "name": "Northwestern Wildside"
+  },
+  {
+    "id": 336,
+    "name": "Northwestern Women's Center"
+  },
+  {
+    "id": 337,
+    "name": "Northwestern Women's Club Baske"
+  },
+  {
+    "id": 352,
+    "name": "Observational Astronomy Club"
+  },
+  {
+    "id": 353,
+    "name": "Off The Ball"
+  },
+  {
+    "id": 354,
+    "name": "Open Democracy Undergraduate"
+  },
+  {
+    "id": 355,
+    "name": "Opera Projects for Undergraduate"
+  },
+  {
+    "id": 358,
+    "name": "Out Da Box"
+  },
+  {
+    "id": 359,
+    "name": "Out in Science, Technology, Engine"
+  },
+  {
+    "id": 360,
+    "name": "Outdoor Volleyball Association"
+  },
+  {
+    "id": 361,
+    "name": "Overtime"
+  },
+  {
+    "id": 362,
+    "name": "Pakistani Students Association"
+  },
+  {
+    "id": 363,
+    "name": "Parliamentary Debate Union"
+  },
+  {
+    "id": 364,
+    "name": "Phi Alpha Delta"
+  },
+  {
+    "id": 365,
+    "name": "Phi Delta Epsilon"
+  },
+  {
+    "id": 366,
+    "name": "Physicians for Human Rights Stude"
+  },
+  {
+    "id": 367,
+    "name": "Pickleball Club"
+  },
+  {
+    "id": 368,
+    "name": "Plant Futures"
+  },
+  {
+    "id": 369,
+    "name": "Plant-it Purple Graduate Garden"
+  },
+  {
+    "id": 370,
+    "name": "Platinum Valuation Group"
+  },
+  {
+    "id": 371,
+    "name": "Platypus Affiliated Society"
+  },
+  {
+    "id": 372,
+    "name": "Polerize"
+  },
+  {
+    "id": 373,
+    "name": "Polish American Student Alliance"
+  },
+  {
+    "id": 374,
+    "name": "Prairie Cats Ecological Restoration"
+  },
+  {
+    "id": 375,
+    "name": "Pre-Dental Society"
+  },
+  {
+    "id": 376,
+    "name": "Pre-Surgical Society"
+  },
+  {
+    "id": 377,
+    "name": "Pre-Veterinary Society at Northwe"
+  },
+  {
+    "id": 378,
+    "name": "Project MED"
+  },
+  {
+    "id": 379,
+    "name": "Project Sunshine"
+  },
+  {
+    "id": 380,
+    "name": "ProjectProd"
+  },
+  {
+    "id": 381,
+    "name": "Public Affairs Residential College/N"
+  },
+  {
+    "id": 382,
+    "name": "Purple Crayon Players"
+  },
+  {
+    "id": 383,
+    "name": "Purple Haze"
+  },
+  {
+    "id": 384,
+    "name": "Queer Media Association"
+  },
+  {
+    "id": 385,
+    "name": "Quizbowl"
+  },
+  {
+    "id": 387,
+    "name": "RAISO"
+  },
+  {
+    "id": 386,
+    "name": "Rainbow Alliance"
+  },
+  {
+    "id": 388,
+    "name": "Red Cross Club at Northwestern U"
+  },
+  {
+    "id": 389,
+    "name": "Red Dot: Singapore Student Assoc"
+  },
+  {
+    "id": 390,
+    "name": "Reel8 Productions"
+  },
+  {
+    "id": 391,
+    "name": "Reflections Repertory Company"
+  },
+  {
+    "id": 392,
+    "name": "Reformed University Fellowship"
+  },
+  {
+    "id": 393,
+    "name": "Refresh Dance Crew"
+  },
+  {
+    "id": 394,
+    "name": "Relay For Life"
+  },
+  {
+    "id": 395,
+    "name": "Remote Area Medical Volunteer Co"
+  },
+  {
+    "id": 396,
+    "name": "Renaissance Singers"
+  },
+  {
+    "id": 397,
+    "name": "Residential College of Cultural & Co"
+  },
+  {
+    "id": 398,
+    "name": "Residential College of Science & En"
+  },
+  {
+    "id": 399,
+    "name": "Ritmo de Mis Ancestros: Ballet Folk"
+  },
+  {
+    "id": 400,
+    "name": "Rock Climbing Club"
+  },
+  {
+    "id": 401,
+    "name": "Rotaract"
+  },
+  {
+    "id": 402,
+    "name": "Rural and Small Towns Collective"
+  },
+  {
+    "id": 411,
+    "name": "SIG Theater"
+  },
+  {
+    "id": 416,
+    "name": "SOA Passport Program"
+  },
+  {
+    "id": 430,
+    "name": "SPG Improv"
+  },
+  {
+    "id": 436,
+    "name": "SPS MSA Student Organization"
+  },
+  {
+    "id": 437,
+    "name": "SPS Northwestern University Prehe"
+  },
+  {
+    "id": 442,
+    "name": "STITCH"
+  },
+  {
+    "id": 403,
+    "name": "Scholars of Finance"
+  },
+  {
+    "id": 404,
+    "name": "Science Policy Outreach Task Forc"
+  },
+  {
+    "id": 405,
+    "name": "Seesaw Theatre"
+  },
+  {
+    "id": 406,
+    "name": "Segal Professional Bridge"
+  },
+  {
+    "id": 407,
+    "name": "Sexual Health & Assualt Peer Educ"
+  },
+  {
+    "id": 408,
+    "name": "Shepard Residential College/SMQ"
+  },
+  {
+    "id": 409,
+    "name": "Shia Muslim Association"
+  },
+  {
+    "id": 410,
+    "name": "ShireiNU A Cappella"
+  },
+  {
+    "id": 413,
+    "name": "SigO"
+  },
+  {
+    "id": 412,
+    "name": "Sigma Alpha Iota"
+  },
+  {
+    "id": 414,
+    "name": "Sit & Spin Productions"
+  },
+  {
+    "id": 415,
+    "name": "Snapshot!"
+  },
+  {
+    "id": 417,
+    "name": "Society for Ecological Restoration"
+  },
+  {
+    "id": 418,
+    "name": "Society for Psychedelic Studies"
+  },
+  {
+    "id": 419,
+    "name": "Society of Asian Scientists & Engin"
+  },
+  {
+    "id": 420,
+    "name": "Society of Physics Students"
+  },
+  {
+    "id": 421,
+    "name": "Society of Trans and Non-binary St"
+  },
+  {
+    "id": 422,
+    "name": "Society of Women Engineers"
+  },
+  {
+    "id": 423,
+    "name": "Sociology Collective"
+  },
+  {
+    "id": 424,
+    "name": "Soka Gakkai International Buddhist"
+  },
+  {
+    "id": 425,
+    "name": "Songwriters Association at Northw"
+  },
+  {
+    "id": 426,
+    "name": "Soul4Real"
+  },
+  {
+    "id": 427,
+    "name": "South Asian Students Alliance"
+  },
+  {
+    "id": 428,
+    "name": "South East Asian Alliance"
+  },
+  {
+    "id": 429,
+    "name": "Speech Team"
+  },
+  {
+    "id": 431,
+    "name": "Splash"
+  },
+  {
+    "id": 432,
+    "name": "Spoon University"
+  },
+  {
+    "id": 433,
+    "name": "Sport Management Club"
+  },
+  {
+    "id": 434,
+    "name": "Sports Analytics Group"
+  },
+  {
+    "id": 435,
+    "name": "Spotlight"
+  },
+  {
+    "id": 438,
+    "name": "Squash Club Team"
+  },
+  {
+    "id": 439,
+    "name": "StageStrat"
+  },
+  {
+    "id": 440,
+    "name": "Starlight"
+  },
+  {
+    "id": 441,
+    "name": "Steam Heat Dance Company"
+  },
+  {
+    "id": 443,
+    "name": "Streetside Health"
+  },
+  {
+    "id": 444,
+    "name": "Strive"
+  },
+  {
+    "id": 445,
+    "name": "Student Counselors for Social Just"
+  },
+  {
+    "id": 447,
+    "name": "Student Organization Finance Offic"
+  },
+  {
+    "id": 448,
+    "name": "Student Organizations & Activities"
+  },
+  {
+    "id": 449,
+    "name": "Student Philanthropy Council"
+  },
+  {
+    "id": 450,
+    "name": "Student Theatre Coalition"
+  },
+  {
+    "id": 446,
+    "name": "Student of Iranian Nationality Asso"
+  },
+  {
+    "id": 451,
+    "name": "Students Consulting for Non-Profit"
+  },
+  {
+    "id": 452,
+    "name": "Students Demand Action"
+  },
+  {
+    "id": 454,
+    "name": "Students for Ecological and Enviro"
+  },
+  {
+    "id": 453,
+    "name": "Students for a National Health Prog"
+  },
+  {
+    "id": 455,
+    "name": "Studio 22 Productions"
+  },
+  {
+    "id": 456,
+    "name": "Supplies for Dreams"
+  },
+  {
+    "id": 457,
+    "name": "Survivor Advocacy Through Greek"
+  },
+  {
+    "id": 458,
+    "name": "Survivor: Northwestern"
+  },
+  {
+    "id": 459,
+    "name": "Swing Left"
+  },
+  {
+    "id": 463,
+    "name": "TAMID Group"
+  },
+  {
+    "id": 465,
+    "name": "TEDxNorthwesternU"
+  },
+  {
+    "id": 466,
+    "name": "TGS Cross-Cultural"
+  },
+  {
+    "id": 493,
+    "name": "THUNK A Cappella"
+  },
+  {
+    "id": 495,
+    "name": "TONIK Tap"
+  },
+  {
+    "id": 460,
+    "name": "Tabletop Club"
+  },
+  {
+    "id": 461,
+    "name": "Taiwanese American Students Ass"
+  },
+  {
+    "id": 462,
+    "name": "Taiwanese Students and Scholars A"
+  },
+  {
+    "id": 464,
+    "name": "Team Awareness Combating Overd"
+  },
+  {
+    "id": 467,
+    "name": "Thai Student Association"
+  },
+  {
+    "id": 468,
+    "name": "The Army Praise Dance Ministry"
+  },
+  {
+    "id": 469,
+    "name": "The Bix"
+  },
+  {
+    "id": 470,
+    "name": "The Black Creative Collective"
+  },
+  {
+    "id": 471,
+    "name": "The Blackout"
+  },
+  {
+    "id": 472,
+    "name": "The Campus Kitchen at Northwest"
+  },
+  {
+    "id": 473,
+    "name": "The Club Ski Team"
+  },
+  {
+    "id": 474,
+    "name": "The Daily Northwestern"
+  },
+  {
+    "id": 475,
+    "name": "The Deep End"
+  },
+  {
+    "id": 476,
+    "name": "The Dolphin Show"
+  },
+  {
+    "id": 477,
+    "name": "The Film Festival"
+  },
+  {
+    "id": 478,
+    "name": "The Flipside"
+  },
+  {
+    "id": 479,
+    "name": "The Groove Street Dance Club"
+  },
+  {
+    "id": 480,
+    "name": "The Leukemia and Lymphoma Soci"
+  },
+  {
+    "id": 481,
+    "name": "The MSGH SLC"
+  },
+  {
+    "id": 482,
+    "name": "The Open Democracy"
+  },
+  {
+    "id": 483,
+    "name": "The Panini Players"
+  },
+  {
+    "id": 484,
+    "name": "The Residential College Board"
+  },
+  {
+    "id": 485,
+    "name": "The Set Up"
+  },
+  {
+    "id": 486,
+    "name": "The Subcontinent Project"
+  },
+  {
+    "id": 487,
+    "name": "The Undead Poets Society"
+  },
+  {
+    "id": 488,
+    "name": "The Undertones"
+  },
+  {
+    "id": 489,
+    "name": "The Waa-Mu Show"
+  },
+  {
+    "id": 490,
+    "name": "The Youth Movement Against Alzh"
+  },
+  {
+    "id": 491,
+    "name": "Theme Park Engineering & Design"
+  },
+  {
+    "id": 492,
+    "name": "Think Grow Connect"
+  },
+  {
+    "id": 494,
+    "name": "Tikkun Olam Makers"
+  },
+  {
+    "id": 496,
+    "name": "Track Club"
+  },
+  {
+    "id": 497,
+    "name": "Trading Card Game Club"
+  },
+  {
+    "id": 498,
+    "name": "Transfer Student Organization"
+  },
+  {
+    "id": 499,
+    "name": "Transportation Club"
+  },
+  {
+    "id": 500,
+    "name": "Treblemakers"
+  },
+  {
+    "id": 501,
+    "name": "Tufaan Entertainment"
+  },
+  {
+    "id": 502,
+    "name": "Turkish Graduate Student Associat"
+  },
+  {
+    "id": 503,
+    "name": "Turkish Student Association"
+  },
+  {
+    "id": 515,
+    "name": "UNICEF NU"
+  },
+  {
+    "id": 517,
+    "name": "UNITY Charity Fashion Show"
+  },
+  {
+    "id": 504,
+    "name": "Ukrainian Club"
+  },
+  {
+    "id": 505,
+    "name": "Ukulele Club"
+  },
+  {
+    "id": 506,
+    "name": "Undergraduate Chemistry Council"
+  },
+  {
+    "id": 507,
+    "name": "Undergraduate Economics Society"
+  },
+  {
+    "id": 508,
+    "name": "Undergraduate International Stude"
+  },
+  {
+    "id": 509,
+    "name": "Undergraduate Latin American Law"
+  },
+  {
+    "id": 510,
+    "name": "Undergraduate Premedical Society"
+  },
+  {
+    "id": 511,
+    "name": "Undergraduate Prison Education P"
+  },
+  {
+    "id": 512,
+    "name": "Undergraduate Psychology Associ"
+  },
+  {
+    "id": 513,
+    "name": "Undergraduate Radio/Television/Fi"
+  },
+  {
+    "id": 514,
+    "name": "Undergraduate Real Estate Club"
+  },
+  {
+    "id": 516,
+    "name": "United Students for Veterans' Hea"
+  },
+  {
+    "id": 518,
+    "name": "University Bible Fellowship"
+  },
+  {
+    "id": 519,
+    "name": "University Blood Initiative"
+  },
+  {
+    "id": 520,
+    "name": "University Christian Ministry"
+  },
+  {
+    "id": 521,
+    "name": "Unscripted Love"
+  },
+  {
+    "id": 522,
+    "name": "Vantage Venture Group"
+  },
+  {
+    "id": 523,
+    "name": "Vertigo Productions"
+  },
+  {
+    "id": 524,
+    "name": "Vibrant Colors Collective"
+  },
+  {
+    "id": 525,
+    "name": "Vietnamese Student Association"
+  },
+  {
+    "id": 526,
+    "name": "Village Book Builders"
+  },
+  {
+    "id": 528,
+    "name": "WAVE Productions"
+  },
+  {
+    "id": 535,
+    "name": "WNUR News"
+  },
+  {
+    "id": 536,
+    "name": "WNUR Student Radio"
+  },
+  {
+    "id": 527,
+    "name": "Water Polo"
+  },
+  {
+    "id": 529,
+    "name": "We're In Physics"
+  },
+  {
+    "id": 530,
+    "name": "Werewolves Club"
+  },
+  {
+    "id": 533,
+    "name": "WildHacks"
+  },
+  {
+    "id": 531,
+    "name": "Wildcat Animate"
+  },
+  {
+    "id": 532,
+    "name": "Wildcats for Israel"
+  },
+  {
+    "id": 534,
+    "name": "Willard Residential College"
+  },
+  {
+    "id": 537,
+    "name": "Women in Business"
+  },
+  {
+    "id": 538,
+    "name": "Women in Computing"
+  },
+  {
+    "id": 539,
+    "name": "Women in Music"
+  },
+  {
+    "id": 540,
+    "name": "Women in Philosophy Workshop"
+  },
+  {
+    "id": 541,
+    "name": "Women in Science and Engineering"
+  },
+  {
+    "id": 542,
+    "name": "Women's Club Lacrosse"
+  },
+  {
+    "id": 543,
+    "name": "Women's Club Soccer"
+  },
+  {
+    "id": 544,
+    "name": "Women's Club Volleyball"
+  },
+  {
+    "id": 545,
+    "name": "Women's Rugby Football Club"
+  },
+  {
+    "id": 546,
+    "name": "Women's Ultimate Frisbee"
+  },
+  {
+    "id": 547,
+    "name": "Women\u2019s Residential College/Hoba"
+  },
+  {
+    "id": 548,
+    "name": "Womxn In Economics"
+  },
+  {
+    "id": 549,
+    "name": "Womxn in Law"
+  },
+  {
+    "id": 550,
+    "name": "World Affairs Group"
+  },
+  {
+    "id": 551,
+    "name": "X-Factors"
+  },
+  {
+    "id": 552,
+    "name": "Young Life"
+  },
+  {
+    "id": 553,
+    "name": "Zen Society"
+  },
+  {
+    "id": 356,
+    "name": "oSTEM (Tuesday, East Lawn, 30)"
+  },
+  {
+    "id": 357,
+    "name": "oSTEM (Undergraduate Chapter)"
+  }
+]

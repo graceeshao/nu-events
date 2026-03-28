@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     gmail_imap_host: str = "imap.gmail.com"
     gmail_imap_port: int = 993
 
+    # Instagram scraper settings
+    instagram_session_user: str = ""  # Instagram username for session file (optional)
+    instagram_days_back: int = 14  # How far back to scrape
+    instagram_max_posts_per_org: int = 10  # Max posts per org
+
     # Ollama LLM settings
     ollama_url: str = "http://localhost:11434"
     ollama_model: str = "gemma3:4b"
