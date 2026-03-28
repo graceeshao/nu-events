@@ -32,7 +32,7 @@ class Settings(BaseSettings):
 
     # Ollama LLM settings
     ollama_url: str = "http://localhost:11434"
-    ollama_model: str = "gemma3:4b"
+    ollama_model: str = "gemma3:12b"
     use_llm_parser: bool = True  # Set to False to disable LLM parsing
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}

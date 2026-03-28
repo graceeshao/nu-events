@@ -153,7 +153,7 @@ async def _chat(client: ollama.Client, model: str, prompt: str) -> str:
 def _resolve_model(client: ollama.Client) -> str:
     """Determine which Ollama model to use.
 
-    Tries the configured model first, then falls back to ``gemma3:1b``.
+    Tries the configured model first, then falls back to ``gemma3:4b``.
 
     Args:
         client: Ollama client instance.
@@ -166,7 +166,7 @@ def _resolve_model(client: ollama.Client) -> str:
         RuntimeError: If no suitable model is found.
     """
     primary = settings.ollama_model
-    fallback = "gemma3:1b"
+    fallback = "gemma3:4b"
 
     try:
         models_resp = client.list()
