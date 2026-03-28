@@ -21,8 +21,8 @@ from src.services.post_cache import is_processed, mark_processed
 logger = logging.getLogger(__name__)
 
 # Rate limiting: pause between profile fetches to avoid Instagram bans
-_PROFILE_DELAY_SECONDS = 3
-_POST_DELAY_SECONDS = 1
+_PROFILE_DELAY_SECONDS = 5
+_POST_DELAY_SECONDS = 2
 
 
 _cached_session: Any = None
@@ -170,6 +170,11 @@ def _fetch_posts_rest_api(
         f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
         headers=headers,
     )
+    if resp.status_code == 429:
+        logger.warning("Rate limited fetching @%s, backing off", handle)
+        import time as _t
+        _t.sleep(30)
+        return "RATE_LIMITED"  # Signal to caller not to mark inactive
     if resp.status_code != 200:
         logger.warning("Failed to fetch profile @%s: HTTP %d", handle, resp.status_code)
         return []
@@ -285,10 +290,14 @@ def fetch_recent_posts(
     """
     handle = handle.lstrip("@").strip().lower()
     session = _get_browser_session()
-    posts = _fetch_posts_rest_api(
+    result = _fetch_posts_rest_api(
         session=session, handle=handle,
         days_back=days_back, max_posts=max_posts,
     )
+    # Handle rate-limit signal
+    if result == "RATE_LIMITED":
+        return "RATE_LIMITED"
+    posts = result
     logger.info("Fetched %d recent posts from @%s", len(posts), handle)
     return posts
 
@@ -557,7 +566,15 @@ async def scrape_all_orgs(
                 fetch_recent_posts, handle, days_back, max_posts,
             )
 
-            # Check activity for empty accounts
+            # Handle rate limiting — skip but don't mark inactive
+            if posts == "RATE_LIMITED":
+                logger.warning("Rate limited on @%s, skipping remaining orgs", handle)
+                orgs_failed += 1
+                # Increase delay and continue (don't break, some may work)
+                await asyncio.sleep(30)
+                continue
+
+            # Check activity for empty accounts (only if NOT rate limited)
             if not posts:
                 last_post_dt = await asyncio.to_thread(_check_account_activity, handle)
                 one_year_ago = datetime.now(timezone.utc) - timedelta(days=365)
