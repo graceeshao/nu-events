@@ -40,6 +40,7 @@ NU Events is a three-tier web application that aggregates campus events from mul
 │  │  Services:                                 │  │
 │  │    event_service  — dedup + CRUD           │  │
 │  │    email_parser   — regex extraction       │  │
+│  │    llm_parser     — Ollama/Gemma classifier │  │
 │  │    gmail_poller   — IMAP + OAuth2          │  │
 │  │    dedup          — SHA-256 key gen        │  │
 │  └────────────────────┬──────────────────────┘  │

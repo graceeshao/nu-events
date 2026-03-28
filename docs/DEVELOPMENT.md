@@ -26,7 +26,8 @@ nu-events/
 │   │   │   └── planitpurple.py  #   PlanIt Purple scraper
 │   │   ├── services/             # Business logic
 │   │   │   ├── event_service.py #   CRUD with dedup
-│   │   │   ├── email_parser.py  #   Regex-based event extraction
+│   │   │   ├── llm_parser.py    #   LLM classification + extraction (Ollama/Gemma)
+│   │   │   ├── email_parser.py  #   Regex fallback parser
 │   │   │   ├── gmail_auth.py    #   Google OAuth2 helpers
 │   │   │   ├── gmail_poller.py  #   IMAP polling logic
 │   │   │   ├── organization_service.py

@@ -133,7 +133,7 @@ python ../scripts/run_poller.py --interval 300  # every 5 min
 
 ```bash
 cd backend
-pytest -v           # all 114 tests
+pytest -v           # all 169 tests
 pytest -v -k email  # just email parser tests
 pytest -v -k api    # just API tests
 ```
