@@ -58,3 +58,527 @@
 2026-03-28 13:18:13,062 [INFO] Instagram @nu.amase: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
 2026-03-28 13:18:18,428 [INFO] Fetched 0 recent posts from @nuactiveminds
 2026-03-28 13:18:18,429 [INFO] Instagram @nuactiveminds: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:23,542 [INFO] Fetched 0 recent posts from @nu_auc
+2026-03-28 13:18:23,542 [INFO] Instagram @nu_auc: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:29,221 [INFO] Fetched 3 recent posts from @asanorthwestern
+2026-03-28 13:18:29,221 [INFO] Instagram @asanorthwestern: 3 posts, 0→LLM, 0 filtered, 3 cached, 0 events
+2026-03-28 13:18:29,222 [INFO] Progress: 10/195 orgs | 6 posts | 0→LLM | 6 filtered | 0 events
+2026-03-28 13:18:34,701 [INFO] Fetched 0 recent posts from @asa_nuq
+2026-03-28 13:18:34,702 [INFO] Instagram @asa_nuq: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:39,801 [INFO] Fetched 0 recent posts from @afrothundadancetroupe
+2026-03-28 13:18:39,817 [INFO] Instagram @afrothundadancetroupe: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:45,335 [INFO] Fetched 0 recent posts from @ahana_danceproject
+2026-03-28 13:18:45,335 [INFO] Instagram @ahana_danceproject: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:50,730 [INFO] Fetched 0 recent posts from @greatlakesaikido
+2026-03-28 13:18:50,731 [INFO] Instagram @greatlakesaikido: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:55,643 [INFO] Fetched 0 recent posts from @ahsnorthwestern
+2026-03-28 13:18:55,644 [INFO] Instagram @ahsnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:58,818 [WARNING] Failed to fetch profile @nu_alianza: HTTP 404
+2026-03-28 13:18:58,819 [INFO] Fetched 0 recent posts from @nu_alianza
+2026-03-28 13:18:58,820 [INFO] Instagram @nu_alianza: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:04,248 [INFO] Fetched 1 recent posts from @allpawsnu
+2026-03-28 13:19:04,250 [INFO] Instagram @allpawsnu: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:19:09,661 [INFO] Fetched 0 recent posts from @northwesternaia
+2026-03-28 13:19:09,662 [INFO] Instagram @northwesternaia: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:15,950 [INFO] Fetched 0 recent posts from @amwa_nu
+2026-03-28 13:19:15,951 [INFO] Instagram @amwa_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:21,564 [INFO] Fetched 0 recent posts from @applause_nu
+2026-03-28 13:19:21,565 [INFO] Instagram @applause_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:21,565 [INFO] Progress: 20/195 orgs | 7 posts | 0→LLM | 7 filtered | 0 events
+2026-03-28 13:19:26,618 [INFO] Fetched 0 recent posts from @nuarchsociety
+2026-03-28 13:19:26,619 [INFO] Instagram @nuarchsociety: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:31,747 [INFO] Fetched 0 recent posts from @nu.archery
+2026-03-28 13:19:31,748 [INFO] Instagram @nu.archery: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:37,255 [INFO] Fetched 0 recent posts from @northwestern_armenians
+2026-03-28 13:19:37,263 [INFO] Instagram @northwestern_armenians: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:19:42,548 [INFO] Fetched 0 recent posts from @artunion_nu
+2026-03-28 13:19:42,549 [INFO] Instagram @artunion_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:00,129 [INFO] Fetched 0 recent posts from @nuartsalliance
+2026-03-28 13:20:00,130 [INFO] Instagram @nuartsalliance: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:05,313 [INFO] Fetched 0 recent posts from @ascend_nu
+2026-03-28 13:20:05,315 [INFO] Instagram @ascend_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:10,488 [INFO] Fetched 1 recent posts from @nu_aaiv
+2026-03-28 13:20:10,489 [INFO] Instagram @nu_aaiv: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:20:15,595 [INFO] Fetched 0 recent posts from @aasj_nu
+2026-03-28 13:20:15,596 [INFO] Instagram @aasj_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:28,745 [INFO] Fetched 0 recent posts from @nuapac
+2026-03-28 13:20:28,747 [INFO] Instagram @nuapac: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:39,297 [INFO] Fetched 0 recent posts from @northwesternasg
+2026-03-28 13:20:39,298 [INFO] Instagram @northwesternasg: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:39,298 [INFO] Progress: 30/195 orgs | 8 posts | 0→LLM | 8 filtered | 0 events
+2026-03-28 13:20:44,280 [INFO] Fetched 0 recent posts from @northwestern_awsm
+2026-03-28 13:20:44,282 [INFO] Instagram @northwestern_awsm: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:20:54,168 [INFO] Fetched 0 recent posts from @northwestern_awsm
+2026-03-28 13:20:54,169 [INFO] Instagram @northwestern_awsm: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:24,067 [ERROR] Failed to scrape @asteriknu (Asterik A cappella)
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/instagram_scraper.py", line 407, in scrape_all_orgs
+    result = await scrape_org_instagram(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        handle, org_name, days_back, max_posts,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/instagram_scraper.py", line 297, in scrape_org_instagram
+    posts = await asyncio.to_thread(
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+        fetch_recent_posts, handle, days_back, max_posts,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/instagram_scraper.py", line 269, in fetch_recent_posts
+    posts = _fetch_posts_rest_api(
+        session=session, handle=handle,
+        days_back=days_back, max_posts=max_posts,
+    )
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/instagram_scraper.py", line 197, in _fetch_posts_rest_api
+    resp = session.get(url, headers=headers)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/requests/sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/lib/python3.14/site-packages/requests/adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+2026-03-28 13:23:26,495 [INFO] Fetched 0 recent posts from @northwesternaviation
+2026-03-28 13:23:26,497 [INFO] Instagram @northwesternaviation: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:31,978 [INFO] Fetched 0 recent posts from @ayerscci
+2026-03-28 13:23:31,979 [INFO] Instagram @ayerscci: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:36,996 [INFO] Fetched 0 recent posts from @b.burlesquenu
+2026-03-28 13:23:37,000 [INFO] Instagram @b.burlesquenu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:42,649 [INFO] Fetched 0 recent posts from @nu.badminton
+2026-03-28 13:23:42,651 [INFO] Instagram @nu.badminton: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:48,138 [INFO] Fetched 0 recent posts from @northwesternbaja
+2026-03-28 13:23:48,139 [INFO] Instagram @northwesternbaja: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:53,504 [INFO] Fetched 0 recent posts from @nu.balkan
+2026-03-28 13:23:53,716 [INFO] Instagram @nu.balkan: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:58,753 [INFO] Fetched 0 recent posts from @blast_nu
+2026-03-28 13:23:58,754 [INFO] Instagram @blast_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:23:58,754 [INFO] Progress: 40/195 orgs | 8 posts | 0→LLM | 8 filtered | 0 events
+2026-03-28 13:24:04,043 [INFO] Fetched 1 recent posts from @northwestern_bssa
+2026-03-28 13:24:04,044 [INFO] Instagram @northwestern_bssa: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:24:08,653 [INFO] Fetched 0 recent posts from @belegarthmcs_nu
+2026-03-28 13:24:08,656 [INFO] Instagram @belegarthmcs_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:13,917 [INFO] Fetched 0 recent posts from @bienestar_nu
+2026-03-28 13:24:13,919 [INFO] Instagram @bienestar_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:19,835 [INFO] Fetched 0 recent posts from @billiards.nu
+2026-03-28 13:24:19,836 [INFO] Instagram @billiards.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:26,884 [INFO] Fetched 0 recent posts from @binaryheartatnu
+2026-03-28 13:24:26,886 [INFO] Instagram @binaryheartatnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:32,422 [INFO] Fetched 0 recent posts from @bmes_nu
+2026-03-28 13:24:32,425 [INFO] Instagram @bmes_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:36,951 [INFO] Fetched 0 recent posts from @nu_biotech
+2026-03-28 13:24:36,952 [INFO] Instagram @nu_biotech: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:42,686 [INFO] Fetched 0 recent posts from @nublackformal
+2026-03-28 13:24:42,687 [INFO] Instagram @nublackformal: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:49,101 [INFO] Fetched 1 recent posts from @bgsa_northwestern
+2026-03-28 13:24:49,102 [INFO] Instagram @bgsa_northwestern: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:24:54,197 [INFO] Fetched 0 recent posts from @bmpnorthwestern
+2026-03-28 13:24:54,202 [INFO] Instagram @bmpnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:24:54,202 [INFO] Progress: 50/195 orgs | 10 posts | 0→LLM | 10 filtered | 0 events
+2026-03-28 13:24:59,203 [INFO] Fetched 0 recent posts from @nublackpoetrysociety
+2026-03-28 13:24:59,204 [INFO] Instagram @nublackpoetrysociety: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:04,458 [INFO] Fetched 0 recent posts from @nu.bpla
+2026-03-28 13:25:04,459 [INFO] Instagram @nu.bpla: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:09,719 [INFO] Fetched 0 recent posts from @blackscreens.nu
+2026-03-28 13:25:09,720 [INFO] Instagram @blackscreens.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:14,637 [INFO] Fetched 0 recent posts from @nu.bsa
+2026-03-28 13:25:14,637 [INFO] Instagram @nu.bsa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:19,728 [INFO] Fetched 0 recent posts from @blackboardmagnu
+2026-03-28 13:25:19,729 [INFO] Instagram @blackboardmagnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:24,647 [INFO] Fetched 0 recent posts from @nublockchain
+2026-03-28 13:25:24,653 [INFO] Instagram @nublockchain: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:29,538 [INFO] Fetched 0 recent posts from @blushnorthwestern
+2026-03-28 13:25:29,539 [INFO] Instagram @blushnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:35,136 [INFO] Fetched 1 recent posts from @boomshaka_nu
+2026-03-28 13:25:35,137 [INFO] Instagram @boomshaka_nu: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:25:40,528 [INFO] Fetched 0 recent posts from @brasanu
+2026-03-28 13:25:40,529 [INFO] Instagram @brasanu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:45,976 [INFO] Fetched 0 recent posts from @bridgeclub_nu
+2026-03-28 13:25:45,977 [INFO] Instagram @bridgeclub_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:45,977 [INFO] Progress: 60/195 orgs | 11 posts | 0→LLM | 11 filtered | 0 events
+2026-03-28 13:25:52,084 [INFO] Fetched 0 recent posts from @brownsugarnu
+2026-03-28 13:25:52,085 [INFO] Instagram @brownsugarnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:25:57,623 [INFO] Fetched 4 recent posts from @buffettinstitute
+2026-03-28 13:25:57,624 [INFO] Instagram @buffettinstitute: 4 posts, 0→LLM, 0 filtered, 4 cached, 0 events
+2026-03-28 13:26:02,723 [INFO] Fetched 0 recent posts from @nu_bhc
+2026-03-28 13:26:02,727 [INFO] Instagram @nu_bhc: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:08,048 [INFO] Fetched 0 recent posts from @crushmag.nu
+2026-03-28 13:26:08,051 [INFO] Instagram @crushmag.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:13,462 [INFO] Fetched 0 recent posts from @nucampuseducators
+2026-03-28 13:26:13,463 [INFO] Instagram @nucampuseducators: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:18,843 [INFO] Fetched 0 recent posts from @northwestern_cic
+2026-03-28 13:26:18,844 [INFO] Instagram @northwestern_cic: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:24,257 [INFO] Fetched 0 recent posts from @nucaribnation
+2026-03-28 13:26:24,258 [INFO] Instagram @nucaribnation: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:29,642 [INFO] Fetched 0 recent posts from @nucartography
+2026-03-28 13:26:29,643 [INFO] Instagram @nucartography: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:34,767 [INFO] Fetched 0 recent posts from @catswhocompost
+2026-03-28 13:26:34,769 [INFO] Instagram @catswhocompost: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:40,307 [INFO] Fetched 1 recent posts from @nu_cce
+2026-03-28 13:26:40,309 [INFO] Instagram @nu_cce: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:26:40,309 [INFO] Progress: 70/195 orgs | 16 posts | 0→LLM | 16 filtered | 0 events
+2026-03-28 13:26:45,148 [INFO] Fetched 0 recent posts from @leadershipnu
+2026-03-28 13:26:45,149 [INFO] Instagram @leadershipnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:50,166 [INFO] Fetched 0 recent posts from @nuchallah
+2026-03-28 13:26:50,167 [INFO] Instagram @nuchallah: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:26:55,641 [INFO] Fetched 2 recent posts from @northwesternxa
+2026-03-28 13:26:55,642 [INFO] Instagram @northwesternxa: 2 posts, 0→LLM, 0 filtered, 2 cached, 0 events
+2026-03-28 13:27:00,903 [INFO] Fetched 1 recent posts from @nuchinacare
+2026-03-28 13:27:00,905 [INFO] Instagram @nuchinacare: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:27:05,860 [INFO] Fetched 0 recent posts from @cnss_nu
+2026-03-28 13:27:05,861 [INFO] Instagram @cnss_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:10,964 [INFO] Fetched 0 recent posts from @nuchinatownhealth
+2026-03-28 13:27:10,965 [INFO] Instagram @nuchinatownhealth: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:16,509 [INFO] Fetched 0 recent posts from @northwesterncsa
+2026-03-28 13:27:16,510 [INFO] Instagram @northwesterncsa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:21,727 [INFO] Fetched 0 recent posts from @nu_christiansoncampus
+2026-03-28 13:27:21,765 [INFO] Instagram @nu_christiansoncampus: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:27,057 [INFO] Fetched 0 recent posts from @chronicillnessalliance
+2026-03-28 13:27:27,058 [INFO] Instagram @chronicillnessalliance: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:32,312 [INFO] Fetched 0 recent posts from @nu.clubbaseball
+2026-03-28 13:27:32,313 [INFO] Instagram @nu.clubbaseball: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:32,313 [INFO] Progress: 80/195 orgs | 19 posts | 0→LLM | 19 filtered | 0 events
+2026-03-28 13:27:37,235 [INFO] Fetched 0 recent posts from @northwesternclubfieldhockey
+2026-03-28 13:27:37,237 [INFO] Instagram @northwesternclubfieldhockey: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:42,511 [INFO] Fetched 0 recent posts from @nufigureskating
+2026-03-28 13:27:42,513 [INFO] Instagram @nufigureskating: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:48,327 [INFO] Fetched 0 recent posts from @nuclubgolf
+2026-03-28 13:27:48,328 [INFO] Instagram @nuclubgolf: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:53,459 [INFO] Fetched 0 recent posts from @nuclubsoftball
+2026-03-28 13:27:53,461 [INFO] Instagram @nuclubsoftball: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:27:58,792 [INFO] Fetched 0 recent posts from @nu.clubtennis
+2026-03-28 13:27:58,793 [INFO] Instagram @nu.clubtennis: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:01,961 [WARNING] Instagram profile @nucfh not found
+2026-03-28 13:28:01,962 [INFO] Fetched 0 recent posts from @nucfh
+2026-03-28 13:28:01,964 [INFO] Instagram @nucfh: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:07,301 [INFO] Fetched 0 recent posts from @nucollegedems
+2026-03-28 13:28:07,301 [INFO] Instagram @nucollegedems: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:12,258 [INFO] Fetched 0 recent posts from @nufeminists
+2026-03-28 13:28:12,259 [INFO] Instagram @nufeminists: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:15,382 [WARNING] Failed to fetch profile @northwesterngop: HTTP 404
+2026-03-28 13:28:15,382 [INFO] Fetched 0 recent posts from @northwesterngop
+2026-03-28 13:28:15,383 [INFO] Instagram @northwesterngop: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:20,245 [INFO] Fetched 0 recent posts from @colorstacknu
+2026-03-28 13:28:20,246 [INFO] Instagram @colorstacknu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:20,246 [INFO] Progress: 90/195 orgs | 19 posts | 0→LLM | 19 filtered | 0 events
+2026-03-28 13:28:25,242 [INFO] Fetched 0 recent posts from @communityhealthcorps
+2026-03-28 13:28:25,243 [INFO] Instagram @communityhealthcorps: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:30,507 [INFO] Fetched 0 recent posts from @northwesterncure
+2026-03-28 13:28:30,508 [INFO] Instagram @northwesterncure: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:35,650 [INFO] Fetched 0 recent posts from @clx_nu
+2026-03-28 13:28:35,651 [INFO] Instagram @clx_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:41,257 [INFO] Fetched 0 recent posts from @nu_canoe
+2026-03-28 13:28:41,257 [INFO] Instagram @nu_canoe: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:46,345 [INFO] Fetched 1 recent posts from @northwesterncase
+2026-03-28 13:28:46,346 [INFO] Instagram @northwesterncase: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:28:51,466 [INFO] Fetched 0 recent posts from @cosmiaoperaco
+2026-03-28 13:28:51,467 [INFO] Instagram @cosmiaoperaco: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:28:56,966 [INFO] Fetched 0 recent posts from @northwestern.c4c
+2026-03-28 13:28:56,967 [INFO] Instagram @northwestern.c4c: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:02,090 [INFO] Fetched 0 recent posts from @nucrosswordteam
+2026-03-28 13:29:02,091 [INFO] Instagram @nucrosswordteam: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:07,626 [INFO] Fetched 0 recent posts from @cruatnu
+2026-03-28 13:29:07,627 [INFO] Instagram @cruatnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:12,730 [INFO] Fetched 1 recent posts from @casa_northwestern
+2026-03-28 13:29:12,731 [INFO] Instagram @casa_northwestern: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:29:12,732 [INFO] Progress: 100/195 orgs | 21 posts | 0→LLM | 21 filtered | 0 events
+2026-03-28 13:29:17,821 [INFO] Fetched 0 recent posts from @daleduro_nu
+2026-03-28 13:29:17,822 [INFO] Instagram @daleduro_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:23,101 [INFO] Fetched 0 recent posts from @djc.nu
+2026-03-28 13:29:23,103 [INFO] Instagram @djc.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:28,276 [INFO] Fetched 0 recent posts from @dsac.nu
+2026-03-28 13:29:28,282 [INFO] Instagram @dsac.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:33,780 [INFO] Fetched 1 recent posts from @northwesterndeeva
+2026-03-28 13:29:33,781 [INFO] Instagram @northwesterndeeva: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:29:38,826 [INFO] Fetched 0 recent posts from @dsp_nu
+2026-03-28 13:29:38,831 [INFO] Instagram @dsp_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:44,452 [INFO] Fetched 1 recent posts from @thetaalpha_dst
+2026-03-28 13:29:44,455 [INFO] Instagram @thetaalpha_dst: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:29:48,975 [INFO] Fetched 0 recent posts from @dfa.northwestern
+2026-03-28 13:29:48,976 [INFO] Instagram @dfa.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:54,646 [INFO] Fetched 0 recent posts from @destinonu
+2026-03-28 13:29:54,647 [INFO] Instagram @destinonu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:29:59,667 [INFO] Fetched 0 recent posts from @disc_nu
+2026-03-28 13:29:59,668 [INFO] Instagram @disc_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:02,797 [WARNING] Failed to fetch profile @northwestern_isa: HTTP 404
+2026-03-28 13:30:02,797 [INFO] Fetched 0 recent posts from @northwestern_isa
+2026-03-28 13:30:02,799 [INFO] Instagram @northwestern_isa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:02,799 [INFO] Progress: 110/195 orgs | 23 posts | 0→LLM | 23 filtered | 0 events
+2026-03-28 13:30:07,489 [INFO] Fetched 0 recent posts from @epicatnu
+2026-03-28 13:30:07,490 [INFO] Instagram @epicatnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:12,348 [INFO] Fetched 0 recent posts from @nu_effectivealtruism
+2026-03-28 13:30:12,350 [INFO] Instagram @nu_effectivealtruism: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:17,590 [INFO] Fetched 0 recent posts from @eighthday_theatre
+2026-03-28 13:30:17,591 [INFO] Instagram @eighthday_theatre: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:22,977 [INFO] Fetched 0 recent posts from @nu.emergingcoders
+2026-03-28 13:30:22,978 [INFO] Instagram @nu.emergingcoders: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:27,912 [INFO] Fetched 0 recent posts from @ewbnu
+2026-03-28 13:30:27,914 [INFO] Instagram @ewbnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:33,097 [INFO] Fetched 0 recent posts from @eswnu
+2026-03-28 13:30:33,098 [INFO] Instagram @eswnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:38,450 [INFO] Fetched 0 recent posts from @enveus_nu
+2026-03-28 13:30:38,451 [INFO] Instagram @enveus_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:43,661 [INFO] Fetched 0 recent posts from @northwesternesports
+2026-03-28 13:30:43,662 [INFO] Instagram @NorthwesternEsports: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:48,567 [INFO] Fetched 0 recent posts from @nuethicsbowl
+2026-03-28 13:30:48,568 [INFO] Instagram @nuethicsbowl: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:53,984 [INFO] Fetched 0 recent posts from @nu.eesa
+2026-03-28 13:30:53,985 [INFO] Instagram @nu.eesa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:30:53,985 [INFO] Progress: 120/195 orgs | 23 posts | 0→LLM | 23 filtered | 0 events
+2026-03-28 13:31:00,003 [INFO] Fetched 0 recent posts from @extreme_measures
+2026-03-28 13:31:00,004 [INFO] Instagram @extreme_measures: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:05,558 [INFO] Fetched 0 recent posts from @faith.hope.love.fellowship
+2026-03-28 13:31:05,559 [INFO] Instagram @faith.hope.love.fellowship: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:10,365 [INFO] Fetched 0 recent posts from @nuclubfencing
+2026-03-28 13:31:10,368 [INFO] Instagram @nuclubfencing: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:15,826 [INFO] Fetched 0 recent posts from @northwesternhillel
+2026-03-28 13:31:15,827 [INFO] Instagram @northwesternhillel: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:21,051 [INFO] Fetched 0 recent posts from @nufintech
+2026-03-28 13:31:21,052 [INFO] Instagram @nufintech: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:26,657 [INFO] Fetched 0 recent posts from @fmo_nu
+2026-03-28 13:31:26,658 [INFO] Instagram @fmo_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:32,946 [INFO] Fetched 0 recent posts from @nuffmarketing
+2026-03-28 13:31:32,947 [INFO] Instagram @nuffmarketing: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:38,341 [INFO] Fetched 0 recent posts from @freshman15_acappella
+2026-03-28 13:31:38,342 [INFO] Instagram @freshman15_acappella: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:43,500 [INFO] Fetched 0 recent posts from @thenufreshmanmusical
+2026-03-28 13:31:43,501 [INFO] Instagram @thenufreshmanmusical: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:48,272 [INFO] Fetched 0 recent posts from @fomsf_nu
+2026-03-28 13:31:48,275 [INFO] Instagram @fomsf_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:31:48,275 [INFO] Progress: 130/195 orgs | 23 posts | 0→LLM | 23 filtered | 0 events
+2026-03-28 13:31:53,894 [INFO] Fetched 1 recent posts from @fusiondanceco_nu
+2026-03-28 13:31:53,896 [INFO] Instagram @fusiondanceco_nu: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:31:59,242 [INFO] Fetched 0 recent posts from @ghfoundation.oncampus
+2026-03-28 13:31:59,272 [INFO] Instagram @ghfoundation.oncampus: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:04,320 [INFO] Fetched 0 recent posts from @gcc.nu
+2026-03-28 13:32:04,325 [INFO] Instagram @gcc.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:09,191 [INFO] Fetched 0 recent posts from @girlgains_nu
+2026-03-28 13:32:09,194 [INFO] Instagram @girlgains_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:14,401 [INFO] Fetched 0 recent posts from @thegesnu
+2026-03-28 13:32:14,402 [INFO] Instagram @thegesnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:19,547 [INFO] Fetched 1 recent posts from @nugmma
+2026-03-28 13:32:19,551 [INFO] Instagram @nugmma: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:32:24,675 [INFO] Fetched 0 recent posts from @grckellogg
+2026-03-28 13:32:24,677 [INFO] Instagram @grckellogg: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:30,842 [INFO] Fetched 0 recent posts from @globemednu
+2026-03-28 13:32:30,843 [INFO] Instagram @globemednu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:36,946 [INFO] Fetched 0 recent posts from @graffiti.dancers
+2026-03-28 13:32:36,948 [INFO] Instagram @graffiti.dancers: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:42,953 [INFO] Fetched 0 recent posts from @gala.northwestern
+2026-03-28 13:32:42,953 [INFO] Instagram @gala.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:42,953 [INFO] Progress: 140/195 orgs | 25 posts | 0→LLM | 25 filtered | 0 events
+2026-03-28 13:32:48,028 [INFO] Fetched 0 recent posts from @griffinstagrm
+2026-03-28 13:32:48,029 [INFO] Instagram @griffinstagrm: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:53,471 [INFO] Fetched 0 recent posts from @cupnorthwestern
+2026-03-28 13:32:53,473 [INFO] Instagram @cupnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:32:58,345 [INFO] Fetched 0 recent posts from @happinessclubnu
+2026-03-28 13:32:58,347 [INFO] Instagram @happinessclubnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:03,517 [INFO] Fetched 0 recent posts from @nu.hi.club
+2026-03-28 13:33:03,519 [INFO] Instagram @nu.hi.club: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:08,946 [INFO] Fetched 0 recent posts from @nuhelicon
+2026-03-28 13:33:08,947 [INFO] Instagram @nuhelicon: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:14,034 [INFO] Fetched 0 recent posts from @hercampus_nu
+2026-03-28 13:33:14,036 [INFO] Instagram @hercampus_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:18,991 [INFO] Fetched 0 recent posts from @hinduyuva.nu
+2026-03-28 13:33:18,992 [INFO] Instagram @hinduyuva.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:24,249 [INFO] Fetched 0 recent posts from @nu_hksa
+2026-03-28 13:33:24,250 [INFO] Instagram @nu_hksa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:30,055 [INFO] Fetched 0 recent posts from @hpcc_northwestern
+2026-03-28 13:33:30,059 [INFO] Instagram @hpcc_northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:35,073 [INFO] Fetched 0 recent posts from @ifyourereadingthisnu
+2026-03-28 13:33:35,075 [INFO] Instagram @ifyourereadingthisnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:35,075 [INFO] Progress: 150/195 orgs | 25 posts | 0→LLM | 25 filtered | 0 events
+2026-03-28 13:33:40,538 [INFO] Fetched 0 recent posts from @nu.ignite
+2026-03-28 13:33:40,539 [INFO] Instagram @nu.ignite: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:45,357 [INFO] Fetched 0 recent posts from @iac.nu
+2026-03-28 13:33:45,360 [INFO] Instagram @iac.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:50,139 [INFO] Fetched 0 recent posts from @inournaturemag
+2026-03-28 13:33:50,151 [INFO] Instagram @inournaturemag: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:33:55,684 [INFO] Fetched 0 recent posts from @idsa.nu
+2026-03-28 13:33:55,686 [INFO] Instagram @idsa.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:00,823 [INFO] Fetched 0 recent posts from @nuisbe
+2026-03-28 13:34:00,825 [INFO] Instagram @nuisbe: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:06,883 [INFO] Fetched 0 recent posts from @nu.iise
+2026-03-28 13:34:06,885 [INFO] Instagram @nu.iise: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:12,324 [INFO] Fetched 5 recent posts from @nu.ifc
+2026-03-28 13:34:12,326 [INFO] Instagram @nu.ifc: 5 posts, 0→LLM, 0 filtered, 5 cached, 0 events
+2026-03-28 13:34:17,501 [INFO] Fetched 0 recent posts from @isanorthwestern
+2026-03-28 13:34:17,501 [INFO] Instagram @isanorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:22,451 [INFO] Fetched 0 recent posts from @isrcnorthwestern
+2026-03-28 13:34:22,452 [INFO] Instagram @isrcnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:25,550 [WARNING] Failed to fetch profile @nuiss2023: HTTP 404
+2026-03-28 13:34:25,550 [INFO] Fetched 0 recent posts from @nuiss2023
+2026-03-28 13:34:25,551 [INFO] Instagram @nuiss2023: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:25,551 [INFO] Progress: 160/195 orgs | 30 posts | 0→LLM | 30 filtered | 0 events
+2026-03-28 13:34:30,267 [INFO] Fetched 0 recent posts from @northwestern.imc
+2026-03-28 13:34:30,268 [INFO] Instagram @northwestern.imc: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:34,986 [INFO] Fetched 0 recent posts from @northwesternimg
+2026-03-28 13:34:34,989 [INFO] Instagram @northwesternimg: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:39,825 [INFO] Fetched 0 recent posts from @ita_northwestern
+2026-03-28 13:34:39,826 [INFO] Instagram @ita_northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:44,783 [INFO] Fetched 0 recent posts from @jstreetu.northwestern
+2026-03-28 13:34:44,785 [INFO] Instagram @jstreetu.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:49,731 [INFO] Fetched 0 recent posts from @japanclub.nu
+2026-03-28 13:34:49,733 [INFO] Instagram @japanclub.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:34:54,734 [INFO] Fetched 0 recent posts from @jasa_nu
+2026-03-28 13:34:54,735 [INFO] Instagram @jasa_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:00,363 [INFO] Fetched 0 recent posts from @nujazzclub
+2026-03-28 13:35:00,364 [INFO] Instagram @nujazzclub: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:05,377 [INFO] Fetched 0 recent posts from @jewishtheatreensemble
+2026-03-28 13:35:05,378 [INFO] Instagram @jewishtheatreensemble: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:10,857 [INFO] Fetched 0 recent posts from @jvpnu
+2026-03-28 13:35:10,858 [INFO] Instagram @jvpnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:15,733 [INFO] Fetched 0 recent posts from @journalingclubnu
+2026-03-28 13:35:15,734 [INFO] Instagram @journalingclubnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:15,734 [INFO] Progress: 170/195 orgs | 30 posts | 0→LLM | 30 filtered | 0 events
+2026-03-28 13:35:20,947 [INFO] Fetched 0 recent posts from @nujournalistsinlaw
+2026-03-28 13:35:20,948 [INFO] Instagram @nujournalistsinlaw: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:25,946 [INFO] Fetched 0 recent posts from @nu.kdance
+2026-03-28 13:35:25,947 [INFO] Instagram @nu.kdance: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:31,031 [INFO] Fetched 0 recent posts from @kadima_nu
+2026-03-28 13:35:31,031 [INFO] Instagram @kadima_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:34,252 [WARNING] Failed to fetch profile @nu_kappas: HTTP 404
+2026-03-28 13:35:34,252 [INFO] Fetched 0 recent posts from @nu_kappas
+2026-03-28 13:35:34,254 [INFO] Instagram @nu_kappas: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:39,277 [INFO] Fetched 0 recent posts from @kesem.northwestern
+2026-03-28 13:35:39,279 [INFO] Instagram @kesem.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:45,415 [INFO] Fetched 0 recent posts from @khaleeji.nu
+2026-03-28 13:35:45,416 [INFO] Instagram @khaleeji.nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:50,418 [INFO] Fetched 0 recent posts from @northwesternkasa
+2026-03-28 13:35:50,418 [INFO] Instagram @northwesternkasa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:53,508 [WARNING] Instagram profile @lcnorthwestern not found
+2026-03-28 13:35:53,508 [INFO] Fetched 0 recent posts from @lcnorthwestern
+2026-03-28 13:35:53,509 [INFO] Instagram @lcnorthwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:35:59,254 [INFO] Fetched 0 recent posts from @northwesternlxa
+2026-03-28 13:35:59,255 [INFO] Instagram @northwesternlxa: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:04,674 [INFO] Fetched 0 recent posts from @lambdastrategy
+2026-03-28 13:36:04,675 [INFO] Instagram @lambdastrategy: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:04,675 [INFO] Progress: 180/195 orgs | 30 posts | 0→LLM | 30 filtered | 0 events
+2026-03-28 13:36:10,021 [INFO] Fetched 0 recent posts from @nu.lme
+2026-03-28 13:36:10,022 [INFO] Instagram @nu.lme: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:15,789 [INFO] Fetched 0 recent posts from @nulinknu
+2026-03-28 13:36:15,790 [INFO] Instagram @nulinknu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:20,871 [INFO] Fetched 0 recent posts from @lipstick.burlesque
+2026-03-28 13:36:20,872 [INFO] Instagram @lipstick.burlesque: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:25,860 [INFO] Fetched 0 recent posts from @lumitutors
+2026-03-28 13:36:25,861 [INFO] Instagram @lumitutors: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:31,074 [INFO] Fetched 0 recent posts from @nu_lutheran
+2026-03-28 13:36:31,076 [INFO] Instagram @nu_lutheran: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:36,131 [INFO] Fetched 0 recent posts from @medlifenu
+2026-03-28 13:36:36,131 [INFO] Instagram @medlifenu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:40,929 [INFO] Fetched 0 recent posts from @mixednu
+2026-03-28 13:36:40,930 [INFO] Instagram @mixednu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:46,509 [INFO] Fetched 1 recent posts from @mariachinu
+2026-03-28 13:36:46,509 [INFO] Instagram @mariachinu: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:36:51,537 [INFO] Fetched 0 recent posts from @numatriculate
+2026-03-28 13:36:51,538 [INFO] Instagram @numatriculate: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:57,025 [INFO] Fetched 0 recent posts from @numechkeebs
+2026-03-28 13:36:57,026 [INFO] Instagram @numechkeebs: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:36:57,026 [INFO] Progress: 190/195 orgs | 31 posts | 0→LLM | 31 filtered | 0 events
+2026-03-28 13:37:02,308 [INFO] Fetched 0 recent posts from @northwestern_gymnastics
+2026-03-28 13:37:02,313 [INFO] Instagram @northwestern_gymnastics: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:37:08,373 [INFO] Fetched 0 recent posts from @spoon_nu
+2026-03-28 13:37:08,373 [INFO] Instagram @spoon_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:37:13,184 [INFO] Fetched 0 recent posts from @nuflipside
+2026-03-28 13:37:13,185 [INFO] Instagram @nuflipside: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:37:18,431 [INFO] Fetched 0 recent posts from @nuclubsoccer
+2026-03-28 13:37:18,433 [INFO] Instagram @nuclubsoccer: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:37:23,843 [INFO] Fetched 0 recent posts from @xfactorsnu
+2026-03-28 13:37:23,843 [INFO] Instagram @xfactorsnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:37:26,845 [INFO] Instagram: 194 orgs, 31 posts, 0→LLM, 31 filtered, 0 events
+2026-03-28 13:37:26,856 [INFO] Cleaned 54 past events (28 general + 26 PlanIt Purple)
+2026-03-28 13:37:26,858 [INFO] ============================================================
+2026-03-28 13:37:26,859 [INFO] DONE — DB: 83 total events, 66 future
+2026-03-28 13:37:26,859 [INFO] ============================================================

@@ -1,8 +1,12 @@
-"""Full PlanIt Purple scraper — fetches ALL events for the next 60 days.
+#!/usr/bin/env python3
+"""Full PlanIt Purple scraper using JSON-LD from event detail pages.
 
-Uses the list view with date range params to get complete event data.
-Parses event cards from the HTML and fetches detail pages for descriptions.
-No LLM needed — events are structured.
+Strategy:
+1. Crawl the list view (all pages) to collect event IDs
+2. Fetch each event's detail page which has schema.org/Event JSON-LD
+3. Parse structured data directly — no regex guessing needed
+
+No LLM needed. ~5-10 min for 60 days of events.
 
 Usage:
     python scripts/scrape_planitpurple_full.py [--days 60] [--dry-run]
@@ -10,6 +14,7 @@ Usage:
 
 import argparse
 import asyncio
+import json
 import re
 import sys
 import os
@@ -28,258 +33,212 @@ from src.services.event_service import create_event
 BASE_URL = "https://planitpurple.northwestern.edu"
 
 CATEGORY_MAP = {
-    "Arts/Humanities": EventCategory.ARTS,
-    "Academic (general)": EventCategory.ACADEMIC,
-    "Fitness/Sports": EventCategory.SPORTS,
-    "Community Engagement": EventCategory.SOCIAL,
-    "Social": EventCategory.SOCIAL,
-    "Career": EventCategory.CAREER,
-}
-
-MONTH_MAP = {
-    "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
-    "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
+    "arts/humanities": EventCategory.ARTS,
+    "academic (general)": EventCategory.ACADEMIC,
+    "fitness/sports": EventCategory.SPORTS,
+    "community engagement": EventCategory.SOCIAL,
+    "social": EventCategory.SOCIAL,
+    "career": EventCategory.CAREER,
 }
 
 
-def parse_date_from_card(card) -> datetime | None:
-    """Parse date from a PlanIt Purple event card."""
-    # Find the date block: "Mar\n28\n2026"
-    date_parts = card.find_all(string=re.compile(r'^\d{1,2}$'))
-    month_parts = card.find_all(string=re.compile(r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$'))
-    year_parts = card.find_all(string=re.compile(r'^20\d{2}$'))
+async def collect_event_ids(client: httpx.AsyncClient, days: int) -> set[str]:
+    """Collect event IDs from multiple NU event pages.
 
-    if not month_parts or not date_parts or not year_parts:
-        return None
+    PlanIt Purple uses client-side JS pagination, so we can't paginate
+    the main list. Instead we collect IDs from multiple sources:
+    1. Main PlanIt Purple page (~36 events)
+    2. Weinberg College events page (~200 events, server-rendered)
+    3. Any other school pages that link to PlanIt Purple
+    """
+    all_ids = set()
 
+    sources = [
+        ("PlanIt Purple", f"{BASE_URL}"),
+        ("Weinberg", "https://weinberg.northwestern.edu/about/events/"),
+    ]
+
+    for name, url in sources:
+        try:
+            resp = await client.get(url)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            for link in soup.find_all("a", href=re.compile(r"(?:planitpurple\.northwestern\.edu)?/event/\d+")):
+                eid = re.search(r"/event/(\d+)", link["href"])
+                if eid:
+                    all_ids.add(eid.group(1))
+
+            print(f"  {name}: {len(all_ids)} total IDs", flush=True)
+        except Exception as e:
+            print(f"  {name}: error — {e}", flush=True)
+
+    return all_ids
+
+
+async def fetch_event_jsonld(client: httpx.AsyncClient, eid: str) -> EventCreate | None:
+    """Fetch an event detail page and extract JSON-LD structured data."""
     try:
-        month = MONTH_MAP[month_parts[0].strip()]
-        day = int(date_parts[0].strip())
-        year = int(year_parts[0].strip())
-        return datetime(year, month, day)
-    except (ValueError, KeyError):
-        return None
-
-
-def parse_time_range(text: str) -> tuple[str | None, str | None]:
-    """Parse time range like '9:00 AM - 4:00 PM' or '12:30 PM'."""
-    time_re = re.compile(r'(\d{1,2}:\d{2}\s*[AP]M)', re.IGNORECASE)
-    matches = time_re.findall(text)
-    if len(matches) >= 2:
-        return matches[0].strip(), matches[1].strip()
-    elif len(matches) == 1:
-        return matches[0].strip(), None
-    return None, None
-
-
-def time_str_to_time(s: str) -> tuple[int, int]:
-    """Parse '9:00 AM' to (9, 0)."""
-    match = re.match(r'(\d{1,2}):(\d{2})\s*(AM|PM)', s, re.IGNORECASE)
-    if not match:
-        return 0, 0
-    h, m, ampm = int(match.group(1)), int(match.group(2)), match.group(3).upper()
-    if ampm == "PM" and h != 12:
-        h += 12
-    elif ampm == "AM" and h == 12:
-        h = 0
-    return h, m
-
-
-async def fetch_event_detail(client: httpx.AsyncClient, event_url: str) -> dict:
-    """Fetch an event detail page for description and extra info."""
-    try:
-        resp = await client.get(event_url)
-        resp.raise_for_status()
+        resp = await client.get(f"{BASE_URL}/event/{eid}")
+        if resp.status_code != 200:
+            return None
+        
         soup = BeautifulSoup(resp.text, "html.parser")
-
-        # Get description from the main content area
-        # PlanIt Purple detail pages have the description after the metadata
-        desc_parts = []
-        for p in soup.find_all("p"):
-            text = p.get_text(strip=True)
-            if text and len(text) > 20 and not text.startswith("Cost:"):
-                desc_parts.append(text)
-
-        description = " ".join(desc_parts[:3])[:500] if desc_parts else None
-
-        # Check for registration/RSVP links
+        
+        # Extract JSON-LD
+        script = soup.find("script", type="application/ld+json")
+        if not script or not script.string:
+            return None
+        
+        data = json.loads(script.string)
+        if data.get("@type") != "Event":
+            return None
+        
+        # Parse fields
+        title = data.get("name", "").strip()
+        if not title:
+            return None
+        
+        # Dates
+        start_str = data.get("startDate", "")
+        end_str = data.get("endDate", "")
+        
+        try:
+            # Strip timezone offset for naive datetime comparison
+            # "2026-04-01T09:00:00-05:00" -> "2026-04-01T09:00:00"
+            clean_start = re.sub(r'[+-]\d{2}:\d{2}$', '', start_str).replace('Z', '')
+            start_dt = datetime.fromisoformat(clean_start)
+        except (ValueError, AttributeError):
+            return None
+        
+        end_dt = None
+        if end_str:
+            try:
+                clean_end = re.sub(r'[+-]\d{2}:\d{2}$', '', end_str).replace('Z', '')
+                end_dt = datetime.fromisoformat(clean_end)
+            except (ValueError, AttributeError):
+                pass
+        
+        # Skip past events
+        if start_dt < datetime.now():
+            return None
+        
+        # Location
+        location = None
+        loc_data = data.get("location", {})
+        if isinstance(loc_data, dict):
+            location = loc_data.get("name", "")
+            addr = loc_data.get("address", {})
+            if isinstance(addr, dict):
+                street = addr.get("streetAddress", "")
+                if street and location:
+                    location = f"{location}, {street}"
+                elif street:
+                    location = street
+        elif isinstance(loc_data, str):
+            location = loc_data
+        
+        # Description
+        description = data.get("description", "")
+        if description:
+            # Clean HTML
+            description = re.sub(r"<[^>]+>", " ", description).strip()[:500]
+        
+        # Category from page
+        category = EventCategory.OTHER
+        cat_btn = soup.find("a", class_="category-button")
+        if cat_btn:
+            cat_text = cat_btn.get_text(strip=True).lower()
+            category = CATEGORY_MAP.get(cat_text, EventCategory.OTHER)
+        
+        # RSVP URL
         rsvp_url = None
         for a in soup.find_all("a", href=True):
             text = a.get_text(strip=True).lower()
-            if any(w in text for w in ["register", "rsvp", "sign up", "tickets"]):
-                rsvp_url = a["href"]
-                break
-
-        # Check for free
+            if text in ("register", "rsvp", "sign up", "tickets"):
+                href = a["href"]
+                if href.startswith("http"):
+                    rsvp_url = href
+                    break
+        
+        # Free food
         page_text = soup.get_text().lower()
-        has_free_food = bool(re.search(r'free\s+(?:food|pizza|lunch|snacks|refreshments)', page_text))
-        is_free = "cost: free" in page_text
-
-        return {
-            "description": description,
-            "rsvp_url": rsvp_url,
-            "has_free_food": has_free_food,
-            "is_free": is_free,
-        }
+        has_free_food = bool(re.search(r"free\s+(?:food|pizza|lunch|snacks|refreshments)", page_text))
+        
+        event_url = f"{BASE_URL}/event/{eid}"
+        
+        return EventCreate(
+            title=title,
+            description=description or None,
+            start_time=start_dt,
+            end_time=end_dt,
+            location=location or None,
+            source_url=event_url,
+            source_name="PlanIt Purple",
+            category=category,
+            rsvp_url=rsvp_url,
+            has_free_food=has_free_food,
+        )
+    
+    except json.JSONDecodeError:
+        return None
     except Exception:
-        return {}
+        return None
 
 
-async def scrape_planitpurple(days: int = 60, fetch_details: bool = True) -> list[EventCreate]:
-    """Scrape all events from PlanIt Purple for the next N days."""
-    start = datetime.now().strftime("%Y-%m-%d")
-    end = (datetime.now() + timedelta(days=days)).strftime("%Y-%m-%d")
-
-    events = []
-    page = 1
-    max_pages = 20
-
+async def scrape_planitpurple(days: int = 60) -> list[EventCreate]:
+    """Scrape all future events from PlanIt Purple using JSON-LD."""
+    
     async with httpx.AsyncClient(
         timeout=30.0,
         headers={"User-Agent": "NU-Events-Aggregator/0.1"},
         follow_redirects=True,
+        limits=httpx.Limits(max_connections=10),
     ) as client:
-        while page <= max_pages:
-            url = f"{BASE_URL}?start={start}&end={end}&page={page}"
-            print(f"  Fetching page {page}: {url}", flush=True)
-
-            try:
-                resp = await client.get(url)
-                resp.raise_for_status()
-            except Exception as e:
-                print(f"  Error fetching page {page}: {e}", flush=True)
-                break
-
-            soup = BeautifulSoup(resp.text, "html.parser")
-
-            # Find all event links
-            event_links = soup.find_all("a", href=re.compile(r'^/event/\d+'))
-            if not event_links:
-                break
-
-            seen_this_page = set()
-            for link in event_links:
-                href = link.get("href", "")
-                event_id = re.search(r'/event/(\d+)', href)
-                if not event_id:
-                    continue
-                eid = event_id.group(1)
-                if eid in seen_this_page:
-                    continue
-                seen_this_page.add(eid)
-
-                title = link.get_text(strip=True)
-                if not title:
-                    continue
-
-                # Find the parent card to get date/time/location
-                card = link.find_parent()
-                if card is None:
-                    continue
-                # Go up a few levels to get the full card
-                for _ in range(5):
-                    parent = card.find_parent()
-                    if parent and parent.find(string=re.compile(r'^20\d{2}$')):
-                        card = parent
-                        break
-                    elif parent:
-                        card = parent
-
-                card_text = card.get_text(" ", strip=True)
-
-                # Parse date
-                date_match = re.search(
-                    r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})\s+(\d{4})',
-                    card_text
-                )
-                if not date_match:
-                    continue
-
-                month = MONTH_MAP.get(date_match.group(1))
-                day = int(date_match.group(2))
-                year = int(date_match.group(3))
-                if not month:
-                    continue
-
-                event_date = datetime(year, month, day)
-
-                # Skip past events
-                if event_date.date() < datetime.now().date():
-                    continue
-
-                # Parse time
-                start_time_str, end_time_str = parse_time_range(card_text)
-
-                if start_time_str:
-                    h, m = time_str_to_time(start_time_str)
-                    start_dt = event_date.replace(hour=h, minute=m)
-                else:
-                    start_dt = event_date
-
-                end_dt = None
-                if end_time_str:
-                    h, m = time_str_to_time(end_time_str)
-                    end_dt = event_date.replace(hour=h, minute=m)
-
-                # Parse location (after the time, usually the rest of the line)
-                location = None
-                loc_match = re.search(
-                    r'(?:AM|PM)\s+(.+?)(?:\s*$)',
-                    card_text,
-                    re.IGNORECASE
-                )
-                if loc_match:
-                    loc = loc_match.group(1).strip()
-                    # Clean up — remove trailing date fragments
-                    loc = re.sub(r'\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d+\s+\d{4}.*', '', loc)
-                    if loc and len(loc) > 3:
-                        location = loc
-
-                event_url = f"{BASE_URL}{href}"
-
-                # Fetch detail page for description
-                detail = {}
-                if fetch_details:
-                    detail = await fetch_event_detail(client, event_url)
-                    await asyncio.sleep(0.3)  # Be nice
-
-                events.append(EventCreate(
-                    title=title,
-                    description=detail.get("description"),
-                    start_time=start_dt,
-                    end_time=end_dt,
-                    location=location,
-                    source_url=event_url,
-                    source_name="PlanIt Purple",
-                    category=EventCategory.OTHER,
-                    rsvp_url=detail.get("rsvp_url"),
-                    has_free_food=detail.get("has_free_food", False),
-                ))
-
-            # Check for next page
-            next_link = soup.find("a", string=re.compile(r'Next'))
-            if not next_link:
-                break
-            page += 1
-
+        # Step 1: Collect event IDs
+        print("Step 1: Collecting event IDs...", flush=True)
+        event_ids = await collect_event_ids(client, days)
+        print(f"  Found {len(event_ids)} potential event IDs", flush=True)
+        
+        # Step 2: Fetch JSON-LD from each detail page (concurrent)
+        print(f"Step 2: Fetching event details...", flush=True)
+        
+        events = []
+        ids_list = sorted(event_ids, key=int)
+        batch_size = 10
+        
+        for i in range(0, len(ids_list), batch_size):
+            batch = ids_list[i:i + batch_size]
+            tasks = [fetch_event_jsonld(client, eid) for eid in batch]
+            results = await asyncio.gather(*tasks)
+            
+            for event in results:
+                if event is not None:
+                    events.append(event)
+            
+            if (i // batch_size) % 10 == 0:
+                print(f"  Processed {i + len(batch)}/{len(ids_list)}, found {len(events)} future events", flush=True)
+            
+            await asyncio.sleep(0.2)  # Be nice
+    
     return events
 
 
 async def main(days: int, dry_run: bool):
     print(f"Scraping PlanIt Purple for next {days} days...", flush=True)
-    events = await scrape_planitpurple(days=days, fetch_details=True)
-
+    events = await scrape_planitpurple(days=days)
+    
     print(f"\nFound {len(events)} future events", flush=True)
-
+    
     if dry_run:
-        for e in events[:20]:
-            print(f"  {e.start_time.strftime('%m/%d %H:%M')} | {e.title[:60]} | {e.location or '?'}")
-        if len(events) > 20:
-            print(f"  ... and {len(events) - 20} more")
-        print("\n(dry run — nothing saved)")
+        for e in events[:25]:
+            loc = (e.location or "?")[:35]
+            print(f"  {e.start_time.strftime('%m/%d %H:%M')} | {e.title[:45]:<45} | {loc}")
+        if len(events) > 25:
+            print(f"  ... and {len(events) - 25} more")
+        print(f"\n(dry run — nothing saved)")
         return
-
-    # Save to DB
+    
     created = 0
     async with async_session_factory() as db:
         for e in events:
@@ -287,7 +246,7 @@ async def main(days: int, dry_run: bool):
             if result.title == e.title:
                 created += 1
         await db.commit()
-
+    
     print(f"Created {created} new events (deduped {len(events) - created})")
 
 
