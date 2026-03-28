@@ -1,4 +1,4 @@
-# 🟣 NU Events — Northwestern Campus Event Aggregator
+# NU Events — Northwestern Campus Event Aggregator
 
 A unified platform that aggregates events from across Northwestern University's campus — scraping PlanIt Purple, ingesting LISTSERV emails, and displaying everything in one searchable, filterable website.
 
