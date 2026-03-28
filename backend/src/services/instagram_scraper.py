@@ -123,8 +123,19 @@ def fetch_recent_posts(
         logger.warning("Instagram profile @%s does not exist", handle)
         return []
     except instaloader.exceptions.ConnectionException as exc:
-        logger.error("Instagram connection error for @%s: %s", handle, exc)
-        return []
+        error_msg = str(exc).lower()
+        if "wait" in error_msg or "401" in error_msg or "429" in error_msg:
+            logger.warning("Instagram rate-limited for @%s, backing off", handle)
+            import time
+            time.sleep(60)  # Back off for 60 seconds on rate limit
+            try:
+                profile = instaloader.Profile.from_username(L.context, handle)
+            except Exception:
+                logger.error("Still rate-limited for @%s, skipping", handle)
+                return []
+        else:
+            logger.error("Instagram connection error for @%s: %s", handle, exc)
+            return []
 
     posts = []
     try:
