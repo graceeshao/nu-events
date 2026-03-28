@@ -183,6 +183,9 @@ def _fetch_posts_rest_api(
     if not user_id:
         return []
 
+    # Check latest post timestamp — if older than 1 year, account is inactive
+    # This is checked in scrape_org_instagram which marks the org accordingly
+
     # Fetch posts via user feed endpoint
     posts = []
     end_cursor = None
@@ -274,6 +277,60 @@ def fetch_recent_posts(
     return posts
 
 
+def _check_account_activity(handle: str) -> datetime | None:
+    """Check when an Instagram account last posted.
+
+    Uses the REST API to fetch the most recent post timestamp.
+
+    Args:
+        handle: Instagram username.
+
+    Returns:
+        Datetime of the most recent post, or None if no posts / error.
+    """
+    import time as _time
+
+    session = _get_browser_session()
+    headers = {"x-ig-app-id": "936619743392459"}
+
+    try:
+        resp = session.get(
+            f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
+            headers=headers,
+        )
+        if resp.status_code != 200:
+            return None
+
+        user_data = resp.json().get("data", {}).get("user")
+        if not user_data:
+            return None
+
+        user_id = user_data.get("id")
+        if not user_id:
+            return None
+
+        # Fetch just 1 post to check latest activity
+        resp = session.get(
+            f"https://www.instagram.com/api/v1/feed/user/{user_id}/?count=1",
+            headers=headers,
+        )
+        if resp.status_code != 200:
+            return None
+
+        items = resp.json().get("items", [])
+        if not items:
+            return None
+
+        taken_at = items[0].get("taken_at", 0)
+        if taken_at:
+            return datetime.fromtimestamp(taken_at, tz=timezone.utc)
+
+    except Exception:
+        pass
+
+    return None
+
+
 async def scrape_org_instagram(
     handle: str,
     org_name: str,
@@ -282,8 +339,9 @@ async def scrape_org_instagram(
 ) -> dict[str, int]:
     """Scrape an org's Instagram and ingest events.
 
-    Fetches recent posts, classifies them via LLM, and creates events
-    for any that describe attendable events.
+    Skips orgs marked as inactive (no posts in 1+ year).
+    Automatically marks orgs as inactive if their latest post
+    is older than 365 days.
 
     Args:
         handle: Instagram username.
@@ -294,9 +352,56 @@ async def scrape_org_instagram(
     Returns:
         Summary dict with posts_checked and events_created.
     """
+    # Check if org is marked inactive in DB — skip if so
+    from sqlalchemy import select as _select
+    from src.models.organization import Organization
+
+    async with async_session_factory() as db:
+        result = await db.execute(
+            _select(Organization).where(
+                Organization.instagram_handle == handle,
+            )
+        )
+        org_record = result.scalar_one_or_none()
+
+        if org_record and org_record.instagram_active is False:
+            logger.debug("Skipping inactive @%s", handle)
+            return {
+                "posts_checked": 0, "events_created": 0,
+                "skipped_cached": 0, "skipped_prefilter": 0,
+                "sent_to_llm": 0, "inactive": True,
+            }
+
     posts = await asyncio.to_thread(
         fetch_recent_posts, handle, days_back, max_posts,
     )
+
+    # Check account activity — if no posts at all, check latest post date
+    if not posts:
+        last_post_dt = await asyncio.to_thread(_check_account_activity, handle)
+        one_year_ago = datetime.now(timezone.utc) - timedelta(days=365)
+
+        async with async_session_factory() as db:
+            result = await db.execute(
+                _select(Organization).where(
+                    Organization.instagram_handle == handle,
+                )
+            )
+            org_record = result.scalar_one_or_none()
+            if org_record:
+                if last_post_dt:
+                    org_record.instagram_last_post_at = last_post_dt
+                    if last_post_dt < one_year_ago:
+                        org_record.instagram_active = False
+                        logger.info(
+                            "Marked @%s as inactive (last post: %s)",
+                            handle, last_post_dt.strftime("%Y-%m-%d"),
+                        )
+                elif org_record.instagram_last_post_at is None:
+                    # No posts ever found — mark inactive
+                    org_record.instagram_active = False
+                    logger.info("Marked @%s as inactive (no posts found)", handle)
+                await db.commit()
 
     events_created = 0
     skipped_cached = 0
@@ -401,12 +506,18 @@ async def scrape_all_orgs(
     total_filtered = 0
     orgs_scraped = 0
     orgs_failed = 0
+    orgs_inactive = 0
 
     for i, (handle, org_name) in enumerate(handles):
         try:
             result = await scrape_org_instagram(
                 handle, org_name, days_back, max_posts,
             )
+
+            if result.get("inactive"):
+                orgs_inactive += 1
+                continue
+
             total_posts += result["posts_checked"]
             total_events += result["events_created"]
             total_llm_calls += result.get("sent_to_llm", 0)
@@ -415,9 +526,9 @@ async def scrape_all_orgs(
 
             if (i + 1) % 10 == 0:
                 logger.info(
-                    "Progress: %d/%d orgs | %d posts | %d→LLM | %d filtered | %d events",
-                    i + 1, len(handles), total_posts, total_llm_calls,
-                    total_filtered, total_events,
+                    "Progress: %d/%d orgs | %d active | %d inactive | %d posts | %d events",
+                    i + 1, len(handles), orgs_scraped, orgs_inactive,
+                    total_posts, total_events,
                 )
 
             # Rate limit between orgs
@@ -427,9 +538,15 @@ async def scrape_all_orgs(
             logger.exception("Failed to scrape @%s (%s)", handle, org_name)
             orgs_failed += 1
 
+    logger.info(
+        "Instagram scrape complete: %d active, %d inactive, %d failed",
+        orgs_scraped, orgs_inactive, orgs_failed,
+    )
+
     return {
         "orgs_scraped": orgs_scraped,
         "orgs_failed": orgs_failed,
+        "orgs_inactive": orgs_inactive,
         "total_posts_checked": total_posts,
         "total_events_created": total_events,
         "total_llm_calls": total_llm_calls,
