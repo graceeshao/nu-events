@@ -6,6 +6,7 @@ and creates events in the database.
 """
 
 import asyncio
+import base64
 import email as email_lib
 import imaplib
 import logging
@@ -79,6 +80,35 @@ def _extract_body(msg: email_lib.message.Message) -> str:
     return ""
 
 
+def _get_user_email(creds: Any) -> str:
+    """Retrieve the Gmail address associated with the OAuth credentials.
+
+    Checks the GMAIL_USER_EMAIL env var first, then tries Google's
+    tokeninfo endpoint. Falls back to an empty string if neither works.
+    """
+    import os
+
+    # Prefer explicit env var
+    env_email = os.environ.get("GMAIL_USER_EMAIL", "")
+    if env_email:
+        return env_email
+
+    # Try tokeninfo (only works if email scope was requested)
+    try:
+        import urllib.request
+        import json as _json
+
+        req = urllib.request.Request(
+            f"https://oauth2.googleapis.com/tokeninfo?access_token={creds.token}"
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            info = _json.loads(resp.read())
+            return info.get("email", "")
+    except Exception:
+        logger.warning("Could not determine user email from token; set GMAIL_USER_EMAIL env var")
+        return ""
+
+
 def _sync_poll(
     credentials_file: str,
     token_file: str,
@@ -92,18 +122,15 @@ def _sync_poll(
     ``uid`` for every UNSEEN message in *label*.
     """
     creds = get_gmail_credentials(credentials_file, token_file)
-    user = creds.token_uri and creds.client_id  # placeholder; get from id_token
-    # Derive email from token info if available
-    oauth2_str = get_oauth2_string(
-        # The user email isn't directly on creds; we pass the token
-        # to XOAUTH2 which Gmail resolves from the access token.
-        # We need the email — try the token info or fall back.
-        "",
-        creds.token,
-    )
+
+    # Get the user's email from the token metadata or via tokeninfo
+    user_email = _get_user_email(creds)
+    logger.info("Authenticating as %s", user_email)
+
+    # Build the XOAUTH2 auth string (raw bytes — imaplib handles base64)
+    oauth2_str = get_oauth2_string(user_email, creds.token)
 
     imap = imaplib.IMAP4_SSL(imap_host, imap_port)
-    # XOAUTH2 authenticate — Gmail resolves the user from the token
     imap.authenticate("XOAUTH2", lambda _: oauth2_str.encode())
 
     # Select the label folder

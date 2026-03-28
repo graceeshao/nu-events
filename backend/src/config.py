@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     # Gmail IMAP Poller settings
     gmail_credentials_file: str = "credentials.json"
     gmail_token_file: str = "token.json"
+    gmail_user_email: str = ""  # Your Gmail address (e.g. graceshao@u.northwestern.edu)
     gmail_label: str = "NU-Events"
     gmail_poll_interval_seconds: int = 900  # 15 minutes
     gmail_imap_host: str = "imap.gmail.com"
