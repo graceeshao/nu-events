@@ -34,14 +34,18 @@ ATTENDABLE EVENT = A specific gathering where people physically show up or join 
 
 NOT AN EVENT (even if dates are mentioned):
 - Subscription confirmations and welcome messages
-- Course announcements / course registration / pre-registration
+- Course announcements / course registration / pre-registration / course listings
+- Course descriptions ("This course examines...", "Prerequisites: ...")
 - Job/internship postings and hiring notices
 - Application or recruitment DEADLINES ("Apply by Friday", "Deadline March 31")
 - Company recruiting emails (e.g. recruiting programs, launch programs, "opportunities")
 - Election/voting emails ("Vote for your new board", "JUST VOTE")
 - Newsletters that only summarize past events or link to other things without specific events
-- Administrative notices, policy updates
+- Administrative notices, policy updates, academic calendar dates
 - Org recruitment that only has a deadline but no specific attendable gathering
+- Google Forms, surveys, sign-up sheets ("Fill out this form", "Update your info")
+- Updated rosters/lists/directories ("Updated families list", "New member list")
+- Generic announcements without a specific time and place to attend
 
 IS an event (people physically show up or join live):
 - Competitions (case competitions, hackathons) — attendable
@@ -506,5 +510,9 @@ async def parse_event_with_llm(
         return parse_event_email(
             subject, body, sender, list_id=list_id, list_sender=list_sender,
         )
+
+    # Post-LLM validation: reject courses, forms, past events, etc.
+    from src.services.event_validator import validate_and_filter_events
+    events = validate_and_filter_events(events)
 
     return events

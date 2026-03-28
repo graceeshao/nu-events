@@ -834,4 +834,8 @@ def parse_event_email(
             has_free_food=has_free_food,
         ))
 
+    # Post-parse validation: reject courses, forms, past events, etc.
+    from src.services.event_validator import validate_and_filter_events
+    events = validate_and_filter_events(events)
+
     return events
