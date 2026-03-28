@@ -13,8 +13,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.config import settings
 from src.database.session import engine
 from src.models.event import Base
+import src.models.organization  # noqa: F401 — register Organization with Base
+import src.models.email_ingest  # noqa: F401 — register IngestedEmail with Base
 from src.api.routes.events import router as events_router
 from src.api.routes.scrapers import router as scrapers_router
+from src.api.routes.organizations import router as organizations_router
+from src.api.routes.ingest import router as ingest_router
 
 
 @asynccontextmanager
@@ -45,6 +49,8 @@ def create_app() -> FastAPI:
 
     app.include_router(events_router, prefix="/events", tags=["events"])
     app.include_router(scrapers_router, prefix="/scrapers", tags=["scrapers"])
+    app.include_router(organizations_router, prefix="/organizations", tags=["organizations"])
+    app.include_router(ingest_router, prefix="/ingest", tags=["ingest"])
 
     @app.get("/", tags=["health"])
     async def root() -> dict[str, str]:

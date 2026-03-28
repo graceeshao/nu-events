@@ -1,7 +1,7 @@
 """Tests for the scraper system.
 
-Verifies the base scraper interface, the PlanIt Purple scraper with
-mocked HTML, and the WildcatConnection scraper with mocked API responses.
+Verifies the base scraper interface and the PlanIt Purple scraper with
+mocked HTML.
 """
 
 from datetime import datetime
@@ -12,7 +12,6 @@ import pytest
 from src.models.event import EventCategory
 from src.scrapers.base import BaseScraper
 from src.scrapers.planitpurple import PlanItPurpleScraper
-from src.scrapers.wildcat_connection import WildcatConnectionScraper
 from src.schemas.event import EventCreate
 
 
@@ -270,162 +269,3 @@ class TestPlanItPurpleScraper:
         events = await scraper.parse([html])
         assert len(events) == 1
         assert events[0].category == EventCategory.SOCIAL
-
-
-# ---------------------------------------------------------------------------
-# WildcatConnection Scraper Tests
-# ---------------------------------------------------------------------------
-
-
-class TestWildcatConnectionScraper:
-    """Test the WildcatConnection scraper with mocked API responses."""
-
-    SAMPLE_API_RESPONSE = {
-        "value": [
-            {
-                "id": 12345,
-                "name": "NU Film Club Movie Night",
-                "startsOn": "2026-04-01T19:00:00Z",
-                "endsOn": "2026-04-01T21:00:00Z",
-                "location": "Annie May Swift Hall",
-                "description": "Weekly movie screening.",
-                "organizationName": "NU Film Club",
-                "categoryNames": ["Arts & Entertainment"],
-                "imagePath": "/images/event12345.jpg",
-            },
-            {
-                "id": 12346,
-                "name": "Resume Workshop",
-                "startsOn": "2026-04-02T14:00:00Z",
-                "endsOn": "2026-04-02T15:30:00Z",
-                "location": "University Career Services",
-                "description": "Get your resume reviewed.",
-                "organizationName": "Career Services",
-                "categoryNames": ["Professional Development"],
-                "imagePath": None,
-            },
-        ]
-    }
-
-    @pytest.mark.asyncio
-    async def test_parse_success(self) -> None:
-        """parse() correctly maps API response to EventCreate objects."""
-        scraper = WildcatConnectionScraper()
-        events = await scraper.parse(self.SAMPLE_API_RESPONSE)
-        assert len(events) == 2
-
-        e1 = events[0]
-        assert e1.title == "NU Film Club Movie Night"
-        assert e1.category == EventCategory.ARTS
-        assert e1.source_url == "https://northwestern.campuslabs.com/engage/event/12345"
-        assert e1.image_url == "https://northwestern.campuslabs.com/images/event12345.jpg"
-        assert "NU Film Club" in (e1.source_name or "")
-
-        e2 = events[1]
-        assert e2.title == "Resume Workshop"
-        assert e2.category == EventCategory.CAREER
-
-    @pytest.mark.asyncio
-    async def test_parse_none_returns_empty(self) -> None:
-        """parse() returns empty list when raw_data is None (auth required)."""
-        scraper = WildcatConnectionScraper()
-        events = await scraper.parse(None)
-        assert events == []
-
-    @pytest.mark.asyncio
-    async def test_parse_empty_value(self) -> None:
-        """parse() handles empty value list."""
-        scraper = WildcatConnectionScraper()
-        events = await scraper.parse({"value": []})
-        assert events == []
-
-    @pytest.mark.asyncio
-    async def test_fetch_auth_required_401(self) -> None:
-        """fetch() returns None and logs warning on 401."""
-        scraper = WildcatConnectionScraper()
-
-        mock_response = MagicMock()
-        mock_response.status_code = 401
-
-        with patch("src.scrapers.wildcat_connection.httpx.AsyncClient") as MockClient:
-            mock_client = AsyncMock()
-            mock_client.post.return_value = mock_response
-            mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-            mock_client.__aexit__ = AsyncMock(return_value=False)
-            MockClient.return_value = mock_client
-
-            result = await scraper.fetch()
-            assert result is None
-
-    @pytest.mark.asyncio
-    async def test_fetch_auth_required_403(self) -> None:
-        """fetch() returns None and logs warning on 403."""
-        scraper = WildcatConnectionScraper()
-
-        mock_response = MagicMock()
-        mock_response.status_code = 403
-
-        with patch("src.scrapers.wildcat_connection.httpx.AsyncClient") as MockClient:
-            mock_client = AsyncMock()
-            mock_client.post.return_value = mock_response
-            mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-            mock_client.__aexit__ = AsyncMock(return_value=False)
-            MockClient.return_value = mock_client
-
-            result = await scraper.fetch()
-            assert result is None
-
-    @pytest.mark.asyncio
-    async def test_fetch_redirect_to_login(self) -> None:
-        """fetch() returns None when redirected to SSO login."""
-        scraper = WildcatConnectionScraper()
-
-        mock_response = MagicMock()
-        mock_response.status_code = 302
-        mock_response.headers = {"location": "https://sso.northwestern.edu/login"}
-
-        with patch("src.scrapers.wildcat_connection.httpx.AsyncClient") as MockClient:
-            mock_client = AsyncMock()
-            mock_client.post.return_value = mock_response
-            mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-            mock_client.__aexit__ = AsyncMock(return_value=False)
-            MockClient.return_value = mock_client
-
-            result = await scraper.fetch()
-            assert result is None
-
-    @pytest.mark.asyncio
-    async def test_fetch_success(self) -> None:
-        """fetch() returns JSON data on success."""
-        scraper = WildcatConnectionScraper()
-
-        mock_response = MagicMock()
-        mock_response.status_code = 200
-        mock_response.json.return_value = self.SAMPLE_API_RESPONSE
-        mock_response.raise_for_status = MagicMock()
-
-        with patch("src.scrapers.wildcat_connection.httpx.AsyncClient") as MockClient:
-            mock_client = AsyncMock()
-            mock_client.post.return_value = mock_response
-            mock_client.__aenter__ = AsyncMock(return_value=mock_client)
-            mock_client.__aexit__ = AsyncMock(return_value=False)
-            MockClient.return_value = mock_client
-
-            result = await scraper.fetch()
-            assert result == self.SAMPLE_API_RESPONSE
-
-    @pytest.mark.asyncio
-    async def test_parse_skips_missing_name(self) -> None:
-        """parse() skips items without a name."""
-        scraper = WildcatConnectionScraper()
-        data = {"value": [{"id": 1, "startsOn": "2026-04-01T10:00:00Z"}]}
-        events = await scraper.parse(data)
-        assert events == []
-
-    @pytest.mark.asyncio
-    async def test_parse_skips_missing_start(self) -> None:
-        """parse() skips items without a start time."""
-        scraper = WildcatConnectionScraper()
-        data = {"value": [{"id": 1, "name": "No start"}]}
-        events = await scraper.parse(data)
-        assert events == []
