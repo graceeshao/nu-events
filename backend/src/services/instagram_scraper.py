@@ -11,9 +11,6 @@ import re
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
-import instaloader
-
-from src.config import settings
 from src.database.session import async_session_factory
 from src.models.email_ingest import IngestedEmail
 from src.services.event_service import create_event
@@ -26,50 +23,49 @@ _PROFILE_DELAY_SECONDS = 5
 _POST_DELAY_SECONDS = 2
 
 
-def _get_loader() -> instaloader.Instaloader:
-    """Create a configured Instaloader instance.
+def _get_browser_session() -> Any:
+    """Create an authenticated requests session using Chrome's Instagram cookies.
 
-    Instagram blocks anonymous API access (403), so a logged-in session
-    is required. Use ``instaloader --login YOUR_USERNAME`` once to create
-    a session file, then set INSTAGRAM_SESSION_USER in .env.
+    This is more reliable than Instaloader's session files because it
+    uses the same cookies as your browser — same rate limits, same auth.
 
     Returns:
-        An Instaloader instance with conservative rate-limit settings.
+        A ``requests.Session`` with Chrome's Instagram cookies loaded.
 
     Raises:
-        RuntimeError: If no session file is available (anonymous access
-            is blocked by Instagram).
+        RuntimeError: If Chrome cookies cannot be loaded.
     """
-    L = instaloader.Instaloader(
-        download_pictures=False,
-        download_videos=False,
-        download_video_thumbnails=False,
-        download_geotags=False,
-        download_comments=False,
-        save_metadata=False,
-        compress_json=False,
-        max_connection_attempts=3,
-        request_timeout=30,
-    )
-
-    session_user = settings.instagram_session_user
-    if not session_user:
-        raise RuntimeError(
-            "Instagram requires a logged-in session. "
-            "Run: instaloader --login YOUR_USERNAME  (once) "
-            "then set INSTAGRAM_SESSION_USER=YOUR_USERNAME in .env"
-        )
+    import requests
 
     try:
-        L.load_session_from_file(session_user)
-        logger.info("Loaded Instagram session for @%s", session_user)
-    except FileNotFoundError:
+        import browser_cookie3
+        cj = browser_cookie3.chrome(domain_name=".instagram.com")
+    except Exception as exc:
         raise RuntimeError(
-            f"No session file found for @{session_user}. "
-            f"Run: instaloader --login {session_user}"
-        )
+            f"Failed to load Instagram cookies from Chrome: {exc}. "
+            "Make sure you're logged into Instagram in Chrome."
+        ) from exc
 
-    return L
+    session = requests.Session()
+    session.cookies = cj
+    session.headers.update({
+        "user-agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/131.0.0.0 Safari/537.36"
+        ),
+        "x-ig-app-id": "936619743392459",
+        "x-requested-with": "XMLHttpRequest",
+    })
+
+    # Quick validation — set CSRF token if available
+    for cookie in session.cookies:
+        if cookie.name == "csrftoken":
+            session.headers["x-csrftoken"] = cookie.value
+            break
+
+    logger.info("Loaded Instagram session from Chrome cookies")
+    return session
 
 
 def _extract_caption_text(post: Any) -> str:
@@ -208,8 +204,9 @@ def fetch_recent_posts(
 ) -> list[dict[str, Any]]:
     """Fetch recent posts from an Instagram profile.
 
-    Uses the REST API (v1/feed) which is more reliable than the GraphQL
-    endpoint that Instaloader uses by default.
+    Uses Chrome browser cookies for authentication and the REST API
+    (v1/feed) for fetching posts — more reliable than Instaloader's
+    GraphQL endpoint and uses the browser's higher rate limits.
 
     Args:
         handle: Instagram username (without @).
@@ -219,13 +216,12 @@ def fetch_recent_posts(
     Returns:
         List of dicts with keys: caption, post_url, posted_at, handle.
     """
-    L = _get_loader()
     handle = handle.lstrip("@").strip().lower()
-
-    # Use REST API via the authenticated session
-    session = L.context._session
-    posts = _fetch_posts_rest_api(session=session, handle=handle, days_back=days_back, max_posts=max_posts)
-
+    session = _get_browser_session()
+    posts = _fetch_posts_rest_api(
+        session=session, handle=handle,
+        days_back=days_back, max_posts=max_posts,
+    )
     logger.info("Fetched %d recent posts from @%s", len(posts), handle)
     return posts
 
