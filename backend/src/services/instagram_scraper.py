@@ -170,14 +170,15 @@ def _fetch_posts_rest_api(
         f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
         headers=headers,
     )
-    if resp.status_code == 429:
-        logger.warning("Rate limited fetching @%s, backing off", handle)
-        import time as _t
-        _t.sleep(30)
+    if resp.status_code in (429, 400, 401, 403):
+        logger.warning("HTTP %d fetching @%s, skipping", resp.status_code, handle)
+        if resp.status_code == 429:
+            import time as _t
+            _t.sleep(30)
         return "RATE_LIMITED"  # Signal to caller not to mark inactive
     if resp.status_code != 200:
         logger.warning("Failed to fetch profile @%s: HTTP %d", handle, resp.status_code)
-        return []
+        return "RATE_LIMITED"  # Don't mark inactive for any HTTP error
 
     user_data = resp.json().get("data", {}).get("user")
     if not user_data:
