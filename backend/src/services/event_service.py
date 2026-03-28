@@ -5,7 +5,8 @@ remain thin and logic is testable independently.
 """
 
 import math
-from datetime import datetime
+import re
+from datetime import datetime, timedelta
 
 from sqlalchemy import func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -15,11 +16,67 @@ from src.schemas.event import EventCreate, EventList, EventRead, EventUpdate
 from src.services.dedup import generate_dedup_key
 
 
+def _normalize_title(title: str) -> str:
+    """Normalize a title for fuzzy comparison."""
+    t = title.lower().strip()
+    # Remove common prefixes/noise
+    t = re.sub(r'^(fwd:|re:|fw:)\s*', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'\[.*?\]\s*', '', t)
+    t = re.sub(r'[^\w\s]', '', t)
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t
+
+
+async def _find_fuzzy_duplicate(
+    db: AsyncSession,
+    title: str,
+    start_time: datetime,
+) -> Event | None:
+    """Check if a similar event already exists (same title + close date).
+
+    Catches duplicates from Re:/Fwd: email chains where the LLM extracts
+    slightly different location strings but the same event.
+
+    Args:
+        db: Async database session.
+        title: Event title to match.
+        start_time: Event start time to match (±1 day window).
+
+    Returns:
+        Existing Event if a fuzzy match is found, else None.
+    """
+    norm_title = _normalize_title(title)
+    if not norm_title:
+        return None
+
+    # Query events within ±1 day of the start time
+    window_start = start_time - timedelta(days=1)
+    window_end = start_time + timedelta(days=1)
+
+    result = await db.execute(
+        select(Event).where(
+            Event.start_time >= window_start,
+            Event.start_time <= window_end,
+        )
+    )
+    candidates = result.scalars().all()
+
+    for candidate in candidates:
+        if _normalize_title(candidate.title) == norm_title:
+            return candidate
+
+    return None
+
+
 async def create_event(db: AsyncSession, event_in: EventCreate) -> Event:
     """Create a new event with dedup check.
 
-    If an event with the same dedup_key already exists, the existing
-    record is returned instead of creating a duplicate.
+    Uses two-tier dedup:
+    1. Exact dedup_key match (SHA-256 of title+time+location)
+    2. Fuzzy match (normalized title + ±1 day window) to catch
+       Re:/Fwd: chain duplicates with slightly different locations
+
+    If a match is found at either level, the existing record is returned.
 
     Args:
         db: Async database session.
@@ -34,11 +91,16 @@ async def create_event(db: AsyncSession, event_in: EventCreate) -> Event:
         location=event_in.location,
     )
 
-    # Check for existing event with same dedup key
+    # Tier 1: Exact dedup key match
     result = await db.execute(select(Event).where(Event.dedup_key == dedup_key))
     existing = result.scalar_one_or_none()
     if existing is not None:
         return existing
+
+    # Tier 2: Fuzzy title + date match
+    fuzzy_match = await _find_fuzzy_duplicate(db, event_in.title, event_in.start_time)
+    if fuzzy_match is not None:
+        return fuzzy_match
 
     event = Event(
         **event_in.model_dump(),

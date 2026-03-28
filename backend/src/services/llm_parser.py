@@ -64,11 +64,20 @@ Respond with ONLY one word: EVENT or NOT_EVENT"""
 EXTRACTION_PROMPT = """\
 Extract event details from this university email. Return ONLY valid JSON — no markdown, no backticks, no explanation text.
 
+TODAY'S DATE: {today}
+CURRENT ACADEMIC YEAR: {academic_year}
+
 Subject: {subject}
 Body: {body_preview}
 
 Return this JSON structure (use null for unknown fields):
 {{"title": "...", "date": "YYYY-MM-DD", "start_time": "HH:MM", "end_time": "HH:MM or null", "location": "...", "description": "...", "rsvp_url": "URL or null", "has_free_food": true/false, "category": "academic or social or career or arts or sports or other"}}
+
+CRITICAL RULES FOR DATES:
+- The current year is {current_year}. If the email does not explicitly state a year, assume {current_year}.
+- Only use a different year if the email EXPLICITLY mentions one (e.g. "2027", "Spring 2027").
+- "This Friday", "next Tuesday", "March 31" with no year → {current_year}.
+- Dates should be in the FUTURE relative to today ({today}). If a date would be in the past for {current_year}, it likely already happened — still record it with {current_year} unless a different year is explicit.
 
 CRITICAL RULES FOR TITLE:
 - The title must be a clean, human-readable event name — like what you'd see on a calendar
@@ -262,6 +271,19 @@ def _build_event(
     except (ValueError, TypeError):
         event_date = None
 
+    # Year sanity check: if the LLM hallucinated a year far from current,
+    # clamp to current year (unless the email explicitly mentions that year).
+    if event_date is not None:
+        from datetime import date as _date
+        _current_year = _date.today().year
+        # Allow current year and next year only; anything else is likely wrong
+        if event_date.year < _current_year or event_date.year > _current_year + 1:
+            try:
+                event_date = event_date.replace(year=_current_year)
+            except ValueError:
+                # e.g. Feb 29 in a non-leap year
+                event_date = event_date.replace(year=_current_year, day=28)
+
     start_time = None
     if start_time_str:
         try:
@@ -417,7 +439,7 @@ async def parse_event_with_llm(
     try:
         classification_prompt = CLASSIFICATION_PROMPT.format(
             subject=subject,
-            body_preview=body[:2000],
+            body_preview=body,
         )
         classification = await _chat(client, model, classification_prompt)
         classification_clean = classification.strip().upper()
@@ -440,9 +462,17 @@ async def parse_event_with_llm(
 
     # Step 2: Extraction
     try:
+        from datetime import date as _date
+        _today = _date.today()
+        _year = _today.year
+        # Academic year: if we're past August, it's YYYY-(YYYY+1), else (YYYY-1)-YYYY
+        _ay = f"{_year}-{_year+1}" if _today.month >= 8 else f"{_year-1}-{_year}"
         extraction_prompt = EXTRACTION_PROMPT.format(
             subject=subject,
-            body_preview=body[:3000],
+            body_preview=body,
+            today=_today.isoformat(),
+            current_year=_year,
+            academic_year=_ay,
         )
         raw_response = await _chat(client, model, extraction_prompt)
         event_dicts = _parse_extraction_json(raw_response)
