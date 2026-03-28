@@ -1437,3 +1437,24 @@ sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when one or none w
 2026-03-28 16:10:17,831 [WARNING] Failed to fetch profile @northwestern_bssa: HTTP 400
 2026-03-28 16:10:17,831 [INFO] Fetched 0 recent posts from @northwestern_bssa
 2026-03-28 16:10:17,933 [INFO] Marked @northwestern_bssa inactive (no posts)
+2026-03-28 16:10:23,057 [WARNING] Failed to fetch profile @belegarthmcs_nu: HTTP 400
+2026-03-28 16:10:23,057 [INFO] Fetched 0 recent posts from @belegarthmcs_nu
+2026-03-28 16:10:23,154 [INFO] Marked @belegarthmcs_nu inactive (no posts)
+2026-03-28 16:10:28,262 [WARNING] Failed to fetch profile @bienestar_nu: HTTP 400
+2026-03-28 16:10:28,263 [INFO] Fetched 0 recent posts from @bienestar_nu
+2026-03-28 16:10:28,373 [INFO] Marked @bienestar_nu inactive (no posts)
+2026-03-28 16:10:33,497 [WARNING] Failed to fetch profile @billiards.nu: HTTP 400
+2026-03-28 16:10:33,498 [INFO] Fetched 0 recent posts from @billiards.nu
+2026-03-28 16:10:33,597 [INFO] Marked @billiards.nu inactive (no posts)
+2026-03-28 16:10:38,731 [WARNING] Failed to fetch profile @binaryheartatnu: HTTP 400
+2026-03-28 16:10:38,731 [INFO] Fetched 0 recent posts from @binaryheartatnu
+2026-03-28 16:10:38,957 [INFO] Marked @binaryheartatnu inactive (no posts)
+2026-03-28 16:10:44,079 [WARNING] Failed to fetch profile @bmes_nu: HTTP 400
+2026-03-28 16:10:44,080 [INFO] Fetched 0 recent posts from @bmes_nu
+2026-03-28 16:10:44,192 [INFO] Marked @bmes_nu inactive (no posts)
+2026-03-28 16:10:49,303 [WARNING] Failed to fetch profile @nu_biotech: HTTP 400
+2026-03-28 16:10:49,303 [INFO] Fetched 0 recent posts from @nu_biotech
+2026-03-28 16:10:49,415 [INFO] Marked @nu_biotech inactive (no posts)
+2026-03-28 16:10:54,516 [WARNING] Failed to fetch profile @nublackformal: HTTP 400
+2026-03-28 16:10:54,516 [INFO] Fetched 0 recent posts from @nublackformal
+2026-03-28 16:10:54,628 [INFO] Marked @nublackformal inactive (no posts)

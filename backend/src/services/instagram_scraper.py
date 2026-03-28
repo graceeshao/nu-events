@@ -182,8 +182,8 @@ def _fetch_posts_rest_api(
 
     user_data = resp.json().get("data", {}).get("user")
     if not user_data:
-        logger.warning("Instagram profile @%s not found", handle)
-        return []
+        logger.warning("Instagram profile @%s does not exist (deleted?)", handle)
+        return "DELETED"  # Signal to caller to mark inactive + clear handle
 
     user_id = user_data.get("id")
     if not user_id:
@@ -295,9 +295,9 @@ def fetch_recent_posts(
         session=session, handle=handle,
         days_back=days_back, max_posts=max_posts,
     )
-    # Handle rate-limit signal
-    if result == "RATE_LIMITED":
-        return "RATE_LIMITED"
+    # Handle signals
+    if result in ("RATE_LIMITED", "DELETED"):
+        return result
     posts = result
     logger.info("Fetched %d recent posts from @%s", len(posts), handle)
     return posts
@@ -569,10 +569,25 @@ async def scrape_all_orgs(
 
             # Handle rate limiting — skip but don't mark inactive
             if posts == "RATE_LIMITED":
-                logger.warning("Rate limited on @%s, skipping remaining orgs", handle)
                 orgs_failed += 1
-                # Increase delay and continue (don't break, some may work)
-                await asyncio.sleep(30)
+                await asyncio.sleep(10)
+                continue
+
+            # Handle deleted accounts — mark inactive + clear handle
+            if posts == "DELETED":
+                async with async_session_factory() as db:
+                    result = await db.execute(
+                        _select(Organization).where(
+                            Organization.instagram_handle == handle,
+                        )
+                    )
+                    org_record = result.scalars().first()
+                    if org_record:
+                        org_record.instagram_active = False
+                        org_record.instagram_handle = None
+                        logger.info("Removed deleted account @%s from %s", handle, org_name)
+                        await db.commit()
+                orgs_inactive += 1
                 continue
 
             # Check activity for empty accounts (only if NOT rate limited)
