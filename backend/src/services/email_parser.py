@@ -101,6 +101,163 @@ _LOCATION_LABEL_RE = re.compile(
 )
 
 
+_URL_RE = re.compile(r'https?://[^\s<>")\]]+')
+
+_RSVP_KEYWORDS = re.compile(
+    r'\b(?:rsvp|register|sign\s*up|registration|signup|tickets?)\b',
+    re.IGNORECASE,
+)
+
+_RSVP_DOMAIN_PATTERNS = [
+    "eventbrite.com", "forms.gle", "docs.google.com/forms",
+    "lu.ma", "bit.ly",
+]
+
+_FREE_FOOD_PATTERNS = re.compile(
+    r'(?<!\w)'  # not preceded by a word char (blocks "gluten-free")
+    r'(?:'
+    r'free\s+(?:food|pizza|snacks?|lunch|dinner|breakfast|refreshments|drinks?|coffee|tea|popcorn|ice\s+cream|cookies?|donuts?|bagels?)'
+    r'|(?:food|lunch|dinner|breakfast|refreshments|pizza|snacks?)\s+(?:will\s+be\s+)?provided'
+    r'|refreshments\s+will\s+be\s+served'
+    r'|complimentary\s+(?:food|lunch|dinner|refreshments)'
+    r'|food\s+and\s+drinks'
+    r')'
+    r'(?!\w)',  # not followed by a word char
+    re.IGNORECASE,
+)
+
+_GREETING_RE = re.compile(
+    r'^(?:hey|hi|hello|dear|greetings|good\s+(?:morning|afternoon|evening))\b.*$',
+    re.IGNORECASE,
+)
+
+_SIGNATURE_RE = re.compile(
+    r'^(?:--\s*$|(?:Sent from|Best regards|Sincerely|Cheers|Thanks|Thank you|Regards)\b)',
+    re.IGNORECASE,
+)
+
+
+def extract_rsvp_url(text: str) -> str | None:
+    """Find an RSVP or registration URL in text.
+
+    Prefers URLs near RSVP-related keywords and common registration domains.
+
+    Args:
+        text: Email body or full email text.
+
+    Returns:
+        RSVP URL string if found, else None.
+    """
+    urls = _URL_RE.findall(text)
+    if not urls:
+        return None
+
+    # Score each URL: higher = more likely RSVP
+    scored: list[tuple[int, str]] = []
+    for url in urls:
+        score = 0
+        url_lower = url.lower()
+
+        # Check if URL matches known RSVP domains
+        for domain in _RSVP_DOMAIN_PATTERNS:
+            if domain in url_lower:
+                score += 10
+                break
+
+        # Check proximity to RSVP keywords (within 200 chars)
+        url_pos = text.find(url)
+        if url_pos >= 0:
+            context_start = max(0, url_pos - 200)
+            context_end = min(len(text), url_pos + len(url) + 200)
+            context = text[context_start:context_end]
+            if _RSVP_KEYWORDS.search(context):
+                score += 5
+
+        scored.append((score, url))
+
+    # Return the highest-scored URL, but only if it has some relevance
+    scored.sort(key=lambda x: x[0], reverse=True)
+    best_score, best_url = scored[0]
+    if best_score > 0:
+        return best_url
+
+    return None
+
+
+def detect_free_food(text: str) -> bool:
+    """Check if text mentions free food.
+
+    Args:
+        text: Email body or full email text.
+
+    Returns:
+        True if free food is mentioned, False otherwise.
+    """
+    return bool(_FREE_FOOD_PATTERNS.search(text))
+
+
+def extract_short_description(subject: str, body: str, max_len: int = 200) -> str | None:
+    """Generate a concise description from the email.
+
+    Extraction priority:
+    1. Lines starting with "What:"
+    2. First meaningful sentences (skipping greetings)
+    3. Truncated to max_len characters
+
+    Args:
+        subject: Email subject line.
+        body: Email body text.
+        max_len: Maximum description length.
+
+    Returns:
+        Short description string, or None if nothing meaningful found.
+    """
+    lines = body.strip().split("\n")
+
+    # 1. Check for "What:" line
+    for line in lines:
+        stripped = line.strip()
+        if stripped.lower().startswith("what:"):
+            desc = stripped[5:].strip()
+            if desc:
+                return desc[:max_len]
+
+    # 2. Collect meaningful lines, skipping greetings and signatures
+    meaningful: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            continue
+        # Stop at signature
+        if _SIGNATURE_RE.match(stripped):
+            break
+        # Skip greetings
+        if _GREETING_RE.match(stripped):
+            continue
+        # Skip lines that look like headers (When:, Where:, Date:, Time:, Location:)
+        if re.match(r'^(?:when|where|date|time|location|place|venue|from|to|rsvp)\s*:', stripped, re.IGNORECASE):
+            continue
+        meaningful.append(stripped)
+
+    if not meaningful:
+        return None
+
+    # Take first 1-2 sentences
+    text = " ".join(meaningful[:3])
+    # Split into sentences
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    result = ""
+    for s in sentences[:2]:
+        if len(result) + len(s) + 1 > max_len:
+            break
+        result = f"{result} {s}".strip() if result else s
+
+    if not result:
+        result = text[:max_len]
+
+    return result if result else None
+
+
 def _clean_title(title: str, max_len: int = 490) -> str:
     """Clean and truncate an event title to fit the database constraint.
 
@@ -429,6 +586,124 @@ def match_organization(
     return None
 
 
+def score_event_confidence(
+    subject: str,
+    body: str,
+    has_time: bool,
+    has_location: bool,
+    event_date: date | None = None,
+    reference_date: date | None = None,
+) -> int:
+    """Score how likely an email describes an actual attendable event.
+
+    Uses weighted signals to distinguish real events (talks, meetings,
+    concerts) from non-events (course announcements, job postings,
+    newsletters).
+
+    Args:
+        subject: Email subject line.
+        body: Email body text.
+        has_time: Whether a specific time was found.
+        has_location: Whether a location was found.
+        event_date: The parsed event date (if any).
+        reference_date: Today's date for comparison.
+
+    Returns:
+        Integer confidence score. Events with score < 3 should be skipped.
+    """
+    if reference_date is None:
+        reference_date = date.today()
+
+    text = f"{subject}\n{body}".lower()
+    score = 0
+
+    # --- Positive signals (looks like an event) ---
+
+    # Has a specific time (not just a date)
+    if has_time:
+        score += 3
+
+    # Has a campus location
+    if has_location:
+        score += 2
+
+    # Event language
+    event_phrases = [
+        "join us", "come to", "you're invited", "you are invited",
+        "rsvp", "register now", "register here", "sign up",
+        "attend", "don't miss", "save the date",
+        "workshop", "info session", "information session",
+        "lecture", "talk", "seminar", "panel", "keynote",
+        "concert", "performance", "show", "screening",
+        "meeting", "social", "mixer", "networking",
+        "open house", "office hours", "study break",
+        "game night", "movie night", "trivia",
+        "fundraiser", "gala", "celebration",
+    ]
+    for phrase in event_phrases:
+        if phrase in text:
+            score += 2
+            break  # only count once
+
+    # Has When:/Where: structure
+    if re.search(r'\b(when|date|time)\s*:', text):
+        score += 3
+    if re.search(r'\b(where|location|venue|place)\s*:', text):
+        score += 2
+
+    # Free food (usually means a real event)
+    if detect_free_food(f"{subject}\n{body}"):
+        score += 1
+
+    # --- Negative signals (probably NOT an event) ---
+
+    # Academic course/class language
+    course_terms = [
+        "course", "taught by", "quarter", "semester",
+        "syllabus", "credit hour", "enrollment",
+        "prerequisite", "prereq", "gpa requirement",
+        "curriculum", "coursework", "grading",
+        "fall quarter", "winter quarter", "spring quarter",
+        "fall semester", "spring semester",
+        "take a.*course", "enroll in",
+    ]
+    for term in course_terms:
+        if re.search(term, text):
+            score -= 5
+            break
+
+    # Job/hiring language
+    job_terms = [
+        "hiring", "job posting", "position available",
+        "application deadline", "apply now", "apply by",
+        "internship posting", "we are looking for",
+        "job description", "salary", "compensation",
+        "full-time", "part-time", "resume",
+    ]
+    for term in job_terms:
+        if re.search(term, text):
+            score -= 3
+            break
+
+    # Date is in the past
+    if event_date and event_date < reference_date:
+        score -= 4
+
+    # No specific time (just a date) — weaker signal
+    if not has_time:
+        score -= 2
+
+    # Very long body suggests newsletter/digest, not a single event
+    if len(body) > 5000:
+        score -= 1
+
+    return score
+
+
+# Minimum confidence score to create an event
+EVENT_CONFIDENCE_THRESHOLD = 3
+
+
 def parse_event_email(
     subject: str,
     body: str,
@@ -461,6 +736,11 @@ def parse_event_email(
     times = extract_times(full_text)
     location = extract_location(body)
     org = match_organization(sender, body, list_id=list_id, list_sender=list_sender)
+
+    # Extract new fields
+    rsvp_url = extract_rsvp_url(full_text)
+    has_free_food = detect_free_food(full_text)
+    short_desc = extract_short_description(subject, body)
 
     if not dates:
         return []
@@ -497,7 +777,17 @@ def parse_event_email(
             multi_event_lines.append((d, t_start, t_end, desc, line_location))
 
     if len(multi_event_lines) > 1:
-        # Multi-event email
+        # Multi-event email — score the overall email first
+        overall_score = score_event_confidence(
+            subject, body,
+            has_time=bool(times),
+            has_location=location is not None,
+            event_date=multi_event_lines[0][0] if multi_event_lines else None,
+            reference_date=reference_date,
+        )
+        if overall_score < EVENT_CONFIDENCE_THRESHOLD:
+            return []
+
         for d, t_start, t_end, desc, line_loc in multi_event_lines:
             title = _clean_title(desc.split("(")[0].strip() if desc else subject)
             if not title or title == "Untitled Event":
@@ -511,22 +801,37 @@ def parse_event_email(
                 end_time=end_dt,
                 location=line_loc or location,
                 source_name=org,
+                rsvp_url=rsvp_url,
+                has_free_food=has_free_food,
             ))
     else:
-        # Single event email
+        # Single event email — check confidence
         d = dates[0]
         t_start = times[0][0] if times else None
         t_end = times[0][1] if times else None
+
+        confidence = score_event_confidence(
+            subject, body,
+            has_time=t_start is not None,
+            has_location=location is not None,
+            event_date=d,
+            reference_date=reference_date,
+        )
+        if confidence < EVENT_CONFIDENCE_THRESHOLD:
+            return []
+
         start_dt = datetime.combine(d, t_start) if t_start else datetime.combine(d, time(0, 0))
         end_dt = datetime.combine(d, t_end) if t_end else None
 
         events.append(EventCreate(
             title=_clean_title(subject),
-            description=body,
+            description=short_desc or body,
             start_time=start_dt,
             end_time=end_dt,
             location=location,
             source_name=org,
+            rsvp_url=rsvp_url,
+            has_free_food=has_free_food,
         ))
 
     return events

@@ -6,8 +6,11 @@ import pytest
 
 from src.services.email_parser import (
     _extract_listserv_name,
+    detect_free_food,
     extract_dates,
     extract_location,
+    extract_rsvp_url,
+    extract_short_description,
     extract_times,
     match_organization,
     parse_event_email,
@@ -252,6 +255,174 @@ class TestExtractListservName:
 
 
 # ---------------------------------------------------------------------------
+# RSVP URL extraction
+# ---------------------------------------------------------------------------
+
+class TestExtractRsvpUrl:
+    """Tests for extract_rsvp_url()."""
+
+    def test_finds_eventbrite_url(self):
+        """Finds Eventbrite URLs."""
+        text = "Register here: https://www.eventbrite.com/e/some-event-123"
+        url = extract_rsvp_url(text)
+        assert url is not None
+        assert "eventbrite.com" in url
+
+    def test_finds_google_forms_url(self):
+        """Finds Google Forms URLs."""
+        text = "RSVP at https://docs.google.com/forms/d/e/abc123/viewform"
+        url = extract_rsvp_url(text)
+        assert url is not None
+        assert "docs.google.com/forms" in url
+
+    def test_finds_forms_gle_url(self):
+        """Finds forms.gle short URLs."""
+        text = "Sign up: https://forms.gle/abc123"
+        url = extract_rsvp_url(text)
+        assert url is not None
+        assert "forms.gle" in url
+
+    def test_finds_bitly_url_near_rsvp(self):
+        """Finds bit.ly URLs."""
+        text = "RSVP here: https://bit.ly/event-signup"
+        url = extract_rsvp_url(text)
+        assert url is not None
+        assert "bit.ly" in url
+
+    def test_prefers_rsvp_keyword_url(self):
+        """Prefers URLs near RSVP keywords over random URLs."""
+        text = (
+            "Check our website: https://example.com/home\n"
+            "RSVP at https://forms.gle/abc123\n"
+        )
+        url = extract_rsvp_url(text)
+        assert url is not None
+        assert "forms.gle" in url
+
+    def test_returns_none_no_urls(self):
+        """Returns None when no URLs present."""
+        assert extract_rsvp_url("No links here, just text.") is None
+
+    def test_returns_none_no_rsvp_urls(self):
+        """Returns None when URLs exist but none are RSVP-related."""
+        text = "Check out https://example.com for more info."
+        assert extract_rsvp_url(text) is None
+
+    def test_finds_luma_url(self):
+        """Finds lu.ma URLs."""
+        text = "Register: https://lu.ma/some-event"
+        url = extract_rsvp_url(text)
+        assert url is not None
+        assert "lu.ma" in url
+
+
+# ---------------------------------------------------------------------------
+# Free food detection
+# ---------------------------------------------------------------------------
+
+class TestDetectFreeFood:
+    """Tests for detect_free_food()."""
+
+    def test_free_pizza(self):
+        assert detect_free_food("Join us for free pizza!")
+
+    def test_free_food(self):
+        assert detect_free_food("FREE FOOD at the event")
+
+    def test_food_provided(self):
+        assert detect_free_food("Food will be provided.")
+
+    def test_lunch_provided(self):
+        assert detect_free_food("Lunch provided for attendees.")
+
+    def test_refreshments_served(self):
+        assert detect_free_food("Refreshments will be served.")
+
+    def test_complimentary_lunch(self):
+        assert detect_free_food("Complimentary lunch included.")
+
+    def test_free_snacks(self):
+        assert detect_free_food("Free snacks and drinks!")
+
+    def test_food_and_drinks(self):
+        assert detect_free_food("Come for food and drinks.")
+
+    def test_pizza_provided(self):
+        assert detect_free_food("Pizza provided!")
+
+    def test_free_cookies(self):
+        assert detect_free_food("Free cookies for everyone.")
+
+    def test_rejects_free_to_attend(self):
+        """'free to attend' should not trigger."""
+        assert not detect_free_food("This event is free to attend.")
+
+    def test_rejects_gluten_free(self):
+        """'gluten-free' should not trigger."""
+        assert not detect_free_food("We offer gluten-free options.")
+
+    def test_rejects_free_parking(self):
+        """'free parking' should not trigger."""
+        assert not detect_free_food("Free parking is available.")
+
+    def test_no_food_mentions(self):
+        assert not detect_free_food("Join us for a great time!")
+
+
+# ---------------------------------------------------------------------------
+# Short description extraction
+# ---------------------------------------------------------------------------
+
+class TestExtractShortDescription:
+    """Tests for extract_short_description()."""
+
+    def test_what_line(self):
+        """Extracts from 'What:' lines."""
+        body = "When: Friday\nWhat: A screening of Inception\nWhere: Norris"
+        desc = extract_short_description("Movie Night", body)
+        assert desc is not None
+        assert "Inception" in desc
+
+    def test_skips_greetings(self):
+        """Skips greeting lines."""
+        body = "Hey Wildcats!\nJoin us for an amazing concert.\nIt will be great."
+        desc = extract_short_description("Concert", body)
+        assert desc is not None
+        assert "Hey" not in desc
+        assert "concert" in desc.lower()
+
+    def test_stops_at_signature(self):
+        """Stops at email signatures."""
+        body = "Great event happening.\n--\nJohn Smith\nPresident"
+        desc = extract_short_description("Event", body)
+        assert desc is not None
+        assert "John" not in desc
+        assert "Great event" in desc
+
+    def test_truncates_to_max_len(self):
+        """Respects max_len."""
+        body = "A" * 300
+        desc = extract_short_description("Test", body, max_len=100)
+        assert desc is not None
+        assert len(desc) <= 100
+
+    def test_returns_none_for_empty(self):
+        """Returns None for empty body."""
+        assert extract_short_description("Test", "") is None
+
+    def test_first_sentences(self):
+        """Extracts first meaningful sentences."""
+        body = (
+            "The CS department invites you to a talk by Prof. Smith on "
+            "Machine Learning for Climate Science. "
+            "This will be an exciting presentation."
+        )
+        desc = extract_short_description("CS Seminar", body)
+        assert desc is not None
+        assert "CS department" in desc
+
+
+# ---------------------------------------------------------------------------
 # Full email parsing
 # ---------------------------------------------------------------------------
 
@@ -331,6 +502,61 @@ class TestParseEventEmail:
         )
         assert events == []
 
+    def test_single_event_has_rsvp_and_free_food(self):
+        """Email with RSVP link and free food mention populates new fields."""
+        subject = "Movie Night this Friday!"
+        body = (
+            "Hey Wildcats! Join Northwestern Film Club for our weekly movie night.\n\n"
+            "When: Friday, March 28, 2026 at 7:00 PM\n"
+            "Where: Norris University Center, Room 201\n"
+            "What: We'll be screening \"Everything Everywhere All At Once\"\n\n"
+            "Free popcorn! All are welcome.\n"
+            "RSVP: https://forms.gle/abc123\n"
+        )
+        events = parse_event_email(
+            subject, body,
+            sender="filmclub@u.northwestern.edu",
+            reference_date=date(2026, 3, 25),
+        )
+        assert len(events) == 1
+        ev = events[0]
+        assert ev.has_free_food is True
+        assert ev.rsvp_url is not None
+        assert "forms.gle" in ev.rsvp_url
+
+    def test_single_event_no_free_food(self):
+        """Email without free food mention has has_free_food=False."""
+        subject = "CS Department Seminar"
+        body = (
+            "The CS department invites you to a talk.\n"
+            "Date: Tuesday, April 1, 2026\n"
+            "Time: 3:30 PM - 4:30 PM\n"
+            "Location: Tech L160\n"
+        )
+        events = parse_event_email(
+            subject, body,
+            reference_date=date(2026, 3, 25),
+        )
+        assert len(events) == 1
+        assert events[0].has_free_food is False
+        assert events[0].rsvp_url is None
+
+    def test_description_extracted(self):
+        """Short description is extracted for single event emails."""
+        subject = "Movie Night!"
+        body = (
+            "What: A screening of Inception at the Norris theater.\n"
+            "When: March 28, 2026 at 7pm\n"
+            "Where: Norris\n"
+        )
+        events = parse_event_email(
+            subject, body,
+            reference_date=date(2026, 3, 25),
+        )
+        assert len(events) == 1
+        assert events[0].description is not None
+        assert "Inception" in events[0].description
+
 
 # ---------------------------------------------------------------------------
 # Ingest API endpoints
@@ -385,3 +611,90 @@ class TestIngestAPI:
         data = resp.json()
         assert data["status"] == "processed"
         assert data["events_created"] >= 1
+
+
+# ---------------------------------------------------------------------------
+# Event Confidence Scoring
+# ---------------------------------------------------------------------------
+
+class TestScoreEventConfidence:
+    """Tests for score_event_confidence()."""
+
+    def test_real_event_high_score(self):
+        """A clear event (time + location + event language) scores high."""
+        from src.services.email_parser import score_event_confidence
+        score = score_event_confidence(
+            "Movie Night this Friday!",
+            "Join us for a movie screening at Norris University Center.",
+            has_time=True, has_location=True,
+            event_date=date(2026, 3, 28),
+            reference_date=date(2026, 3, 27),
+        )
+        assert score >= 3
+
+    def test_course_announcement_low_score(self):
+        """A course announcement scores below threshold."""
+        from src.services.email_parser import score_event_confidence
+        score = score_event_confidence(
+            "Fall Quarter Course Offering",
+            "Students can take a fall-quarter POLI_SCI 390 course, taught by Professor Smith. "
+            "Enrollment begins November 9. Prerequisites: POLI_SCI 201.",
+            has_time=False, has_location=False,
+            event_date=date(2020, 11, 9),
+            reference_date=date(2026, 3, 27),
+        )
+        assert score < 3
+
+    def test_job_posting_low_score(self):
+        """A job posting scores below threshold."""
+        from src.services.email_parser import score_event_confidence
+        score = score_event_confidence(
+            "We're Hiring! Research Assistant Position",
+            "We are looking for a part-time research assistant. Application deadline March 31. "
+            "Please submit your resume and cover letter.",
+            has_time=False, has_location=False,
+            event_date=date(2026, 3, 31),
+            reference_date=date(2026, 3, 27),
+        )
+        assert score < 3
+
+    def test_event_with_when_where(self):
+        """An email with When:/Where: structure scores high."""
+        from src.services.email_parser import score_event_confidence
+        score = score_event_confidence(
+            "CS Department Talk",
+            "When: Friday, March 28 at 3:30 PM\nWhere: Tech L160\nTalk on ML.",
+            has_time=True, has_location=True,
+            event_date=date(2026, 3, 28),
+            reference_date=date(2026, 3, 27),
+        )
+        assert score >= 3
+
+    def test_past_date_penalized(self):
+        """Events in the past get score penalty."""
+        from src.services.email_parser import score_event_confidence
+        score = score_event_confidence(
+            "Last week's event",
+            "This happened last week.",
+            has_time=True, has_location=False,
+            event_date=date(2026, 3, 20),
+            reference_date=date(2026, 3, 27),
+        )
+        future_score = score_event_confidence(
+            "Next week's event",
+            "Join us next week.",
+            has_time=True, has_location=False,
+            event_date=date(2026, 4, 3),
+            reference_date=date(2026, 3, 27),
+        )
+        assert score < future_score
+
+    def test_course_email_filtered_in_parse(self):
+        """parse_event_email returns empty for course announcements."""
+        events = parse_event_email(
+            "Fall Quarter Course",
+            "Accepted students take a fall-quarter POLI_SCI 390 course, taught by "
+            "Professor Smith. Enrollment begins November 9, 2026. Prerequisites: none.",
+            reference_date=date(2026, 3, 27),
+        )
+        assert events == []

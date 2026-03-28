@@ -4,6 +4,7 @@ Fetches the PlanIt Purple events calendar and parses individual event listings.
 Uses httpx for async HTTP and BeautifulSoup for HTML parsing.
 """
 
+import asyncio
 import logging
 import re
 from datetime import datetime
@@ -15,6 +16,7 @@ from bs4 import BeautifulSoup, Tag
 from src.models.event import EventCategory
 from src.scrapers.base import BaseScraper
 from src.schemas.event import EventCreate
+from src.services.email_parser import detect_free_food
 
 logger = logging.getLogger(__name__)
 
@@ -89,6 +91,10 @@ class PlanItPurpleScraper(BaseScraper):
     async def parse(self, raw_data: list[str]) -> list[EventCreate]:
         """Parse events from the PlanIt Purple HTML pages.
 
+        When ``fetch_details`` is enabled, also fetches individual event
+        detail pages to extract descriptions, RSVP URLs, and free-food
+        indicators.
+
         Args:
             raw_data: List of HTML strings from fetch().
 
@@ -110,7 +116,80 @@ class PlanItPurpleScraper(BaseScraper):
                     logger.warning("Failed to parse event article, skipping", exc_info=True)
                     continue
 
+        if self.fetch_details and events:
+            await self._enrich_with_details(events)
+
         return events
+
+    async def _enrich_with_details(self, events: list[EventCreate]) -> None:
+        """Fetch detail pages and enrich events with descriptions, RSVP URLs, etc.
+
+        Rate-limits requests with a 0.5s delay between fetches.
+
+        Args:
+            events: List of EventCreate objects to enrich in-place.
+        """
+        async with httpx.AsyncClient(
+            timeout=30.0,
+            headers={"User-Agent": "NU-Events-Aggregator/0.1"},
+            follow_redirects=True,
+        ) as client:
+            for event in events:
+                if not event.source_url:
+                    continue
+                try:
+                    resp = await client.get(event.source_url)
+                    resp.raise_for_status()
+                    detail = self._parse_detail_page(resp.text)
+                    if detail.get("description") and not event.description:
+                        event.description = detail["description"]
+                    if detail.get("rsvp_url") and not event.rsvp_url:
+                        event.rsvp_url = detail["rsvp_url"]
+                    if detail.get("has_free_food"):
+                        event.has_free_food = True
+                except Exception:
+                    logger.warning(
+                        "Failed to fetch detail page for %s", event.source_url,
+                        exc_info=True,
+                    )
+                await asyncio.sleep(0.5)
+
+    @staticmethod
+    def _parse_detail_page(html: str) -> dict[str, Any]:
+        """Extract description, RSVP URL, and free food info from a detail page.
+
+        Args:
+            html: HTML of the event detail page.
+
+        Returns:
+            Dict with optional keys: description, rsvp_url, has_free_food.
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        result: dict[str, Any] = {}
+
+        # Extract description from main content area
+        desc_el = soup.select_one(".event-description, .description, .event-detail-description")
+        if desc_el:
+            result["description"] = desc_el.get_text(strip=True)
+
+        # Extract RSVP/Register link
+        for link in soup.select("a[href]"):
+            link_text = link.get_text(strip=True).lower()
+            if link_text in ("register", "rsvp", "sign up"):
+                href = link.get("href", "")
+                if href and href.startswith("http"):
+                    result["rsvp_url"] = href
+                    break
+
+        # Check for "Cost: Free" and free food keywords
+        page_text = soup.get_text()
+        if re.search(r"cost\s*:\s*free", page_text, re.IGNORECASE):
+            # Cost is free, but that doesn't mean free food
+            pass
+        if detect_free_food(page_text):
+            result["has_free_food"] = True
+
+        return result
 
     def _parse_article(self, article: Tag) -> EventCreate | None:
         """Parse a single <article> tag into an EventCreate.
@@ -198,6 +277,8 @@ class PlanItPurpleScraper(BaseScraper):
             source_name="PlanIt Purple",
             category=category,
             tags={"categories": categories} if categories else None,
+            rsvp_url=None,
+            has_free_food=False,
         )
 
     @staticmethod

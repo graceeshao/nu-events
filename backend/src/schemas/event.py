@@ -24,6 +24,8 @@ class EventBase(BaseModel):
     category: EventCategory = Field(EventCategory.OTHER, description="Event category")
     tags: dict | None = Field(None, description="Arbitrary tags as JSON")
     image_url: str | None = Field(None, description="URL of an event image")
+    rsvp_url: str | None = Field(None, description="RSVP or registration URL")
+    has_free_food: bool = Field(False, description="Whether free food is offered")
 
 
 class EventCreate(EventBase):
@@ -45,6 +47,8 @@ class EventUpdate(BaseModel):
     category: EventCategory | None = Field(None, description="Event category")
     tags: dict | None = Field(None, description="Arbitrary tags as JSON")
     image_url: str | None = Field(None, description="URL of an event image")
+    rsvp_url: str | None = None
+    has_free_food: bool | None = None
 
 
 class EventRead(EventBase):

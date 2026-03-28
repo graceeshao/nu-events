@@ -7,7 +7,7 @@ A unique dedup_key prevents duplicate entries from repeated scraper runs.
 import enum
 from datetime import datetime
 
-from sqlalchemy import DateTime, Enum, Index, JSON, String, Text, func
+from sqlalchemy import Boolean, DateTime, Enum, Index, JSON, String, Text, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
@@ -52,6 +52,8 @@ class Event(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime, server_default=func.now(), onupdate=func.now(), nullable=False
     )
+    rsvp_url: Mapped[str | None] = mapped_column(String(2000), nullable=True)
+    has_free_food: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     dedup_key: Mapped[str] = mapped_column(
         String(500), unique=True, nullable=False, index=True
     )

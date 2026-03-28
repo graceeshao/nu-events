@@ -22,6 +22,8 @@ export interface EventRead {
   category: EventCategory;
   tags: Record<string, unknown> | null;
   image_url: string | null;
+  rsvp_url: string | null;
+  has_free_food: boolean;
   dedup_key: string;
   created_at: string;
   updated_at: string;

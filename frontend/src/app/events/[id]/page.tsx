@@ -29,9 +29,16 @@ export default async function EventDetailPage({ params }: Props) {
 
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
         <div className="flex items-start justify-between gap-4">
-          <h1 className="text-2xl font-bold text-gray-900 leading-tight">
-            {event.title}
-          </h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+              {event.title}
+            </h1>
+            {event.has_free_food && (
+              <span className="shrink-0 text-sm font-medium px-3 py-1 rounded-full bg-amber-100 text-amber-700">
+                🍕 Free Food!
+              </span>
+            )}
+          </div>
           <span
             className={`shrink-0 text-xs font-medium px-3 py-1 rounded-full ${categoryColor(
               event.category
@@ -79,6 +86,19 @@ export default async function EventDetailPage({ params }: Props) {
             <p className="text-sm text-gray-600 whitespace-pre-line leading-relaxed">
               {event.description}
             </p>
+          </div>
+        )}
+
+        {event.rsvp_url && (
+          <div className="mt-6 pt-6 border-t border-gray-100">
+            <a
+              href={event.rsvp_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-nu-purple text-white font-medium hover:bg-nu-purple-700 transition"
+            >
+              RSVP / Register →
+            </a>
           </div>
         )}
       </div>
