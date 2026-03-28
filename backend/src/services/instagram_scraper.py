@@ -333,7 +333,18 @@ async def scrape_org_instagram(
                     sender=f"@{handle}",
                 )
 
+                from datetime import datetime as _dt
+                _now = _dt.now()
+
                 for event_in in parsed_events:
+                    # Skip past events — only future events matter
+                    if event_in.start_time < _now:
+                        logger.debug(
+                            "Skipping past event from @%s: %s (%s)",
+                            handle, event_in.title, event_in.start_time,
+                        )
+                        continue
+
                     event_in.source_name = f"Instagram:@{handle}"
                     event_in.source_url = post_url
                     await create_event(db, event_in)
