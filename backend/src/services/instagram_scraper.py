@@ -98,12 +98,118 @@ def _extract_caption_text(post: Any) -> str:
     return "\n".join(cleaned_lines).strip()
 
 
+def _fetch_posts_rest_api(
+    handle: str,
+    session: Any,
+    days_back: int = 14,
+    max_posts: int = 20,
+) -> list[dict[str, Any]]:
+    """Fetch recent posts using Instagram's REST API (more reliable than GraphQL).
+
+    Args:
+        handle: Instagram username.
+        session: Authenticated requests session from Instaloader.
+        days_back: How many days back to look.
+        max_posts: Maximum posts to fetch.
+
+    Returns:
+        List of post dicts.
+    """
+    import time as _time
+    from datetime import datetime as _dt
+
+    cutoff_ts = (_dt.now(timezone.utc) - timedelta(days=days_back)).timestamp()
+    headers = {"x-ig-app-id": "936619743392459"}
+
+    # Get user ID first
+    resp = session.get(
+        f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
+        headers=headers,
+    )
+    if resp.status_code != 200:
+        logger.warning("Failed to fetch profile @%s: HTTP %d", handle, resp.status_code)
+        return []
+
+    user_data = resp.json().get("data", {}).get("user")
+    if not user_data:
+        logger.warning("Instagram profile @%s not found", handle)
+        return []
+
+    user_id = user_data.get("id")
+    if not user_id:
+        return []
+
+    # Fetch posts via user feed endpoint
+    posts = []
+    end_cursor = None
+    has_next = True
+
+    while has_next and len(posts) < max_posts:
+        url = f"https://www.instagram.com/api/v1/feed/user/{user_id}/?count=12"
+        if end_cursor:
+            url += f"&max_id={end_cursor}"
+
+        _time.sleep(_POST_DELAY_SECONDS)
+        resp = session.get(url, headers=headers)
+
+        if resp.status_code != 200:
+            logger.warning("Feed fetch failed for @%s: HTTP %d", handle, resp.status_code)
+            break
+
+        data = resp.json()
+        items = data.get("items", [])
+        has_next = data.get("more_available", False)
+        end_cursor = data.get("next_max_id")
+
+        for item in items:
+            taken_at = item.get("taken_at", 0)
+            if taken_at < cutoff_ts:
+                has_next = False
+                break
+
+            # Extract caption
+            caption_data = item.get("caption")
+            caption = caption_data.get("text", "") if caption_data else ""
+            if not caption or len(caption) < 20:
+                continue
+
+            # Clean caption (remove trailing hashtag blocks)
+            lines = caption.split("\n")
+            cleaned = []
+            for line in lines:
+                stripped = line.strip()
+                if stripped and all(
+                    w.startswith("#") or w.startswith("@") or not w.strip()
+                    for w in stripped.split()
+                ):
+                    continue
+                cleaned.append(line)
+            caption = "\n".join(cleaned).strip()
+
+            code = item.get("code", "")
+            posts.append({
+                "caption": caption,
+                "post_url": f"https://www.instagram.com/p/{code}/" if code else "",
+                "posted_at": datetime.fromtimestamp(taken_at, tz=timezone.utc),
+                "handle": handle,
+                "shortcode": code,
+            })
+
+            if len(posts) >= max_posts:
+                break
+
+    return posts
+
+
 def fetch_recent_posts(
     handle: str,
     days_back: int = 14,
     max_posts: int = 20,
 ) -> list[dict[str, Any]]:
     """Fetch recent posts from an Instagram profile.
+
+    Uses the REST API (v1/feed) which is more reliable than the GraphQL
+    endpoint that Instaloader uses by default.
 
     Args:
         handle: Instagram username (without @).
@@ -115,53 +221,10 @@ def fetch_recent_posts(
     """
     L = _get_loader()
     handle = handle.lstrip("@").strip().lower()
-    cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
 
-    try:
-        profile = instaloader.Profile.from_username(L.context, handle)
-    except instaloader.exceptions.ProfileNotExistsException:
-        logger.warning("Instagram profile @%s does not exist", handle)
-        return []
-    except instaloader.exceptions.ConnectionException as exc:
-        error_msg = str(exc).lower()
-        if "wait" in error_msg or "401" in error_msg or "429" in error_msg:
-            logger.warning("Instagram rate-limited for @%s, backing off", handle)
-            import time
-            time.sleep(60)  # Back off for 60 seconds on rate limit
-            try:
-                profile = instaloader.Profile.from_username(L.context, handle)
-            except Exception:
-                logger.error("Still rate-limited for @%s, skipping", handle)
-                return []
-        else:
-            logger.error("Instagram connection error for @%s: %s", handle, exc)
-            return []
-
-    posts = []
-    try:
-        for i, post in enumerate(profile.get_posts()):
-            if i >= max_posts:
-                break
-            if post.date_utc < cutoff:
-                break  # Posts are in reverse chronological order
-
-            caption = _extract_caption_text(post)
-            if not caption or len(caption) < 20:
-                continue  # Skip image-only posts or very short captions
-
-            posts.append({
-                "caption": caption,
-                "post_url": f"https://www.instagram.com/p/{post.shortcode}/",
-                "posted_at": post.date_utc,
-                "handle": handle,
-                "shortcode": post.shortcode,
-            })
-
-            import time
-            time.sleep(_POST_DELAY_SECONDS)
-
-    except instaloader.exceptions.ConnectionException as exc:
-        logger.error("Error fetching posts for @%s: %s", handle, exc)
+    # Use REST API via the authenticated session
+    session = L.context._session
+    posts = _fetch_posts_rest_api(session=session, handle=handle, days_back=days_back, max_posts=max_posts)
 
     logger.info("Fetched %d recent posts from @%s", len(posts), handle)
     return posts
