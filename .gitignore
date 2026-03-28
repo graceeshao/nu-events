@@ -47,3 +47,7 @@ alembic/versions/*.py
 # Gmail OAuth credentials
 credentials.json
 token.json
+nu_orgs.json
+nu_orgs_social.json
+orgs_to_discover.json
+org_social_links.json
