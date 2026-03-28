@@ -1,0 +1,70 @@
+2026-03-28 13:17:07,529 [INFO] ============================================================
+2026-03-28 13:17:07,529 [INFO] Scheduled scrape starting at 2026-03-28T13:17:07.529748
+2026-03-28 13:17:07,558 [INFO] Ollama status: running
+2026-03-28 13:17:07,559 [INFO] === PlanIt Purple Scrape ===
+  Fetching page 1: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=1
+2026-03-28 13:17:11,026 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=1 "HTTP/1.1 200 OK"
+  Fetching page 2: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=2
+2026-03-28 13:17:11,465 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=2 "HTTP/1.1 200 OK"
+  Fetching page 3: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=3
+2026-03-28 13:17:11,757 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=3 "HTTP/1.1 200 OK"
+  Fetching page 4: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=4
+2026-03-28 13:17:12,316 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=4 "HTTP/1.1 200 OK"
+  Fetching page 5: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=5
+2026-03-28 13:17:13,749 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=5 "HTTP/1.1 200 OK"
+  Fetching page 6: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=6
+2026-03-28 13:17:15,278 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=6 "HTTP/1.1 200 OK"
+  Fetching page 7: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=7
+2026-03-28 13:17:15,956 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=7 "HTTP/1.1 200 OK"
+  Fetching page 8: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=8
+2026-03-28 13:17:17,291 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=8 "HTTP/1.1 200 OK"
+  Fetching page 9: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=9
+2026-03-28 13:17:17,947 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=9 "HTTP/1.1 200 OK"
+  Fetching page 10: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=10
+2026-03-28 13:17:19,381 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=10 "HTTP/1.1 200 OK"
+  Fetching page 11: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=11
+2026-03-28 13:17:24,105 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=11 "HTTP/1.1 200 OK"
+  Fetching page 12: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=12
+2026-03-28 13:17:26,753 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=12 "HTTP/1.1 200 OK"
+  Fetching page 13: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=13
+2026-03-28 13:17:27,261 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=13 "HTTP/1.1 200 OK"
+  Fetching page 14: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=14
+2026-03-28 13:17:27,862 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=14 "HTTP/1.1 200 OK"
+  Fetching page 15: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=15
+2026-03-28 13:17:29,314 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=15 "HTTP/1.1 200 OK"
+  Fetching page 16: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=16
+2026-03-28 13:17:30,023 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=16 "HTTP/1.1 200 OK"
+  Fetching page 17: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=17
+2026-03-28 13:17:30,455 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=17 "HTTP/1.1 200 OK"
+  Fetching page 18: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=18
+2026-03-28 13:17:31,592 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=18 "HTTP/1.1 200 OK"
+  Fetching page 19: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=19
+2026-03-28 13:17:31,961 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=19 "HTTP/1.1 200 OK"
+  Fetching page 20: https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=20
+2026-03-28 13:17:32,500 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu?start=2026-03-28&end=2026-04-27&page=20 "HTTP/1.1 200 OK"
+2026-03-28 13:17:32,956 [INFO] PlanIt Purple: 720 scraped, 540 future, 540 new
+2026-03-28 13:17:32,956 [INFO] === Gmail LISTSERV Poll ===
+2026-03-28 13:17:33,153 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-28 13:17:34,120 [INFO] Authenticating as graceshao2026@u.northwestern.edu
+2026-03-28 13:17:35,648 [INFO] No UNSEEN messages in 'NU-Events'.
+2026-03-28 13:17:35,773 [INFO] Poll complete: {'emails_processed': 0, 'events_created': 0}
+2026-03-28 13:17:35,773 [INFO] Gmail: 0 emails processed, 0 events created
+2026-03-28 13:17:35,773 [INFO] === Instagram Scrape (daily) ===
+2026-03-28 13:17:35,789 [INFO] Loaded cached Instagram cookies from /Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-28 13:17:38,200 [INFO] Fetched 0 recent posts from @ao.productions
+2026-03-28 13:17:38,201 [INFO] Instagram @ao.productions: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:17:43,661 [INFO] Fetched 0 recent posts from @lc.northwestern
+2026-03-28 13:17:43,662 [INFO] Instagram @lc.northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:17:49,900 [INFO] Fetched 0 recent posts from @akpsi_northwestern
+2026-03-28 13:17:49,901 [INFO] Instagram @akpsi_northwestern: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:17:55,331 [INFO] Fetched 1 recent posts from @nu_cce
+2026-03-28 13:17:55,333 [INFO] Loaded 144 processed shortcodes from cache
+2026-03-28 13:17:55,333 [INFO] Instagram @nu_cce: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:18:01,673 [INFO] Fetched 1 recent posts from @amualphas
+2026-03-28 13:18:01,675 [INFO] Instagram @amualphas: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:18:07,242 [INFO] Fetched 0 recent posts from @apidaprelawnu
+2026-03-28 13:18:07,243 [INFO] Instagram @apidaprelawnu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 13:18:13,062 [INFO] Fetched 1 recent posts from @nu.amase
+2026-03-28 13:18:13,062 [INFO] Instagram @nu.amase: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 13:18:18,428 [INFO] Fetched 0 recent posts from @nuactiveminds
+2026-03-28 13:18:18,429 [INFO] Instagram @nuactiveminds: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
