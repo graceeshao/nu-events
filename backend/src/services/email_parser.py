@@ -101,6 +101,20 @@ _LOCATION_LABEL_RE = re.compile(
 )
 
 
+def _clean_title(title: str, max_len: int = 490) -> str:
+    """Clean and truncate an event title to fit the database constraint.
+
+    Strips leading/trailing whitespace and punctuation fragments,
+    and truncates with ellipsis if needed.
+    """
+    title = title.strip().strip(",;:–—-").strip()
+    if not title:
+        return "Untitled Event"
+    if len(title) > max_len:
+        title = title[:max_len].rsplit(" ", 1)[0] + "…"
+    return title
+
+
 def _parse_ampm(ampm: str) -> str:
     """Normalize AM/PM indicator."""
     return ampm.replace(".", "").upper().strip()
@@ -485,9 +499,9 @@ def parse_event_email(
     if len(multi_event_lines) > 1:
         # Multi-event email
         for d, t_start, t_end, desc, line_loc in multi_event_lines:
-            title = desc.split("(")[0].strip() if desc else subject
-            if not title:
-                title = subject
+            title = _clean_title(desc.split("(")[0].strip() if desc else subject)
+            if not title or title == "Untitled Event":
+                title = _clean_title(subject)
             start_dt = datetime.combine(d, t_start) if t_start else datetime.combine(d, time(0, 0))
             end_dt = datetime.combine(d, t_end) if t_end else None
             events.append(EventCreate(
@@ -507,7 +521,7 @@ def parse_event_email(
         end_dt = datetime.combine(d, t_end) if t_end else None
 
         events.append(EventCreate(
-            title=subject,
+            title=_clean_title(subject),
             description=body,
             start_time=start_dt,
             end_time=end_dt,

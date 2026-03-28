@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite+aiosqlite:///./nu_events.db"
     app_name: str = "NU Events"
     debug: bool = False
-    cors_origins: list[str] = ["http://localhost:3000"]
+    cors_origins: list[str] = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
     api_key: str | None = None
 
     # Gmail IMAP Poller settings
