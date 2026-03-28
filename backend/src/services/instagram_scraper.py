@@ -14,13 +14,15 @@ from typing import Any
 from src.database.session import async_session_factory
 from src.models.email_ingest import IngestedEmail
 from src.services.event_service import create_event
+from src.services.instagram_prefilter import caption_looks_like_event
 from src.services.llm_parser import parse_event_with_llm
+from src.services.post_cache import is_processed, mark_processed
 
 logger = logging.getLogger(__name__)
 
 # Rate limiting: pause between profile fetches to avoid Instagram bans
-_PROFILE_DELAY_SECONDS = 5
-_POST_DELAY_SECONDS = 2
+_PROFILE_DELAY_SECONDS = 3
+_POST_DELAY_SECONDS = 1
 
 
 _cached_session: Any = None
@@ -297,14 +299,31 @@ async def scrape_org_instagram(
     )
 
     events_created = 0
+    skipped_cached = 0
+    skipped_prefilter = 0
+    sent_to_llm = 0
 
     async with async_session_factory() as db:
         for post in posts:
             caption = post["caption"]
             post_url = post["post_url"]
+            shortcode = post.get("shortcode", "")
 
-            # Use the caption as both "subject" and "body" for the LLM
-            # The subject is a truncated version for display
+            # Layer 1: Cache — skip already-processed posts (instant)
+            if shortcode and is_processed(shortcode):
+                skipped_cached += 1
+                continue
+
+            # Layer 2: Regex pre-filter — skip obvious non-events (microseconds)
+            looks_like_event, score = caption_looks_like_event(caption)
+            if not looks_like_event:
+                skipped_prefilter += 1
+                if shortcode:
+                    mark_processed(shortcode)
+                continue
+
+            # Layer 3: LLM classification + extraction (10-30 seconds)
+            sent_to_llm += 1
             subject = caption[:100].split("\n")[0]
 
             try:
@@ -315,7 +334,6 @@ async def scrape_org_instagram(
                 )
 
                 for event_in in parsed_events:
-                    # Override source info
                     event_in.source_name = f"Instagram:@{handle}"
                     event_in.source_url = post_url
                     await create_event(db, event_in)
@@ -331,13 +349,23 @@ async def scrape_org_instagram(
                     post_url, handle,
                 )
 
+            # Mark as processed regardless of outcome
+            if shortcode:
+                mark_processed(shortcode)
+
         await db.commit()
 
     summary = {
         "posts_checked": len(posts),
         "events_created": events_created,
+        "skipped_cached": skipped_cached,
+        "skipped_prefilter": skipped_prefilter,
+        "sent_to_llm": sent_to_llm,
     }
-    logger.info("Instagram scrape for @%s complete: %s", handle, summary)
+    logger.info(
+        "Instagram @%s: %d posts, %d→LLM, %d filtered, %d cached, %d events",
+        handle, len(posts), sent_to_llm, skipped_prefilter, skipped_cached, events_created,
+    )
     return summary
 
 
@@ -358,17 +386,28 @@ async def scrape_all_orgs(
     """
     total_posts = 0
     total_events = 0
+    total_llm_calls = 0
+    total_filtered = 0
     orgs_scraped = 0
     orgs_failed = 0
 
-    for handle, org_name in handles:
+    for i, (handle, org_name) in enumerate(handles):
         try:
             result = await scrape_org_instagram(
                 handle, org_name, days_back, max_posts,
             )
             total_posts += result["posts_checked"]
             total_events += result["events_created"]
+            total_llm_calls += result.get("sent_to_llm", 0)
+            total_filtered += result.get("skipped_prefilter", 0) + result.get("skipped_cached", 0)
             orgs_scraped += 1
+
+            if (i + 1) % 10 == 0:
+                logger.info(
+                    "Progress: %d/%d orgs | %d posts | %d→LLM | %d filtered | %d events",
+                    i + 1, len(handles), total_posts, total_llm_calls,
+                    total_filtered, total_events,
+                )
 
             # Rate limit between orgs
             await asyncio.sleep(_PROFILE_DELAY_SECONDS)
@@ -382,4 +421,6 @@ async def scrape_all_orgs(
         "orgs_failed": orgs_failed,
         "total_posts_checked": total_posts,
         "total_events_created": total_events,
+        "total_llm_calls": total_llm_calls,
+        "total_filtered_out": total_filtered,
     }
