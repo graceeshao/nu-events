@@ -26,53 +26,68 @@ from src.services.email_parser import (
 logger = logging.getLogger(__name__)
 
 CLASSIFICATION_PROMPT = """\
-You classify university emails as EVENT or NOT_EVENT.
+You classify university emails. Read the ENTIRE email body carefully.
 
-EVENT = An attendable gathering with a specific date, time, and/or place where people show up in person or online. Examples: talks, lectures, concerts, workshops, movie nights, socials, meetings, info sessions, study breaks, performances.
+Does this email describe or announce one or more ATTENDABLE EVENTS?
 
-NOT_EVENT = Course announcements, course registration info, job/internship postings, hiring notices, application deadlines, scholarships, newsletter digests, administrative notices, policy updates, meeting minutes (past), surveys.
+ATTENDABLE EVENT = A specific gathering where people physically show up or join online at a scheduled date and time. Examples: talks, lectures, concerts, workshops, movie nights, socials, meetings, info sessions, study breaks, performances, panels, conferences, dinners, shows.
 
-Examples:
-INPUT: "Join us Friday at 7pm at Norris for movie night! Free popcorn!"
-OUTPUT: EVENT
+NOT AN EVENT (even if dates are mentioned):
+- Subscription confirmations and welcome messages
+- Course announcements / course registration / pre-registration
+- Job/internship postings and hiring notices
+- Application or recruitment DEADLINES ("Apply by Friday", "Deadline March 31")
+- Company recruiting emails (e.g. recruiting programs, launch programs, "opportunities")
+- Election/voting emails ("Vote for your new board", "JUST VOTE")
+- Newsletters that only summarize past events or link to other things without specific events
+- Administrative notices, policy updates
+- Org recruitment that only has a deadline but no specific attendable gathering
 
-INPUT: "Students can take a fall-quarter POLI_SCI 390 course, taught by Professor Smith. Enrollment begins Nov 9."
-OUTPUT: NOT_EVENT
+IS an event (people physically show up or join live):
+- Competitions (case competitions, hackathons) — attendable
+- Conferences, panels, talks, lectures, workshops, seminars
+- Social events, performances, dinners, movie nights, cultural shows
+- Info sessions — attendable even if about careers/business
+- Club recruitment IF the email describes a specific gathering with date+time+place (e.g. "Rush info session at Norris on Friday at 7pm" = EVENT, but "Apply to rush by Friday" = NOT EVENT)
+- Volunteering events with a specific time and place
 
-INPUT: "Workshop on resume writing, March 28 at 3pm, Career Services. RSVP required."
-OUTPUT: EVENT
+KEY DISTINCTION: Look for a specific time AND place where people gather. Deadlines and application dates are NOT events. "Register by March 31" is a deadline. "Join us March 31 at 3pm in Tech L160" is an event.
 
-INPUT: "We are hiring a research assistant. Application deadline April 1."
-OUTPUT: NOT_EVENT
+Read the FULL email body — events are often buried in the text, not just the subject line. One email may contain multiple events.
 
-INPUT: "The Buffett Institute invites you to a talk by Dr. Jones on April 3 at 12:30pm."
-OUTPUT: EVENT
-
-INPUT: "Reminder: Spring quarter course registration opens Monday."
-OUTPUT: NOT_EVENT
-
-Now classify this email:
 Subject: {subject}
-Body (first 1000 chars): {body_preview}
+Full email body:
+{body_preview}
 
 Respond with ONLY one word: EVENT or NOT_EVENT"""
 
 EXTRACTION_PROMPT = """\
-Extract event details from this email. Return ONLY valid JSON with no markdown formatting, no backticks, no explanation.
+Extract event details from this university email. Return ONLY valid JSON — no markdown, no backticks, no explanation text.
 
 Subject: {subject}
 Body: {body_preview}
 
-Return this exact JSON structure (use null for unknown fields):
-{{"title": "event title (concise, not the full email subject)", "date": "YYYY-MM-DD", "start_time": "HH:MM", "end_time": "HH:MM or null", "location": "venue name and room", "description": "1-2 sentence summary", "rsvp_url": "URL or null", "has_free_food": true/false, "category": "academic or social or career or arts or sports or other"}}
+Return this JSON structure (use null for unknown fields):
+{{"title": "...", "date": "YYYY-MM-DD", "start_time": "HH:MM", "end_time": "HH:MM or null", "location": "...", "description": "...", "rsvp_url": "URL or null", "has_free_food": true/false, "category": "academic or social or career or arts or sports or other"}}
 
-Important:
-- title should be a clean event name, not the email subject line verbatim
-- date must be in YYYY-MM-DD format
+CRITICAL RULES FOR TITLE:
+- The title must be a clean, human-readable event name — like what you'd see on a calendar
+- Do NOT copy the email subject verbatim. Extract the actual event name from the body.
+- Remove ALL unnecessary words: "TOMORROW!", "THIS SATURDAY!", "Fwd:", "Re:", "[EVENT]", "[STUDENT ORG]", urgency words, dates, times
+- Examples of BAD titles: "CELEBRASIA TOMORROW!", "JUST VOTE... JUST VOTE", "EVENT TODAY! Grad School Tell-All", "Next Week's Events at Buffett"
+- Examples of GOOD titles: "Celebrasia", "CSA Board Elections", "Grad School Tell-All and Dinner", "Buffett Institute Speaker Series"
+- If the email contains a specific event name in the body, use THAT as the title
+- Use title case (capitalize major words)
+
+OTHER RULES:
+- date in YYYY-MM-DD format
 - times in 24-hour HH:MM format
-- category must be exactly one of: academic, social, career, arts, sports, other
-- has_free_food is true ONLY if free food/drinks/snacks are explicitly mentioned
-- If multiple events are described, return a JSON array of objects"""
+- description: 1-2 sentences summarizing what the event is about
+- category: exactly one of academic, social, career, arts, sports, other
+- has_free_food: true ONLY if free food/drinks/snacks are explicitly mentioned
+- rsvp_url: include any registration, RSVP, or signup links found in the email
+- If the email describes MULTIPLE separate events, return a JSON array of objects
+- Read the full body carefully — event details are often buried in the text"""
 
 VALID_CATEGORIES = {"academic", "social", "career", "arts", "sports", "other"}
 
@@ -337,6 +352,58 @@ async def parse_event_with_llm(
     fallback_rsvp = extract_rsvp_url(full_text)
     fallback_free_food = detect_free_food(full_text)
 
+    # --- Pre-filters: skip obvious non-events without calling the LLM ---
+    subject_lower = subject.lower().strip()
+    body_lower = body.lower().strip()
+
+    # Subscription confirmations, welcome messages, and their replies
+    skip_subject_patterns = [
+        "you are now subscribed to the",
+        "confirm your subscription to the",
+        "re: subscribe",
+    ]
+    # Also catch "Welcome to X!" (but not "Welcome to the event!")
+    if any(p in subject_lower for p in skip_subject_patterns):
+        logger.debug("Pre-filter: subscription email skipped: %s", subject)
+        return []
+
+    # Welcome messages from LISTSERV
+    if subject_lower.startswith("welcome to") and (
+        "LISTSERV" in (sender or "") or "listserv" in body_lower[:200]
+    ):
+        logger.debug("Pre-filter: LISTSERV welcome email skipped: %s", subject)
+        return []
+
+    # Job/internship postings (common CBI [POSTING] tag)
+    if "[posting]" in subject_lower:
+        logger.debug("Pre-filter: job posting skipped: %s", subject)
+        return []
+
+    job_phrases = [
+        "is hiring", "we are hiring", "job alert",
+        "internship posting", "now hiring",
+    ]
+    if any(p in subject_lower for p in job_phrases):
+        logger.debug("Pre-filter: job posting skipped: %s", subject)
+        return []
+
+    # Voting/election emails (not attendable events) — catch Re:/Fwd: chains too
+    clean_subject = re.sub(r'^(re:\s*|fwd:\s*)+', '', subject_lower, flags=re.IGNORECASE).strip()
+    if re.search(r'\bjust vote\b', clean_subject) or clean_subject.endswith("elections"):
+        if not re.search(r'\b(at|in|room|hall|center|norris|tech)\b', body_lower[:500]):
+            logger.debug("Pre-filter: election/voting email skipped: %s", subject)
+            return []
+
+    # Course pre-registration (not an event)
+    if "pre-registration" in clean_subject or "pre registration" in clean_subject:
+        logger.debug("Pre-filter: course registration skipped: %s", subject)
+        return []
+
+    # Application deadlines (not events)
+    if re.match(r'^apply\s+to\b', clean_subject) and re.search(r'\bby\s+(friday|monday|tuesday|wednesday|thursday|saturday|sunday|\d)', clean_subject):
+        logger.debug("Pre-filter: application deadline skipped: %s", subject)
+        return []
+
     try:
         client = _get_ollama_client()
         model = _resolve_model(client)
@@ -350,7 +417,7 @@ async def parse_event_with_llm(
     try:
         classification_prompt = CLASSIFICATION_PROMPT.format(
             subject=subject,
-            body_preview=body[:1000],
+            body_preview=body[:2000],
         )
         classification = await _chat(client, model, classification_prompt)
         classification_clean = classification.strip().upper()
@@ -375,7 +442,7 @@ async def parse_event_with_llm(
     try:
         extraction_prompt = EXTRACTION_PROMPT.format(
             subject=subject,
-            body_preview=body[:2000],
+            body_preview=body[:3000],
         )
         raw_response = await _chat(client, model, extraction_prompt)
         event_dicts = _parse_extraction_json(raw_response)
