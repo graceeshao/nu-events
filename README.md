@@ -81,6 +81,57 @@ docker compose up --build
 # Frontend → http://localhost:3000
 ```
 
+## Gmail Poller Setup
+
+The Gmail poller monitors a Gmail label for event announcement emails and automatically ingests them into the database.
+
+### Prerequisites
+
+1. **Google Cloud Project** with the Gmail API enabled
+2. **OAuth 2.0 Client ID** (Desktop application type) — download the JSON as `credentials.json`
+3. A Gmail label (default: `NU-Events`) with a filter routing event emails into it
+
+### Step-by-Step Setup
+
+1. **Create a Google Cloud project** at [console.cloud.google.com](https://console.cloud.google.com)
+2. Enable the **Gmail API**
+3. Create **OAuth 2.0 credentials** → Desktop app → Download JSON
+4. Place the file as `credentials.json` in the project root (or wherever `GMAIL_CREDENTIALS_FILE` points)
+5. **Create the Gmail label:**
+   - In Gmail → Settings → Labels → Create new label: `NU-Events`
+   - Set up a filter (e.g. `from:*@u.northwestern.edu`) to auto-label incoming event emails
+6. **Run the auth script** (one-time):
+   ```bash
+   cd backend
+   python ../scripts/gmail_auth.py
+   ```
+   This opens a browser for Google sign-in and saves `token.json`.
+7. **Run the poller:**
+   ```bash
+   # Continuous mode (polls every 15 minutes)
+   python ../scripts/run_poller.py
+
+   # Single poll (useful for cron)
+   python ../scripts/run_poller.py --once
+
+   # Custom interval
+   python ../scripts/run_poller.py --interval 300
+   ```
+
+### API Endpoints
+
+- `POST /poller/trigger` — manually trigger a single poll cycle
+- `GET /poller/status` — check credentials config, last poll time, results
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `GMAIL_CREDENTIALS_FILE` | `credentials.json` | Path to OAuth client-secret JSON |
+| `GMAIL_TOKEN_FILE` | `token.json` | Path to saved OAuth token |
+| `GMAIL_LABEL` | `NU-Events` | Gmail label to poll |
+| `GMAIL_POLL_INTERVAL_SECONDS` | `900` | Polling interval (seconds) |
+
 ## Adding a New Scraper
 
 1. Create a file in `backend/src/scrapers/`, e.g. `my_source.py`:

@@ -43,3 +43,7 @@ htmlcov/
 # Alembic
 alembic/versions/*.py
 !alembic/versions/.gitkeep
+
+# Gmail OAuth credentials
+credentials.json
+token.json

@@ -16,6 +16,14 @@ class Settings(BaseSettings):
     cors_origins: list[str] = ["http://localhost:3000"]
     api_key: str | None = None
 
+    # Gmail IMAP Poller settings
+    gmail_credentials_file: str = "credentials.json"
+    gmail_token_file: str = "token.json"
+    gmail_label: str = "NU-Events"
+    gmail_poll_interval_seconds: int = 900  # 15 minutes
+    gmail_imap_host: str = "imap.gmail.com"
+    gmail_imap_port: int = 993
+
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
 
