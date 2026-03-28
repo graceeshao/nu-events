@@ -1,73 +1,956 @@
 [
-  {"name": "180 Degrees Consulting", "category": "RSO", "tags": ["Academic: Business/Finance/Economics", "Pre-Professional", "Volunteer-Focused"], "club_id": 35452},
-  {"name": "64 Squares", "category": "RSO", "tags": ["Recreation"], "club_id": 35453},
-  {"name": "A&O Productions", "category": "RSO", "tags": ["Arts/Performance", "Entertainment"], "club_id": 35454},
-  {"name": "Academy of Music and Arts for Special Education", "category": "RSO", "tags": ["Arts/Performance", "Volunteer-Focused"], "club_id": 35455},
-  {"name": "ACEing Autism", "category": "RSO", "tags": ["Volunteer-Focused"], "club_id": 35456},
-  {"name": "Active Minds", "category": "RSO", "tags": ["Advocacy", "Health & Wellness"], "club_id": 35457},
-  {"name": "Advanced Degree Consulting Alliance", "category": "TGS", "tags": ["Barrier-Free", "Pre-Professional", "TGS-Sponsored"], "club_id": 35458},
-  {"name": "Advancement for the Undocumented Community", "category": "RSO", "tags": ["Advocacy", "Identity-Based", "Political"], "club_id": 35459},
-  {"name": "African Graduate Student Association", "category": "TGS", "tags": ["International Students Associations: Graduates"], "club_id": 35460},
-  {"name": "African Students Association", "category": "RSO", "tags": ["Barrier-Free", "Identity-Based", "Mentorship", "International Students Associations"], "club_id": 35461},
-  {"name": "Afrothunda Dance Troupe", "category": "RSO", "tags": ["Arts/Performance", "Dance", "Entertainment"], "club_id": 35462},
-  {"name": "Ahana Dance Project", "category": "RSO", "tags": ["Arts/Performance", "Dance", "Identity-Based"], "club_id": 35463},
-  {"name": "AI Graduate Student Group", "category": "RSO", "tags": [], "club_id": 35464},
-  {"name": "AIESEC", "category": "RSO", "tags": ["Philanthropic", "SPS Student Leadership Councils"], "club_id": 35465},
-  {"name": "Aikido", "category": "RSO", "tags": ["Barrier-Free", "Health & Wellness", "Recreation", "Sports Clubs"], "club_id": 35466},
-  {"name": "Air Force ROTC", "category": "RSO", "tags": ["Pre-Professional"], "club_id": 36057},
-  {"name": "AKPsi", "category": "RSO", "tags": ["Academic: Business/Finance/Economics", "Pre-Professional"], "club_id": 35467},
-  {"name": "Algorithmic Trading Club", "category": "RSO", "tags": ["Academic: STEM", "Academic: Business/Finance/Economics", "Barrier-Free", "Pre-Professional"], "club_id": 35469},
-  {"name": "Alianza\u2013The Latinx Student Alliance", "category": "RSO", "tags": ["Advocacy", "Barrier-Free", "Identity-Based", "Political"], "club_id": 35470},
-  {"name": "All Paws In", "category": "RSO", "tags": ["Barrier-Free"], "club_id": 35472},
-  {"name": "Alliance of Evanston Minority Students", "category": "TGS", "tags": [], "club_id": 35474},
-  {"name": "Alpha Chi Omega", "category": "FSL", "tags": ["Fraternity/Sorority: IFC/MGC/NPHC/PHA"], "club_id": 35475},
-  {"name": "Alpha Kappa Alpha", "category": "FSL", "tags": ["Fraternity/Sorority: IFC/MGC/NPHC/PHA"], "club_id": 36664},
-  {"name": "Alpha Phi", "category": "FSL", "tags": ["Fraternity/Sorority: IFC/MGC/NPHC/PHA"], "club_id": 35476},
-  {"name": "Alpha Phi Alpha Fraternity, Inc.", "category": "FSL", "tags": ["Fraternity/Sorority: IFC/MGC/NPHC/PHA"], "club_id": 35477},
-  {"name": "Alpha Psi Lambda National, Inc.", "category": "FSL", "tags": ["Fraternity/Sorority: IFC/MGC/NPHC/PHA"], "club_id": 35478},
-  {"name": "Alternative Student Break", "category": "Campus Department & Residential Life", "tags": ["Volunteer-Focused"], "club_id": 36660},
-  {"name": "American Foundation for Suicide Prevention at Northwestern University", "category": "RSO", "tags": [], "club_id": 36675},
-  {"name": "American Medical Women's Association", "category": "RSO", "tags": ["Academic: Medical", "Mentorship"], "club_id": 35480},
-  {"name": "American Society of Civil Engineers", "category": "RSO", "tags": ["Academic: STEM", "Pre-Professional"], "club_id": 36630},
-  {"name": "AMPED", "category": "RSO", "tags": ["Arts/Performance", "Mentorship"], "club_id": 35481},
-  {"name": "APIDA Pre-Law Association", "category": "RSO", "tags": [], "club_id": 35482},
-  {"name": "Applause for a Cause", "category": "RSO", "tags": ["Entertainment", "Philanthropic"], "club_id": 35483},
-  {"name": "Applied Technologies Club", "category": "RSO", "tags": [], "club_id": 36693},
-  {"name": "Arab and Middle Eastern Journalists' Association", "category": "RSO", "tags": [], "club_id": 36690},
-  {"name": "Arab Graduate Student Association", "category": "RSO", "tags": ["International Students Associations: Graduates"], "club_id": 35484},
-  {"name": "Arch Society", "category": "RSO", "tags": ["Mentorship", "Pre-Professional"], "club_id": 35486},
-  {"name": "Archery Club", "category": "RSO", "tags": ["Recreation", "Sports Clubs"], "club_id": 35487},
-  {"name": "Arco", "category": "RSO", "tags": ["Identity-Based"], "club_id": 36678},
-  {"name": "Area Councils", "category": "Campus Department & Residential Life", "tags": ["Government/Council"], "club_id": 36638},
-  {"name": "Armenian Student Association", "category": "RSO", "tags": ["Barrier-Free", "Identity-Based", "International Students Associations"], "club_id": 35488},
-  {"name": "Artificial Intelligence Graduate Group", "category": "TGS", "tags": [], "club_id": 35490},
-  {"name": "Arts Alliance", "category": "RSO", "tags": ["Arts/Performance", "Dance", "Entertainment", "Theatre"], "club_id": 35491},
-  {"name": "Ascend", "category": "RSO", "tags": [], "club_id": 35492},
-  {"name": "Asian American InterVarsity Christian Fellowship", "category": "RSO", "tags": ["Barrier-Free", "Identity-Based", "Mentorship", "Religious & Spiritual"], "club_id": 35493},
-  {"name": "Asian American Student Journalists", "category": "RSO", "tags": ["Barrier-Free", "Identity-Based", "Media & Journalism", "Mentorship"], "club_id": 35494},
-  {"name": "Asian Pacific American Coalition", "category": "RSO", "tags": ["Advocacy", "Identity-Based"], "club_id": 35495},
-  {"name": "ASL Club", "category": "RSO", "tags": [], "club_id": 36681},
-  {"name": "Associated Student Government", "category": "RSO", "tags": ["Advocacy", "Academic", "Barrier-Free", "Environmental", "Government/Council", "Health & Wellness", "Media & Journalism", "Philanthropic", "Political", "Residence-Based"], "club_id": 35496},
-  {"name": "Association for Women in Sports Media", "category": "RSO", "tags": ["Identity-Based", "Media & Journalism"], "club_id": 35498},
-  {"name": "Association of Kenyan Students", "category": "RSO", "tags": ["Entertainment", "Identity-Based", "Political", "International Students Associations"], "club_id": 35499},
-  {"name": "Association of Latino Professionals for America at Northwestern University", "category": "RSO", "tags": [], "club_id": 36683},
-  {"name": "Asterik A cappella", "category": "RSO", "tags": ["Arts/Performance", "Vocal Performance"], "club_id": 35501},
-  {"name": "Athletes in Action", "category": "RSO", "tags": ["Religious & Spiritual"], "club_id": 35502},
-  {"name": "Aviation Club", "category": "RSO", "tags": ["Barrier-Free", "Mentorship", "Recreation"], "club_id": 35503},
-  {"name": "Ayers Residential College of Commerce & Industry", "category": "Residential College", "tags": ["Residential College"], "club_id": 36646},
-  {"name": "B. Burlesque", "category": "RSO", "tags": ["Arts/Performance", "Barrier-Free", "Dance", "Health & Wellness"], "club_id": 35504},
-  {"name": "Badminton Club", "category": "RSO", "tags": ["Sports Clubs"], "club_id": 35505},
-  {"name": "Baja SAE", "category": "RSO", "tags": ["Academic: STEM"], "club_id": 35506},
-  {"name": "Balkan Student Association", "category": "RSO", "tags": ["Barrier-Free", "Identity-Based", "International Students Associations"], "club_id": 35507},
-  {"name": "Ballroom Latin and Swing Team", "category": "RSO", "tags": ["Arts/Performance", "Barrier-Free", "Dance"], "club_id": 35508},
-  {"name": "Bangladeshi Students and Scholars Association", "category": "TGS", "tags": [], "club_id": 35509},
-  {"name": "Barbell Club", "category": "RSO", "tags": [], "club_id": 36682},
-  {"name": "Belegarth Medieval Combat Society", "category": "RSO", "tags": [], "club_id": 35510},
-  {"name": "Bhakti Yoga Society", "category": "RSO", "tags": ["Health & Wellness", "Religious & Spiritual"], "club_id": 36108},
-  {"name": "Bienestar: Latinx Service Club", "category": "RSO", "tags": ["Barrier-Free", "Health & Wellness", "Identity-Based", "Volunteer-Focused"], "club_id": 35511},
-  {"name": "Billiards Club", "category": "RSO", "tags": ["Barrier-Free", "Recreation"], "club_id": 35512},
-  {"name": "BinaryHeart", "category": "RSO", "tags": [], "club_id": 35513},
-  {"name": "Biokind Analytics", "category": "RSO", "tags": [], "club_id": 35514},
-  {"name": "Biology Students Association", "category": "RSO", "tags": ["Academic: STEM", "Academic: Medical", "Barrier-Free", "Mentorship", "Pre-Professional", "TGS-Research Focused"], "club_id": 35515},
-  {"name": "Biomedical Engineering Society", "category": "RSO", "tags": ["Academic: STEM", "Academic: Medical"], "club_id": 35516}
+  {
+    "name": "Academy of Music and Arts for Special Education",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35455
+  },
+  {
+    "name": "ACEing Autism",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35456
+  },
+  {
+    "name": "Active Minds",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35457
+  },
+  {
+    "name": "Advanced Degree Consulting Alliance",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35458
+  },
+  {
+    "name": "Advancement for the Undocumented Community",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35459
+  },
+  {
+    "name": "African Graduate Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35460
+  },
+  {
+    "name": "African Students Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35461
+  },
+  {
+    "name": "Afrothunda Dance Troupe",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35462
+  },
+  {
+    "name": "Ahana Dance Project",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35463
+  },
+  {
+    "name": "AI Graduate Student Group",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35464
+  },
+  {
+    "name": "AIESEC",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35465
+  },
+  {
+    "name": "Aikido",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35466
+  },
+  {
+    "name": "Air Force ROTC",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36057
+  },
+  {
+    "name": "AKPsi",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35467
+  },
+  {
+    "name": "Algorithmic Trading Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35469
+  },
+  {
+    "name": "Alianza\u2013The Latinx Student Alliance",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35470
+  },
+  {
+    "name": "All Paws In",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35472
+  },
+  {
+    "name": "Alliance of Evanston Minority Students",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35474
+  },
+  {
+    "name": "Alpha Chi Omega",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35475
+  },
+  {
+    "name": "Alpha Kappa Alpha",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36664
+  },
+  {
+    "name": "Alpha Phi",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35476
+  },
+  {
+    "name": "Alpha Phi Alpha Fraternity, Inc.",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35477
+  },
+  {
+    "name": "Alpha Psi Lambda National, Inc.",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35478
+  },
+  {
+    "name": "Alternative Student Break",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36660
+  },
+  {
+    "name": "American Foundation for Suicide Prevention at Northwestern",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36675
+  },
+  {
+    "name": "American Medical Women's Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35480
+  },
+  {
+    "name": "American Society of Civil Engineers",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36630
+  },
+  {
+    "name": "AMPED",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35481
+  },
+  {
+    "name": "APIDA Pre-Law Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35482
+  },
+  {
+    "name": "Applause for a Cause",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35483
+  },
+  {
+    "name": "Applied Technologies Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36693
+  },
+  {
+    "name": "Arab and Middle Eastern Journalists\u2019 Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36690
+  },
+  {
+    "name": "Arab Graduate Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35484
+  },
+  {
+    "name": "Arch Society",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35486
+  },
+  {
+    "name": "Archery Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35487
+  },
+  {
+    "name": "Arco",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36678
+  },
+  {
+    "name": "Area Councils",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36638
+  },
+  {
+    "name": "Armenian Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35488
+  },
+  {
+    "name": "Artificial Intelligence Graduate Group",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35490
+  },
+  {
+    "name": "Arts Alliance",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35491
+  },
+  {
+    "name": "Ascend",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35492
+  },
+  {
+    "name": "Asian American InterVarsity Christian Fellowship",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35493
+  },
+  {
+    "name": "Asian American Student Journalists",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35494
+  },
+  {
+    "name": "Asian Pacific American Coalition",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35495
+  },
+  {
+    "name": "ASL Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36681
+  },
+  {
+    "name": "Associated Student Government",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35496
+  },
+  {
+    "name": "Association for Women in Sports Media",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35498
+  },
+  {
+    "name": "Association of Kenyan Students",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35499
+  },
+  {
+    "name": "Association of Latino Professionals for America at",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36683
+  },
+  {
+    "name": "Asterik A cappella",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35501
+  },
+  {
+    "name": "Athletes in Action",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35502
+  },
+  {
+    "name": "Aviation Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35503
+  },
+  {
+    "name": "Ayers Residential College of Commerce & industry",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36646
+  },
+  {
+    "name": "B. Burlesque",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35504
+  },
+  {
+    "name": "Badminton Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35505
+  },
+  {
+    "name": "Baja SAE",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35506
+  },
+  {
+    "name": "Balkan Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35507
+  },
+  {
+    "name": "Ballroom Latin and Swing Team",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35508
+  },
+  {
+    "name": "Bangladeshi Students and Scholars Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35509
+  },
+  {
+    "name": "Barbell Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36682
+  },
+  {
+    "name": "Belegarth Medieval Combat Society",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35510
+  },
+  {
+    "name": "Bhakti Yoga Society",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36108
+  },
+  {
+    "name": "Bienestar: Latinx Service Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35511
+  },
+  {
+    "name": "Billiards Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35512
+  },
+  {
+    "name": "BinaryHeart",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35513
+  },
+  {
+    "name": "Biokind Analytics",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35514
+  },
+  {
+    "name": "Biology Students Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35515
+  },
+  {
+    "name": "Biomedical Engineering Society",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35516
+  },
+  {
+    "name": "Biomedical Informatics and Data Science",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35517
+  },
+  {
+    "name": "Black Formal",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35519
+  },
+  {
+    "name": "Black Graduate Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35520
+  },
+  {
+    "name": "Black Poetry Society",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35522
+  },
+  {
+    "name": "Black Pre-Law Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35523
+  },
+  {
+    "name": "Black Screens",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35524
+  },
+  {
+    "name": "Blackboard Magazine",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35525
+  },
+  {
+    "name": "BlackGen Capital",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36692
+  },
+  {
+    "name": "Blush",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35527
+  },
+  {
+    "name": "Books & Breakfast",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36659
+  },
+  {
+    "name": "Boomshaka",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35528
+  },
+  {
+    "name": "Brazilian Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35530
+  },
+  {
+    "name": "Bridge Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35531
+  },
+  {
+    "name": "BridgeUSA at NU",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35532
+  },
+  {
+    "name": "Brown Sugar",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35533
+  },
+  {
+    "name": "Business in Healthcare Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35534
+  },
+  {
+    "name": "Campus EDucators at Northwestern",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35473
+  },
+  {
+    "name": "Campus Life",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36657
+  },
+  {
+    "name": "Cantonese Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35536
+  },
+  {
+    "name": "CaribNation",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35537
+  },
+  {
+    "name": "Cartography Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35538
+  },
+  {
+    "name": "Catholic Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35539
+  },
+  {
+    "name": "Cats Who Compost",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35540
+  },
+  {
+    "name": "Center for Civic Engagement",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36674
+  },
+  {
+    "name": "Central Asian Students Hub",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35541
+  },
+  {
+    "name": "Challah for Hunger",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35542
+  },
+  {
+    "name": "Chi Alpha Campus Ministries",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35543
+  },
+  {
+    "name": "Chi Omega",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35544
+  },
+  {
+    "name": "Chicago Graduate Student Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35545
+  },
+  {
+    "name": "China Care",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35547
+  },
+  {
+    "name": "Chinatown Health Initiative",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35548
+  },
+  {
+    "name": "Chinese Students Association",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35549
+  },
+  {
+    "name": "Christians on Campus",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35550
+  },
+  {
+    "name": "Chronic Illness Alliance",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35551
+  },
+  {
+    "name": "Club Baseball",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35554
+  },
+  {
+    "name": "Club Field Hockey",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35555
+  },
+  {
+    "name": "Club Figure Skating (NUFSC)",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35556
+  },
+  {
+    "name": "Club Golf",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35557
+  },
+  {
+    "name": "Club Softball",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35558
+  },
+  {
+    "name": "Club Tennis",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35559
+  },
+  {
+    "name": "Cognitive Systems and Artificial Intelligence Student Group",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35560
+  },
+  {
+    "name": "College Democrats",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35561
+  },
+  {
+    "name": "College Feminists",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35562
+  },
+  {
+    "name": "College Republicans",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35563
+  },
+  {
+    "name": "Colloquium on Indigeneity and Native American Studies",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35564
+  },
+  {
+    "name": "ColorStack",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35565
+  },
+  {
+    "name": "Communications Residential College",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36648
+  },
+  {
+    "name": "Community Connect Schools",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36642
+  },
+  {
+    "name": "Community Health Corps",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35566
+  },
+  {
+    "name": "Community Singers",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35567
+  },
+  {
+    "name": "Competition for Undergraduate Regenerative Engineering",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36640
+  },
+  {
+    "name": "Comunidad Latinx",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35568
+  },
+  {
+    "name": "Concrete Canoe",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36629
+  },
+  {
+    "name": "Consult Your Community",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35569
+  },
+  {
+    "name": "Consultants Advising Student Enterprises",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35570
+  },
+  {
+    "name": "CoPilot",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36170
+  },
+  {
+    "name": "Coptic Orthodox Christian Fellowship",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35572
+  },
+  {
+    "name": "Cosmia Opera Collective",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35573
+  },
+  {
+    "name": "CPS Financial Literacy Outreach",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35574
+  },
+  {
+    "name": "Creative Writing Collective",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36685
+  },
+  {
+    "name": "Crescendo for a Cause",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35575
+  },
+  {
+    "name": "Crochet for a Cause",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35576
+  },
+  {
+    "name": "Crossword Team",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35577
+  },
+  {
+    "name": "Cru",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35578
+  },
+  {
+    "name": "CRUSH Magazine",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35579
+  },
+  {
+    "name": "CTF Team",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35580
+  },
+  {
+    "name": "Cubing Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35581
+  },
+  {
+    "name": "Dale Duro Latin Dance Company",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35582
+  },
+  {
+    "name": "Data Journalism Collective",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35583
+  },
+  {
+    "name": "Data Science and Analytics Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35584
+  },
+  {
+    "name": "Deeva",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35585
+  },
+  {
+    "name": "Delta Delta Delta",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35586
+  },
+  {
+    "name": "Delta Gamma",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35587
+  },
+  {
+    "name": "Delta Sigma Pi",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35588
+  },
+  {
+    "name": "Delta Sigma Theta Sorority, Inc",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35589
+  },
+  {
+    "name": "Delta Tau Delta",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35590
+  },
+  {
+    "name": "Design for America",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35591
+  },
+  {
+    "name": "Destino",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35592
+  },
+  {
+    "name": "Develop + Innovate for Social Change",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35593
+  },
+  {
+    "name": "Disabled Student Union",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35595
+  },
+  {
+    "name": "Driskill Graduate Student Council",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35597
+  },
+  {
+    "name": "Each One Teach One",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35598
+  },
+  {
+    "name": "EEqual",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35600
+  },
+  {
+    "name": "EighthDay Theatre Club",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35602
+  },
+  {
+    "name": "ELEL Dance Team",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35603
+  },
+  {
+    "name": "Emerging Coders",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35604
+  },
+  {
+    "name": "Engage RP",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35605
+  },
+  {
+    "name": "Engineers for a Sustainable World",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35606
+  },
+  {
+    "name": "Engineers Without Borders",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35607
+  },
+  {
+    "name": "Environmental Engineering Undergraduate Society",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 35608
+  },
+  {
+    "name": "Equestrian Team",
+    "category": "RSO",
+    "tags": [],
+    "club_id": 36215
+  }
 ]
