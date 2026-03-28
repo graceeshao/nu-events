@@ -234,12 +234,28 @@ def _fetch_posts_rest_api(
             caption = "\n".join(cleaned).strip()
 
             code = item.get("code", "")
+
+            # Extract image URL for vision analysis
+            image_url = None
+            image_versions = item.get("image_versions2", {})
+            candidates = image_versions.get("candidates", [])
+            if candidates:
+                # Pick smallest image that's still readable (~320-640px)
+                sorted_imgs = sorted(candidates, key=lambda x: x.get("width", 9999))
+                for img in sorted_imgs:
+                    if img.get("width", 0) >= 320:
+                        image_url = img.get("url")
+                        break
+                if not image_url and candidates:
+                    image_url = candidates[0].get("url")
+
             posts.append({
                 "caption": caption,
                 "post_url": f"https://www.instagram.com/p/{code}/" if code else "",
                 "posted_at": datetime.fromtimestamp(taken_at, tz=timezone.utc),
                 "handle": handle,
                 "shortcode": code,
+                "image_url": image_url,
             })
 
             if len(posts) >= max_posts:
@@ -490,7 +506,14 @@ async def scrape_all_orgs(
     days_back: int = 14,
     max_posts: int = 10,
 ) -> dict[str, Any]:
-    """Scrape multiple org Instagram accounts sequentially.
+    """Scrape all orgs using batch classification for speed.
+
+    Strategy:
+    1. Fetch posts from all orgs (sequential, rate-limited)
+    2. Pre-filter with regex (instant)
+    3. Batch classify remaining posts 20 at a time (1 LLM call per 20)
+    4. Extract events only for posts classified as EVENT
+    5. Analyze images for posts with short/no captions
 
     Args:
         handles: List of (instagram_handle, org_name) tuples.
@@ -500,55 +523,208 @@ async def scrape_all_orgs(
     Returns:
         Summary with total stats.
     """
-    total_posts = 0
-    total_events = 0
-    total_llm_calls = 0
-    total_filtered = 0
+    from src.services.batch_classifier import (
+        batch_classify_captions,
+        extract_event_from_caption,
+        extract_event_from_image,
+    )
+    from sqlalchemy import select as _select
+    from src.models.organization import Organization
+
+    # Phase 1: Fetch all posts
+    logger.info("Phase 1: Fetching posts from %d orgs...", len(handles))
+    all_posts = []  # (handle, org_name, post)
     orgs_scraped = 0
-    orgs_failed = 0
     orgs_inactive = 0
+    orgs_failed = 0
+    skipped_cached = 0
 
     for i, (handle, org_name) in enumerate(handles):
         try:
-            result = await scrape_org_instagram(
-                handle, org_name, days_back, max_posts,
+            # Check if inactive
+            async with async_session_factory() as db:
+                result = await db.execute(
+                    _select(Organization).where(
+                        Organization.instagram_handle == handle,
+                    )
+                )
+                org_record = result.scalars().first()
+                if org_record and org_record.instagram_active is False:
+                    orgs_inactive += 1
+                    continue
+
+            posts = await asyncio.to_thread(
+                fetch_recent_posts, handle, days_back, max_posts,
             )
 
-            if result.get("inactive"):
-                orgs_inactive += 1
-                continue
+            # Check activity for empty accounts
+            if not posts:
+                last_post_dt = await asyncio.to_thread(_check_account_activity, handle)
+                one_year_ago = datetime.now(timezone.utc) - timedelta(days=365)
+                async with async_session_factory() as db:
+                    result = await db.execute(
+                        _select(Organization).where(
+                            Organization.instagram_handle == handle,
+                        )
+                    )
+                    org_record = result.scalars().first()
+                    if org_record:
+                        if last_post_dt:
+                            org_record.instagram_last_post_at = last_post_dt
+                            if last_post_dt < one_year_ago:
+                                org_record.instagram_active = False
+                                logger.info("Marked @%s inactive (last: %s)", handle, last_post_dt.strftime("%Y-%m-%d"))
+                        elif org_record.instagram_last_post_at is None:
+                            org_record.instagram_active = False
+                            logger.info("Marked @%s inactive (no posts)", handle)
+                        await db.commit()
 
-            total_posts += result["posts_checked"]
-            total_events += result["events_created"]
-            total_llm_calls += result.get("sent_to_llm", 0)
-            total_filtered += result.get("skipped_prefilter", 0) + result.get("skipped_cached", 0)
+            for post in posts:
+                shortcode = post.get("shortcode", "")
+                if shortcode and is_processed(shortcode):
+                    skipped_cached += 1
+                    continue
+                all_posts.append((handle, org_name, post))
+
             orgs_scraped += 1
 
-            if (i + 1) % 10 == 0:
+            if (i + 1) % 20 == 0:
                 logger.info(
-                    "Progress: %d/%d orgs | %d active | %d inactive | %d posts | %d events",
-                    i + 1, len(handles), orgs_scraped, orgs_inactive,
-                    total_posts, total_events,
+                    "Fetch progress: %d/%d orgs | %d posts collected | %d cached",
+                    i + 1, len(handles), len(all_posts), skipped_cached,
                 )
 
-            # Rate limit between orgs
             await asyncio.sleep(_PROFILE_DELAY_SECONDS)
 
         except Exception:
-            logger.exception("Failed to scrape @%s (%s)", handle, org_name)
+            logger.exception("Failed to fetch @%s", handle)
             orgs_failed += 1
 
     logger.info(
-        "Instagram scrape complete: %d active, %d inactive, %d failed",
-        orgs_scraped, orgs_inactive, orgs_failed,
+        "Phase 1 done: %d posts from %d orgs (%d inactive, %d cached)",
+        len(all_posts), orgs_scraped, orgs_inactive, skipped_cached,
     )
 
-    return {
+    # Phase 2: Pre-filter
+    logger.info("Phase 2: Pre-filtering...")
+    caption_posts = []  # Posts with captions for LLM
+    image_posts = []    # Posts with short/no captions but images
+    skipped_prefilter = 0
+
+    for handle, org_name, post in all_posts:
+        caption = post.get("caption", "")
+        image_url = post.get("image_url")
+
+        if len(caption) < 50 and image_url:
+            # Short/no caption — try image analysis
+            image_posts.append((handle, org_name, post))
+        elif caption:
+            is_event_like, score = caption_looks_like_event(caption)
+            if is_event_like:
+                caption_posts.append((handle, org_name, post))
+            else:
+                skipped_prefilter += 1
+                shortcode = post.get("shortcode", "")
+                if shortcode:
+                    mark_processed(shortcode)
+        else:
+            skipped_prefilter += 1
+
+    logger.info(
+        "Phase 2 done: %d→batch classify, %d→image analysis, %d filtered",
+        len(caption_posts), len(image_posts), skipped_prefilter,
+    )
+
+    # Phase 3: Batch classify captions
+    logger.info("Phase 3: Batch classifying %d captions (20 per call)...", len(caption_posts))
+    posts_for_extraction = []
+
+    if caption_posts:
+        post_dicts = [p for _, _, p in caption_posts]
+        classified = await batch_classify_captions(post_dicts, batch_size=20)
+
+        for (handle, org_name, post), (_, is_event) in zip(caption_posts, classified):
+            if is_event:
+                posts_for_extraction.append((handle, org_name, post))
+            else:
+                shortcode = post.get("shortcode", "")
+                if shortcode:
+                    mark_processed(shortcode)
+
+    logger.info(
+        "Phase 3 done: %d posts need extraction",
+        len(posts_for_extraction),
+    )
+
+    # Phase 4: Extract events from captions + images
+    logger.info("Phase 4: Extracting events...")
+    total_events = 0
+    total_llm_calls = len(caption_posts) // 20 + 1  # batch classify calls
+
+    async with async_session_factory() as db:
+        # Caption-based extraction
+        for handle, org_name, post in posts_for_extraction:
+            caption = post["caption"]
+            post_url = post.get("post_url", "")
+            shortcode = post.get("shortcode", "")
+
+            events = await extract_event_from_caption(caption, handle)
+            total_llm_calls += 1
+
+            _now = datetime.now()
+            for event in events:
+                if event.start_time < _now:
+                    continue
+                event.source_name = f"Instagram:@{handle}"
+                event.source_url = post_url
+                await create_event(db, event)
+                total_events += 1
+                logger.info("Created event from @%s: %s", handle, event.title)
+
+            if shortcode:
+                mark_processed(shortcode)
+
+        # Image-based extraction
+        if image_posts:
+            logger.info("Analyzing %d images...", len(image_posts))
+        for handle, org_name, post in image_posts:
+            image_url = post.get("image_url")
+            post_url = post.get("post_url", "")
+            shortcode = post.get("shortcode", "")
+
+            if image_url:
+                events = await extract_event_from_image(image_url, handle)
+                total_llm_calls += 1
+
+                _now = datetime.now()
+                for event in events:
+                    if event.start_time < _now:
+                        continue
+                    event.source_name = f"Instagram:@{handle}"
+                    event.source_url = post_url
+                    await create_event(db, event)
+                    total_events += 1
+                    logger.info("Created event from image @%s: %s", handle, event.title)
+
+            if shortcode:
+                mark_processed(shortcode)
+
+        await db.commit()
+
+    summary = {
         "orgs_scraped": orgs_scraped,
         "orgs_failed": orgs_failed,
         "orgs_inactive": orgs_inactive,
-        "total_posts_checked": total_posts,
+        "total_posts_checked": len(all_posts) + skipped_cached,
         "total_events_created": total_events,
         "total_llm_calls": total_llm_calls,
-        "total_filtered_out": total_filtered,
+        "total_filtered_out": skipped_prefilter + skipped_cached,
+        "image_posts_analyzed": len(image_posts),
     }
+
+    logger.info(
+        "Instagram complete: %d orgs, %d posts, %d LLM calls, %d events, %d images analyzed",
+        orgs_scraped, len(all_posts), total_llm_calls, total_events, len(image_posts),
+    )
+
+    return summary

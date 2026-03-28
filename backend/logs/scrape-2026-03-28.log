@@ -743,3 +743,14 @@ sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when one or none w
 2026-03-28 15:00:46,349 [INFO] Fetched 0 recent posts from @nu_alianza
 2026-03-28 15:00:46,435 [INFO] Marked @nu_alianza as inactive (no posts found)
 2026-03-28 15:00:46,440 [INFO] Instagram @nu_alianza: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:00:51,926 [INFO] Fetched 1 recent posts from @allpawsnu
+2026-03-28 15:00:51,927 [INFO] Instagram @allpawsnu: 1 posts, 0→LLM, 0 filtered, 1 cached, 0 events
+2026-03-28 15:00:56,839 [INFO] Fetched 0 recent posts from @northwesternaia
+2026-03-28 15:00:57,278 [INFO] Instagram @northwesternaia: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:01:02,149 [INFO] Fetched 0 recent posts from @amwa_nu
+2026-03-28 15:01:02,571 [INFO] Instagram @amwa_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:01:02,571 [INFO] Progress: 20/426 orgs | 19 active | 0 inactive | 7 posts | 1 events
+2026-03-28 15:01:07,599 [INFO] Fetched 0 recent posts from @applause_nu
+2026-03-28 15:01:08,231 [INFO] Instagram @applause_nu: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
+2026-03-28 15:01:13,406 [INFO] Fetched 0 recent posts from @nuarchsociety
+2026-03-28 15:01:13,831 [INFO] Instagram @nuarchsociety: 0 posts, 0→LLM, 0 filtered, 0 cached, 0 events
