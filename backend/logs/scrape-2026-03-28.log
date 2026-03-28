@@ -1458,3 +1458,98 @@ sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when one or none w
 2026-03-28 16:10:54,516 [WARNING] Failed to fetch profile @nublackformal: HTTP 400
 2026-03-28 16:10:54,516 [INFO] Fetched 0 recent posts from @nublackformal
 2026-03-28 16:10:54,628 [INFO] Marked @nublackformal inactive (no posts)
+2026-03-28 16:10:59,740 [WARNING] Failed to fetch profile @bgsa_northwestern: HTTP 400
+2026-03-28 16:10:59,740 [INFO] Fetched 0 recent posts from @bgsa_northwestern
+2026-03-28 16:10:59,843 [INFO] Marked @bgsa_northwestern inactive (no posts)
+2026-03-28 16:11:04,982 [WARNING] Failed to fetch profile @bmpnorthwestern: HTTP 400
+2026-03-28 16:11:04,983 [INFO] Fetched 0 recent posts from @bmpnorthwestern
+2026-03-28 16:11:05,095 [INFO] Marked @bmpnorthwestern inactive (no posts)
+2026-03-28 16:11:10,201 [WARNING] Failed to fetch profile @nublackpoetrysociety: HTTP 400
+2026-03-28 16:11:10,201 [INFO] Fetched 0 recent posts from @nublackpoetrysociety
+2026-03-28 16:11:10,316 [INFO] Marked @nublackpoetrysociety inactive (no posts)
+2026-03-28 16:11:15,449 [WARNING] Failed to fetch profile @nu.bpla: HTTP 400
+2026-03-28 16:11:15,450 [INFO] Fetched 0 recent posts from @nu.bpla
+2026-03-28 16:11:15,559 [INFO] Marked @nu.bpla inactive (no posts)
+2026-03-28 16:11:20,686 [WARNING] Failed to fetch profile @blackscreens.nu: HTTP 400
+2026-03-28 16:11:20,687 [INFO] Fetched 0 recent posts from @blackscreens.nu
+2026-03-28 16:11:20,792 [INFO] Marked @blackscreens.nu inactive (no posts)
+2026-03-28 16:11:25,933 [WARNING] Failed to fetch profile @nu.bsa: HTTP 400
+2026-03-28 16:11:25,933 [INFO] Fetched 0 recent posts from @nu.bsa
+2026-03-28 16:11:26,053 [INFO] Marked @nu.bsa inactive (no posts)
+2026-03-28 16:11:31,172 [WARNING] Failed to fetch profile @blackboardmagnu: HTTP 400
+2026-03-28 16:11:31,173 [INFO] Fetched 0 recent posts from @blackboardmagnu
+2026-03-28 16:11:31,272 [INFO] Marked @blackboardmagnu inactive (no posts)
+2026-03-28 16:11:36,389 [WARNING] Failed to fetch profile @nublockchain: HTTP 400
+2026-03-28 16:11:36,389 [INFO] Fetched 0 recent posts from @nublockchain
+2026-03-28 16:11:36,493 [INFO] Marked @nublockchain inactive (no posts)
+2026-03-28 16:11:41,614 [WARNING] Failed to fetch profile @blushnorthwestern: HTTP 400
+2026-03-28 16:11:41,615 [INFO] Fetched 0 recent posts from @blushnorthwestern
+2026-03-28 16:11:41,717 [INFO] Marked @blushnorthwestern inactive (no posts)
+2026-03-28 16:11:46,833 [WARNING] Failed to fetch profile @boomshaka_nu: HTTP 400
+2026-03-28 16:11:46,833 [INFO] Fetched 0 recent posts from @boomshaka_nu
+2026-03-28 16:11:46,955 [INFO] Marked @boomshaka_nu inactive (no posts)
+2026-03-28 16:11:52,075 [WARNING] Failed to fetch profile @brasanu: HTTP 400
+2026-03-28 16:11:52,075 [INFO] Fetched 0 recent posts from @brasanu
+2026-03-28 16:11:52,180 [INFO] Marked @brasanu inactive (no posts)
+2026-03-28 16:11:52,183 [INFO] Fetch progress: 60/427 orgs | 0 posts collected | 7 cached
+2026-03-28 16:11:57,301 [WARNING] Failed to fetch profile @bridgeclub_nu: HTTP 400
+2026-03-28 16:11:57,301 [INFO] Fetched 0 recent posts from @bridgeclub_nu
+2026-03-28 16:11:57,415 [INFO] Marked @bridgeclub_nu inactive (no posts)
+2026-03-28 16:12:02,538 [WARNING] Failed to fetch profile @brownsugarnu: HTTP 400
+2026-03-28 16:12:02,539 [INFO] Fetched 0 recent posts from @brownsugarnu
+2026-03-28 16:12:02,644 [INFO] Marked @brownsugarnu inactive (no posts)
+2026-03-28 16:12:07,773 [WARNING] Failed to fetch profile @buffettinstitute: HTTP 400
+2026-03-28 16:12:07,779 [INFO] Fetched 0 recent posts from @buffettinstitute
+2026-03-28 16:12:07,907 [INFO] Marked @buffettinstitute inactive (no posts)
+2026-03-28 16:12:13,012 [WARNING] Failed to fetch profile @nu_bhc: HTTP 400
+2026-03-28 16:12:13,013 [INFO] Fetched 0 recent posts from @nu_bhc
+2026-03-28 16:12:13,124 [INFO] Marked @nu_bhc inactive (no posts)
+2026-03-28 16:12:18,261 [WARNING] Failed to fetch profile @crushmag.nu: HTTP 400
+2026-03-28 16:12:18,261 [INFO] Fetched 0 recent posts from @crushmag.nu
+2026-03-28 16:12:18,366 [INFO] Marked @crushmag.nu inactive (no posts)
+2026-03-28 16:12:23,482 [WARNING] Failed to fetch profile @nucampuseducators: HTTP 400
+2026-03-28 16:12:23,483 [INFO] Fetched 0 recent posts from @nucampuseducators
+2026-03-28 16:12:23,586 [INFO] Marked @nucampuseducators inactive (no posts)
+2026-03-28 16:12:28,696 [WARNING] Failed to fetch profile @northwestern_cic: HTTP 400
+2026-03-28 16:12:28,696 [INFO] Fetched 0 recent posts from @northwestern_cic
+2026-03-28 16:12:28,810 [INFO] Marked @northwestern_cic inactive (no posts)
+2026-03-28 16:12:34,019 [WARNING] Failed to fetch profile @nucaribnation: HTTP 400
+2026-03-28 16:12:34,019 [INFO] Fetched 0 recent posts from @nucaribnation
+2026-03-28 16:12:34,165 [INFO] Marked @nucaribnation inactive (no posts)
+2026-03-28 16:12:39,279 [WARNING] Failed to fetch profile @nucartography: HTTP 400
+2026-03-28 16:12:39,279 [INFO] Fetched 0 recent posts from @nucartography
+2026-03-28 16:12:39,453 [INFO] Marked @nucartography inactive (no posts)
+2026-03-28 16:12:44,579 [WARNING] Failed to fetch profile @catswhocompost: HTTP 400
+2026-03-28 16:12:44,580 [INFO] Fetched 0 recent posts from @catswhocompost
+2026-03-28 16:12:44,721 [INFO] Marked @catswhocompost inactive (no posts)
+2026-03-28 16:12:49,850 [WARNING] Failed to fetch profile @nu_cce: HTTP 400
+2026-03-28 16:12:49,852 [INFO] Fetched 0 recent posts from @nu_cce
+2026-03-28 16:12:50,028 [INFO] Marked @nu_cce inactive (no posts)
+2026-03-28 16:12:55,199 [WARNING] Failed to fetch profile @leadershipnu: HTTP 400
+2026-03-28 16:12:55,199 [INFO] Fetched 0 recent posts from @leadershipnu
+2026-03-28 16:12:55,323 [INFO] Marked @leadershipnu inactive (no posts)
+2026-03-28 16:13:00,463 [WARNING] Failed to fetch profile @nuchallah: HTTP 400
+2026-03-28 16:13:00,469 [INFO] Fetched 0 recent posts from @nuchallah
+2026-03-28 16:13:00,802 [INFO] Marked @nuchallah inactive (no posts)
+2026-03-28 16:13:05,933 [WARNING] Failed to fetch profile @northwesternxa: HTTP 400
+2026-03-28 16:13:05,934 [INFO] Fetched 0 recent posts from @northwesternxa
+2026-03-28 16:13:06,041 [INFO] Marked @northwesternxa inactive (no posts)
+2026-03-28 16:13:11,155 [WARNING] Failed to fetch profile @nuchinacare: HTTP 400
+2026-03-28 16:13:11,161 [INFO] Fetched 0 recent posts from @nuchinacare
+2026-03-28 16:13:11,300 [INFO] Marked @nuchinacare inactive (no posts)
+2026-03-28 16:13:16,411 [WARNING] Failed to fetch profile @cnss_nu: HTTP 400
+2026-03-28 16:13:16,411 [INFO] Fetched 0 recent posts from @cnss_nu
+2026-03-28 16:13:16,515 [INFO] Marked @cnss_nu inactive (no posts)
+2026-03-28 16:13:21,644 [WARNING] Failed to fetch profile @nuchinatownhealth: HTTP 400
+2026-03-28 16:13:21,644 [INFO] Fetched 0 recent posts from @nuchinatownhealth
+2026-03-28 16:13:21,754 [INFO] Marked @nuchinatownhealth inactive (no posts)
+2026-03-28 16:13:26,880 [WARNING] Failed to fetch profile @northwesterncsa: HTTP 400
+2026-03-28 16:13:26,881 [INFO] Fetched 0 recent posts from @northwesterncsa
+2026-03-28 16:13:27,011 [INFO] Marked @northwesterncsa inactive (no posts)
+2026-03-28 16:13:32,122 [WARNING] Failed to fetch profile @nu_christiansoncampus: HTTP 400
+2026-03-28 16:13:32,123 [INFO] Fetched 0 recent posts from @nu_christiansoncampus
+2026-03-28 16:13:32,227 [INFO] Marked @nu_christiansoncampus inactive (no posts)
+2026-03-28 16:13:37,353 [WARNING] Failed to fetch profile @chronicillnessalliance: HTTP 400
+2026-03-28 16:13:37,355 [INFO] Fetched 0 recent posts from @chronicillnessalliance
+2026-03-28 16:13:37,500 [INFO] Marked @chronicillnessalliance inactive (no posts)
+2026-03-28 16:13:37,503 [INFO] Fetch progress: 80/427 orgs | 0 posts collected | 7 cached
