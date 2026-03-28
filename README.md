@@ -40,10 +40,10 @@ A unified platform that aggregates events from across Northwestern University's 
 
 | Source | Method | Status |
 |--------|--------|--------|
-| **PlanIt Purple** (planitpurple.northwestern.edu) | Web scraper — parses event cards, handles pagination, maps NU categories | ✅ Working |
-| **NU LISTSERV emails** (38+ student org lists) | Gmail IMAP poller → email parser → event extraction | ✅ Working |
-| **Manual submission** | `POST /ingest/email` or `/ingest/raw` API endpoints | ✅ Working |
-| **Organization directory** | 70+ orgs seeded from AllCampusGroups PDF | ✅ Seeded |
+| **PlanIt Purple** (planitpurple.northwestern.edu) | Web scraper — parses event cards, handles pagination, maps NU categories 
+| **NU LISTSERV emails** (38+ student org lists) | Gmail IMAP poller → email parser → event extraction
+| **Manual submission** | `POST /ingest/email` or `/ingest/raw` API endpoints
+| **Organization directory** | 70+ orgs seeded from AllCampusGroups PDF
 
 ## Quick Start
 
