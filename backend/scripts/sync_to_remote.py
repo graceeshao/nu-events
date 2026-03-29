@@ -79,6 +79,15 @@ async def sync():
                 skipped += 1
                 continue
 
+            def parse_dt(s):
+                """Convert SQLite datetime string to Python datetime."""
+                if not s:
+                    return None
+                try:
+                    return datetime.fromisoformat(s.replace(".000000", ""))
+                except (ValueError, AttributeError):
+                    return None
+
             await session.execute(
                 text("""
                     INSERT INTO events (title, description, start_time, end_time, location,
@@ -91,17 +100,17 @@ async def sync():
                 {
                     "title": event["title"],
                     "description": event["description"],
-                    "start_time": event["start_time"],
-                    "end_time": event["end_time"],
+                    "start_time": parse_dt(event["start_time"]),
+                    "end_time": parse_dt(event["end_time"]),
                     "location": event["location"],
                     "source_url": event["source_url"],
                     "source_name": event["source_name"],
                     "category": event["category"],
                     "image_url": event["image_url"],
                     "rsvp_url": event["rsvp_url"],
-                    "has_free_food": event["has_free_food"],
+                    "has_free_food": bool(event["has_free_food"]),
                     "dedup_key": event["dedup_key"],
-                    "now": datetime.now().isoformat(),
+                    "now": datetime.now(),
                 },
             )
             inserted += 1
