@@ -222,6 +222,84 @@ async def run_instagram(logger) -> dict:
         return {"error": str(exc)}
 
 
+REMOTE_DATABASE_URL = "postgresql://nu_events_db_user:Rmqur7m1Vbb9cnfst2D9Jpjf3NCg9cew@dpg-d74astnpm1nc738rkvng-a.oregon-postgres.render.com/nu_events_db"
+
+
+async def sync_to_remote(logger):
+    """Push future events from local SQLite to remote Postgres."""
+    logger.info("=== Syncing to remote Postgres ===")
+    try:
+        from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+        from sqlalchemy import text
+
+        remote_url = REMOTE_DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
+        engine = create_async_engine(remote_url)
+
+        # Read local future events
+        conn = sqlite3.connect(str(DB_PATH))
+        conn.row_factory = sqlite3.Row
+        events = conn.execute("""
+            SELECT title, description, start_time, end_time, location,
+                   source_url, source_name, category, image_url, rsvp_url,
+                   has_free_food, dedup_key
+            FROM events WHERE start_time >= datetime('now')
+        """).fetchall()
+        conn.close()
+
+        def parse_dt(s):
+            if not s:
+                return None
+            try:
+                return datetime.fromisoformat(s.replace(".000000", ""))
+            except (ValueError, AttributeError):
+                return None
+
+        async with async_sessionmaker(engine, class_=AsyncSession)() as session:
+            inserted = 0
+            for event in events:
+                result = await session.execute(
+                    text("SELECT id FROM events WHERE dedup_key = :key"),
+                    {"key": event["dedup_key"]},
+                )
+                if result.scalar_one_or_none() is not None:
+                    continue
+
+                await session.execute(
+                    text("""
+                        INSERT INTO events (title, description, start_time, end_time, location,
+                            source_url, source_name, category, image_url, rsvp_url,
+                            has_free_food, dedup_key, created_at, updated_at)
+                        VALUES (:title, :description, :start_time, :end_time, :location,
+                            :source_url, :source_name, :category, :image_url, :rsvp_url,
+                            :has_free_food, :dedup_key, :now, :now)
+                    """),
+                    {
+                        "title": event["title"],
+                        "description": event["description"],
+                        "start_time": parse_dt(event["start_time"]),
+                        "end_time": parse_dt(event["end_time"]),
+                        "location": event["location"],
+                        "source_url": event["source_url"],
+                        "source_name": event["source_name"],
+                        "category": event["category"],
+                        "image_url": event["image_url"],
+                        "rsvp_url": event["rsvp_url"],
+                        "has_free_food": bool(event["has_free_food"]),
+                        "dedup_key": event["dedup_key"],
+                        "now": datetime.now(),
+                    },
+                )
+                inserted += 1
+
+            await session.commit()
+
+        await engine.dispose()
+        logger.info("Synced %d new events to remote (%d total local)", inserted, len(events))
+
+    except Exception as exc:
+        logger.exception("Remote sync failed: %s", exc)
+
+
 async def main(force_all: bool = False, dry_run: bool = False):
     logger = setup_logging()
     logger.info("=" * 60)
@@ -262,6 +340,10 @@ async def main(force_all: bool = False, dry_run: bool = False):
     # 4. Clean up past events
     if not dry_run:
         clean_past_events(logger)
+
+    # 5. Sync to remote Postgres (deployed site)
+    if not dry_run:
+        await sync_to_remote(logger)
 
     # Save state
     state["last_run"] = datetime.now().isoformat()
