@@ -1,112 +1,118 @@
 # 🟣 NU Events — Northwestern Campus Event Aggregator
 
-A unified platform that aggregates events from across Northwestern University's campus — scraping PlanIt Purple, ingesting LISTSERV emails, and scraping 195 student org Instagram accounts, all classified by a local LLM running on your Mac.
+**Live site: [nu-events.vercel.app](https://nu-events.vercel.app)**
+
+A unified platform that aggregates events from across Northwestern University's campus — scraping PlanIt Purple, ingesting LISTSERV emails, and scraping 427 student org Instagram accounts, all classified by a local LLM running on your Mac.
 
 **Built for students who are tired of missing events because they're scattered across 50 different sources.**
 
 ## How It Works
 
 ```
-┌──────────────┐  ┌──────────────┐  ┌──────────────────┐
-│  PlanIt      │  │  176+ NU     │  │  195 Student Org │
-│  Purple      │  │  LISTSERV    │  │  Instagram       │
-│  Scraper     │  │  Emails      │  │  Accounts        │
-└──────┬───────┘  └──────┬───────┘  └────────┬─────────┘
-       │                 │                    │
-       │          ┌──────▼───────┐   ┌────────▼─────────┐
-       │          │  Gmail IMAP  │   │  REST API +      │
-       │          │  Poller      │   │  Chrome Cookies   │
-       │          └──────┬───────┘   └────────┬─────────┘
-       │                 │                    │
-       │          ┌──────▼────────────────────▼─────────┐
-       │          │   3-Layer Filter Pipeline            │
-       │          │   1. Cache (skip seen posts)        │
-       │          │   2. Regex pre-filter (microseconds) │
-       │          │   3. Gemma 4B LLM (LOCAL, $0 cost)  │
-       │          │      → classify + extract events    │
-       │          └──────┬──────────────────────────────┘
-       │                 │
-       ▼                 ▼
-┌─────────────────────────────────┐    ┌──────────────────┐
-│  Events DB (SQLite)             │    │  Frontend        │
-│  • 100+ aggregated events       │◄───│  Next.js on :3001│
-│  • 700+ organizations (195 w/IG)│    │  Search/Filter   │
-│  • 2-tier dedup (exact + fuzzy) │    │  Org directory   │
-└─────────────────────────────────┘    └──────────────────┘
+YOUR MAC (scraping + LLM)                    CLOUD (serving)
+─────────────────────────                    ───────────────
+
+┌─────────────────────┐                      
+│  Scheduler (1.5h)   │                      
+│                     │                      
+│  PlanIt Purple ─────┤  JSON-LD             
+│  Gmail LISTSERV ────┤  IMAP + Ollama       
+│  Instagram (427) ───┤  REST API + Ollama   
+│                     │                      
+│  Gemma 12B (local)  │                      
+│  3-layer filter     │                      
+│  Event validator    │                      
+│         │           │                      
+│    SQLite (local)   │                      
+│         │           │    sync_to_remote    
+│         └───────────┼──────────────────→  Render Postgres
+│                     │                          │
+└─────────────────────┘                          │
+                                                 ▼
+                                          Render (FastAPI)
+                                          nu-events-api.onrender.com
+                                                 │
+                                                 ▼
+                                          Vercel (Next.js)
+                                          nu-events.vercel.app
+                                                 │
+                                                 ▼
+                                          Students browse events
 ```
 
 ## Data Sources
 
-| Source | Method | Status |
-|--------|--------|--------|
-| **PlanIt Purple** (planitpurple.northwestern.edu) | Web scraper — parses event cards, pagination, category mapping | ✅ Working (130+ events) |
-| **NU LISTSERV emails** (176+ student org lists) | Gmail IMAP poller → LLM classifier → LLM extractor | ✅ Working (132 emails → 64 events) |
-| **Instagram** (195 student org accounts) | REST API + Chrome cookies → 3-layer filter → LLM | ✅ Working |
-| **Manual submission** | `POST /ingest/email` or `/ingest/raw` API endpoints | ✅ Working |
-| **Organization directory** | 700+ orgs from CampusLabs Engage + Cats on Campus | ✅ Seeded (195 with IG handles) |
+| Source | Method | Events | Cost |
+|--------|--------|:------:|:----:|
+| **PlanIt Purple** | JSON-LD from detail pages | ~180 | $0 |
+| **NU LISTSERV emails** (176+ lists) | Gmail IMAP → Gemma 12B LLM | ~10 | $0 |
+| **Instagram** (427 org accounts) | REST API → prefilter → Gemma 12B | growing | $0 |
+| **Manual submission** | POST API endpoints | — | $0 |
+
+**Total: ~190+ future events, 100% local processing, $0 LLM cost**
+
+## Live Deployment
+
+| Component | URL | Host |
+|-----------|-----|------|
+| **Frontend** | [nu-events.vercel.app](https://nu-events.vercel.app) | Vercel (free) |
+| **Backend API** | [nu-events-api.onrender.com](https://nu-events-api.onrender.com) | Render (free) |
+| **Database** | Render PostgreSQL | Render (free) |
+| **Scraping + LLM** | Local Mac | launchd scheduler |
 
 ## Quick Start
 
 ### Prerequisites
 - Python 3.11+
 - Node.js 18+
-- [Ollama](https://ollama.com) (for LLM-based email parsing)
+- [Ollama](https://ollama.com) with Gemma 12B (`ollama pull gemma3:12b`)
 
-### 1. Backend
+### 1. Backend (local development)
 
 ```bash
 cd backend
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
-pip install python-dateutil google-auth google-auth-oauthlib google-auth-httplib2 ollama
 
 # Start the API server (auto-creates SQLite DB)
 uvicorn src.main:app --reload --port 8000
-
-# Seed organizations (553 campus orgs)
-python scripts/seed_organizations.py
-
-# Scrape PlanIt Purple for live events
-curl -X POST http://localhost:8000/scrapers/planitpurple/run
-
-# Run tests (169 tests)
-pytest -v
 ```
 
-### 2. Ollama (LLM for email parsing)
+### 2. Ollama (LLM for email/Instagram parsing)
 
 ```bash
 # Install Ollama
 brew install ollama
 brew services start ollama
 
-# Pull the model (~3.3GB)
-ollama pull gemma3:4b
+# Pull the model (~8GB)
+ollama pull gemma3:12b
 ```
-
-The LLM parser automatically falls back to regex if Ollama isn't running.
 
 ### 3. Frontend
 
 ```bash
 cd frontend
-cp .env.local.example .env.local
 npm install
 npm run dev
-# → http://localhost:3001 (port 3000 reserved for portfolio)
+# → http://localhost:3001
 ```
 
 ### 4. Gmail Poller (for LISTSERV emails)
 
-See [Gmail Poller Setup](#gmail-poller-setup) below.
+1. **Google Cloud OAuth**: Create project → Enable Gmail API → OAuth 2.0 credentials → save as `backend/credentials.json`
+2. **Gmail label + filter**: Create `NU-Events` label, filter `list:listserv.it.northwestern.edu` → Skip Inbox, Apply label
+3. **Subscribe to LISTSERV lists**: Email `LISTSERV@LISTSERV.IT.NORTHWESTERN.EDU` with `SUBSCRIBE LISTNAME Your Name`
+4. **Add to .env**: `GMAIL_USER_EMAIL=you@u.northwestern.edu`
 
 ### 5. Instagram Scraper
 
 ```bash
-# One-time: extract cookies from Chrome (must be logged into Instagram)
 cd backend
 source .venv/bin/activate
+
+# Extract cookies from Chrome (must be logged into Instagram)
 python -c "
 import browser_cookie3, json
 cj = browser_cookie3.chrome(domain_name='.instagram.com')
@@ -116,39 +122,112 @@ json.dump(cookies, open('ig_cookies.json','w'))
 print(f'Cached {len(cookies)} cookies')
 "
 
-# Scrape all 195 orgs (runs LLM locally via Ollama)
-python -c "
-import asyncio, sqlite3
-from src.services.instagram_scraper import scrape_all_orgs
-conn = sqlite3.connect('nu_events.db')
-orgs = conn.execute(\"\"\"SELECT instagram_handle, name FROM organizations
-    WHERE instagram_handle IS NOT NULL AND instagram_handle != ''\"\"\").fetchall()
-conn.close()
-asyncio.run(scrape_all_orgs(orgs, days_back=30, max_posts=5))
-"
-
-# Import new handles from JSON
+# Import handles from JSON
 python scripts/import_handles.py handles.json
 ```
 
-## Email Parsing Pipeline
+### 6. Automated Scheduler
 
-Emails go through a two-stage LLM pipeline:
+```bash
+cd backend
 
-1. **Pre-filters** — Instantly reject subscription confirmations, welcome messages, job postings (`[POSTING]`), election/voting emails, pre-registration notices, and application deadlines. No LLM call needed.
+# Install (runs every 1.5 hours + on boot)
+bash scripts/install_scheduler.sh install
 
-2. **LLM Classification** (Gemma 4B) — "Is this email about an attendable event?" Uses few-shot examples to distinguish real events from course announcements, recruiting emails, and newsletters.
+# Manage
+bash scripts/install_scheduler.sh status   # check if running
+bash scripts/install_scheduler.sh logs     # view recent logs
+bash scripts/install_scheduler.sh uninstall # stop
+launchctl start com.nuevents.scraper       # trigger manually
+```
 
-3. **LLM Extraction** — For confirmed events, extracts: clean title, date, time, location, description, RSVP URL, free food flag, and category. Returns structured JSON.
+Each scheduler run:
+1. Scrapes PlanIt Purple (JSON-LD, no LLM needed)
+2. Polls Gmail for new LISTSERV emails (Gemma 12B)
+3. Scrapes 25 Instagram orgs (staggered batches, Gemma 12B)
+4. Cleans past events
+5. **Auto-syncs to remote Postgres** (deployed site updates)
 
-4. **Regex fallback** — If Ollama is down, falls back to a regex-based parser with 40+ NU building names, date/time patterns, confidence scoring, and LISTSERV header matching.
+### 7. Deployment
 
-### Features detected:
-- 🍕 **Free food** — "free pizza", "food provided", "complimentary refreshments"
-- 🔗 **RSVP links** — Eventbrite, Google Forms, lu.ma, bit.ly
-- 📍 **NU locations** — 40+ known buildings (Norris, Tech, Kresge, etc.)
-- 🏷️ **Categories** — academic, social, career, arts, sports, other
-- 🏢 **Organization matching** — from LISTSERV List-Id/Sender headers
+**Backend (Render):**
+- New Web Service → `graceeshao/nu-events`, root: `backend`
+- Build: `pip install -e "."`
+- Start: `uvicorn src.main:app --host 0.0.0.0 --port 10000`
+- Add PostgreSQL database
+- Env vars: `DATABASE_URL` (internal Postgres URL), `CORS_ORIGINS` (JSON array of allowed origins)
+
+**Frontend (Vercel):**
+- Import → `graceeshao/nu-events`, root: `frontend`
+- Env var: `NEXT_PUBLIC_API_URL=https://nu-events-api.onrender.com`
+
+**Manual sync (if needed):**
+```bash
+DATABASE_URL="postgresql://..." python scripts/sync_to_remote.py
+```
+
+## Architecture
+
+### Event Processing Pipeline
+
+```
+Email/Instagram Post
+    │
+    ▼
+┌─────────────────────────────────┐
+│  Layer 1: Pre-filters (instant) │  Subscriptions, job postings,
+│  - Regex patterns               │  elections, welcome messages
+│  - Post cache (seen before?)    │  → skip without LLM
+└───────────┬─────────────────────┘
+            │ passes
+            ▼
+┌─────────────────────────────────┐
+│  Layer 2: LLM Classification    │  Gemma 12B via Ollama (LOCAL)
+│  - Batch: 20 captions per call  │  "Is this an attendable event?"
+│  - Full body (no truncation)    │  → EVENT or NOT_EVENT
+│  - Year-aware prompts           │
+└───────────┬─────────────────────┘
+            │ EVENT
+            ▼
+┌─────────────────────────────────┐
+│  Layer 3: LLM Extraction        │  Title, date, time, location,
+│  - Structured JSON output       │  description, RSVP URL, category
+│  - Image analysis for flyers    │  free food detection
+└───────────┬─────────────────────┘
+            │
+            ▼
+┌─────────────────────────────────┐
+│  Layer 4: Validation            │  Reject courses, forms, surveys,
+│  - event_validator.py           │  admin notices, past events,
+│  - 2-tier dedup (exact + fuzzy) │  deadlines without gatherings
+└───────────┬─────────────────────┘
+            │ valid + future
+            ▼
+        Database
+```
+
+### PlanIt Purple Pipeline (no LLM needed)
+
+```
+planitpurple.northwestern.edu
+    → Collect event IDs from main page + Weinberg
+    → Fetch JSON-LD from each event detail page
+    → Parse structured schema.org/Event data
+    → Clean location (strip time/category artifacts)
+    → Dedup + insert
+```
+
+### Instagram Pipeline
+
+```
+427 org accounts (staggered: 25 per run)
+    → Chrome cookies for auth (ig_cookies.json)
+    → REST API v1: profile info + user feed
+    → 3-layer filter: cache → regex prefilter → batch LLM (20/call)
+    → Image analysis for flyer posts (Gemma 12B vision)
+    → Future-only events, inactive org detection
+    → Rate limit handling: stop batch early on 429/401
+```
 
 ## API Reference
 
@@ -166,78 +245,39 @@ Emails go through a two-stage LLM pipeline:
 |--------|----------|-------------|
 | `GET` | `/organizations` | List orgs (filters: `category`, `search`, `page`, `page_size`) |
 | `GET` | `/organizations/{id}` | Get single org |
-| `POST` | `/organizations` | Create org |
-| `PATCH` | `/organizations/{id}` | Update org |
-| `DELETE` | `/organizations/{id}` | Delete org |
-
-### Email Ingestion
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/ingest/email` | JSON: `{subject, body, sender, list_id, list_sender}` |
-| `POST` | `/ingest/raw` | Raw RFC 822 email text |
 
 ### Instagram
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `POST` | `/instagram/scrape/{handle}` | Scrape a single org's Instagram |
-| `POST` | `/instagram/scrape-all` | Scrape all orgs with handles (background) |
+| `POST` | `/instagram/scrape/{handle}` | Scrape a single org |
+| `POST` | `/instagram/scrape-all` | Scrape all orgs with handles |
 | `GET` | `/instagram/handles` | List all orgs with Instagram handles |
 | `POST` | `/instagram/handles` | Bulk update Instagram handles |
+
+### Email Ingestion
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/ingest/email` | JSON: `{subject, body, sender}` |
+| `POST` | `/ingest/raw` | Raw RFC 822 email text |
 
 ### Scrapers & Poller
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/scrapers` | List registered scrapers |
-| `POST` | `/scrapers/{name}/run` | Trigger a scraper |
+| `POST` | `/scrapers/planitpurple/run` | Trigger PlanIt Purple scraper |
 | `POST` | `/poller/trigger` | Trigger one Gmail poll cycle |
-| `GET` | `/poller/status` | Check poller config and last run |
-
-Full API docs with examples: [docs/API.md](docs/API.md)
-
-## Gmail Poller Setup
-
-### One-Time Setup
-
-1. **Google Cloud OAuth** (use a personal Google account if NU blocks Cloud Console):
-   - [console.cloud.google.com](https://console.cloud.google.com) → Create project → Enable **Gmail API**
-   - Create **OAuth 2.0 credentials** (Desktop app) → Download JSON → save as `backend/credentials.json`
-
-2. **Gmail label + filter:**
-   - Create label: `NU-Events`
-   - Create filter: Has the words `list:listserv.it.northwestern.edu` → Skip Inbox, Apply label `NU-Events`
-
-3. **Subscribe to LISTSERV lists** — Email `LISTSERV@LISTSERV.IT.NORTHWESTERN.EDU`:
-   ```
-   SUBSCRIBE LISTNAME Your Name
-   ```
-
-4. **Authorize:** `python scripts/gmail_auth.py` (opens browser, log in with NU account)
-
-5. **Run:**
-   ```bash
-   export GMAIL_USER_EMAIL=you@u.northwestern.edu
-   python scripts/run_poller.py          # continuous (every 15 min)
-   python scripts/run_poller.py --once   # one-shot
-   ```
+| `GET` | `/poller/status` | Check poller status |
 
 ## Environment Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `DATABASE_URL` | `sqlite+aiosqlite:///./nu_events.db` | Database connection |
-| `API_KEY` | *(empty)* | If set, required on POST/PATCH/DELETE |
-| `CORS_ORIGINS` | `localhost:3000,3001,3002` | Allowed frontend origins |
+| `API_KEY` | *(empty)* | If set, required on write endpoints |
+| `CORS_ORIGINS` | `["http://localhost:3000","http://localhost:3001"]` | Allowed frontend origins |
 | `GMAIL_USER_EMAIL` | *(empty)* | Your NU Gmail for IMAP auth |
-| `GMAIL_CREDENTIALS_FILE` | `credentials.json` | OAuth client-secret JSON |
-| `GMAIL_TOKEN_FILE` | `token.json` | Saved OAuth token |
-| `GMAIL_LABEL` | `NU-Events` | Gmail label to poll |
-| `GMAIL_POLL_INTERVAL_SECONDS` | `900` | Poll interval (seconds) |
 | `OLLAMA_URL` | `http://localhost:11434` | Ollama server URL |
-| `OLLAMA_MODEL` | `gemma3:4b` | LLM model for email parsing |
-| `USE_LLM_PARSER` | `true` | Set `false` to use regex-only parser |
-| `INSTAGRAM_SESSION_USER` | *(empty)* | Instagram username (for Instaloader fallback) |
-| `INSTAGRAM_DAYS_BACK` | `14` | How far back to scrape IG posts |
-| `INSTAGRAM_MAX_POSTS_PER_ORG` | `10` | Max posts per org per scrape |
+| `OLLAMA_MODEL` | `gemma3:12b` | LLM model for classification |
+| `INSTAGRAM_SESSION_USER` | *(empty)* | Instagram username (Instaloader fallback) |
 
 ## Project Structure
 
@@ -245,33 +285,44 @@ Full API docs with examples: [docs/API.md](docs/API.md)
 nu-events/
 ├── backend/
 │   ├── src/
-│   │   ├── api/routes/           # FastAPI endpoints (events, orgs, ingest, scrapers, poller)
+│   │   ├── api/routes/           # FastAPI endpoints
 │   │   ├── models/               # SQLAlchemy: Event, Organization, IngestedEmail
 │   │   ├── schemas/              # Pydantic request/response schemas
-│   │   ├── scrapers/             # PlanIt Purple scraper + base class
-│   │   ├── services/             # Business logic
-│   │   │   ├── llm_parser.py     #   Ollama/Gemma LLM classification + extraction
-│   │   │   ├── email_parser.py   #   Regex fallback parser
-│   │   │   ├── gmail_poller.py   #   IMAP polling with OAuth2
-│   │   │   ├── instagram_scraper.py  # IG REST API + Chrome cookie auth
-│   │   │   ├── instagram_prefilter.py # Regex pre-screening (skip non-events)
-│   │   │   ├── post_cache.py     #   Processed post dedup across runs
-│   │   │   ├── event_service.py  #   CRUD + 2-tier deduplication
-│   │   │   └── dedup.py          #   SHA-256 dedup keys
-│   │   ├── middleware/auth.py    # Optional API key auth
+│   │   ├── scrapers/             # PlanIt Purple scraper
+│   │   ├── services/
+│   │   │   ├── llm_parser.py     # Gemma 12B classification + extraction
+│   │   │   ├── batch_classifier.py # Batch 20 captions per LLM call
+│   │   │   ├── email_parser.py   # Regex fallback parser
+│   │   │   ├── gmail_poller.py   # IMAP polling with OAuth2
+│   │   │   ├── instagram_scraper.py # REST API + Chrome cookies
+│   │   │   ├── instagram_prefilter.py # Regex pre-screening
+│   │   │   ├── post_cache.py     # IG post dedup across runs
+│   │   │   ├── event_validator.py # Post-LLM quality control
+│   │   │   ├── event_service.py  # CRUD + 2-tier dedup
+│   │   │   └── dedup.py          # SHA-256 dedup keys
 │   │   ├── config.py             # Env-based settings
 │   │   └── main.py               # FastAPI app factory
-│   ├── tests/                    # 169 pytest tests
-│   ├── data/organizations.json   # 553 NU orgs (no Greek)
-│   └── pyproject.toml
+│   ├── scripts/
+│   │   ├── scheduled_scrape.py   # Main scheduler (all sources + sync)
+│   │   ├── scrape_planitpurple_full.py # JSON-LD scraper
+│   │   ├── sync_to_remote.py     # Push to Render Postgres
+│   │   ├── import_handles.py     # Bulk IG handle import
+│   │   ├── install_scheduler.sh  # launchd install/uninstall
+│   │   └── com.nuevents.scraper.plist # launchd config
+│   ├── tests/                    # pytest tests
+│   ├── Procfile                  # Render deployment
+│   └── render.yaml               # Render blueprint
 ├── frontend/                     # Next.js 14 + TypeScript + Tailwind
 │   └── src/
 │       ├── app/                  # Pages: home, events/[id], organizations
 │       ├── components/           # EventCard, FilterBar, Pagination, Header
 │       ├── hooks/                # useEvents (debounced search)
 │       └── lib/                  # API client, types, utils
-├── scripts/                      # CLI: gmail_auth, run_poller, run_scrapers, seed
-├── docs/                         # ARCHITECTURE.md, SETUP.md, DEVELOPMENT.md, API.md
+├── docs/
+│   ├── ARCHITECTURE.md           # System architecture deep dive
+│   ├── INSTAGRAM_SCRAPING.md     # Instagram scraping research
+│   ├── API.md                    # API documentation
+│   └── SETUP.md                  # Setup guide
 └── docker-compose.yml
 ```
 
@@ -281,29 +332,12 @@ nu-events/
 |-------|-----------|
 | Backend | Python 3.11+, FastAPI, SQLAlchemy (async), Pydantic |
 | Frontend | Next.js 14, React 18, TypeScript, Tailwind CSS |
-| Database | SQLite (local) → Postgres (production) via `DATABASE_URL` |
-| LLM | Ollama + Gemma 4B (local, free, no API key) |
-| Scraping | httpx, BeautifulSoup4 |
+| Database | SQLite (local) / PostgreSQL (deployed) |
+| LLM | Ollama + Gemma 12B (local, free, no API key) |
+| Scraping | httpx, BeautifulSoup4, browser-cookie3 |
 | Email | imaplib, Google OAuth2, python-dateutil |
-| Testing | pytest, pytest-asyncio (169 tests) |
-
-## Running Tests
-
-```bash
-cd backend
-pytest -v              # all 169 tests
-pytest -k "llm"        # LLM parser tests
-pytest -k "email"      # email parser tests
-pytest -k "api"        # API endpoint tests
-```
-
-## Contributing
-
-1. Fork & create a feature branch
-2. Write tests for new functionality
-3. All tests must pass (`pytest -v`)
-4. Type hints and docstrings on everything
-5. Open a PR
+| Deployment | Vercel (frontend), Render (backend + Postgres) |
+| Scheduling | macOS launchd (every 1.5 hours) |
 
 ## License
 
