@@ -123,20 +123,33 @@ async def fetch_event_jsonld(client: httpx.AsyncClient, eid: str) -> EventCreate
         if start_dt < datetime.now():
             return None
         
-        # Location
+        # Location — extract clean venue name + address from JSON-LD
         location = None
         loc_data = data.get("location", {})
         if isinstance(loc_data, dict):
-            location = loc_data.get("name", "")
+            venue = loc_data.get("name", "").strip()
             addr = loc_data.get("address", {})
             if isinstance(addr, dict):
-                street = addr.get("streetAddress", "")
-                if street and location:
-                    location = f"{location}, {street}"
-                elif street:
-                    location = street
+                street = addr.get("streetAddress", "").strip()
+                city = addr.get("addressLocality", "").strip()
+                # Build clean location: "Venue Name, Street Address, City"
+                parts = [p for p in [venue, street] if p]
+                location = ", ".join(parts)
+                # Add city only if it's not Evanston (assumed default)
+                if city and city.lower() != "evanston":
+                    location += f", {city}"
+            else:
+                location = venue
         elif isinstance(loc_data, str):
-            location = loc_data
+            location = loc_data.strip()
+        
+        # Safety: strip any time patterns that leaked into location
+        if location:
+            location = re.sub(r'^-?\s*\d{1,2}:\d{2}\s*(AM|PM)\s*', '', location, flags=re.IGNORECASE).strip()
+            # Strip trailing category names
+            for cat_name in ["Academic (general)", "Arts/Humanities", "Fitness/Sports", 
+                            "Community Engagement", "Social", "Career"]:
+                location = location.replace(cat_name, "").strip().rstrip(",")
         
         # Description
         description = data.get("description", "")
