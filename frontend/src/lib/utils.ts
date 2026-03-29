@@ -1,11 +1,19 @@
 import { format, parseISO, isSameDay } from "date-fns";
 
 /**
- * Format event date: "Fri, Mar 28 · 7:00 PM" or "Fri, Mar 28 · 7:00 – 9:00 PM"
+ * Format event date: "Fri, Mar 28 · 7:00 PM" or "Fri, Mar 28 · All Day"
  */
 export function formatEventDate(start: string, end?: string | null): string {
   const startDate = parseISO(start);
   const datePart = format(startDate, "EEE, MMM d");
+
+  // Midnight with no end time = All Day event
+  const isAllDay = startDate.getHours() === 0 && startDate.getMinutes() === 0 && !end;
+
+  if (isAllDay) {
+    return `${datePart} · All Day`;
+  }
+
   const startTime = format(startDate, "h:mm a");
 
   if (end) {
@@ -22,10 +30,17 @@ export function formatEventDate(start: string, end?: string | null): string {
 }
 
 /**
- * Format full event date: "Friday, March 28, 2026 at 7:00 PM"
+ * Format full event date: "Friday, March 28, 2026 at 7:00 PM" or "All Day"
  */
 export function formatEventDateFull(start: string, end?: string | null): string {
   const startDate = parseISO(start);
+
+  const isAllDay = startDate.getHours() === 0 && startDate.getMinutes() === 0 && !end;
+
+  if (isAllDay) {
+    return format(startDate, "EEEE, MMMM d, yyyy") + " · All Day";
+  }
+
   const full = format(startDate, "EEEE, MMMM d, yyyy 'at' h:mm a");
 
   if (end) {
