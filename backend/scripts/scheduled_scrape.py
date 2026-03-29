@@ -33,6 +33,10 @@ from pathlib import Path
 # Ensure we can import from src/
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# Load .env
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).parent.parent / ".env")
+
 LOG_DIR = Path(__file__).parent.parent / "logs"
 STATE_FILE = Path(__file__).parent.parent / "scrape_state.json"
 DB_PATH = Path(__file__).parent.parent / "nu_events.db"
@@ -222,11 +226,18 @@ async def run_instagram(logger) -> dict:
         return {"error": str(exc)}
 
 
-REMOTE_DATABASE_URL = "postgresql://nu_events_db_user:Rmqur7m1Vbb9cnfst2D9Jpjf3NCg9cew@dpg-d74astnpm1nc738rkvng-a.oregon-postgres.render.com/nu_events_db"
+REMOTE_DATABASE_URL = os.environ.get(
+    "REMOTE_DATABASE_URL",
+    "",  # Set in .env — never hardcode credentials
+)
 
 
 async def sync_to_remote(logger):
     """Push future events from local SQLite to remote Postgres."""
+    if not REMOTE_DATABASE_URL:
+        logger.info("Skipping remote sync — REMOTE_DATABASE_URL not set")
+        return
+
     logger.info("=== Syncing to remote Postgres ===")
     try:
         from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine

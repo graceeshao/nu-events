@@ -51,3 +51,17 @@ nu_orgs.json
 nu_orgs_social.json
 orgs_to_discover.json
 org_social_links.json
+
+# Secrets & cached data
+ig_cookies.json
+emails_dump.json
+processed_posts.json
+scrape_state.json
+nu_orgs.json
+nu_orgs_social.json
+org_social_links.json
+orgs_to_discover.json
+discovered_handles.json
+credentials.json
+token.json
+*.db-journal
