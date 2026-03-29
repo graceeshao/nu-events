@@ -1,4 +1,4 @@
-# 🟣 NU Events — Northwestern Campus Event Aggregator
+# NU Events — Northwestern Campus Event Aggregator
 
 **Live site: [nu-events.vercel.app](https://nu-events.vercel.app)**
 
