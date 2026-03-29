@@ -165,8 +165,14 @@ async def run_gmail(logger) -> dict:
 
 
 async def run_instagram(logger) -> dict:
-    """Scrape Instagram for all orgs with handles."""
-    logger.info("=== Instagram Scrape (daily) ===")
+    """Scrape a BATCH of Instagram orgs (staggered to avoid rate limits).
+
+    Instead of scraping all 427 orgs at once (triggers 429s), we split
+    them into batches of ~50 and rotate through them across scheduler
+    runs. With 8 runs/day, all orgs get checked every ~1 day.
+    """
+    BATCH_SIZE = 50
+    logger.info("=== Instagram Scrape (batch of %d) ===", BATCH_SIZE)
     try:
         from src.services.instagram_scraper import scrape_all_orgs
 
@@ -174,6 +180,7 @@ async def run_instagram(logger) -> dict:
         orgs = conn.execute("""
             SELECT instagram_handle, name FROM organizations
             WHERE instagram_handle IS NOT NULL AND instagram_handle != ''
+              AND (instagram_active = 1 OR instagram_active IS NULL)
             ORDER BY name
         """).fetchall()
         conn.close()
@@ -182,7 +189,26 @@ async def run_instagram(logger) -> dict:
             logger.info("No orgs with Instagram handles")
             return {"orgs": 0}
 
-        result = await scrape_all_orgs(orgs, days_back=14, max_posts=5)
+        # Determine which batch to scrape this run
+        state = load_state()
+        batch_index = state.get("ig_batch_index", 0)
+        total_batches = (len(orgs) + BATCH_SIZE - 1) // BATCH_SIZE
+
+        start = batch_index * BATCH_SIZE
+        end = min(start + BATCH_SIZE, len(orgs))
+        batch = orgs[start:end]
+
+        # Advance batch index for next run (wrap around)
+        state["ig_batch_index"] = (batch_index + 1) % total_batches
+        save_state(state)
+
+        logger.info(
+            "Batch %d/%d: orgs %d-%d of %d (handles: %s ... %s)",
+            batch_index + 1, total_batches, start + 1, end, len(orgs),
+            batch[0][0] if batch else "?", batch[-1][0] if batch else "?",
+        )
+
+        result = await scrape_all_orgs(batch, days_back=14, max_posts=5)
         logger.info(
             "Instagram: %d orgs, %d posts, %d→LLM, %d filtered, %d events",
             result["orgs_scraped"], result["total_posts_checked"],
@@ -224,17 +250,14 @@ async def main(force_all: bool = False, dry_run: bool = False):
     else:
         logger.info("Would poll Gmail LISTSERV")
 
-    # 3. Instagram (once per day, needs Ollama)
-    run_ig = force_all or should_run_instagram(state)
-    if run_ig and ollama_ok and not dry_run:
+    # 3. Instagram (staggered — 50 orgs per run, every run)
+    if ollama_ok and not dry_run:
         results["instagram"] = await run_instagram(logger)
         state["last_instagram_run"] = datetime.now().isoformat()
-    elif run_ig and not ollama_ok:
+    elif not ollama_ok:
         logger.warning("Skipping Instagram — Ollama not running")
-    elif not run_ig:
-        logger.info("Skipping Instagram — already ran today")
     else:
-        logger.info("Would scrape Instagram (195 orgs)")
+        logger.info("Would scrape Instagram (batch of 50)")
 
     # 4. Clean up past events
     if not dry_run:
