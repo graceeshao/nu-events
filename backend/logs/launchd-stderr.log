@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 265, in <module>
+    asyncio.run(main(force_all=args.all, dry_run=args.dry_run))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 241, in main
+    clean_past_events(logger)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py", line 97, in clean_past_events
+    deleted = c.execute(
+              ~~~~~~~~~^
+        "DELETE FROM events WHERE start_time < ? AND source_name != 'PlanIt Purple'",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        (cutoff,),
+        ^^^^^^^^^^
+    ).rowcount
+    ^
+sqlite3.OperationalError: database is locked

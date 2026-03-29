@@ -105,7 +105,7 @@ OTHER RULES:
 VALID_CATEGORIES = {"academic", "social", "career", "arts", "sports", "other"}
 
 # Timeout for each Ollama call in seconds
-_OLLAMA_TIMEOUT = 30.0
+_OLLAMA_TIMEOUT = 120.0
 
 
 def _get_ollama_client() -> ollama.Client:
