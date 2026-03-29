@@ -21,8 +21,8 @@ from src.services.post_cache import is_processed, mark_processed
 logger = logging.getLogger(__name__)
 
 # Rate limiting: pause between profile fetches to avoid Instagram bans
-_PROFILE_DELAY_SECONDS = 5
-_POST_DELAY_SECONDS = 2
+_PROFILE_DELAY_SECONDS = 8  # Between orgs — conservative to avoid feed 401s
+_POST_DELAY_SECONDS = 3
 
 
 _cached_session: Any = None
@@ -205,6 +205,9 @@ def _fetch_posts_rest_api(
         _time.sleep(_POST_DELAY_SECONDS)
         resp = session.get(url, headers=headers)
 
+        if resp.status_code in (401, 429):
+            logger.warning("Feed rate limited for @%s: HTTP %d", handle, resp.status_code)
+            return "RATE_LIMITED"
         if resp.status_code != 200:
             logger.warning("Feed fetch failed for @%s: HTTP %d", handle, resp.status_code)
             break
@@ -567,11 +570,14 @@ async def scrape_all_orgs(
                 fetch_recent_posts, handle, days_back, max_posts,
             )
 
-            # Handle rate limiting — skip but don't mark inactive
+            # Handle rate limiting — stop the batch, resume next run
             if posts == "RATE_LIMITED":
-                orgs_failed += 1
-                await asyncio.sleep(10)
-                continue
+                logger.warning(
+                    "Rate limited at org %d/%d — stopping batch early",
+                    i + 1, len(handles),
+                )
+                orgs_failed += len(handles) - i
+                break  # Stop entire batch — next run will pick up where we left off
 
             # Handle deleted accounts — mark inactive + clear handle
             if posts == "DELETED":
