@@ -171,7 +171,7 @@ async def run_instagram(logger) -> dict:
     them into batches of ~50 and rotate through them across scheduler
     runs. With 8 runs/day, all orgs get checked every ~1 day.
     """
-    BATCH_SIZE = 50
+    BATCH_SIZE = 25
     logger.info("=== Instagram Scrape (batch of %d) ===", BATCH_SIZE)
     try:
         from src.services.instagram_scraper import scrape_all_orgs

@@ -1,6 +1,6 @@
 {
-  "last_instagram_run": "2026-03-28T17:21:57.264522",
-  "last_run": "2026-03-28T17:21:57.264842",
+  "last_instagram_run": "2026-03-28T19:47:18.095514",
+  "last_run": "2026-03-28T19:47:18.096531",
   "last_results": {
     "planitpurple": {
       "scraped": 169,
@@ -12,14 +12,14 @@
       "events_created": 0
     },
     "instagram": {
-      "orgs_scraped": 294,
-      "orgs_failed": 132,
-      "orgs_inactive": 1,
-      "total_posts_checked": 23,
-      "total_events_created": 1,
-      "total_llm_calls": 4,
-      "total_filtered_out": 19,
-      "image_posts_analyzed": 1
+      "orgs_scraped": 2,
+      "orgs_failed": 48,
+      "orgs_inactive": 0,
+      "total_posts_checked": 0,
+      "total_events_created": 0,
+      "total_llm_calls": 1,
+      "total_filtered_out": 0,
+      "image_posts_analyzed": 0
     }
   }
 }
