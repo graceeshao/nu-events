@@ -21886,3 +21886,82 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
 2026-03-28 17:17:29,584 [WARNING] Feed fetch failed for @nu_upep: HTTP 401
 2026-03-28 17:17:29,584 [INFO] Fetched 0 recent posts from @nu_upep
 2026-03-28 17:17:30,446 [INFO] Marked @nu_upep inactive (no posts)
+2026-03-28 17:17:38,554 [WARNING] Feed fetch failed for @northwestern.ubf: HTTP 401
+2026-03-28 17:17:38,554 [INFO] Fetched 0 recent posts from @northwestern.ubf
+2026-03-28 17:17:39,539 [INFO] Marked @northwestern.ubf inactive (no posts)
+2026-03-28 17:17:47,404 [WARNING] Feed fetch failed for @northwesternbloodinitiative: HTTP 401
+2026-03-28 17:17:47,405 [INFO] Fetched 0 recent posts from @northwesternbloodinitiative
+2026-03-28 17:17:47,972 [INFO] Marked @northwesternbloodinitiative inactive (no posts)
+2026-03-28 17:17:56,476 [WARNING] Feed fetch failed for @ucmatnu: HTTP 401
+2026-03-28 17:17:56,476 [INFO] Fetched 0 recent posts from @ucmatnu
+2026-03-28 17:17:57,308 [INFO] Marked @ucmatnu inactive (no posts)
+2026-03-28 17:18:05,526 [WARNING] Feed fetch failed for @vertigram: HTTP 401
+2026-03-28 17:18:05,526 [INFO] Fetched 0 recent posts from @vertigram
+2026-03-28 17:18:06,317 [INFO] Marked @vertigram inactive (no posts)
+2026-03-28 17:18:14,608 [WARNING] Feed fetch failed for @vc2.nu: HTTP 401
+2026-03-28 17:18:14,608 [INFO] Fetched 0 recent posts from @vc2.nu
+2026-03-28 17:18:15,376 [INFO] Marked @vc2.nu inactive (no posts)
+2026-03-28 17:18:23,514 [WARNING] Feed fetch failed for @northwesternvsa: HTTP 401
+2026-03-28 17:18:23,515 [INFO] Fetched 0 recent posts from @northwesternvsa
+2026-03-28 17:18:24,397 [INFO] Marked @northwesternvsa inactive (no posts)
+2026-03-28 17:18:32,495 [WARNING] Feed fetch failed for @wave8productions: HTTP 401
+2026-03-28 17:18:32,496 [INFO] Fetched 0 recent posts from @wave8productions
+2026-03-28 17:18:33,654 [INFO] Marked @wave8productions inactive (no posts)
+2026-03-28 17:18:42,051 [WARNING] Feed fetch failed for @wnurnews893: HTTP 401
+2026-03-28 17:18:42,052 [INFO] Fetched 0 recent posts from @wnurnews893
+2026-03-28 17:18:42,912 [INFO] Marked @wnurnews893 inactive (no posts)
+2026-03-28 17:18:51,374 [WARNING] Feed fetch failed for @wnur89.3: HTTP 401
+2026-03-28 17:18:51,375 [INFO] Fetched 0 recent posts from @wnur89.3
+2026-03-28 17:18:52,873 [INFO] Marked @wnur89.3 inactive (no posts)
+2026-03-28 17:19:00,853 [WARNING] Feed fetch failed for @northwesternwaterpolo: HTTP 401
+2026-03-28 17:19:00,853 [INFO] Fetched 0 recent posts from @northwesternwaterpolo
+2026-03-28 17:19:01,380 [INFO] Marked @northwesternwaterpolo inactive (no posts)
+2026-03-28 17:19:09,601 [WARNING] Feed fetch failed for @nuwildroots: HTTP 401
+2026-03-28 17:19:09,602 [INFO] Fetched 0 recent posts from @nuwildroots
+2026-03-28 17:19:10,302 [INFO] Marked @nuwildroots inactive (no posts)
+2026-03-28 17:19:18,103 [WARNING] Feed fetch failed for @wildhacks: HTTP 401
+2026-03-28 17:19:18,104 [INFO] Fetched 0 recent posts from @wildhacks
+2026-03-28 17:19:18,860 [INFO] Marked @wildhacks inactive (no posts)
+2026-03-28 17:19:28,156 [WARNING] Feed fetch failed for @wildcatwelcome: HTTP 401
+2026-03-28 17:19:28,157 [INFO] Fetched 0 recent posts from @wildcatwelcome
+2026-03-28 17:19:29,493 [INFO] Marked @wildcatwelcome inactive (no posts)
+2026-03-28 17:19:37,952 [WARNING] Feed fetch failed for @wildcatsforisrael: HTTP 401
+2026-03-28 17:19:37,953 [INFO] Fetched 0 recent posts from @wildcatsforisrael
+2026-03-28 17:19:39,292 [INFO] Marked @wildcatsforisrael inactive (no posts)
+2026-03-28 17:19:47,387 [WARNING] Feed fetch failed for @northwesternwib: HTTP 401
+2026-03-28 17:19:47,389 [INFO] Fetched 0 recent posts from @northwesternwib
+2026-03-28 17:19:48,615 [INFO] Marked @northwesternwib inactive (no posts)
+2026-03-28 17:19:56,854 [WARNING] Feed fetch failed for @wic.northwestern: HTTP 401
+2026-03-28 17:19:56,854 [INFO] Fetched 0 recent posts from @wic.northwestern
+2026-03-28 17:19:57,492 [INFO] Marked @wic.northwestern inactive (no posts)
+2026-03-28 17:20:05,781 [WARNING] Feed fetch failed for @nu.womensclax: HTTP 401
+2026-03-28 17:20:05,781 [INFO] Fetched 0 recent posts from @nu.womensclax
+2026-03-28 17:20:06,835 [INFO] Marked @nu.womensclax inactive (no posts)
+2026-03-28 17:20:15,197 [WARNING] Feed fetch failed for @nuclubsoccer: HTTP 401
+2026-03-28 17:20:15,197 [INFO] Fetched 0 recent posts from @nuclubsoccer
+2026-03-28 17:20:16,168 [INFO] Marked @nuclubsoccer inactive (no posts)
+2026-03-28 17:20:24,601 [WARNING] Feed fetch failed for @nuclubvolleyball: HTTP 401
+2026-03-28 17:20:24,601 [INFO] Fetched 0 recent posts from @nuclubvolleyball
+2026-03-28 17:20:25,600 [INFO] Marked @nuclubvolleyball inactive (no posts)
+2026-03-28 17:20:25,603 [INFO] Fetch progress: 420/427 orgs | 14 posts collected | 9 cached
+2026-03-28 17:20:34,078 [WARNING] Feed fetch failed for @nuwrugby: HTTP 401
+2026-03-28 17:20:34,079 [INFO] Fetched 0 recent posts from @nuwrugby
+2026-03-28 17:20:35,039 [INFO] Marked @nuwrugby inactive (no posts)
+2026-03-28 17:20:43,145 [WARNING] Feed fetch failed for @nu.claw: HTTP 401
+2026-03-28 17:20:43,146 [INFO] Fetched 0 recent posts from @nu.claw
+2026-03-28 17:20:44,062 [INFO] Marked @nu.claw inactive (no posts)
+2026-03-28 17:20:52,007 [WARNING] Feed fetch failed for @northwesternwie: HTTP 401
+2026-03-28 17:20:52,007 [INFO] Fetched 0 recent posts from @northwesternwie
+2026-03-28 17:20:52,946 [INFO] Marked @northwesternwie inactive (no posts)
+2026-03-28 17:21:00,832 [WARNING] Feed fetch failed for @nuwomxninlaw: HTTP 401
+2026-03-28 17:21:00,837 [INFO] Fetched 0 recent posts from @nuwomxninlaw
+2026-03-28 17:21:01,475 [INFO] Marked @nuwomxninlaw inactive (no posts)
+2026-03-28 17:21:09,714 [WARNING] Feed fetch failed for @xfactorsnu: HTTP 401
+2026-03-28 17:21:09,716 [INFO] Fetched 0 recent posts from @xfactorsnu
+2026-03-28 17:21:11,205 [INFO] Marked @xfactorsnu inactive (no posts)
+2026-03-28 17:21:19,185 [WARNING] Feed fetch failed for @northwesternyaf: HTTP 401
+2026-03-28 17:21:19,186 [INFO] Fetched 0 recent posts from @northwesternyaf
+2026-03-28 17:21:19,941 [INFO] Marked @northwesternyaf inactive (no posts)
+2026-03-28 17:21:27,535 [WARNING] Feed fetch failed for @northwesternyl: HTTP 401
+2026-03-28 17:21:27,536 [INFO] Fetched 0 recent posts from @northwesternyl
+2026-03-28 17:21:28,134 [INFO] Marked @northwesternyl inactive (no posts)
