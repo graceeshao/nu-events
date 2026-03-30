@@ -18,6 +18,7 @@ export async function getEvents(filters: EventFilters = {}): Promise<EventList> 
   if (filters.date_from) params.set("date_from", filters.date_from);
   if (filters.date_to) params.set("date_to", filters.date_to);
   if (filters.search) params.set("search", filters.search);
+  if (filters.include_fitness) params.set("include_fitness", "true");
   if (filters.page) params.set("page", String(filters.page));
   if (filters.page_size) params.set("page_size", String(filters.page_size));
 

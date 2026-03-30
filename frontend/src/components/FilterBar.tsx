@@ -22,6 +22,8 @@ interface FilterBarProps {
   onCategoryChange: (value: EventCategory | undefined) => void;
   dateRange: DateRange;
   onDateRangeChange: (value: DateRange) => void;
+  showFitness: boolean;
+  onShowFitnessChange: (value: boolean) => void;
 }
 
 export default function FilterBar({
@@ -31,6 +33,8 @@ export default function FilterBar({
   onCategoryChange,
   dateRange,
   onDateRangeChange,
+  showFitness,
+  onShowFitnessChange,
 }: FilterBarProps) {
   return (
     <div className="space-y-4">
@@ -71,8 +75,8 @@ export default function FilterBar({
         })}
       </div>
 
-      {/* Date range */}
-      <div className="flex gap-2">
+      {/* Date range + Fitness toggle */}
+      <div className="flex gap-2 items-center flex-wrap">
         {(
           [
             ["all", "All Dates"],
@@ -93,6 +97,19 @@ export default function FilterBar({
             {label}
           </button>
         ))}
+
+        <span className="mx-1 text-gray-300">|</span>
+
+        <button
+          onClick={() => onShowFitnessChange(!showFitness)}
+          className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+            showFitness
+              ? "bg-nu-purple-50 text-nu-purple border border-nu-purple/20"
+              : "text-gray-500 hover:bg-gray-100"
+          }`}
+        >
+          🏋️ Fitness
+        </button>
       </div>
     </div>
   );

@@ -15,9 +15,11 @@ export default function HomePage() {
     search,
     category,
     dateRange,
+    showFitness,
     setSearch,
     setCategory,
     setDateRange,
+    setShowFitness,
     setPage,
   } = useEvents();
 
@@ -39,6 +41,8 @@ export default function HomePage() {
         onCategoryChange={setCategory}
         dateRange={dateRange}
         onDateRangeChange={setDateRange}
+        showFitness={showFitness}
+        onShowFitnessChange={setShowFitness}
       />
 
       {error && (

@@ -131,22 +131,52 @@ python scripts/import_handles.py handles.json
 ```bash
 cd backend
 
-# Install (runs every 1.5 hours + on boot)
+# Install (runs every 1.25 hours + on boot)
 bash scripts/install_scheduler.sh install
 
 # Manage
 bash scripts/install_scheduler.sh status   # check if running
 bash scripts/install_scheduler.sh logs     # view recent logs
 bash scripts/install_scheduler.sh uninstall # stop
-launchctl start com.nuevents.scraper       # trigger manually
+launchctl kickstart -k gui/$(id -u)/com.nuevents.scraper  # trigger manually
 ```
 
 Each scheduler run:
 1. Scrapes PlanIt Purple (JSON-LD, no LLM needed)
 2. Polls Gmail for new LISTSERV emails (Gemma 12B)
-3. Scrapes 25 Instagram orgs (staggered batches, Gemma 12B)
+3. Scrapes 15 Instagram orgs (cursor-based, Gemma 12B)
 4. Cleans past events
 5. **Auto-syncs to remote Postgres** (deployed site updates)
+
+#### Resilience features
+- **Network check**: DNS pre-check before Instagram scraping — skips gracefully if offline (prevents cursor reset)
+- **Connection error handling**: 3 consecutive network failures → stop and save cursor position
+- **SQLite busy timeout**: 30-second timeout on all DB connections (prevents `database is locked` crashes)
+- **Persistent cursor**: Instagram scraper remembers its position across runs via `scrape_state.json`
+
+#### Overnight scraping
+
+The scraper can run overnight while your Mac sleeps. After each overnight run (10 PM–5 AM), it schedules a `pmset wake` 2 hours later to chain wakes automatically.
+
+**One-time setup:**
+```bash
+sudo bash scripts/setup_overnight_wake.sh
+```
+
+This sets `pmset repeat wakeorpoweron` at 2:00 AM daily and creates a sudoers entry so the scraper can schedule follow-up wakes at ~4 AM and ~6 AM without a password.
+
+#### macOS permissions (if project is in ~/Downloads)
+
+If the project lives in `~/Downloads` or another TCC-protected folder, the launchd agent needs **Full Disk Access** for the Python interpreter:
+
+1. Open **System Settings → Privacy & Security → Full Disk Access**
+2. Click **+**, press **Cmd+Shift+G**, paste the Python path from your venv:
+   ```
+   /opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14
+   ```
+3. Toggle on
+
+Also, point launchd's `StandardOutPath`/`StandardErrorPath` to a non-protected location like `~/Library/Logs/nu-events/` — launchd cannot write log files to TCC-protected directories even with FDA on the interpreter.
 
 ### 7. Deployment
 
@@ -234,7 +264,7 @@ planitpurple.northwestern.edu
 ### Events
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/events` | List events (filters: `category`, `date_from`, `date_to`, `search`, `page`, `page_size`) |
+| `GET` | `/events` | List events (filters: `category`, `date_from`, `date_to`, `search`, `include_fitness`, `page`, `page_size`) |
 | `GET` | `/events/{id}` | Get single event |
 | `POST` | `/events` | Create event manually |
 | `PATCH` | `/events/{id}` | Partial update |

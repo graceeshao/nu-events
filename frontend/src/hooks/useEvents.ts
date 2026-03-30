@@ -25,6 +25,7 @@ export function useEvents() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<EventCategory | undefined>();
   const [dateRange, setDateRange] = useState<DateRange>("all");
+  const [showFitness, setShowFitness] = useState(false);
   const [page, setPage] = useState(1);
   const [data, setData] = useState<EventList | null>(null);
   const [loading, setLoading] = useState(true);
@@ -65,6 +66,7 @@ export function useEvents() {
       category,
       date_from: dates.from,
       date_to: dates.to,
+      include_fitness: showFitness || undefined,
       page,
       page_size: 12,
     })
@@ -84,7 +86,7 @@ export function useEvents() {
     return () => {
       cancelled = true;
     };
-  }, [debouncedSearch, category, dateRange, page]);
+  }, [debouncedSearch, category, dateRange, showFitness, page]);
 
   return {
     events: data?.items ?? [],
@@ -96,9 +98,11 @@ export function useEvents() {
     search,
     category,
     dateRange,
+    showFitness,
     setSearch: handleSearchChange,
     setCategory: handleCategoryChange,
     setDateRange: handleDateRangeChange,
+    setShowFitness,
     setPage,
   };
 }

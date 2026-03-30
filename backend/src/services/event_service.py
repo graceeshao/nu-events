@@ -8,7 +8,7 @@ import math
 import re
 from datetime import datetime, timedelta
 
-from sqlalchemy import func, or_, select
+from sqlalchemy import and_, func, not_, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.models.event import Event, EventCategory
@@ -112,6 +112,14 @@ async def create_event(db: AsyncSession, event_in: EventCreate) -> Event:
     return event
 
 
+_FITNESS_KEYWORDS = [
+    "fitness", "yoga", "pilates", "bodypump", "body pump", "cycling",
+    "zumba", "hiit", "barre", "bootcamp", "cardio", "spinning",
+    "kickboxing", "tai chi", "aqua fitness", "strength training",
+    "workout",
+]
+
+
 async def list_events(
     db: AsyncSession,
     *,
@@ -119,6 +127,7 @@ async def list_events(
     date_from: datetime | None = None,
     date_to: datetime | None = None,
     search: str | None = None,
+    include_fitness: bool = False,
     page: int = 1,
     page_size: int = 20,
 ) -> EventList:
@@ -140,8 +149,11 @@ async def list_events(
 
     if category is not None:
         query = query.where(Event.category == category)
+    # Default: exclude past events (before start of today)
     if date_from is not None:
         query = query.where(Event.start_time >= date_from)
+    else:
+        query = query.where(Event.start_time >= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0))
     if date_to is not None:
         query = query.where(Event.start_time <= date_to)
     if search:
@@ -150,6 +162,18 @@ async def list_events(
             or_(
                 Event.title.ilike(pattern),
                 Event.description.ilike(pattern),
+            )
+        )
+
+    # Exclude PlanIt Purple fitness/rec events unless toggled on
+    if not include_fitness:
+        fitness_conditions = [Event.title.ilike(f"%{kw}%") for kw in _FITNESS_KEYWORDS]
+        query = query.where(
+            not_(
+                and_(
+                    Event.source_name == "PlanIt Purple",
+                    or_(*fitness_conditions),
+                )
             )
         )
 
