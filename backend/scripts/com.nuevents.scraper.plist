@@ -14,9 +14,9 @@
     <key>WorkingDirectory</key>
     <string>/Users/graceshao/.openclaw/workspace/nu-events/backend</string>
 
-    <!-- Run every 1.5 hours (5400 seconds) -->
+    <!-- Run every 1 hour 15 minutes (4500 seconds) -->
     <key>StartInterval</key>
-    <integer>5400</integer>
+    <integer>4500</integer>
 
     <!-- Also run shortly after load (e.g., after boot) -->
     <key>RunAtLoad</key>

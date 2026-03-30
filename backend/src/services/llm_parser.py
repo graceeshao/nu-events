@@ -89,7 +89,7 @@ CRITICAL RULES FOR TITLE:
 - Remove ALL unnecessary words: "TOMORROW!", "THIS SATURDAY!", "Fwd:", "Re:", "[EVENT]", "[STUDENT ORG]", urgency words, dates, times
 - Examples of BAD titles: "CELEBRASIA TOMORROW!", "JUST VOTE... JUST VOTE", "EVENT TODAY! Grad School Tell-All", "Next Week's Events at Buffett"
 - Examples of GOOD titles: "Celebrasia", "CSA Board Elections", "Grad School Tell-All and Dinner", "Buffett Institute Speaker Series"
-- If the email contains a specific event name in the body, use THAT as the title
+- If the post/email contains a specific event name, use it EXACTLY — do not paraphrase or substitute synonyms (e.g. "Badminton Cup" stays "Badminton Cup", not "Badminton Tournament")
 - Use title case (capitalize major words)
 
 OTHER RULES:

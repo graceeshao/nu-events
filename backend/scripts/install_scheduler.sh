@@ -19,7 +19,7 @@ case "$1" in
         cp "$PLIST_SRC" "$PLIST_DEST"
         launchctl load "$PLIST_DEST"
         echo "✅ Installed and started $PLIST_NAME"
-        echo "   Runs every 3 hours + on boot"
+        echo "   Runs every 1 hour 15 minutes + on boot"
         echo "   Logs: $LOG_DIR/"
         echo ""
         echo "   To test immediately: launchctl start $PLIST_NAME"

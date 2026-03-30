@@ -28,6 +28,7 @@ class Organization(Base):
     listserv_name: Mapped[str | None] = mapped_column(String(200), nullable=True)
     instagram_active: Mapped[bool | None] = mapped_column(default=True, nullable=True)
     instagram_last_post_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    instagram_last_scraped_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime, server_default=func.now(), nullable=False
     )

@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     ollama_model: str = "gemma3:12b"
     use_llm_parser: bool = True  # Set to False to disable LLM parsing
 
-    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config = {"env_file": ".env", "env_file_encoding": "utf-8", "extra": "ignore"}
 
 
 settings = Settings()

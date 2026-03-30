@@ -6,9 +6,15 @@ and extraction.
 """
 
 import asyncio
+import json as _json_module
 import logging
+import os as _os_module
+import random
 import re
+import tempfile
+import time as _time_module
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from typing import Any
 
 from src.database.session import async_session_factory
@@ -21,11 +27,73 @@ from src.services.post_cache import is_processed, mark_processed
 logger = logging.getLogger(__name__)
 
 # Rate limiting: pause between profile fetches to avoid Instagram bans
-_PROFILE_DELAY_SECONDS = 8  # Between orgs — conservative to avoid feed 401s
+_PROFILE_DELAY_BASE = 15  # Between orgs — base delay with jitter applied
 _POST_DELAY_SECONDS = 3
+
+# Exponential backoff delays for consecutive rate limits
+_BACKOFF_DELAYS = [60, 120, 300]  # 1 min, 2 min, 5 min — 4th consecutive = stop
+
+# State file for persistent cursor
+_STATE_FILE = Path(__file__).parent.parent.parent / "scrape_state.json"
+
+
+def _load_cursor() -> int:
+    """Load instagram_cursor from scrape_state.json (default 0)."""
+    try:
+        with open(_STATE_FILE) as f:
+            state = _json_module.load(f)
+        return state.get("instagram_cursor", 0)
+    except (FileNotFoundError, ValueError, KeyError):
+        return 0
+
+
+def _save_cursor(cursor: int) -> None:
+    """Atomically save instagram_cursor to scrape_state.json."""
+    # Read existing state to preserve other fields
+    try:
+        with open(_STATE_FILE) as f:
+            state = _json_module.load(f)
+    except (FileNotFoundError, ValueError):
+        state = {}
+
+    state["instagram_cursor"] = cursor
+
+    # Atomic write: write to tmp file in same directory, then replace
+    tmp_fd, tmp_path = tempfile.mkstemp(
+        dir=_STATE_FILE.parent, suffix=".tmp", prefix="scrape_state_",
+    )
+    try:
+        with _os_module.fdopen(tmp_fd, "w") as f:
+            _json_module.dump(state, f, indent=2, default=str)
+        _os_module.replace(tmp_path, _STATE_FILE)
+    except Exception:
+        # Clean up tmp file on failure
+        try:
+            _os_module.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
 
 
 _cached_session: Any = None
+
+
+def _warmup_session(session: Any) -> None:
+    """Make a lightweight request to warm up the session and check cookie validity."""
+    try:
+        resp = session.get(
+            "https://www.instagram.com/api/v1/accounts/current_user/",
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            logger.info("Session warmup OK — cookies are valid")
+        else:
+            logger.warning(
+                "Session warmup returned HTTP %d — cookies may be expired, continuing anyway",
+                resp.status_code,
+            )
+    except Exception as exc:
+        logger.warning("Session warmup failed (%s) — continuing anyway", exc)
 
 
 def _get_browser_session() -> Any:
@@ -219,7 +287,13 @@ def _fetch_posts_rest_api(
 
         for item in items:
             taken_at = item.get("taken_at", 0)
+            is_pinned = item.get("is_pinned") or item.get("timeline_pinned_user_ids")
             if taken_at < cutoff_ts:
+                if is_pinned:
+                    # Pinned posts appear first in the feed regardless of age —
+                    # skip them without stopping pagination so we don't miss
+                    # newer chronological posts that follow.
+                    continue
                 has_next = False
                 break
 
@@ -518,20 +592,24 @@ async def scrape_all_orgs(
     handles: list[tuple[str, str]],
     days_back: int = 14,
     max_posts: int = 10,
+    max_per_run: int = 0,
 ) -> dict[str, Any]:
-    """Scrape all orgs using batch classification for speed.
+    """Scrape orgs using batch classification with a persistent cursor.
 
     Strategy:
-    1. Fetch posts from all orgs (sequential, rate-limited)
-    2. Pre-filter with regex (instant)
-    3. Batch classify remaining posts 20 at a time (1 LLM call per 20)
-    4. Extract events only for posts classified as EVENT
-    5. Analyze images for posts with short/no captions
+    1. Start from cursor position in the full handles list
+    2. Fetch posts from up to max_per_run orgs (sequential, rate-limited)
+    3. Pre-filter with regex (instant)
+    4. Batch classify remaining posts 20 at a time (1 LLM call per 20)
+    5. Extract events only for posts classified as EVENT
+    6. Analyze images for posts with short/no captions
+    7. Save cursor for next run
 
     Args:
-        handles: List of (instagram_handle, org_name) tuples.
-        days_back: How far back to look.
+        handles: List of (instagram_handle, org_name) tuples (full list).
+        days_back: Default days back for first-time orgs.
         max_posts: Max posts per org.
+        max_per_run: Max orgs to process per run (0 = unlimited).
 
     Returns:
         Summary with total stats.
@@ -544,17 +622,34 @@ async def scrape_all_orgs(
     from sqlalchemy import select as _select
     from src.models.organization import Organization
 
+    # Warmup session before scraping
+    session = _get_browser_session()
+    _warmup_session(session)
+
+    # Persistent sequential cursor — pick up where the last run left off
+    total_handles = len(handles)
+    cursor = _load_cursor() % total_handles if total_handles else 0
+    handles_ordered = list(handles[cursor:]) + list(handles[:cursor])
+    logger.info(
+        "Starting from cursor %d/%d (first: @%s)",
+        cursor, total_handles,
+        handles_ordered[0][0] if handles_ordered else "?",
+    )
+
     # Phase 1: Fetch all posts
-    logger.info("Phase 1: Fetching posts from %d orgs...", len(handles))
+    logger.info("Phase 1: Fetching posts from %d orgs...", len(handles_ordered))
     all_posts = []  # (handle, org_name, post)
     orgs_scraped = 0
     orgs_inactive = 0
     orgs_failed = 0
     skipped_cached = 0
+    consecutive_rate_limits = 0
+    rate_limited_break = False
 
-    for i, (handle, org_name) in enumerate(handles):
+    for i, (handle, org_name) in enumerate(handles_ordered):
         try:
-            # Check if inactive
+            # Check if inactive + compute adaptive days_back
+            org_days_back = days_back  # default (14 days for first scrape)
             async with async_session_factory() as db:
                 result = await db.execute(
                     _select(Organization).where(
@@ -565,19 +660,37 @@ async def scrape_all_orgs(
                 if org_record and org_record.instagram_active is False:
                     orgs_inactive += 1
                     continue
+                # If previously scraped, only look back since last scrape + 1 day buffer
+                if org_record and org_record.instagram_last_scraped_at:
+                    days_since = (datetime.now() - org_record.instagram_last_scraped_at).days + 1
+                    org_days_back = max(2, min(days_since, days_back))
 
             posts = await asyncio.to_thread(
-                fetch_recent_posts, handle, days_back, max_posts,
+                fetch_recent_posts, handle, org_days_back, max_posts,
             )
 
-            # Handle rate limiting — stop the batch, resume next run
+            # Handle rate limiting — backoff and continue
             if posts == "RATE_LIMITED":
+                consecutive_rate_limits += 1
+                if consecutive_rate_limits > len(_BACKOFF_DELAYS):
+                    # Save cursor so next run picks up here
+                    next_cursor = (cursor + i + 1) % total_handles
+                    _save_cursor(next_cursor)
+                    logger.warning(
+                        "Rate limited %d consecutive times at org %d/%d — stopping batch, cursor saved at %d",
+                        consecutive_rate_limits, i + 1, len(handles_ordered), next_cursor,
+                    )
+                    orgs_failed += len(handles_ordered) - i
+                    rate_limited_break = True
+                    break
+                backoff = _BACKOFF_DELAYS[consecutive_rate_limits - 1]
                 logger.warning(
-                    "Rate limited at org %d/%d — stopping batch early",
-                    i + 1, len(handles),
+                    "Rate limited at org %d/%d (consecutive: %d) — backing off %ds then continuing",
+                    i + 1, len(handles_ordered), consecutive_rate_limits, backoff,
                 )
-                orgs_failed += len(handles) - i
-                break  # Stop entire batch — next run will pick up where we left off
+                await asyncio.sleep(backoff)
+                orgs_failed += 1
+                continue
 
             # Handle deleted accounts — mark inactive + clear handle
             if posts == "DELETED":
@@ -618,6 +731,21 @@ async def scrape_all_orgs(
                             logger.info("Marked @%s inactive (no posts)", handle)
                         await db.commit()
 
+            # Record that we successfully scraped this org
+            async with async_session_factory() as db:
+                result = await db.execute(
+                    _select(Organization).where(
+                        Organization.instagram_handle == handle,
+                    )
+                )
+                org_record = result.scalars().first()
+                if org_record:
+                    org_record.instagram_last_scraped_at = datetime.now()
+                    await db.commit()
+
+            # Reset consecutive rate limit counter on success
+            consecutive_rate_limits = 0
+
             for post in posts:
                 shortcode = post.get("shortcode", "")
                 if shortcode and is_processed(shortcode):
@@ -627,17 +755,54 @@ async def scrape_all_orgs(
 
             orgs_scraped += 1
 
+            # Stop if we've hit max_per_run
+            if max_per_run and orgs_scraped >= max_per_run:
+                next_cursor = (cursor + i + 1) % total_handles
+                _save_cursor(next_cursor)
+                logger.info(
+                    "Reached max_per_run (%d orgs) — cursor saved at %d",
+                    max_per_run, next_cursor,
+                )
+                rate_limited_break = True  # reuse flag to skip cursor reset below
+                break
+
             if (i + 1) % 20 == 0:
                 logger.info(
                     "Fetch progress: %d/%d orgs | %d posts collected | %d cached",
-                    i + 1, len(handles), len(all_posts), skipped_cached,
+                    i + 1, len(handles_ordered), len(all_posts), skipped_cached,
                 )
 
-            await asyncio.sleep(_PROFILE_DELAY_SECONDS)
+            delay = random.uniform(_PROFILE_DELAY_BASE * 0.7, _PROFILE_DELAY_BASE * 1.5)
+            await asyncio.sleep(delay)
 
+        except (ConnectionError, OSError) as exc:
+            # Network errors (DNS failure, connection refused, etc.)
+            # Count toward consecutive failures to avoid burning through
+            # the entire list when offline, which would reset the cursor.
+            consecutive_rate_limits += 1
+            orgs_failed += 1
+            if consecutive_rate_limits > 3:
+                next_cursor = (cursor + i) % total_handles
+                _save_cursor(next_cursor)
+                logger.warning(
+                    "Network error %d consecutive times at org %d/%d (@%s) — "
+                    "stopping batch, cursor saved at %d: %s",
+                    consecutive_rate_limits, i + 1, len(handles_ordered),
+                    handle, next_cursor, exc,
+                )
+                rate_limited_break = True
+                break
+            logger.warning("Network error fetching @%s (consecutive: %d): %s",
+                           handle, consecutive_rate_limits, exc)
         except Exception:
             logger.exception("Failed to fetch @%s", handle)
             orgs_failed += 1
+
+    # Save cursor: reset to 0 if we completed the full list, otherwise
+    # advance past what we processed (rate_limited_break / max_per_run already saved above)
+    if not rate_limited_break:
+        _save_cursor(0)
+        logger.info("Completed full handle list — cursor reset to 0")
 
     logger.info(
         "Phase 1 done: %d posts from %d orgs (%d inactive, %d cached)",

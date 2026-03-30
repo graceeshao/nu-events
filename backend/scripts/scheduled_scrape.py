@@ -67,9 +67,23 @@ def load_state() -> dict:
 
 
 def save_state(state: dict):
-    """Persist scrape state."""
+    """Persist scrape state, merging INTO the current file so we don't
+    clobber keys written by other code mid-run (e.g. instagram_cursor)."""
+    # Re-read current file — it may have been updated during this run
+    current = {}
+    if STATE_FILE.exists():
+        try:
+            with open(STATE_FILE) as f:
+                current = json.load(f)
+        except (ValueError, json.JSONDecodeError):
+            pass
+    # Merge: state's keys win EXCEPT instagram_cursor which is owned by the scraper
+    for k, v in state.items():
+        if k == "instagram_cursor":
+            continue  # never overwrite — owned by instagram_scraper._save_cursor()
+        current[k] = v
     with open(STATE_FILE, "w") as f:
-        json.dump(state, f, indent=2, default=str)
+        json.dump(current, f, indent=2, default=str)
 
 
 def check_ollama() -> bool:
@@ -80,6 +94,50 @@ def check_ollama() -> bool:
         with urllib.request.urlopen(req, timeout=5) as resp:
             return resp.status == 200
     except Exception:
+        return False
+
+
+def schedule_next_wake(logger):
+    """Schedule a one-shot pmset wake for the next overnight scrape.
+
+    After each run during overnight hours (10 PM – 5 AM), schedule a
+    wake 2 hours from now so launchd can fire the scraper again.
+    Requires passwordless sudo for pmset (see install_scheduler.sh).
+    """
+    now = datetime.now()
+    hour = now.hour
+
+    # Only schedule wakes during overnight hours
+    if not (hour >= 22 or hour < 5):
+        return  # Daytime — Mac is presumably awake
+
+    # Schedule wake 2 hours from now
+    wake_time = now + timedelta(hours=2)
+    if 7 <= wake_time.hour < 22:
+        return  # Next wake would be daytime — skip
+
+    wake_str = wake_time.strftime("%m/%d/%Y %H:%M:%S")
+    try:
+        result = subprocess.run(
+            ["sudo", "-n", "pmset", "schedule", "wake", wake_str],
+            capture_output=True, text=True, timeout=10,
+        )
+        if result.returncode == 0:
+            logger.info("Scheduled next wake at %s", wake_str)
+        else:
+            logger.debug("Could not schedule wake (sudo -n failed)")
+    except Exception as exc:
+        logger.debug("Failed to schedule wake: %s", exc)
+
+
+def check_network(logger) -> bool:
+    """Quick DNS check — can we resolve instagram.com?"""
+    import socket
+    try:
+        socket.getaddrinfo("www.instagram.com", 443, socket.AF_UNSPEC, socket.SOCK_STREAM)
+        return True
+    except socket.gaierror:
+        logger.warning("Network check failed — cannot resolve www.instagram.com")
         return False
 
 
@@ -94,7 +152,7 @@ def should_run_instagram(state: dict) -> bool:
 
 def clean_past_events(logger):
     """Remove events that have already passed."""
-    conn = sqlite3.connect(str(DB_PATH))
+    conn = sqlite3.connect(str(DB_PATH), timeout=30)
     c = conn.cursor()
     # Keep events from the last 24h (they might still be happening)
     cutoff = (datetime.now() - timedelta(hours=24)).isoformat()
@@ -169,18 +227,25 @@ async def run_gmail(logger) -> dict:
 
 
 async def run_instagram(logger) -> dict:
-    """Scrape a BATCH of Instagram orgs (staggered to avoid rate limits).
+    """Scrape Instagram orgs using a persistent cursor.
 
-    Instead of scraping all 427 orgs at once (triggers 429s), we split
-    them into batches of ~50 and rotate through them across scheduler
-    runs. With 8 runs/day, all orgs get checked every ~1 day.
+    Passes ALL active orgs to scrape_all_orgs() which handles cursor-based
+    sequential iteration internally (via scrape_state.json). Each run
+    processes up to max_per_run orgs starting from where the last run
+    left off.
     """
-    BATCH_SIZE = 25
-    logger.info("=== Instagram Scrape (batch of %d) ===", BATCH_SIZE)
+    MAX_PER_RUN = 15
+    logger.info("=== Instagram Scrape (max %d per run) ===", MAX_PER_RUN)
+
+    # Bail early if no network — prevents cursor reset on DNS failure
+    if not check_network(logger):
+        logger.warning("Skipping Instagram — no network connectivity")
+        return {"error": "no_network", "orgs_scraped": 0}
+
     try:
         from src.services.instagram_scraper import scrape_all_orgs
 
-        conn = sqlite3.connect(str(DB_PATH))
+        conn = sqlite3.connect(str(DB_PATH), timeout=30)
         orgs = conn.execute("""
             SELECT instagram_handle, name FROM organizations
             WHERE instagram_handle IS NOT NULL AND instagram_handle != ''
@@ -193,26 +258,9 @@ async def run_instagram(logger) -> dict:
             logger.info("No orgs with Instagram handles")
             return {"orgs": 0}
 
-        # Determine which batch to scrape this run
-        state = load_state()
-        batch_index = state.get("ig_batch_index", 0)
-        total_batches = (len(orgs) + BATCH_SIZE - 1) // BATCH_SIZE
+        logger.info("Total active orgs with handles: %d", len(orgs))
 
-        start = batch_index * BATCH_SIZE
-        end = min(start + BATCH_SIZE, len(orgs))
-        batch = orgs[start:end]
-
-        # Advance batch index for next run (wrap around)
-        state["ig_batch_index"] = (batch_index + 1) % total_batches
-        save_state(state)
-
-        logger.info(
-            "Batch %d/%d: orgs %d-%d of %d (handles: %s ... %s)",
-            batch_index + 1, total_batches, start + 1, end, len(orgs),
-            batch[0][0] if batch else "?", batch[-1][0] if batch else "?",
-        )
-
-        result = await scrape_all_orgs(batch, days_back=14, max_posts=5)
+        result = await scrape_all_orgs(orgs, days_back=14, max_posts=5, max_per_run=MAX_PER_RUN)
         logger.info(
             "Instagram: %d orgs, %d posts, %d→LLM, %d filtered, %d events",
             result["orgs_scraped"], result["total_posts_checked"],
@@ -247,7 +295,7 @@ async def sync_to_remote(logger):
         engine = create_async_engine(remote_url)
 
         # Read local future events
-        conn = sqlite3.connect(str(DB_PATH))
+        conn = sqlite3.connect(str(DB_PATH), timeout=30)
         conn.row_factory = sqlite3.Row
         events = conn.execute("""
             SELECT title, description, start_time, end_time, location,
@@ -362,8 +410,11 @@ async def main(force_all: bool = False, dry_run: bool = False):
     if not dry_run:
         save_state(state)
 
+    # Schedule next wake if between 10 PM and 5 AM (overnight runs)
+    schedule_next_wake(logger)
+
     # Summary
-    conn = sqlite3.connect(str(DB_PATH))
+    conn = sqlite3.connect(str(DB_PATH), timeout=30)
     total = conn.execute("SELECT COUNT(*) FROM events").fetchone()[0]
     future = conn.execute("SELECT COUNT(*) FROM events WHERE start_time >= datetime('now')").fetchone()[0]
     conn.close()
