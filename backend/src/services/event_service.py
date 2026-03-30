@@ -112,6 +112,16 @@ async def create_event(db: AsyncSession, event_in: EventCreate) -> Event:
     return event
 
 
+# PlanIt Purple events that are explicitly restricted to faculty/grad students
+_ACADEMIC_EXCLUSION_KEYWORDS = [
+    "faculty only",           # explicitly restricted
+    "faculty candidate",      # hiring talks, not student events
+    "for instructors",        # instructor-only workshops
+    "graduate student seminar",  # grad-only seminars
+    "town hall meeting for",  # grad-year-specific meetings
+    "grad-faculty symposium", # grad+faculty only
+]
+
 _FITNESS_KEYWORDS = [
     "fitness", "yoga", "pilates", "bodypump", "body pump", "cycling",
     "zumba", "hiit", "barre", "bootcamp", "cardio", "spinning",
@@ -127,6 +137,7 @@ async def list_events(
     date_from: datetime | None = None,
     date_to: datetime | None = None,
     search: str | None = None,
+    include_school: bool = False,
     include_fitness: bool = False,
     page: int = 1,
     page_size: int = 20,
@@ -162,6 +173,25 @@ async def list_events(
             or_(
                 Event.title.ilike(pattern),
                 Event.description.ilike(pattern),
+            )
+        )
+
+    # Exclude PlanIt Purple (school) events unless toggled on
+    if not include_school:
+        query = query.where(Event.source_name != "PlanIt Purple")
+    else:
+        # Even with school on, exclude faculty/grad-only events
+        academic_conditions = [Event.title.ilike(f"%{kw}%") for kw in _ACADEMIC_EXCLUSION_KEYWORDS]
+        desc_conditions = [Event.description.ilike(f"%{kw}%") for kw in [
+            "for instructors new to",     # instructor onboarding
+            "faculty are invited to join", # faculty-only invites
+        ]]
+        query = query.where(
+            not_(
+                and_(
+                    Event.source_name == "PlanIt Purple",
+                    or_(*academic_conditions, *desc_conditions),
+                )
             )
         )
 

@@ -22,6 +22,8 @@ interface FilterBarProps {
   onCategoryChange: (value: EventCategory | undefined) => void;
   dateRange: DateRange;
   onDateRangeChange: (value: DateRange) => void;
+  showSchool: boolean;
+  onShowSchoolChange: (value: boolean) => void;
   showFitness: boolean;
   onShowFitnessChange: (value: boolean) => void;
 }
@@ -33,6 +35,8 @@ export default function FilterBar({
   onCategoryChange,
   dateRange,
   onDateRangeChange,
+  showSchool,
+  onShowSchoolChange,
   showFitness,
   onShowFitnessChange,
 }: FilterBarProps) {
@@ -101,15 +105,28 @@ export default function FilterBar({
         <span className="mx-1 text-gray-300">|</span>
 
         <button
-          onClick={() => onShowFitnessChange(!showFitness)}
+          onClick={() => onShowSchoolChange(!showSchool)}
           className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-            showFitness
+            showSchool
               ? "bg-nu-purple-50 text-nu-purple border border-nu-purple/20"
               : "text-gray-500 hover:bg-gray-100"
           }`}
         >
-          🏋️ Fitness
+          🏫 School
         </button>
+
+        {showSchool && (
+          <button
+            onClick={() => onShowFitnessChange(!showFitness)}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              showFitness
+                ? "bg-nu-purple-50 text-nu-purple border border-nu-purple/20"
+                : "text-gray-500 hover:bg-gray-100"
+            }`}
+          >
+            🏋️ Fitness
+          </button>
+        )}
       </div>
     </div>
   );

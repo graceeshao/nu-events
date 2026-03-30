@@ -2,6 +2,68 @@ import Link from "next/link";
 import type { EventRead } from "@/lib/types";
 import { formatEventDate, categoryColor, categoryLabel } from "@/lib/utils";
 
+function cleanTitle(title: string): string {
+  let t = title;
+  // Remove day+time patterns like "Monday Noon", "Friday Lunch", "Third Thursday"
+  t = t.replace(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(Noon|Morning|Evening|Afternoon|Night|Lunch)\b/gi, "").trim();
+  t = t.replace(/\b(First|Second|Third|Fourth|Last)\s+(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/gi, "").trim();
+  // Clean up leftover leading separators
+  t = t.replace(/^[\s\-–—|:,]+/, "").trim();
+  // Clean up double spaces
+  t = t.replace(/\s{2,}/g, " ").trim();
+  return t || title; // fallback to original if we stripped everything
+}
+
+function getSummary(event: EventRead): string | null {
+  const desc = event.description?.trim();
+
+  // Has a real description — use it
+  if (desc && desc.length > 30 && !["tba", "tbd", "title: tba", "."].includes(desc.toLowerCase())) {
+    // Strip HTML entities and clean up
+    const clean = desc.replace(/&#\d+;/g, " ").replace(/\s+/g, " ").trim();
+    return clean.length > 120 ? clean.slice(0, 120) + "…" : clean;
+  }
+
+  // Build a contextual summary from available fields
+  const parts: string[] = [];
+
+  // Use source info
+  if (event.source_name?.startsWith("Instagram:@")) {
+    const handle = event.source_name.replace("Instagram:", "");
+    parts.push(`Event by ${handle}`);
+  } else if (event.source_name === "PlanIt Purple") {
+    parts.push("Northwestern campus event");
+  } else if (event.source_name) {
+    parts.push(`Shared by ${event.source_name}`);
+  }
+
+  // Add location context
+  if (event.location) {
+    parts.push(`at ${event.location.split(",")[0]}`);
+  }
+
+  // Add category context
+  if (event.category && event.category !== "other") {
+    const catMap: Record<string, string> = {
+      social: "Social event",
+      academic: "Academic event",
+      career: "Career event",
+      arts: "Arts & culture",
+      sports: "Sports & recreation",
+    };
+    if (parts.length === 0) {
+      parts.push(catMap[event.category] || "");
+    }
+  }
+
+  // Add food tag
+  if (event.has_free_food && parts.length > 0) {
+    parts.push("— free food!");
+  }
+
+  return parts.length > 0 ? parts.join(" ") : null;
+}
+
 export default function EventCard({ event }: { event: EventRead }) {
   return (
     <Link
@@ -11,7 +73,7 @@ export default function EventCard({ event }: { event: EventRead }) {
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 min-w-0">
           <h3 className="font-semibold text-gray-900 leading-snug line-clamp-2">
-            {event.title}
+            {cleanTitle(event.title)}
           </h3>
           {event.has_free_food && (
             <span className="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
@@ -28,13 +90,14 @@ export default function EventCard({ event }: { event: EventRead }) {
         </span>
       </div>
 
-      {event.description && (
-        <p className="mt-2 text-sm text-gray-600 line-clamp-2">
-          {event.description.length > 100
-            ? event.description.slice(0, 100) + "…"
-            : event.description}
-        </p>
-      )}
+      {(() => {
+        const summary = getSummary(event);
+        return summary ? (
+          <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+            {summary}
+          </p>
+        ) : null;
+      })()}
 
       <div className="mt-3 space-y-1.5 text-sm text-gray-500">
         <p>📅 {formatEventDate(event.start_time, event.end_time)}</p>

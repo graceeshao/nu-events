@@ -42,6 +42,7 @@ export interface EventFilters {
   date_from?: string;
   date_to?: string;
   search?: string;
+  include_school?: boolean;
   include_fitness?: boolean;
   page?: number;
   page_size?: number;
