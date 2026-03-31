@@ -4,14 +4,22 @@ import { formatEventDate, categoryColor, categoryLabel } from "@/lib/utils";
 
 function cleanTitle(title: string): string {
   let t = title;
-  // Remove day+time patterns like "Monday Noon", "Friday Lunch", "Third Thursday"
-  t = t.replace(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(Noon|Morning|Evening|Afternoon|Night|Lunch)\b/gi, "").trim();
-  t = t.replace(/\b(First|Second|Third|Fourth|Last)\s+(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/gi, "").trim();
-  // Clean up leftover leading separators
-  t = t.replace(/^[\s\-–—|:,]+/, "").trim();
-  // Clean up double spaces
+
+  // Remove trailing date/time after a separator: ": Wednesday, 4/1 from 7:00 - in Tech"
+  const days = "(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Mon|Tue|Wed|Thu|Fri|Sat|Sun)";
+  t = t.replace(new RegExp(`[:\\|]\\s*${days}[,.]?\\s*\\d{1,2}\\/\\d{1,2}.*$`, "i"), "").trim();
+  // "| Friday 4/11 at 8pm"
+  t = t.replace(new RegExp(`[:\\|]\\s*${days}\\s+\\d{1,2}\\/\\d{1,2}\\b.*$`, "i"), "").trim();
+  // Trailing bare date after separator: "| 4/1 from 7:00..."
+  t = t.replace(/[:\|]\s*\d{1,2}\/\d{1,2}\b.*$/i, "").trim();
+
+  // Remove trailing "from 7:00" or "at 8pm" style suffixes
+  t = t.replace(/\s+(from|at)\s+\d{1,2}(:\d{2})?\s*(am|pm)?\s*[-–—]?\s*$/i, "").trim();
+
+  // Clean up leftover trailing separators
+  t = t.replace(/[\s\-–—|:,]+$/, "").trim();
   t = t.replace(/\s{2,}/g, " ").trim();
-  return t || title; // fallback to original if we stripped everything
+  return t || title;
 }
 
 function getSummary(event: EventRead): string | null {

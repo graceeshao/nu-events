@@ -13,7 +13,7 @@ Fast regex checks — no API calls, no tokens.
 
 import re
 import logging
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 
 from src.schemas.event import EventCreate
 
@@ -110,6 +110,32 @@ def validate_event(event: EventCreate) -> tuple[bool, str]:
     if _FORM_PATTERNS.search(description):
         return False, f"description is a form/survey: {description[:60]}"
 
+    # 4b. Application/deadline announcements (not attendable events)
+    if re.search(
+        r'\b('
+        r'applications?\s+(?:are\s+)?due'
+        r'|interviews?\s+will\s+be\s+held'
+        r'|positions?\s+will\s+be\s+released'
+        r'|applications?\s+(?:are\s+)?(?:now\s+)?(?:open|closing|closed)'
+        r'|apply\s+(?:by|before|now)'
+        r'|feedback\s+form'
+        r'|anonymous\s+feedback'
+        r')\b',
+        description, re.IGNORECASE,
+    ):
+        return False, f"description is an application/deadline: {description[:60]}"
+
+    # 4c. Title suggests meeting/form, not an attendable event for general students
+    if re.search(
+        r'\b('
+        r'executive\s+board\s+meeting'
+        r'|e-?board\s+meeting'
+        r'|feedback\s+form'
+        r')\b',
+        title, re.IGNORECASE,
+    ):
+        return False, f"title is internal/admin: {title[:60]}"
+
     # 5. Midnight time with no real time info = LLM guessed
     # Don't reject outright — but flag as low quality
     # Some "All Day" events legitimately start at midnight
@@ -117,6 +143,10 @@ def validate_event(event: EventCreate) -> tuple[bool, str]:
     # 6. Event is in the past
     if event.start_time < datetime.now():
         return False, f"event is in the past: {event.start_time}"
+
+    # 7. Event is suspiciously far in the future (likely wrong year from LLM)
+    if event.start_time > datetime.now() + timedelta(days=120):
+        return False, f"event is >4 months out (likely wrong year): {event.start_time}"
 
     return True, "ok"
 

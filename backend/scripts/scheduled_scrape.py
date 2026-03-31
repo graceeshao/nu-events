@@ -350,10 +350,25 @@ async def sync_to_remote(logger):
                 )
                 inserted += 1
 
+            # Delete remote events that no longer exist locally
+            local_keys = {e["dedup_key"] for e in events}
+            remote_result = await session.execute(
+                text("SELECT id, dedup_key FROM events")
+            )
+            remote_events = remote_result.fetchall()
+            deleted = 0
+            for remote_id, remote_key in remote_events:
+                if remote_key not in local_keys:
+                    await session.execute(
+                        text("DELETE FROM events WHERE id = :id"),
+                        {"id": remote_id},
+                    )
+                    deleted += 1
+
             await session.commit()
 
         await engine.dispose()
-        logger.info("Synced %d new events to remote (%d total local)", inserted, len(events))
+        logger.info("Synced %d new, %d deleted from remote (%d total local)", inserted, deleted, len(events))
 
     except Exception as exc:
         logger.exception("Remote sync failed: %s", exc)

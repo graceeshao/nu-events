@@ -2128,3 +2128,1543 @@
 2026-03-30 14:45:30,557 [INFO] ============================================================
 2026-03-30 14:45:30,559 [INFO] DONE — DB: 217 total events, 201 future
 2026-03-30 14:45:30,559 [INFO] ============================================================
+2026-03-30 16:00:30,929 [INFO] ============================================================
+2026-03-30 16:00:30,930 [INFO] Scheduled scrape starting at 2026-03-30T16:00:30.930455
+2026-03-30 16:00:30,963 [INFO] Ollama status: running
+2026-03-30 16:00:30,964 [INFO] === PlanIt Purple Scrape ===
+2026-03-30 16:00:32,453 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,021 [INFO] HTTP Request: GET https://weinberg.northwestern.edu/about/events/ "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,198 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/449130 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,518 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629958 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,560 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629339 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,571 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626425 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,573 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/625954 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,575 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629723 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,576 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626424 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,577 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626426 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,578 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630542 "HTTP/1.1 200 OK"
+2026-03-30 16:00:33,579 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630065 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,027 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631206 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,042 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630740 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,044 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631240 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,045 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630716 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,050 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631493 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,064 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630768 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,065 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630607 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,065 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631403 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,065 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631291 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,066 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631492 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,486 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631496 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,501 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631609 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,503 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631608 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,504 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631672 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,505 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631607 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,506 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631610 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,507 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631494 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,508 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631495 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,604 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631818 "HTTP/1.1 200 OK"
+2026-03-30 16:00:34,615 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631671 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,076 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632266 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,094 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632735 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,102 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632624 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,102 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632710 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,103 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632261 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,103 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632736 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,103 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632733 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,104 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632265 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,104 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632732 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,158 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632734 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,508 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632742 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,525 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633221 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,527 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633224 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,528 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632921 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,564 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633231 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,590 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632743 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,591 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632803 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,826 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632744 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,829 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632741 "HTTP/1.1 200 OK"
+2026-03-30 16:00:35,848 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633230 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,448 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633504 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,462 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633988 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,464 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633535 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,466 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633992 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,467 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634270 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,469 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633990 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,470 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633537 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,471 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634271 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,471 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633991 "HTTP/1.1 200 OK"
+2026-03-30 16:00:36,472 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635092 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,158 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635826 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,161 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635230 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,164 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635386 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,193 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636541 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,196 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635480 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,196 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636188 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,197 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635372 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,197 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635373 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,197 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635486 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,198 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636329 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,792 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636735 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,794 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636719 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,796 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636783 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,797 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636715 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,798 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636668 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,821 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636768 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,824 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636788 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,824 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636670 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,825 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636716 "HTTP/1.1 200 OK"
+2026-03-30 16:00:37,825 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636542 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,418 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637057 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,421 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636830 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,423 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637376 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,424 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637377 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,447 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637058 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,450 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637386 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,450 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637577 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,451 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637411 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,451 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637573 "HTTP/1.1 200 OK"
+2026-03-30 16:00:38,451 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637618 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,346 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637910 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,349 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637821 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,350 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637630 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,352 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637681 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,354 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637905 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,389 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638090 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,389 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637781 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,401 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638108 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,401 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637911 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,401 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637822 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,858 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638340 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,861 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638613 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,862 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638332 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,863 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638527 "HTTP/1.1 200 OK"
+2026-03-30 16:00:39,864 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638526 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,352 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638270 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,354 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638269 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,356 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638150 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,357 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638528 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,386 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638353 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,852 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638940 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,881 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638995 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,901 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638614 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,911 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638923 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,913 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638862 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,921 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638965 "HTTP/1.1 200 OK"
+2026-03-30 16:00:40,942 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638935 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,494 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638976 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,503 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638932 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,509 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639032 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,956 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639099 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,959 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639522 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,960 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639523 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,961 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639164 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,962 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639525 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,963 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639524 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,964 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639102 "HTTP/1.1 200 OK"
+2026-03-30 16:00:41,971 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639100 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,009 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639526 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,013 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639527 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,368 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639726 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,384 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639704 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,391 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639529 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,510 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639530 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,525 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639729 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,527 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639731 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,528 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639584 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,529 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639728 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,530 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639705 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,531 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639528 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,864 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639732 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,881 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639738 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,891 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639733 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,895 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639889 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,906 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639737 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,933 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639867 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,952 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639736 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,952 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639774 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,958 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639893 "HTTP/1.1 200 OK"
+2026-03-30 16:00:42,985 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639866 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,346 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639895 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,407 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639930 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,421 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639902 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,430 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639928 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,431 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639933 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,431 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639929 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,453 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639932 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,457 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639931 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,457 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639926 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,464 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639905 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,800 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639934 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,802 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639997 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,821 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640111 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,825 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640003 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,827 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640002 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,840 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639985 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,849 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640026 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,864 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639984 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,876 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639948 "HTTP/1.1 200 OK"
+2026-03-30 16:00:43,889 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639995 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,340 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640136 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,441 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640304 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,453 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640497 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,455 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640147 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,474 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640368 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,475 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640380 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640167 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,481 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640210 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,481 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640279 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,481 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640148 "HTTP/1.1 200 OK"
+2026-03-30 16:00:44,965 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640564 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,197 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640634 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,199 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640548 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,201 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640547 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,202 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640546 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,203 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640553 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,207 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640630 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,209 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640549 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,210 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640562 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,211 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640635 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,776 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640675 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,807 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640673 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,926 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640636 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,946 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640697 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,953 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640698 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,953 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640638 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,953 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640637 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,954 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640699 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,954 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640701 "HTTP/1.1 200 OK"
+2026-03-30 16:00:45,955 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640700 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,121 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640702 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,124 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640703 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,126 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640750 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,127 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640719 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,129 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640716 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,130 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640704 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,130 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640763 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,131 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640768 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,131 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640775 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,132 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640717 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,938 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640776 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,944 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640868 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,946 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640867 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,971 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640870 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,971 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640783 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,977 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640852 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,977 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640785 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,978 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640865 "HTTP/1.1 200 OK"
+2026-03-30 16:00:47,978 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640869 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,022 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640777 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,337 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640871 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,353 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640876 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,419 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640875 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,421 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640873 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,422 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640872 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,423 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640874 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,427 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640877 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,429 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640940 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,483 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640933 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,493 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640948 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,828 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640952 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,831 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640955 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,851 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640996 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,851 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640961 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,857 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641026 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,865 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640950 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,874 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640959 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,901 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641027 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,905 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640958 "HTTP/1.1 200 OK"
+2026-03-30 16:00:48,919 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640954 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,431 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641144 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,434 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641141 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,455 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641028 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,455 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641149 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,456 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641143 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,663 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641142 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,666 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641147 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,668 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641151 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,690 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641146 "HTTP/1.1 200 OK"
+2026-03-30 16:00:49,691 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641150 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,157 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641231 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,160 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641232 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,278 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641234 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,284 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641233 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,301 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641152 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,301 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641237 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,302 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641236 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,302 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641230 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,302 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641235 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,303 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641177 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,768 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641246 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,790 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641238 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,791 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641247 "HTTP/1.1 200 OK"
+2026-03-30 16:00:50,793 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641248 "HTTP/1.1 200 OK"
+2026-03-30 16:00:51,096 [INFO] PlanIt Purple: 187 scraped, 187 future, 187 new
+2026-03-30 16:00:51,096 [INFO] === Gmail LISTSERV Poll ===
+2026-03-30 16:00:51,241 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-30 16:00:51,451 [INFO] Authenticating as graceshao2026@u.northwestern.edu
+2026-03-30 16:00:52,438 [INFO] No UNSEEN messages in 'NU-Events'.
+2026-03-30 16:00:52,727 [INFO] Poll complete: {'emails_processed': 0, 'events_created': 0}
+2026-03-30 16:00:52,728 [INFO] Gmail: 0 emails processed, 0 events created
+2026-03-30 16:00:52,728 [INFO] === Instagram Scrape (max 15 per run) ===
+2026-03-30 16:00:52,871 [INFO] Total active orgs with handles: 410
+2026-03-30 16:00:52,886 [INFO] Loaded cached Instagram cookies from /Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-30 16:00:53,290 [WARNING] Session warmup returned HTTP 400 — cookies may be expired, continuing anyway
+2026-03-30 16:00:53,292 [INFO] Starting from cursor 123/410 (first: @graffiti.dancers)
+2026-03-30 16:00:53,292 [INFO] Phase 1: Fetching posts from 410 orgs...
+2026-03-30 16:00:58,620 [INFO] Fetched 0 recent posts from @graffiti.dancers
+2026-03-30 16:01:22,661 [INFO] Fetched 0 recent posts from @gala.northwestern
+2026-03-30 16:01:41,439 [INFO] Fetched 0 recent posts from @griffinstagrm
+2026-03-30 16:02:08,868 [INFO] Fetched 0 recent posts from @cupnorthwestern
+2026-03-30 16:02:09,264 [INFO] Marked @cupnorthwestern inactive (last: 2021-01-10)
+2026-03-30 16:02:28,782 [INFO] Fetched 0 recent posts from @happinessclubnu
+2026-03-30 16:02:48,643 [INFO] Fetched 0 recent posts from @nu.hi.club
+2026-03-30 16:03:10,408 [INFO] Fetched 0 recent posts from @nuhelicon
+2026-03-30 16:03:28,746 [INFO] Fetched 1 recent posts from @hercampus_nu
+2026-03-30 16:03:28,764 [INFO] Loaded 175 processed shortcodes from cache
+2026-03-30 16:03:53,102 [INFO] Fetched 0 recent posts from @hinduyuva.nu
+2026-03-30 16:04:11,807 [INFO] Fetched 0 recent posts from @nu_hksa
+2026-03-30 16:04:30,848 [INFO] Fetched 0 recent posts from @hpcc_northwestern
+2026-03-30 16:04:48,643 [INFO] Fetched 2 recent posts from @ifyourereadingthisnu
+2026-03-30 16:05:06,007 [INFO] Fetched 0 recent posts from @nu.ignite
+2026-03-30 16:05:31,390 [INFO] Fetched 0 recent posts from @iac.nu
+2026-03-30 16:05:33,281 [INFO] Marked @iac.nu inactive (last: 2023-11-09)
+2026-03-30 16:05:49,894 [INFO] Fetched 0 recent posts from @inournaturemag
+2026-03-30 16:05:51,060 [INFO] Reached max_per_run (15 orgs) — cursor saved at 138
+2026-03-30 16:05:51,060 [INFO] Phase 1 done: 3 posts from 15 orgs (0 inactive, 0 cached)
+2026-03-30 16:05:51,060 [INFO] Phase 2: Pre-filtering...
+2026-03-30 16:05:51,069 [INFO] Phase 2 done: 1→batch classify, 1→image analysis, 1 filtered
+2026-03-30 16:05:51,069 [INFO] Phase 3: Batch classifying 1 captions (20 per call)...
+2026-03-30 16:05:51,090 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 16:05:58,322 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 16:05:58,325 [INFO] Batch 1-1: 1/1 classified as EVENT
+2026-03-30 16:05:58,325 [INFO] Phase 3 done: 1 posts need extraction
+2026-03-30 16:05:58,326 [INFO] Phase 4: Extracting events...
+2026-03-30 16:05:58,355 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 16:06:07,827 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 16:06:07,848 [INFO] Created event from @ifyourereadingthisnu: IYRT BYO-Picnic
+2026-03-30 16:06:07,849 [INFO] Analyzing 1 images...
+2026-03-30 16:06:07,861 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 16:06:08,074 [INFO] HTTP Request: GET https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/653663170_18578796949062092_301814457475905308_n.jpg?stp=dst-jpegr_e35_p320x320_tt6&_nc_cat=102&ig_cache_key=Mzg1NTg2NTM1MDI3ODE5MjkzMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTU3OC5oZHIuQzMifQ%3D%3D&_nc_ohc=dcOcyL9ako4Q7kNvwFchF4F&_nc_oc=Adpdkx5zRNOHcS3Lu6iFFOkDLeNcJlejKwLGs1QK9cAHW9lRJkRZqRoIOagmY8cP6kc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=TLOvUIh5FUaeWt762oF2bg&_nc_ss=7a32e&oh=00_Afzt1BIwulV4SknwX6rr3o4OUG1tuRH9OK0htbkgQ_Lx_w&oe=69D0C230 "HTTP/1.1 200 OK"
+2026-03-30 16:06:12,123 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 16:06:12,127 [INFO] Instagram complete: 15 orgs, 3 posts, 3 LLM calls, 1 events, 1 images analyzed
+2026-03-30 16:06:12,127 [INFO] Instagram: 15 orgs, 3 posts, 3→LLM, 1 filtered, 1 events
+2026-03-30 16:06:12,130 [INFO] === Syncing to remote Postgres ===
+2026-03-30 16:06:37,568 [INFO] Synced 7 new events to remote (208 total local)
+2026-03-30 16:06:37,577 [INFO] ============================================================
+2026-03-30 16:06:37,578 [INFO] DONE — DB: 224 total events, 208 future
+2026-03-30 16:06:37,589 [INFO] ============================================================
+2026-03-30 18:54:48,767 [INFO] ============================================================
+2026-03-30 18:54:48,767 [INFO] Scheduled scrape starting at 2026-03-30T18:54:48.767535
+2026-03-30 18:54:48,802 [INFO] Ollama status: running
+2026-03-30 18:54:48,802 [INFO] === PlanIt Purple Scrape ===
+2026-03-30 18:54:50,412 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,204 [INFO] HTTP Request: GET https://weinberg.northwestern.edu/about/events/ "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,402 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/449130 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,569 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630542 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,613 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629958 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,826 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629723 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,852 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626425 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,856 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/625954 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,865 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626424 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,886 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630065 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,902 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626426 "HTTP/1.1 200 OK"
+2026-03-30 18:54:51,915 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629339 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,256 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630607 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,271 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631403 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,283 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631240 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,302 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631492 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,315 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631206 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,332 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631493 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,350 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630768 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,362 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631291 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,376 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630740 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,392 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630716 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,731 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631494 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,746 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631609 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,760 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631607 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,786 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631496 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,816 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631818 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,818 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631671 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,838 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631608 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,843 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631495 "HTTP/1.1 200 OK"
+2026-03-30 18:54:52,862 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631610 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,155 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631672 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,511 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632261 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,528 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632710 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,543 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632733 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,572 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632735 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,574 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632734 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,584 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632266 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,597 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632736 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,611 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632624 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,622 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632265 "HTTP/1.1 200 OK"
+2026-03-30 18:54:53,768 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632732 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,401 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632741 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,405 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632744 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,406 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633221 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,408 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632921 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,446 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632743 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,447 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633231 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,454 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633230 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632742 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,485 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633224 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,491 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632803 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,831 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633504 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,873 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633990 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,906 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633992 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,908 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633537 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,918 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634270 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,922 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633991 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,926 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633535 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,938 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634271 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,952 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633988 "HTTP/1.1 200 OK"
+2026-03-30 18:54:54,973 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635092 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,330 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635230 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,348 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636541 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,366 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635826 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,378 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635373 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,614 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636329 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,639 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635372 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,646 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635480 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,651 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635486 "HTTP/1.1 200 OK"
+2026-03-30 18:54:55,667 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636188 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,350 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635386 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,700 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636542 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,878 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636719 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,910 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636783 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,933 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636716 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,934 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636735 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,978 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636715 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,980 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636788 "HTTP/1.1 200 OK"
+2026-03-30 18:55:00,982 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636768 "HTTP/1.1 200 OK"
+2026-03-30 18:55:01,009 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636670 "HTTP/1.1 200 OK"
+2026-03-30 18:55:05,875 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636668 "HTTP/1.1 200 OK"
+2026-03-30 18:55:06,235 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636830 "HTTP/1.1 200 OK"
+2026-03-30 18:55:06,432 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637376 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,015 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637057 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,037 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637058 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,091 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637618 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,105 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637411 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,138 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637573 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,142 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637386 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,161 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637577 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,165 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637377 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,529 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637911 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,542 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637822 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,571 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638090 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,583 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638108 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,597 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637910 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,608 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637905 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,623 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637781 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,638 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637821 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,660 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637630 "HTTP/1.1 200 OK"
+2026-03-30 18:55:07,674 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637681 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,021 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638340 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,047 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638527 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,068 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638270 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,082 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638353 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,097 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638526 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,113 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638332 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,128 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638269 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,142 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638613 "HTTP/1.1 200 OK"
+2026-03-30 18:55:08,165 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638528 "HTTP/1.1 200 OK"
+2026-03-30 18:55:13,258 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638150 "HTTP/1.1 200 OK"
+2026-03-30 18:55:13,608 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638614 "HTTP/1.1 200 OK"
+2026-03-30 18:55:13,769 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638935 "HTTP/1.1 200 OK"
+2026-03-30 18:55:13,820 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638862 "HTTP/1.1 200 OK"
+2026-03-30 18:55:13,859 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638932 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,054 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638995 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,078 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639032 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,092 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638940 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,102 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638965 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,129 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638976 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,151 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638923 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,494 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639100 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,530 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639099 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,530 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639525 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,531 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639523 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,541 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639527 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,563 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639524 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,577 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639164 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,589 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639526 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,610 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639102 "HTTP/1.1 200 OK"
+2026-03-30 18:55:14,696 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639522 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,061 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639528 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,082 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639530 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,589 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639731 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,590 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639529 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,591 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639705 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,593 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639704 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,595 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639584 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,596 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639726 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,597 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639729 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,623 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639728 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,958 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639732 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,980 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639774 "HTTP/1.1 200 OK"
+2026-03-30 18:55:15,989 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639889 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,002 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639737 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,022 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639893 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,028 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639866 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,267 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639867 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,291 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639736 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,301 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639733 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,309 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639738 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,646 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639895 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,675 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639902 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,681 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639928 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,712 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639931 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,725 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639929 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,734 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639926 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,752 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639905 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,775 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639930 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,793 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639932 "HTTP/1.1 200 OK"
+2026-03-30 18:55:16,797 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639933 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,140 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639934 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,437 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640003 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,449 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639948 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,451 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640002 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,453 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640111 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,455 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639984 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,476 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639997 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639985 "HTTP/1.1 200 OK"
+2026-03-30 18:55:17,484 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639995 "HTTP/1.1 200 OK"
+2026-03-30 18:55:22,249 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640026 "HTTP/1.1 200 OK"
+2026-03-30 18:55:22,603 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640136 "HTTP/1.1 200 OK"
+2026-03-30 18:55:22,779 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640167 "HTTP/1.1 200 OK"
+2026-03-30 18:55:22,792 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640368 "HTTP/1.1 200 OK"
+2026-03-30 18:55:22,809 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640304 "HTTP/1.1 200 OK"
+2026-03-30 18:55:22,826 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640210 "HTTP/1.1 200 OK"
+2026-03-30 18:55:23,045 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640380 "HTTP/1.1 200 OK"
+2026-03-30 18:55:23,062 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640279 "HTTP/1.1 200 OK"
+2026-03-30 18:55:23,078 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640148 "HTTP/1.1 200 OK"
+2026-03-30 18:55:23,334 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640147 "HTTP/1.1 200 OK"
+2026-03-30 18:55:27,793 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640497 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,142 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640546 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,346 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640630 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,365 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640564 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,373 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640549 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,391 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640553 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,415 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640562 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,436 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640547 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,442 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640634 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,451 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640548 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,467 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640635 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,802 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640637 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,819 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640636 "HTTP/1.1 200 OK"
+2026-03-30 18:55:28,836 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640673 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,072 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640638 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,094 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640697 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,103 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640698 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,110 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640700 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,132 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640675 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,367 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640701 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,387 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640699 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,728 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640702 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,748 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640703 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,775 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640763 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,784 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640717 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,789 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640719 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,803 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640768 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,823 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640716 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,903 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640750 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,906 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640775 "HTTP/1.1 200 OK"
+2026-03-30 18:55:29,907 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640704 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,265 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640776 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,284 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640777 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,303 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640783 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,317 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640869 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,336 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640865 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,352 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640852 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,364 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640868 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,383 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640785 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,395 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640870 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,621 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640867 "HTTP/1.1 200 OK"
+2026-03-30 18:55:30,976 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640871 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,034 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640872 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,050 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640948 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,051 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640940 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,051 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640877 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,091 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640933 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,095 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640875 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,095 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640873 "HTTP/1.1 200 OK"
+2026-03-30 18:55:31,110 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640874 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,003 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640876 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,376 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640950 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,546 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640952 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,602 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640955 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,620 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640996 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,635 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640959 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,663 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641027 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,680 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640958 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,691 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640961 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,707 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640954 "HTTP/1.1 200 OK"
+2026-03-30 18:55:36,890 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641026 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,243 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641141 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,262 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641028 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,273 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641144 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,283 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641151 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,299 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641146 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,317 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641149 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,329 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641147 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,344 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641143 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,357 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641150 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,370 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641142 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,727 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641177 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,745 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641152 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,769 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641231 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,772 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641230 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,787 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641236 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,790 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641233 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,805 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641237 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,834 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641234 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,948 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641232 "HTTP/1.1 200 OK"
+2026-03-30 18:55:37,956 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641235 "HTTP/1.1 200 OK"
+2026-03-30 18:55:38,302 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641238 "HTTP/1.1 200 OK"
+2026-03-30 18:55:38,344 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641246 "HTTP/1.1 200 OK"
+2026-03-30 18:55:38,356 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641247 "HTTP/1.1 200 OK"
+2026-03-30 18:55:38,371 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641248 "HTTP/1.1 200 OK"
+2026-03-30 18:55:38,685 [INFO] PlanIt Purple: 187 scraped, 187 future, 187 new
+2026-03-30 18:55:38,685 [INFO] === Gmail LISTSERV Poll ===
+2026-03-30 18:55:38,864 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-30 18:55:39,278 [INFO] Authenticating as graceshao2026@u.northwestern.edu
+2026-03-30 18:55:40,204 [INFO] No UNSEEN messages in 'NU-Events'.
+2026-03-30 18:55:40,367 [INFO] Poll complete: {'emails_processed': 0, 'events_created': 0}
+2026-03-30 18:55:40,369 [INFO] Gmail: 0 emails processed, 0 events created
+2026-03-30 18:55:40,370 [INFO] === Instagram Scrape (max 15 per run) ===
+2026-03-30 18:55:40,413 [INFO] Total active orgs with handles: 408
+2026-03-30 18:55:40,425 [INFO] Loaded cached Instagram cookies from /Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-30 18:55:40,605 [WARNING] Session warmup returned HTTP 400 — cookies may be expired, continuing anyway
+2026-03-30 18:55:40,608 [INFO] Starting from cursor 138/408 (first: @nuisbe)
+2026-03-30 18:55:40,608 [INFO] Phase 1: Fetching posts from 408 orgs...
+2026-03-30 18:55:44,934 [INFO] Fetched 0 recent posts from @nuisbe
+2026-03-30 18:56:03,644 [INFO] Fetched 0 recent posts from @nu.iise
+2026-03-30 18:56:22,894 [INFO] Fetched 4 recent posts from @nu.ifc
+2026-03-30 18:56:22,900 [INFO] Loaded 178 processed shortcodes from cache
+2026-03-30 18:56:48,691 [INFO] Fetched 0 recent posts from @isanorthwestern
+2026-03-30 18:57:11,415 [INFO] Fetched 0 recent posts from @isrcnorthwestern
+2026-03-30 18:57:34,528 [WARNING] Failed to fetch profile @nuiss2023: HTTP 404
+2026-03-30 18:57:34,532 [WARNING] Rate limited at org 6/408 (consecutive: 1) — backing off 60s then continuing
+2026-03-30 18:58:38,757 [INFO] Fetched 0 recent posts from @northwestern.imc
+2026-03-30 18:58:55,850 [INFO] Fetched 0 recent posts from @northwesternimg
+2026-03-30 18:59:12,041 [INFO] Fetched 0 recent posts from @ita_northwestern
+2026-03-30 18:59:37,275 [INFO] Fetched 0 recent posts from @jstreetu.northwestern
+2026-03-30 18:59:57,011 [INFO] Fetched 0 recent posts from @japanclub.nu
+2026-03-30 19:00:13,877 [INFO] Fetched 0 recent posts from @jasa_nu
+2026-03-30 19:00:32,553 [INFO] Fetched 0 recent posts from @nujazzclub
+2026-03-30 19:00:32,997 [INFO] Marked @nujazzclub inactive (last: 2022-10-18)
+2026-03-30 19:00:55,234 [INFO] Fetched 2 recent posts from @jewishtheatreensemble
+2026-03-30 19:01:22,026 [INFO] Fetched 1 recent posts from @jvpnu
+2026-03-30 19:01:36,818 [INFO] Fetched 0 recent posts from @journalingclubnu
+2026-03-30 19:01:37,342 [INFO] Reached max_per_run (15 orgs) — cursor saved at 154
+2026-03-30 19:01:37,342 [INFO] Phase 1 done: 3 posts from 15 orgs (0 inactive, 4 cached)
+2026-03-30 19:01:37,342 [INFO] Phase 2: Pre-filtering...
+2026-03-30 19:01:37,343 [INFO] Phase 2 done: 1→batch classify, 0→image analysis, 2 filtered
+2026-03-30 19:01:37,343 [INFO] Phase 3: Batch classifying 1 captions (20 per call)...
+2026-03-30 19:01:37,358 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 19:01:44,262 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 19:01:44,272 [INFO] Batch 1-1: 1/1 classified as EVENT
+2026-03-30 19:01:44,273 [INFO] Phase 3 done: 1 posts need extraction
+2026-03-30 19:01:44,273 [INFO] Phase 4: Extracting events...
+2026-03-30 19:01:44,293 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 19:01:52,947 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 19:01:52,959 [INFO] Validated 1 events: 0 accepted, 1 rejected
+2026-03-30 19:01:52,964 [INFO] Instagram complete: 15 orgs, 3 posts, 2 LLM calls, 0 events, 0 images analyzed
+2026-03-30 19:01:52,970 [INFO] Instagram: 15 orgs, 7 posts, 2→LLM, 6 filtered, 0 events
+2026-03-30 19:01:52,976 [INFO] === Syncing to remote Postgres ===
+2026-03-30 19:02:06,120 [INFO] Synced 0 new events to remote (207 total local)
+2026-03-30 19:02:06,128 [INFO] ============================================================
+2026-03-30 19:02:06,129 [INFO] DONE — DB: 224 total events, 207 future
+2026-03-30 19:02:06,129 [INFO] ============================================================
+2026-03-30 20:05:48,269 [INFO] ============================================================
+2026-03-30 20:05:48,270 [INFO] Scheduled scrape starting at 2026-03-30T20:05:48.270622
+2026-03-30 20:05:48,465 [INFO] Ollama status: running
+2026-03-30 20:05:48,465 [INFO] === PlanIt Purple Scrape ===
+2026-03-30 20:05:48,869 [INFO] PlanIt Purple: 0 scraped, 0 future, 0 new
+2026-03-30 20:05:48,869 [INFO] === Gmail LISTSERV Poll ===
+2026-03-30 20:05:49,018 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-30 20:05:49,022 [ERROR] Gmail poll failed: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)"))
+Traceback (most recent call last):
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/google/auth/transport/requests.py", line 188, in __call__
+    response = self.session.request(
+        method, url, data=body, headers=headers, timeout=timeout, **kwargs
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/requests/adapters.py", line 678, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/graceshao/Downloads/nu-events/backend/scripts/scheduled_scrape.py", line 219, in run_gmail
+    result = await poller.poll_once()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/gmail_poller.py", line 233, in poll_once
+    messages = await asyncio.to_thread(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/gmail_poller.py", line 126, in _sync_poll
+    creds = get_gmail_credentials(credentials_file, token_file)
+  File "/Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/gmail_auth.py", line 50, in get_gmail_credentials
+    creds.refresh(Request())
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/google/oauth2/credentials.py", line 412, in refresh
+    ) = reauth.refresh_grant(
+        ~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<6 lines>...
+        enable_reauth_refresh=self._enable_reauth_refresh,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/google/oauth2/reauth.py", line 337, in refresh_grant
+    ) = _client._token_endpoint_request_no_throw(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        request, token_uri, body, headers=metrics_header
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/google/oauth2/_client.py", line 192, in _token_endpoint_request_no_throw
+    response = request(
+        method="POST", url=token_uri, headers=headers_to_use, body=body, **kwargs
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/google/auth/transport/requests.py", line 195, in __call__
+    raise new_exc from caught_exc
+google.auth.exceptions.TransportError: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-30 20:05:49,029 [INFO] === Instagram Scrape (max 15 per run) ===
+2026-03-30 20:05:49,031 [WARNING] Network check failed — cannot resolve www.instagram.com
+2026-03-30 20:05:49,031 [WARNING] Skipping Instagram — no network connectivity
+2026-03-30 20:05:49,032 [INFO] === Syncing to remote Postgres ===
+2026-03-30 20:05:49,073 [ERROR] Remote sync failed: [Errno 8] nodename nor servname provided, or not known
+Traceback (most recent call last):
+  File "/Users/graceshao/Downloads/nu-events/backend/scripts/scheduled_scrape.py", line 319, in sync_to_remote
+    result = await session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/ext/asyncio/session.py", line 449, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 1187, in _connection_for_bind
+    conn = bind.connect()
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3293, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 955, in connect
+    await_only(creator_fn(*arg, **kw)),
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/asyncpg/connection.py", line 2443, in connect
+    return await connect_utils._connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<22 lines>...
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1249, in _connect
+    raise last_error or exceptions.TargetServerAttributeNotMatched(
+    ...<2 lines>...
+    )
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1218, in _connect
+    conn = await _connect_addr(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1054, in _connect_addr
+    return await __connect_addr(params, True, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1099, in __connect_addr
+    tr, pr = await connector
+             ^^^^^^^^^^^^^^^
+  File "/Users/graceshao/Downloads/nu-events/backend/.venv/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 969, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        host, port)
+        ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 1119, in create_connection
+    infos = await self._ensure_resolved(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        (host, port), family=family,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        type=socket.SOCK_STREAM, proto=proto, flags=flags, loop=self)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 1505, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proto=proto, flags=flags)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+2026-03-30 20:05:49,081 [INFO] ============================================================
+2026-03-30 20:05:49,081 [INFO] DONE — DB: 224 total events, 207 future
+2026-03-30 20:05:49,081 [INFO] ============================================================
+2026-03-30 21:41:40,364 [INFO] ============================================================
+2026-03-30 21:41:40,365 [INFO] Scheduled scrape starting at 2026-03-30T21:41:40.365241
+2026-03-30 21:41:40,407 [INFO] Ollama status: running
+2026-03-30 21:41:40,407 [INFO] === PlanIt Purple Scrape ===
+2026-03-30 21:41:41,481 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,204 [INFO] HTTP Request: GET https://weinberg.northwestern.edu/about/events/ "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,381 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/449130 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,568 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629723 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,663 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626426 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,665 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626424 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,667 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630065 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,668 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629339 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,668 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629958 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,710 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/625954 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,714 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630542 "HTTP/1.1 200 OK"
+2026-03-30 21:41:42,739 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626425 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,083 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630716 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,204 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631291 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,206 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631403 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,215 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630768 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,231 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631493 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,256 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631492 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,262 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630607 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,263 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631240 "HTTP/1.1 200 OK"
+2026-03-30 21:41:43,298 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630740 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,135 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631206 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,474 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631494 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,493 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631608 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,506 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631609 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,512 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631495 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,526 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631671 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,543 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631607 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,559 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631672 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,570 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631496 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,585 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631610 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,599 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631818 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,918 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632261 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,937 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632732 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,961 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632266 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,969 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632734 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,975 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632736 "HTTP/1.1 200 OK"
+2026-03-30 21:41:44,987 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632710 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,015 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632624 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,023 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632735 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,038 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632265 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,051 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632733 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,382 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632741 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,410 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632744 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,430 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633221 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,431 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632742 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,449 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633230 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,471 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632921 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,475 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633224 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632743 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,490 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633231 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,505 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632803 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,893 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633535 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,912 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633990 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,918 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633537 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,932 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633992 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,944 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635092 "HTTP/1.1 200 OK"
+2026-03-30 21:41:45,958 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633991 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,189 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634270 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,205 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633988 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,218 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634271 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,233 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633504 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,559 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635230 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,581 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635372 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,593 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635480 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,602 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636329 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,616 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635826 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,856 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636541 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,916 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635373 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,932 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635386 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,935 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635486 "HTTP/1.1 200 OK"
+2026-03-30 21:41:46,936 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636188 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,272 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636542 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,287 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636768 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,385 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636719 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,403 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636788 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,407 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636715 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,408 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636670 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,409 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636716 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,409 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636668 "HTTP/1.1 200 OK"
+2026-03-30 21:41:47,428 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636783 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,303 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636735 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,702 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636830 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,809 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637386 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,850 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637573 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,858 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637618 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,862 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637057 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,873 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637376 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,888 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637058 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,904 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637577 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,926 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637411 "HTTP/1.1 200 OK"
+2026-03-30 21:41:52,945 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637377 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,272 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637681 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,294 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637630 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,304 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637781 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,313 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637905 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,327 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638090 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,342 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637821 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,364 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638108 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,378 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637822 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,388 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637911 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,403 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637910 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,761 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638340 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,785 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638353 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,792 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638613 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,809 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638528 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,819 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638150 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,841 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638270 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,854 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638526 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,873 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638269 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,887 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638527 "HTTP/1.1 200 OK"
+2026-03-30 21:41:53,910 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638332 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,276 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638935 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,299 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639032 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,308 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638995 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,323 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638932 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,337 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638923 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,356 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638940 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,368 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638976 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,382 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638614 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,395 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638965 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,442 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638862 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,804 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639522 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,823 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639099 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,845 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639523 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,848 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639524 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,863 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639100 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,885 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639102 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,899 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639525 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,914 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639526 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,930 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639164 "HTTP/1.1 200 OK"
+2026-03-30 21:41:54,947 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639527 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,330 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639726 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,345 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639731 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,356 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639705 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,373 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639584 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,394 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639728 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,405 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639528 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,430 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639729 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,448 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639529 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,468 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639530 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,487 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639704 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,850 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639774 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,866 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639866 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,882 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639889 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,897 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639738 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,911 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639732 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,929 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639893 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,951 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639737 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,965 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639736 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,981 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639867 "HTTP/1.1 200 OK"
+2026-03-30 21:41:55,993 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639733 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,373 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639926 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,388 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639931 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,405 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639932 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,415 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639928 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,432 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639930 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,706 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639902 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,709 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639929 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,711 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639895 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,713 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639933 "HTTP/1.1 200 OK"
+2026-03-30 21:41:56,744 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639905 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,090 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639934 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,113 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639948 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,122 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640003 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,135 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639995 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,155 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640002 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,169 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639984 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,192 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639985 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,206 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640026 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,235 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639997 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,239 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640111 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,598 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640136 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,600 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640147 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,602 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640380 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,625 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640497 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,625 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640279 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,635 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640148 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,650 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640210 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,668 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640304 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,683 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640167 "HTTP/1.1 200 OK"
+2026-03-30 21:41:57,699 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640368 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,016 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640546 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,057 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640549 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,079 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640635 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,087 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640553 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,091 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640630 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,394 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640547 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,396 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640562 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,656 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640548 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,658 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640634 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,659 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640564 "HTTP/1.1 200 OK"
+2026-03-30 21:41:58,995 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640637 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,010 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640675 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,026 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640701 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,043 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640638 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,070 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640699 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,085 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640698 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,087 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640697 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,099 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640700 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,121 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640636 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,209 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640673 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,540 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640702 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,580 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640750 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,600 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640717 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,601 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640703 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,615 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640716 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,623 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640719 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,639 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640704 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,858 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640763 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,969 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640775 "HTTP/1.1 200 OK"
+2026-03-30 21:41:59,971 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640768 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,321 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640776 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,334 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640869 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,344 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640865 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,352 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640777 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,372 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640852 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,385 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640868 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,497 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640867 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,512 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640783 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,514 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640785 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,516 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640870 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,859 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640871 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,874 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640874 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,909 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640872 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,910 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640876 "HTTP/1.1 200 OK"
+2026-03-30 21:42:00,937 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640933 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,030 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640877 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,033 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640873 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,035 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640940 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,037 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640875 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,102 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640948 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,421 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640952 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,455 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641026 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,537 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640959 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,540 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640958 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,542 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641027 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,544 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640954 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,550 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640955 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,554 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640961 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,589 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640996 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,590 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640950 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,927 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641028 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,946 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641141 "HTTP/1.1 200 OK"
+2026-03-30 21:42:01,956 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641143 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,062 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641150 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,063 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641151 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,068 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641142 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,077 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641144 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,079 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641146 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,080 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641147 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,141 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641149 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,466 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641152 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641177 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,498 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641233 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,588 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641237 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,590 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641232 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,592 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641234 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,594 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641231 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,642 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641230 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,642 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641236 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,643 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641235 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,958 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641246 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,979 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641247 "HTTP/1.1 200 OK"
+2026-03-30 21:42:02,988 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641248 "HTTP/1.1 200 OK"
+2026-03-30 21:42:03,164 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641238 "HTTP/1.1 200 OK"
+2026-03-30 21:42:03,477 [INFO] PlanIt Purple: 187 scraped, 187 future, 187 new
+2026-03-30 21:42:03,477 [INFO] === Gmail LISTSERV Poll ===
+2026-03-30 21:42:03,624 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-30 21:42:03,751 [INFO] Authenticating as graceshao2026@u.northwestern.edu
+2026-03-30 21:42:04,397 [INFO] No UNSEEN messages in 'NU-Events'.
+2026-03-30 21:42:04,467 [INFO] Poll complete: {'emails_processed': 0, 'events_created': 0}
+2026-03-30 21:42:04,468 [INFO] Gmail: 0 emails processed, 0 events created
+2026-03-30 21:42:04,468 [INFO] === Instagram Scrape (max 15 per run) ===
+2026-03-30 21:42:04,521 [INFO] Total active orgs with handles: 407
+2026-03-30 21:42:04,529 [INFO] Loaded cached Instagram cookies from /Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-30 21:42:04,855 [WARNING] Session warmup returned HTTP 400 — cookies may be expired, continuing anyway
+2026-03-30 21:42:04,859 [INFO] Starting from cursor 154/407 (first: @nu.kdance)
+2026-03-30 21:42:04,860 [INFO] Phase 1: Fetching posts from 407 orgs...
+2026-03-30 21:42:09,551 [INFO] Fetched 0 recent posts from @nu.kdance
+2026-03-30 21:42:31,235 [INFO] Fetched 0 recent posts from @kadima_nu
+2026-03-30 21:42:31,829 [INFO] Marked @kadima_nu inactive (last: 2024-04-04)
+2026-03-30 21:42:53,549 [INFO] Fetched 0 recent posts from @nukaibigan
+2026-03-30 21:43:11,024 [INFO] Fetched 0 recent posts from @nukappadelta
+2026-03-30 21:43:29,223 [WARNING] Failed to fetch profile @nu_kappas: HTTP 404
+2026-03-30 21:43:29,224 [WARNING] Rate limited at org 5/407 (consecutive: 1) — backing off 60s then continuing
+2026-03-30 21:44:34,128 [INFO] Fetched 0 recent posts from @northwesternkpib
+2026-03-30 21:44:35,179 [INFO] Marked @northwesternkpib inactive (last: 2025-01-13)
+2026-03-30 21:44:55,064 [INFO] Fetched 0 recent posts from @kesem.northwestern
+2026-03-30 21:45:15,899 [INFO] Fetched 0 recent posts from @khaleeji.nu
+2026-03-30 21:45:35,261 [INFO] Fetched 0 recent posts from @knitwestern
+2026-03-30 21:45:56,243 [INFO] Fetched 0 recent posts from @northwesternkasa
+2026-03-30 21:46:08,911 [WARNING] Instagram profile @lcnorthwestern does not exist (deleted?)
+2026-03-30 21:46:08,917 [INFO] Removed deleted account @lcnorthwestern from La Causa
+2026-03-30 21:46:13,657 [INFO] Fetched 1 recent posts from @lulnorthwestern
+2026-03-30 21:46:13,663 [INFO] Loaded 181 processed shortcodes from cache
+2026-03-30 21:46:31,536 [INFO] Fetched 0 recent posts from @northwesternlxa
+2026-03-30 21:46:49,945 [INFO] Fetched 1 recent posts from @lambdastrategy
+2026-03-30 21:47:05,445 [INFO] Fetched 0 recent posts from @nu.lme
+2026-03-30 21:47:25,449 [INFO] Fetched 0 recent posts from @n2n_northwestern
+2026-03-30 21:47:25,966 [INFO] Marked @n2n_northwestern inactive (last: 2019-02-06)
+2026-03-30 21:47:43,587 [INFO] Fetched 0 recent posts from @learntobenu
+2026-03-30 21:47:44,288 [INFO] Marked @learntobenu inactive (last: 2020-10-08)
+2026-03-30 21:47:44,313 [INFO] Reached max_per_run (15 orgs) — cursor saved at 171
+2026-03-30 21:47:44,313 [INFO] Phase 1 done: 2 posts from 15 orgs (1 inactive, 0 cached)
+2026-03-30 21:47:44,313 [INFO] Phase 2: Pre-filtering...
+2026-03-30 21:47:44,315 [INFO] Phase 2 done: 1→batch classify, 0→image analysis, 1 filtered
+2026-03-30 21:47:44,315 [INFO] Phase 3: Batch classifying 1 captions (20 per call)...
+2026-03-30 21:47:44,346 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 21:47:52,420 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 21:47:52,428 [INFO] Batch 1-1: 1/1 classified as EVENT
+2026-03-30 21:47:52,429 [INFO] Phase 3 done: 1 posts need extraction
+2026-03-30 21:47:52,429 [INFO] Phase 4: Extracting events...
+2026-03-30 21:47:52,446 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 21:48:01,383 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 21:48:01,387 [INFO] Validated 1 events: 0 accepted, 1 rejected
+2026-03-30 21:48:01,391 [INFO] Instagram complete: 15 orgs, 2 posts, 2 LLM calls, 0 events, 0 images analyzed
+2026-03-30 21:48:01,393 [INFO] Instagram: 15 orgs, 2 posts, 2→LLM, 1 filtered, 0 events
+2026-03-30 21:48:01,395 [INFO] === Syncing to remote Postgres ===
+2026-03-30 21:48:19,427 [INFO] Synced 0 new events to remote (207 total local)
+2026-03-30 21:48:19,454 [INFO] ============================================================
+2026-03-30 21:48:19,454 [INFO] DONE — DB: 224 total events, 207 future
+2026-03-30 21:48:19,454 [INFO] ============================================================
+2026-03-30 22:24:08,399 [INFO] ============================================================
+2026-03-30 22:24:08,400 [INFO] Scheduled scrape starting at 2026-03-30T22:24:08.400356
+2026-03-30 22:24:08,441 [INFO] Ollama status: running
+2026-03-30 22:24:08,441 [INFO] === PlanIt Purple Scrape ===
+2026-03-30 22:24:09,360 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu "HTTP/1.1 200 OK"
+2026-03-30 22:24:09,800 [INFO] HTTP Request: GET https://weinberg.northwestern.edu/about/events/ "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,041 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/449130 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,670 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626424 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,715 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630542 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,730 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630065 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,733 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629339 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,744 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626426 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,786 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629958 "HTTP/1.1 200 OK"
+2026-03-30 22:24:10,892 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/626425 "HTTP/1.1 200 OK"
+2026-03-30 22:24:11,150 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630607 "HTTP/1.1 200 OK"
+2026-03-30 22:24:11,754 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/629723 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,259 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630740 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,336 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/630768 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,361 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631206 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,747 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631291 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,794 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631403 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,817 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631493 "HTTP/1.1 200 OK"
+2026-03-30 22:24:12,949 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631495 "HTTP/1.1 200 OK"
+2026-03-30 22:24:13,094 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631492 "HTTP/1.1 200 OK"
+2026-03-30 22:24:13,196 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631494 "HTTP/1.1 200 OK"
+2026-03-30 22:24:13,946 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631496 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,340 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631610 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,389 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631607 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,406 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631608 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,432 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632266 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632261 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,494 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631672 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,625 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632265 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,646 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631818 "HTTP/1.1 200 OK"
+2026-03-30 22:24:14,830 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631609 "HTTP/1.1 200 OK"
+2026-03-30 22:24:15,939 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/631671 "HTTP/1.1 200 OK"
+2026-03-30 22:24:16,712 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632710 "HTTP/1.1 200 OK"
+2026-03-30 22:24:16,918 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632624 "HTTP/1.1 200 OK"
+2026-03-30 22:24:16,980 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632742 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,007 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632732 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,029 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632735 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,080 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632743 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,121 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632733 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,152 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632736 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,167 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632734 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,180 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632741 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,531 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632744 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,714 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633224 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,776 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632921 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,907 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633230 "HTTP/1.1 200 OK"
+2026-03-30 22:24:17,977 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633537 "HTTP/1.1 200 OK"
+2026-03-30 22:24:18,100 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633231 "HTTP/1.1 200 OK"
+2026-03-30 22:24:18,332 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633535 "HTTP/1.1 200 OK"
+2026-03-30 22:24:18,348 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633504 "HTTP/1.1 200 OK"
+2026-03-30 22:24:18,367 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/632803 "HTTP/1.1 200 OK"
+2026-03-30 22:24:18,368 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633221 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,010 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633988 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,071 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/634271 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,133 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633990 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,303 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635386 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,351 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633992 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,560 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635480 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,595 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/633991 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,609 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635230 "HTTP/1.1 200 OK"
+2026-03-30 22:24:19,719 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635373 "HTTP/1.1 200 OK"
+2026-03-30 22:24:20,605 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635372 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,056 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636668 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,092 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636188 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,220 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636715 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,252 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636542 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,355 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636735 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,386 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/635826 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,388 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636719 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,389 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636670 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,400 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636329 "HTTP/1.1 200 OK"
+2026-03-30 22:24:21,578 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636716 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,141 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636768 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,163 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637386 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,202 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637377 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,267 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637376 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,282 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636830 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,283 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636783 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,757 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/636788 "HTTP/1.1 200 OK"
+2026-03-30 22:24:22,811 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637058 "HTTP/1.1 200 OK"
+2026-03-30 22:24:23,320 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637411 "HTTP/1.1 200 OK"
+2026-03-30 22:24:23,410 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637057 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,230 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637821 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,273 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637577 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,344 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637905 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,392 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637630 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,443 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637573 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,480 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637681 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,504 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637910 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,567 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637822 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,595 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637618 "HTTP/1.1 200 OK"
+2026-03-30 22:24:24,602 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637781 "HTTP/1.1 200 OK"
+2026-03-30 22:24:25,066 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/637911 "HTTP/1.1 200 OK"
+2026-03-30 22:24:25,428 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638526 "HTTP/1.1 200 OK"
+2026-03-30 22:24:25,586 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638270 "HTTP/1.1 200 OK"
+2026-03-30 22:24:26,091 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638332 "HTTP/1.1 200 OK"
+2026-03-30 22:24:26,110 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638353 "HTTP/1.1 200 OK"
+2026-03-30 22:24:26,383 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638090 "HTTP/1.1 200 OK"
+2026-03-30 22:24:26,573 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638527 "HTTP/1.1 200 OK"
+2026-03-30 22:24:26,596 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638108 "HTTP/1.1 200 OK"
+2026-03-30 22:24:26,863 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638269 "HTTP/1.1 200 OK"
+2026-03-30 22:24:27,983 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638150 "HTTP/1.1 200 OK"
+2026-03-30 22:24:29,601 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638528 "HTTP/1.1 200 OK"
+2026-03-30 22:24:29,714 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638862 "HTTP/1.1 200 OK"
+2026-03-30 22:24:29,985 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638935 "HTTP/1.1 200 OK"
+2026-03-30 22:24:30,283 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638923 "HTTP/1.1 200 OK"
+2026-03-30 22:24:30,605 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638932 "HTTP/1.1 200 OK"
+2026-03-30 22:24:30,738 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638614 "HTTP/1.1 200 OK"
+2026-03-30 22:24:30,826 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638965 "HTTP/1.1 200 OK"
+2026-03-30 22:24:31,134 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638940 "HTTP/1.1 200 OK"
+2026-03-30 22:24:31,252 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638976 "HTTP/1.1 200 OK"
+2026-03-30 22:24:31,734 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/638995 "HTTP/1.1 200 OK"
+2026-03-30 22:24:32,261 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639522 "HTTP/1.1 200 OK"
+2026-03-30 22:24:32,278 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639100 "HTTP/1.1 200 OK"
+2026-03-30 22:24:32,379 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639525 "HTTP/1.1 200 OK"
+2026-03-30 22:24:32,973 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639164 "HTTP/1.1 200 OK"
+2026-03-30 22:24:33,356 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639099 "HTTP/1.1 200 OK"
+2026-03-30 22:24:33,414 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639523 "HTTP/1.1 200 OK"
+2026-03-30 22:24:33,441 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639524 "HTTP/1.1 200 OK"
+2026-03-30 22:24:33,667 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639102 "HTTP/1.1 200 OK"
+2026-03-30 22:24:33,688 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639526 "HTTP/1.1 200 OK"
+2026-03-30 22:24:33,694 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639032 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,239 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639527 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,261 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639529 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,263 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639705 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,292 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639728 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,351 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639726 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,761 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639729 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,787 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639731 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,795 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639530 "HTTP/1.1 200 OK"
+2026-03-30 22:24:34,808 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639528 "HTTP/1.1 200 OK"
+2026-03-30 22:24:35,832 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639584 "HTTP/1.1 200 OK"
+2026-03-30 22:24:36,591 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639732 "HTTP/1.1 200 OK"
+2026-03-30 22:24:36,679 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639733 "HTTP/1.1 200 OK"
+2026-03-30 22:24:36,834 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639866 "HTTP/1.1 200 OK"
+2026-03-30 22:24:36,957 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639736 "HTTP/1.1 200 OK"
+2026-03-30 22:24:37,353 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639867 "HTTP/1.1 200 OK"
+2026-03-30 22:24:37,519 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639889 "HTTP/1.1 200 OK"
+2026-03-30 22:24:37,551 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639893 "HTTP/1.1 200 OK"
+2026-03-30 22:24:39,121 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639738 "HTTP/1.1 200 OK"
+2026-03-30 22:24:39,295 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639774 "HTTP/1.1 200 OK"
+2026-03-30 22:24:39,308 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639737 "HTTP/1.1 200 OK"
+2026-03-30 22:24:41,738 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639926 "HTTP/1.1 200 OK"
+2026-03-30 22:24:41,811 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639932 "HTTP/1.1 200 OK"
+2026-03-30 22:24:42,690 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639902 "HTTP/1.1 200 OK"
+2026-03-30 22:24:44,266 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639905 "HTTP/1.1 200 OK"
+2026-03-30 22:24:44,432 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639931 "HTTP/1.1 200 OK"
+2026-03-30 22:24:44,657 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639930 "HTTP/1.1 200 OK"
+2026-03-30 22:24:44,683 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639933 "HTTP/1.1 200 OK"
+2026-03-30 22:24:45,327 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639895 "HTTP/1.1 200 OK"
+2026-03-30 22:24:45,402 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639929 "HTTP/1.1 200 OK"
+2026-03-30 22:24:45,517 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639928 "HTTP/1.1 200 OK"
+2026-03-30 22:24:46,997 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639934 "HTTP/1.1 200 OK"
+2026-03-30 22:24:47,166 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639948 "HTTP/1.1 200 OK"
+2026-03-30 22:24:50,427 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639997 "HTTP/1.1 200 OK"
+2026-03-30 22:24:50,472 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640002 "HTTP/1.1 200 OK"
+2026-03-30 22:24:50,502 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639995 "HTTP/1.1 200 OK"
+2026-03-30 22:24:50,622 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639984 "HTTP/1.1 200 OK"
+2026-03-30 22:24:50,791 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640003 "HTTP/1.1 200 OK"
+2026-03-30 22:24:51,282 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640111 "HTTP/1.1 200 OK"
+2026-03-30 22:24:51,472 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/639985 "HTTP/1.1 200 OK"
+2026-03-30 22:24:51,531 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640026 "HTTP/1.1 200 OK"
+2026-03-30 22:24:51,891 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640136 "HTTP/1.1 200 OK"
+2026-03-30 22:24:51,901 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640547 "HTTP/1.1 200 OK"
+2026-03-30 22:24:52,930 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640210 "HTTP/1.1 200 OK"
+2026-03-30 22:24:53,151 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640368 "HTTP/1.1 200 OK"
+2026-03-30 22:24:53,194 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640147 "HTTP/1.1 200 OK"
+2026-03-30 22:24:54,864 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640548 "HTTP/1.1 200 OK"
+2026-03-30 22:24:54,909 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640546 "HTTP/1.1 200 OK"
+2026-03-30 22:24:54,943 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640148 "HTTP/1.1 200 OK"
+2026-03-30 22:24:55,211 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640380 "HTTP/1.1 200 OK"
+2026-03-30 22:25:00,133 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640549 "HTTP/1.1 200 OK"
+2026-03-30 22:25:00,933 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640564 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,276 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640635 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,295 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640638 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,310 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640697 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,316 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640673 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,320 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640630 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,325 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640636 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,373 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640675 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,525 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640634 "HTTP/1.1 200 OK"
+2026-03-30 22:25:03,558 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640637 "HTTP/1.1 200 OK"
+2026-03-30 22:25:04,398 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640699 "HTTP/1.1 200 OK"
+2026-03-30 22:25:04,428 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640716 "HTTP/1.1 200 OK"
+2026-03-30 22:25:04,458 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640698 "HTTP/1.1 200 OK"
+2026-03-30 22:25:04,755 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640701 "HTTP/1.1 200 OK"
+2026-03-30 22:25:04,823 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640702 "HTTP/1.1 200 OK"
+2026-03-30 22:25:04,967 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640703 "HTTP/1.1 200 OK"
+2026-03-30 22:25:05,189 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640704 "HTTP/1.1 200 OK"
+2026-03-30 22:25:05,268 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640700 "HTTP/1.1 200 OK"
+2026-03-30 22:25:05,292 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640717 "HTTP/1.1 200 OK"
+2026-03-30 22:25:06,707 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640719 "HTTP/1.1 200 OK"
+2026-03-30 22:25:09,146 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640852 "HTTP/1.1 200 OK"
+2026-03-30 22:25:09,286 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640865 "HTTP/1.1 200 OK"
+2026-03-30 22:25:09,623 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640868 "HTTP/1.1 200 OK"
+2026-03-30 22:25:09,641 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640867 "HTTP/1.1 200 OK"
+2026-03-30 22:25:10,447 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640876 "HTTP/1.1 200 OK"
+2026-03-30 22:25:10,638 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640874 "HTTP/1.1 200 OK"
+2026-03-30 22:25:10,672 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640871 "HTTP/1.1 200 OK"
+2026-03-30 22:25:10,709 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640872 "HTTP/1.1 200 OK"
+2026-03-30 22:25:10,763 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640869 "HTTP/1.1 200 OK"
+2026-03-30 22:25:11,135 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640875 "HTTP/1.1 200 OK"
+2026-03-30 22:25:11,158 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640870 "HTTP/1.1 200 OK"
+2026-03-30 22:25:11,947 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640873 "HTTP/1.1 200 OK"
+2026-03-30 22:25:13,280 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640877 "HTTP/1.1 200 OK"
+2026-03-30 22:25:13,298 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640948 "HTTP/1.1 200 OK"
+2026-03-30 22:25:13,310 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640933 "HTTP/1.1 200 OK"
+2026-03-30 22:25:13,797 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640959 "HTTP/1.1 200 OK"
+2026-03-30 22:25:13,813 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640955 "HTTP/1.1 200 OK"
+2026-03-30 22:25:13,840 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640954 "HTTP/1.1 200 OK"
+2026-03-30 22:25:14,129 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640958 "HTTP/1.1 200 OK"
+2026-03-30 22:25:14,343 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640950 "HTTP/1.1 200 OK"
+2026-03-30 22:25:14,402 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640940 "HTTP/1.1 200 OK"
+2026-03-30 22:25:14,404 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640952 "HTTP/1.1 200 OK"
+2026-03-30 22:25:15,426 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641028 "HTTP/1.1 200 OK"
+2026-03-30 22:25:15,610 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641142 "HTTP/1.1 200 OK"
+2026-03-30 22:25:15,903 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641027 "HTTP/1.1 200 OK"
+2026-03-30 22:25:15,931 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641144 "HTTP/1.1 200 OK"
+2026-03-30 22:25:15,948 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641143 "HTTP/1.1 200 OK"
+2026-03-30 22:25:16,123 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641026 "HTTP/1.1 200 OK"
+2026-03-30 22:25:16,253 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641141 "HTTP/1.1 200 OK"
+2026-03-30 22:25:16,488 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640961 "HTTP/1.1 200 OK"
+2026-03-30 22:25:16,776 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/640996 "HTTP/1.1 200 OK"
+2026-03-30 22:25:16,877 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641146 "HTTP/1.1 200 OK"
+2026-03-30 22:25:17,878 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641149 "HTTP/1.1 200 OK"
+2026-03-30 22:25:18,034 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641234 "HTTP/1.1 200 OK"
+2026-03-30 22:25:18,490 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641232 "HTTP/1.1 200 OK"
+2026-03-30 22:25:18,510 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641231 "HTTP/1.1 200 OK"
+2026-03-30 22:25:18,540 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641152 "HTTP/1.1 200 OK"
+2026-03-30 22:25:18,772 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641147 "HTTP/1.1 200 OK"
+2026-03-30 22:25:19,107 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641151 "HTTP/1.1 200 OK"
+2026-03-30 22:25:19,246 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641233 "HTTP/1.1 200 OK"
+2026-03-30 22:25:19,602 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641150 "HTTP/1.1 200 OK"
+2026-03-30 22:25:20,431 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641230 "HTTP/1.1 200 OK"
+2026-03-30 22:25:20,916 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641247 "HTTP/1.1 200 OK"
+2026-03-30 22:25:20,934 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641236 "HTTP/1.1 200 OK"
+2026-03-30 22:25:20,954 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641237 "HTTP/1.1 200 OK"
+2026-03-30 22:25:20,987 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641238 "HTTP/1.1 200 OK"
+2026-03-30 22:25:21,001 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641248 "HTTP/1.1 200 OK"
+2026-03-30 22:25:24,044 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641246 "HTTP/1.1 200 OK"
+2026-03-30 22:25:24,060 [INFO] HTTP Request: GET https://planitpurple.northwestern.edu/event/641235 "HTTP/1.1 200 OK"
+2026-03-30 22:25:24,372 [INFO] PlanIt Purple: 179 scraped, 179 future, 179 new
+2026-03-30 22:25:24,372 [INFO] === Gmail LISTSERV Poll ===
+2026-03-30 22:25:24,518 [INFO] Starting poll cycle for label 'NU-Events' on imap.gmail.com:993
+2026-03-30 22:25:24,519 [INFO] Authenticating as graceshao2026@u.northwestern.edu
+2026-03-30 22:25:25,442 [INFO] No UNSEEN messages in 'NU-Events'.
+2026-03-30 22:25:25,601 [INFO] Poll complete: {'emails_processed': 0, 'events_created': 0}
+2026-03-30 22:25:25,602 [INFO] Gmail: 0 emails processed, 0 events created
+2026-03-30 22:25:25,602 [INFO] === Instagram Scrape (max 15 per run) ===
+2026-03-30 22:25:25,642 [INFO] Total active orgs with handles: 402
+2026-03-30 22:25:25,666 [INFO] Loaded cached Instagram cookies from /Users/graceshao/Downloads/nu-events/backend/scripts/../src/services/../../ig_cookies.json
+2026-03-30 22:25:26,233 [WARNING] Session warmup returned HTTP 400 — cookies may be expired, continuing anyway
+2026-03-30 22:25:26,237 [INFO] Starting from cursor 171/402 (first: @mixednu)
+2026-03-30 22:25:26,237 [INFO] Phase 1: Fetching posts from 402 orgs...
+2026-03-30 22:25:30,554 [INFO] Fetched 0 recent posts from @mixednu
+2026-03-30 22:26:00,224 [INFO] Fetched 1 recent posts from @mariachinu
+2026-03-30 22:26:00,236 [INFO] Loaded 183 processed shortcodes from cache
+2026-03-30 22:26:21,706 [INFO] Fetched 0 recent posts from @marsnorthwestern
+2026-03-30 22:26:46,868 [INFO] Fetched 0 recent posts from @matsci_nu
+2026-03-30 22:27:05,699 [INFO] Fetched 0 recent posts from @numatriculate
+2026-03-30 22:27:32,441 [INFO] Fetched 1 recent posts from @dillo_day
+2026-03-30 22:27:52,348 [INFO] Fetched 0 recent posts from @msab.nu
+2026-03-30 22:28:10,719 [INFO] Fetched 0 recent posts from @numechkeebs
+2026-03-30 22:28:30,797 [WARNING] Network error fetching @medillschool (consecutive: 1): ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+2026-03-30 22:28:30,810 [WARNING] Network error fetching @mee_ow_ (consecutive: 2): HTTPSConnectionPool(host='www.instagram.com', port=443): Max retries exceeded with url: /api/v1/users/web_profile_info/?username=mee_ow_ (Caused by NewConnectionError("HTTPSConnection(host='www.instagram.com', port=443): Failed to establish a new connection: [Errno 61] Connection refused"))
+2026-03-30 22:28:30,857 [WARNING] Network error fetching @nu_menslax (consecutive: 3): HTTPSConnectionPool(host='www.instagram.com', port=443): Max retries exceeded with url: /api/v1/users/web_profile_info/?username=nu_menslax (Caused by NewConnectionError("HTTPSConnection(host='www.instagram.com', port=443): Failed to establish a new connection: [Errno 61] Connection refused"))
+2026-03-30 22:28:30,910 [WARNING] Network error 4 consecutive times at org 12/402 (@numensclubsoccer) — stopping batch, cursor saved at 182: HTTPSConnectionPool(host='www.instagram.com', port=443): Max retries exceeded with url: /api/v1/users/web_profile_info/?username=numensclubsoccer (Caused by NewConnectionError("HTTPSConnection(host='www.instagram.com', port=443): Failed to establish a new connection: [Errno 61] Connection refused"))
+2026-03-30 22:28:30,910 [INFO] Phase 1 done: 1 posts from 8 orgs (0 inactive, 1 cached)
+2026-03-30 22:28:30,910 [INFO] Phase 2: Pre-filtering...
+2026-03-30 22:28:30,910 [INFO] Phase 2 done: 1→batch classify, 0→image analysis, 0 filtered
+2026-03-30 22:28:30,910 [INFO] Phase 3: Batch classifying 1 captions (20 per call)...
+2026-03-30 22:28:30,922 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 22:28:39,021 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 22:28:39,030 [INFO] Batch 1-1: 1/1 classified as EVENT
+2026-03-30 22:28:39,031 [INFO] Phase 3 done: 1 posts need extraction
+2026-03-30 22:28:39,031 [INFO] Phase 4: Extracting events...
+2026-03-30 22:28:39,055 [INFO] HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-30 22:28:46,629 [INFO] HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-30 22:28:46,653 [INFO] Created event from @dillo_day: Entertainment Career Fair
+2026-03-30 22:28:46,654 [INFO] Instagram complete: 8 orgs, 1 posts, 2 LLM calls, 1 events, 0 images analyzed
+2026-03-30 22:28:46,654 [INFO] Instagram: 8 orgs, 2 posts, 2→LLM, 1 filtered, 1 events
+2026-03-30 22:28:46,655 [INFO] === Syncing to remote Postgres ===
+2026-03-30 22:29:05,547 [INFO] Synced 1 new, 27 deleted from remote (200 total local)
+2026-03-30 22:29:05,648 [INFO] ============================================================
+2026-03-30 22:29:05,648 [INFO] DONE — DB: 217 total events, 200 future
+2026-03-30 22:29:05,648 [INFO] ============================================================
