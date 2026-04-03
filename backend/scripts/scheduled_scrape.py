@@ -102,7 +102,10 @@ def schedule_next_wake(logger):
 
     After each run during overnight hours (10 PM – 5 AM), schedule a
     wake 2 hours from now so launchd can fire the scraper again.
-    Requires passwordless sudo for pmset (see install_scheduler.sh).
+    Requires passwordless sudo for pmset (see setup_overnight_wake.sh).
+
+    If sudo is not configured, logs a WARNING with setup instructions
+    rather than silently failing.
     """
     now = datetime.now()
     hour = now.hour
@@ -124,10 +127,29 @@ def schedule_next_wake(logger):
         )
         if result.returncode == 0:
             logger.info("Scheduled next wake at %s", wake_str)
+            # Verify it actually landed
+            verify = subprocess.run(
+                ["pmset", "-g", "sched"],
+                capture_output=True, text=True, timeout=5,
+            )
+            if wake_str[:10] in verify.stdout or wake_time.strftime("%Y-%m-%d") in verify.stdout:
+                logger.info("Wake verified in pmset schedule ✓")
+            else:
+                logger.warning("Wake scheduled but NOT found in pmset -g sched — may not fire")
+                logger.warning("pmset -g sched output: %s", verify.stdout.strip())
         else:
-            logger.debug("Could not schedule wake (sudo -n failed)")
+            logger.warning(
+                "Could not schedule wake at %s — sudo -n pmset failed (exit %d).",
+                wake_str, result.returncode,
+            )
+            if result.stderr.strip():
+                logger.warning("sudo stderr: %s", result.stderr.strip())
+            logger.warning(
+                "Fix: run 'sudo bash %s' to enable passwordless pmset.",
+                Path(__file__).parent / "setup_overnight_wake.sh",
+            )
     except Exception as exc:
-        logger.debug("Failed to schedule wake: %s", exc)
+        logger.warning("Failed to schedule wake: %s", exc)
 
 
 def check_network(logger) -> bool:

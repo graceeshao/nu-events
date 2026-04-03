@@ -1,27 +1,29 @@
 {
-  "last_instagram_run": "2026-04-02T22:19:11.626817",
-  "last_run": "2026-04-02T22:19:31.365345",
+  "last_instagram_run": "2026-04-03T10:15:21.531097",
+  "last_run": "2026-04-03T10:15:45.923085",
   "last_results": {
     "planitpurple": {
-      "scraped": 184,
-      "future": 184,
-      "new": 184
+      "scraped": 193,
+      "future": 193,
+      "new": 193
     },
     "gmail": {
       "emails_processed": 0,
-      "events_created": 0
+      "events_created": 0,
+      "skipped_duplicate": 4
     },
     "instagram": {
       "orgs_scraped": 15,
-      "orgs_failed": 3,
-      "orgs_inactive": 1,
-      "total_posts_checked": 1,
-      "total_events_created": 0,
-      "total_llm_calls": 1,
-      "total_filtered_out": 1,
-      "image_posts_analyzed": 0
+      "orgs_failed": 0,
+      "orgs_inactive": 0,
+      "total_posts_checked": 13,
+      "total_events_created": 3,
+      "total_llm_calls": 6,
+      "total_filtered_out": 7,
+      "image_posts_analyzed": 1
     }
   },
   "ig_batch_index": 2,
-  "instagram_cursor": 284
+  "instagram_cursor": 364,
+  "last_gmail_poll": "2026-04-03T10:09:26.623381"
 }
