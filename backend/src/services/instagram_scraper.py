@@ -33,6 +33,9 @@ _POST_DELAY_SECONDS = 3
 # Exponential backoff delays for consecutive rate limits
 _BACKOFF_DELAYS = [60, 120, 300]  # 1 min, 2 min, 5 min — 4th consecutive = stop
 
+# HTTP timeout for all Instagram API requests (seconds)
+_HTTP_TIMEOUT = 30
+
 # State file for persistent cursor
 _STATE_FILE = Path(__file__).parent.parent.parent / "scrape_state.json"
 
@@ -237,6 +240,7 @@ def _fetch_posts_rest_api(
     resp = session.get(
         f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
         headers=headers,
+        timeout=_HTTP_TIMEOUT,
     )
     if resp.status_code in (429, 400, 401, 403):
         logger.warning("HTTP %d fetching @%s, skipping", resp.status_code, handle)
@@ -271,7 +275,7 @@ def _fetch_posts_rest_api(
             url += f"&max_id={end_cursor}"
 
         _time.sleep(_POST_DELAY_SECONDS)
-        resp = session.get(url, headers=headers)
+        resp = session.get(url, headers=headers, timeout=_HTTP_TIMEOUT)
 
         if resp.status_code in (401, 429):
             logger.warning("Feed rate limited for @%s: HTTP %d", handle, resp.status_code)
@@ -400,6 +404,7 @@ def _check_account_activity(handle: str) -> datetime | None:
         resp = session.get(
             f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
             headers=headers,
+            timeout=_HTTP_TIMEOUT,
         )
         if resp.status_code != 200:
             return None
@@ -416,6 +421,7 @@ def _check_account_activity(handle: str) -> datetime | None:
         resp = session.get(
             f"https://www.instagram.com/api/v1/feed/user/{user_id}/?count=1",
             headers=headers,
+            timeout=_HTTP_TIMEOUT,
         )
         if resp.status_code != 200:
             return None

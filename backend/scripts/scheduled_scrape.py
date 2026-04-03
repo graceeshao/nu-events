@@ -79,8 +79,8 @@ def save_state(state: dict):
             pass
     # Merge: state's keys win EXCEPT instagram_cursor which is owned by the scraper
     for k, v in state.items():
-        if k == "instagram_cursor":
-            continue  # never overwrite — owned by instagram_scraper._save_cursor()
+        if k in ("instagram_cursor", "last_gmail_poll"):
+            continue  # never overwrite — owned by their respective modules
         current[k] = v
     with open(STATE_FILE, "w") as f:
         json.dump(current, f, indent=2, default=str)
@@ -404,7 +404,13 @@ async def main(force_all: bool = False, dry_run: bool = False):
 
     # 3. Instagram (staggered — 50 orgs per run, every run)
     if ollama_ok and not dry_run:
-        results["instagram"] = await run_instagram(logger)
+        try:
+            results["instagram"] = await asyncio.wait_for(
+                run_instagram(logger), timeout=3600,  # 1 hour hard cap
+            )
+        except asyncio.TimeoutError:
+            logger.error("Instagram scrape timed out after 1 hour — aborting")
+            results["instagram"] = {"error": "timeout_1h"}
         state["last_instagram_run"] = datetime.now().isoformat()
     elif not ollama_ok:
         logger.warning("Skipping Instagram — Ollama not running")

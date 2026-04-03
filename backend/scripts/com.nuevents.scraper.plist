@@ -7,12 +7,12 @@
 
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/graceshao/.openclaw/workspace/nu-events/backend/.venv/bin/python</string>
-        <string>/Users/graceshao/.openclaw/workspace/nu-events/backend/scripts/scheduled_scrape.py</string>
+        <string>/Users/graceshao/Downloads/nu-events/backend/.venv/bin/python</string>
+        <string>/Users/graceshao/Downloads/nu-events/backend/scripts/scheduled_scrape.py</string>
     </array>
 
     <key>WorkingDirectory</key>
-    <string>/Users/graceshao/.openclaw/workspace/nu-events/backend</string>
+    <string>/Users/graceshao/Downloads/nu-events/backend</string>
 
     <!-- Run every 1 hour 15 minutes (4500 seconds) -->
     <key>StartInterval</key>
@@ -33,9 +33,9 @@
 
     <!-- Log stdout and stderr -->
     <key>StandardOutPath</key>
-    <string>/Users/graceshao/.openclaw/workspace/nu-events/backend/logs/launchd-stdout.log</string>
+    <string>/Users/graceshao/Library/Logs/nu-events/launchd-stdout.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/graceshao/.openclaw/workspace/nu-events/backend/logs/launchd-stderr.log</string>
+    <string>/Users/graceshao/Library/Logs/nu-events/launchd-stderr.log</string>
 
     <!-- Don't retry immediately on failure -->
     <key>ThrottleInterval</key>

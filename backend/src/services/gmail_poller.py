@@ -9,11 +9,14 @@ import asyncio
 import base64
 import email as email_lib
 import imaplib
+import json as _json_module
 import logging
 import re
-from datetime import datetime
+import tempfile
+from datetime import datetime, timedelta
 from email.header import decode_header
-from email.utils import parseaddr
+from email.utils import parseaddr, parsedate_to_datetime
+from pathlib import Path
 from typing import Any
 
 from src.database.session import async_session_factory
@@ -25,6 +28,45 @@ from src.services.gmail_auth import get_gmail_credentials, get_oauth2_string
 from src.services.llm_parser import parse_event_with_llm
 
 logger = logging.getLogger(__name__)
+
+_STATE_FILE = Path(__file__).parent.parent.parent / "scrape_state.json"
+
+
+def _get_last_gmail_poll() -> datetime | None:
+    """Read last_gmail_poll from scrape_state.json."""
+    try:
+        with open(_STATE_FILE) as f:
+            state = _json_module.load(f)
+        ts = state.get("last_gmail_poll")
+        if ts:
+            return datetime.fromisoformat(ts)
+    except (FileNotFoundError, ValueError, KeyError):
+        pass
+    return None
+
+
+def _save_last_gmail_poll(dt: datetime) -> None:
+    """Persist last_gmail_poll to scrape_state.json."""
+    import os as _os
+    try:
+        with open(_STATE_FILE) as f:
+            state = _json_module.load(f)
+    except (FileNotFoundError, ValueError):
+        state = {}
+    state["last_gmail_poll"] = dt.isoformat()
+    tmp_fd, tmp_path = tempfile.mkstemp(
+        dir=_STATE_FILE.parent, suffix=".tmp", prefix="scrape_state_",
+    )
+    try:
+        with _os.fdopen(tmp_fd, "w") as f:
+            _json_module.dump(state, f, indent=2, default=str)
+        _os.replace(tmp_path, _STATE_FILE)
+    except Exception:
+        try:
+            _os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
 
 
 def _decode_header_value(raw: str | None) -> str:
@@ -142,15 +184,25 @@ def _sync_poll(
         imap.logout()
         return []
 
-    # Search for unread messages
-    status, msg_ids = imap.search(None, "UNSEEN")
+    # Search for messages since last poll (or UNSEEN as fallback)
+    since_date = _get_last_gmail_poll()
+    if since_date:
+        # IMAP SINCE uses date-only (no time), so go back 1 extra day to be safe
+        search_date = (since_date - timedelta(days=1)).strftime("%d-%b-%Y")
+        status, msg_ids = imap.search(None, f'(SINCE "{search_date}")')
+        logger.info("Searching for messages SINCE %s (last poll: %s)", search_date, since_date.isoformat())
+    else:
+        status, msg_ids = imap.search(None, "UNSEEN")
+        logger.info("No last poll time found, falling back to UNSEEN search")
+
     if status != "OK" or not msg_ids or not msg_ids[0]:
-        logger.info("No UNSEEN messages in '%s'.", label)
+        logger.info("No messages found in '%s'.", label)
         imap.logout()
+        _save_last_gmail_poll(datetime.now())
         return []
 
     ids = msg_ids[0].split()
-    logger.info("Found %d UNSEEN message(s) in '%s'.", len(ids), label)
+    logger.info("Found %d message(s) in '%s'.", len(ids), label)
 
     results: list[dict[str, Any]] = []
     for mid in ids:
@@ -166,7 +218,15 @@ def _sync_poll(
         _, sender = parseaddr(msg.get("From", ""))
         list_id = msg.get("List-Id", "") or ""
         list_sender = msg.get("Sender", "") or ""
+        message_id = msg.get("Message-ID", "") or ""
         body = _extract_body(msg)
+
+        # Parse the email's Date header for dedup/filtering
+        email_date = None
+        try:
+            email_date = parsedate_to_datetime(msg.get("Date", ""))
+        except Exception:
+            pass
 
         results.append(
             {
@@ -176,14 +236,16 @@ def _sync_poll(
                 "uid": mid,
                 "list_id": list_id,
                 "list_sender": list_sender,
+                "message_id": message_id,
+                "email_date": email_date,
             }
         )
 
-        # Mark as SEEN (IMAP already does this on FETCH with RFC822,
-        # but be explicit)
+        # Mark as SEEN
         imap.store(mid, "+FLAGS", "\\Seen")
 
     imap.logout()
+    _save_last_gmail_poll(datetime.now())
     return results
 
 
@@ -241,6 +303,17 @@ class GmailPoller:
 
         emails_processed = 0
         events_created = 0
+        skipped_already_ingested = 0
+
+        # Build set of already-ingested email subjects+senders for dedup
+        from sqlalchemy import select as _select
+        already_ingested: set[tuple[str, str]] = set()
+        async with async_session_factory() as db:
+            result = await db.execute(
+                _select(IngestedEmail.subject, IngestedEmail.sender)
+            )
+            for row in result.all():
+                already_ingested.add((row[0] or "", row[1] or ""))
 
         async with async_session_factory() as db:
             for msg in messages:
@@ -249,6 +322,11 @@ class GmailPoller:
                 body = msg["body"]
                 list_id = msg.get("list_id", "")
                 list_sender = msg.get("list_sender", "")
+
+                # Skip emails we've already processed
+                if (subject, sender) in already_ingested:
+                    skipped_already_ingested += 1
+                    continue
 
                 try:
                     if settings.use_llm_parser:
@@ -298,9 +376,13 @@ class GmailPoller:
 
             await db.commit()
 
+        if skipped_already_ingested:
+            logger.info("Skipped %d already-ingested emails", skipped_already_ingested)
+
         summary = {
             "emails_processed": emails_processed,
             "events_created": events_created,
+            "skipped_duplicate": skipped_already_ingested,
         }
         self.last_poll_time = datetime.now()
         self.last_poll_result = summary
